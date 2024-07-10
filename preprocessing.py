@@ -39,13 +39,13 @@ class TextPreprocessor:
             print(f"An error occurred: {e}")
 
 # File paths
-tagalog_input_file = 'dataset_tagalog.csv'
-bikol_input_file = 'dataset_bikol.csv'
-cebuano_input_file = 'dataset_cebuano.csv'
+tagalog_input_file = 'dataset/dataset_bikol.csv'
+bikol_input_file = 'dataset/dataset_bikol.csv'
+cebuano_input_file = 'dataset/dataset_cebuano.csv'
 
-tagalog_output_file = 'preprocessed_tagalog.csv'
-bikol_output_file = 'preprocessed_bikol.csv'
-cebuano_output_file = 'preprocessed_cebuano.csv'
+tagalog_output_file = 'preprocessed/preprocessed_tagalog.csv'
+bikol_output_file = 'preprocessed/preprocessed_bikol.csv'
+cebuano_output_file = 'preprocessed/preprocessed_cebuano.csv'
 
 # Create instances of TextPreprocessor for each language
 tagalog_preprocessor = TextPreprocessor(tagalog_input_file, tagalog_output_file)
