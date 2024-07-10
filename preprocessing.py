@@ -24,13 +24,15 @@ class TextPreprocessor:
     def preprocess_csv(self):
         try:
             with open(self.input_file, 'r', encoding='utf-8') as infile, open(self.output_file, 'w', newline='', encoding='utf-8') as outfile:
-                reader = csv.reader(infile)
+                # Read the entire file as lines (treating each line as a sentence)
+                lines = infile.readlines()
                 writer = csv.writer(outfile)
                 
-                # Process each row (assuming each row is a line of text)
-                for row in reader:
-                    preprocessed_row = [self.preprocess_text(cell) for cell in row]
-                    writer.writerow(preprocessed_row)
+                for line in lines:
+                    # Process each line (assuming each line is a sentence)
+                    preprocessed_line = self.preprocess_text(line)
+                    writer.writerow([preprocessed_line.strip()])  # Write each preprocessed line as a single row
+
         except FileNotFoundError:
             print(f"Error: The file {self.input_file} does not exist.")
         except Exception as e:
