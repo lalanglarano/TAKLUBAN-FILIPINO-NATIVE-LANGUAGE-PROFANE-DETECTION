@@ -9,9 +9,10 @@ import re
 import string
 
 class TextPreprocessor:
-    def __init__(self, input_file, output_file):
-        self.input_file = input_file
-        self.output_file = output_file
+    def __init__(self, language):
+        base_path = 'D:/THESIS/FNLI/pre-process/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/'
+        self.input_file = f"{base_path}dataset/dataset_{language}.csv"
+        self.output_file = f"{base_path}preprocessed/preprocessed_{language}.csv"
 
     @staticmethod
     def preprocess_text(text):
@@ -19,10 +20,10 @@ class TextPreprocessor:
         text = text.lower()
         # Handle words with apostrophes
         text = re.sub(r"(\w)\'(\w)", r"\1\2", text)
-        # Remove punctuation and special characters
-        text = re.sub(rf"[{re.escape(string.punctuation)}]", " ", text)
-        # Remove numbers
-        text = re.sub(r'\d+', '', text)
+        # Remove punctuation and special characters except numbers
+        text = ''.join(char for char in text if char.isalnum() or char == ' ')
+        # Remove isolated numbers (numbers surrounded by whitespace)
+        text = re.sub(r'\b\d+\b', '', text)
         # Remove extra whitespace
         text = ' '.join(text.split())
         return text
@@ -36,7 +37,7 @@ class TextPreprocessor:
                 # Read the entire file as lines (treating each line as a sentence)
                 lines = infile.readlines()
                 writer = csv.writer(outfile)
-
+                
                 for line in lines:
                     # Process each line (assuming each line is a sentence)
                     preprocessed_line = self.preprocess_text(line)
@@ -47,26 +48,19 @@ class TextPreprocessor:
         except Exception as e:
             print(f"An error occurred: {e}")
 
-# File paths
-tagalog_input_file = 'dataset/dataset_tagalog.csv'
-bikol_input_file = 'dataset/dataset_bikol.csv'
-cebuano_input_file = 'dataset/dataset_cebuano.csv'
+# Preprocess files for Tagalog, Bikol, and Cebuano
+languages = ['tagalog', 'bikol', 'cebuano']
 
-tagalog_output_file = 'preprocessed/preprocessed_tagalog.csv'
-bikol_output_file = 'preprocessed/preprocessed_bikol.csv'
-cebuano_output_file = 'preprocessed/preprocessed_cebuano.csv'
-
-# Create instances of TextPreprocessor for each language
-tagalog_preprocessor = TextPreprocessor(tagalog_input_file, tagalog_output_file)
-bikol_preprocessor = TextPreprocessor(bikol_input_file, bikol_output_file)
-cebuano_preprocessor = TextPreprocessor(cebuano_input_file, cebuano_output_file)
-
-# Preprocess the CSV files
-tagalog_preprocessor.preprocess_csv()
-bikol_preprocessor.preprocess_csv()
-cebuano_preprocessor.preprocess_csv()
+for language in languages:
+    processor = TextPreprocessor(language)
+    processor.preprocess_csv()
 
 # Check if the preprocessed files exist before proceeding
+base_path = 'D:/THESIS/FNLI/pre-process/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/preprocessed/'
+tagalog_output_file = f"{base_path}preprocessed_tagalog.csv"
+bikol_output_file = f"{base_path}preprocessed_bikol.csv"
+cebuano_output_file = f"{base_path}preprocessed_cebuano.csv"
+
 if not all(os.path.exists(file) for file in [tagalog_output_file, bikol_output_file, cebuano_output_file]):
     print("Preprocessing failed or input files are missing. Exiting.")
 else:
@@ -85,7 +79,7 @@ else:
     # Remove rows with NaN values
     data = data.dropna()
 
-# HMM Start-------------------------------------------
+    # HHM Start-------------------------------------------
 
     # Prepare the data
     sentences = data['sentence'].values
