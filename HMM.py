@@ -36,7 +36,7 @@ class TextPreprocessor:
                 # Read the entire file as lines (treating each line as a sentence)
                 lines = infile.readlines()
                 writer = csv.writer(outfile)
-                
+
                 for line in lines:
                     # Process each line (assuming each line is a sentence)
                     preprocessed_line = self.preprocess_text(line)
