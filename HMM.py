@@ -10,9 +10,13 @@ import string
 
 class TextPreprocessor:
     def __init__(self, language):
-        base_path = 'D:/THESIS/FNLI/pre-process/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/'
-        self.input_file = f"{base_path}dataset/dataset_{language}.csv"
-        self.output_file = f"{base_path}preprocessed/preprocessed_{language}.csv"
+        base_path = 'C:/Users/rando/OneDrive/Documents/GitHub/Filipino-Language-Identification-Tagalog-Cebuano-Bikol-/'
+        self.input_file = f"{base_path}/dataset/dataset_{language}.csv"
+        self.output_dir = f"{base_path}/preprocessed/"
+        self.output_file = f"{self.output_dir}/preprocessed_{language}.csv"
+        # Ensure the output directory exists
+        if not os.path.exists(self.output_dir):
+            os.makedirs(self.output_dir)
 
     @staticmethod
     def preprocess_text(text):
@@ -56,10 +60,10 @@ for language in languages:
     processor.preprocess_csv()
 
 # Check if the preprocessed files exist before proceeding
-base_path = 'D:/THESIS/FNLI/pre-process/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/preprocessed/'
-tagalog_output_file = f"{base_path}preprocessed_tagalog.csv"
-bikol_output_file = f"{base_path}preprocessed_bikol.csv"
-cebuano_output_file = f"{base_path}preprocessed_cebuano.csv"
+base_path = 'C:/Users/rando/OneDrive/Documents/GitHub/Filipino-Language-Identification-Tagalog-Cebuano-Bikol-/'
+tagalog_output_file = f"{base_path}/preprocessed/preprocessed_tagalog.csv"
+bikol_output_file = f"{base_path}/preprocessed/preprocessed_bikol.csv"
+cebuano_output_file = f"{base_path}/preprocessed/preprocessed_cebuano.csv"
 
 if not all(os.path.exists(file) for file in [tagalog_output_file, bikol_output_file, cebuano_output_file]):
     print("Preprocessing failed or input files are missing. Exiting.")
