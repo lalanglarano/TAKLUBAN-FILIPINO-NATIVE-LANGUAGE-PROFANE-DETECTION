@@ -82,6 +82,9 @@ else:
 
     data = pd.concat([tagalog_data, bikol_data, cebuano_data])
 
+    # Remove rows with NaN values
+    data = data.dropna()
+
     # Prepare the data
     sentences = data['sentence'].values
     labels = data['label'].values
@@ -113,7 +116,13 @@ else:
         return max(scores, key=scores.get)
 
     # Example prediction with user input
-    new_sentence = input("Enter a sentence to predict its language: ")
-    new_sentence = TextPreprocessor.preprocess_text(new_sentence)
-    predicted_language = predict_language(new_sentence)
-    print(f"The predicted language for '{new_sentence}' is {predicted_language}.")
+    while True:
+        new_sentence = input("Enter a sentence to predict its language (or type 'exit' to quit): ")
+        if new_sentence.lower() == 'exit':
+            break
+        new_sentence = TextPreprocessor.preprocess_text(new_sentence)
+        predicted_language = predict_language(new_sentence)
+        print(f"The predicted language for '{new_sentence}' is {predicted_language}.")
+        try_again = input("Do you want to try again? (yes/no): ").strip().lower()
+        if try_again != 'yes':
+            break
