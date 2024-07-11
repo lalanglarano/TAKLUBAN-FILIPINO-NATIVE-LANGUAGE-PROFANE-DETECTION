@@ -19,10 +19,10 @@ class TextPreprocessor:
         text = text.lower()
         # Handle words with apostrophes
         text = re.sub(r"(\w)\'(\w)", r"\1\2", text)
-        # Remove punctuation and special characters except numbers
-        text = ''.join(char for char in text if char.isalnum() or char == ' ')
-        # Remove isolated numbers (numbers surrounded by whitespace)
-        text = re.sub(r'\b\d+\b', '', text)
+        # Remove punctuation and special characters
+        text = re.sub(rf"[{re.escape(string.punctuation)}]", " ", text)
+        # Remove numbers
+        text = re.sub(r'\d+', '', text)
         # Remove extra whitespace
         text = ' '.join(text.split())
         return text
@@ -85,7 +85,7 @@ else:
     # Remove rows with NaN values
     data = data.dropna()
 
-# HHM Start-------------------------------------------
+# HMM Start-------------------------------------------
 
     # Prepare the data
     sentences = data['sentence'].values
@@ -128,6 +128,3 @@ else:
         try_again = input("Do you want to try again? (yes/no): ").strip().lower()
         if try_again != 'yes':
             break
-
-
-#burat
