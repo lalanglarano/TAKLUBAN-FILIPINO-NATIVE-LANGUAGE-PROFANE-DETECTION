@@ -4,13 +4,14 @@ import pandas as pd
 from hmmlearn import hmm
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 import csv
 import re
 import string
 
 class TextPreprocessor:
     def __init__(self, language):
-        base_path = 'C:/Users/rando/OneDrive/Documents/GitHub/Filipino-Language-Identification-Tagalog-Cebuano-Bikol-/'
+        base_path = 'C:/Users/ADMIN/OneDrive/ドキュメント/Annalyn/THESIS/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/'
         self.input_file = f"{base_path}/dataset/dataset_{language}.csv"
         self.output_dir = f"{base_path}/preprocessed/"
         self.output_file = f"{self.output_dir}/preprocessed_{language}.csv"
@@ -60,7 +61,7 @@ for language in languages:
     processor.preprocess_csv()
 
 # Check if the preprocessed files exist before proceeding
-base_path = 'C:/Users/rando/OneDrive/Documents/GitHub/Filipino-Language-Identification-Tagalog-Cebuano-Bikol-/'
+base_path = 'C:/Users/ADMIN/OneDrive/ドキュメント/Annalyn/THESIS/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/'
 tagalog_output_file = f"{base_path}/preprocessed/preprocessed_tagalog.csv"
 bikol_output_file = f"{base_path}/preprocessed/preprocessed_bikol.csv"
 cebuano_output_file = f"{base_path}/preprocessed/preprocessed_cebuano.csv"
@@ -93,6 +94,7 @@ else:
 
     # Encode labels
     label_to_index = {label: idx for idx, label in enumerate(set(labels))}
+    index_to_label = {idx: label for label, idx in label_to_index.items()}
     y = np.array([label_to_index[label] for label in labels])
 
     # Split the data into training and testing sets
@@ -114,6 +116,26 @@ else:
         X_new = vectorizer.transform([sentence]).toarray()
         scores = {label: model.score(X_new) for label, model in hmm_models.items()}
         return max(scores, key=scores.get)
+
+    # Evaluate on test set
+    y_pred = []
+    for sentence in X_test:
+        sentence_text = ' '.join(vectorizer.inverse_transform(sentence.reshape(1, -1))[0])
+        predicted_label = predict_language(sentence_text)
+        y_pred.append(label_to_index[predicted_label])
+
+    y_pred = np.array(y_pred)
+
+    # Calculate precision, recall, F1-score, and accuracy
+    precision = precision_score(y_test, y_pred, average='weighted')
+    recall = recall_score(y_test, y_pred, average='weighted')
+    f1 = f1_score(y_test, y_pred, average='weighted')
+    accuracy = accuracy_score(y_test, y_pred)
+
+    print(f"Precision: {precision:.2f}")
+    print(f"Recall: {recall:.2f}")
+    print(f"F1 Score: {f1:.2f}")
+    print(f"Accuracy: {accuracy:.2f}")
 
     # Example prediction with user input
     while True:
