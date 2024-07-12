@@ -31,6 +31,7 @@ class TextPreprocessor:
         text = re.sub(r'\b\d+\b', '', text)
         # Remove extra whitespace
         text = ' '.join(text.split())
+
         return text
 
     def preprocess_csv(self):
@@ -42,7 +43,7 @@ class TextPreprocessor:
                 # Read the entire file as lines (treating each line as a sentence)
                 lines = infile.readlines()
                 writer = csv.writer(outfile)
-                
+
                 for line in lines:
                     # Process each line (assuming each line is a sentence)
                     preprocessed_line = self.preprocess_text(line)
@@ -84,20 +85,22 @@ else:
     # Remove rows with NaN values
     data = data.dropna()
 
-    # HHM Start-------------------------------------------
+    # HHM Start------------------------------------------- #
 
     # Prepare the data
     sentences = data['sentence'].values
     labels = data['label'].values
+    # Convert the text data into a matrix of token counts. It uses character n-grams of length 1 and 2 (unigrams and bigrams).
     vectorizer = CountVectorizer(analyzer='char', ngram_range=(1, 2))
     X = vectorizer.fit_transform(sentences).toarray()
 
     # Encode labels
+    # dictionaries for mapping between labels and indices.
     label_to_index = {label: idx for idx, label in enumerate(set(labels))}
     index_to_label = {idx: label for label, idx in label_to_index.items()}
     y = np.array([label_to_index[label] for label in labels])
 
-    # Split the data into training and testing sets
+    # Split the data into training and testing sets 70-30
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
     # Train separate HMMs for each language
@@ -112,12 +115,13 @@ else:
             print(f"Not enough samples to train HMM for {label} language.")
 
     # Predict the language of new sentences
+    # takes a sentence, vectorizes it, and scores it against all HMM models.
     def predict_language(sentence):
         X_new = vectorizer.transform([sentence]).toarray()
         scores = {label: model.score(X_new) for label, model in hmm_models.items()}
         return max(scores, key=scores.get)
 
-    # Evaluate on test set
+    # Predictions stored in y_pred
     y_pred = []
     for sentence in X_test:
         sentence_text = ' '.join(vectorizer.inverse_transform(sentence.reshape(1, -1))[0])
@@ -126,7 +130,7 @@ else:
 
     y_pred = np.array(y_pred)
 
-    # Calculate precision, recall, F1-score, and accuracy
+    # Calculate Performance Metrics precision, recall, F1-score, and accuracy
     precision = precision_score(y_test, y_pred, average='weighted')
     recall = recall_score(y_test, y_pred, average='weighted')
     f1 = f1_score(y_test, y_pred, average='weighted')
@@ -138,13 +142,14 @@ else:
     print(f"Accuracy: {accuracy:.2f}")
 
     # Example prediction with user input
-    while True:
-        new_sentence = input("Enter a sentence to predict its language (or type 'exit' to quit): ")
-        if new_sentence.lower() == 'exit':
-            break
-        new_sentence = TextPreprocessor.preprocess_text(new_sentence)
-        predicted_language = predict_language(new_sentence)
-        print(f"The predicted language for '{new_sentence}' is {predicted_language}.")
-        try_again = input("Do you want to try again? (yes/no): ").strip().lower()
-        if try_again != 'yes':
-            break
+    # while True:
+    #    new_sentence = input("Enter a sentence to predict its language (or type 'exit' to quit): ")
+    #   if new_sentence.lower() == 'exit':
+    #        break
+    #    new_sentence = TextPreprocessor.preprocess_text(new_sentence)
+    #    predicted_language = predict_language(new_sentence)
+    #    print(f"The predicted language for '{new_sentence}' is {predicted_language}.")
+    #    try_again = input("Do you want to try again? (yes/no): ").strip().lower()
+    #    if try_again != 'yes':
+    #        break
+
