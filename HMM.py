@@ -16,13 +16,19 @@ class TextPreprocessor:
         self.input_file = f"{base_path}/dataset/dataset_{language}.csv"
         self.output_dir = f"{base_path}/preprocessed/"
         self.output_file = f"{self.output_dir}/preprocessed_{language}.csv"
-        self.noise_words = set(["na", "nang", "ng", "mga", "ang", "kung", "yan", 
+        self.noise_words = set(["na", "nang", "ng", "mga", "ang", "kung", "yan",
                                 "yun", "ayan", "sina", "sila", "baka", "ano", "anong",
                                 "mag", "doon", "si", "siya", "mo", "so", "ako", "ikaw", "po", "ko",
                                 "eme", "may", "luh", "ito", "ay", "ganon", "basta", "lang", "dito",
                                 "and", "i", "haha", "o", "pang", "daw", "raw", "aww", "kahit", "go",
                                 "rin", "din", "kayo", "baka", "hoy", "ok", "okay", "yung", "yay",
-                                "sa", "sabi", "eh", "sana"])
+                                "sa", "sabi", "eh", "sana" "da", "ngani", "tabi", "ning", "kamo",
+                                "ini", "iyo", "sin", "kaya", "basta", "hali", "bala", "aba", "alin",
+                                "baka", "baga", "ganiyan", "gaya", "ho", "ika", "kay", "kumusta", "mo",
+                                "naman", "po", "sapagkat", "tayo", "talaga", "wag", "naman", "yata",
+                                "ba", "bitaw", "dayon", "gani", "kana", "mao", "diay", "mao ni", "mao ba",
+                                "lang", "usa", "kita", "kita tanan", "kamo", "ta", "lagi", "gyud", "bitaw",
+                                "pud", "kay", "ahh", "pag", "pwede", "pwes", "pano", "ok"])
         # Ensure the output directory exists
         if not os.path.exists(self.output_dir):
             os.makedirs(self.output_dir)
