@@ -4,7 +4,7 @@ from nltk.tag import StanfordPOSTagger
 
 class POSTagger:
     def __init__(self, language):
-        base_path = 'C:/Users/ADMIN/OneDrive/ドキュメント/Annalyn/THESIS/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/'
+        base_path = 'C:/Users/rando/OneDrive/Documents/GitHub/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/'
         self.input_file = f"{base_path}/lemmatized/lemmatize_{language}.csv"
         self.output_dir = f"{base_path}/pos_tagged/"
         self.output_file = f"{self.output_dir}/FPOSTagged_{language}.csv"
@@ -19,8 +19,8 @@ class POSTagger:
 
         # Set up the Stanford POS Tagger
         self.tagger = StanfordPOSTagger(
-            model_filename='TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger',
-            path_to_jar='TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
+            model_filename='Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger',
+            path_to_jar='Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
         )
 
     def pos_tag_text(self, text):
@@ -35,18 +35,20 @@ class POSTagger:
             print(f"Error during POS tagging: {e}")
             return text
 
-    def pos_tag_sentences(self):
+    def pos_tag_sentences(self, batch_size=10):
         try:
-            # Apply POS tagging to each lemmatized sentence
-            self.data['pos_tagged'] = self.data['lemmatized'].apply(self.pos_tag_text)
-            # Save the POS-tagged sentences to a new CSV file
-            self.data[['pos_tagged']].to_csv(self.output_file, index=False, header=False)
+            for i in range(0, len(self.data), batch_size):
+                batch = self.data.iloc[i:i+batch_size]
+                batch['pos_tagged'] = batch['lemmatized'].apply(self.pos_tag_text)
+                batch[['pos_tagged']].to_csv(self.output_file, mode='a', index=False, header=(i == 0))
+                print(f"Processed batch {i//batch_size + 1} of {len(self.data) // batch_size + 1}")
             print(f"POS tagging complete. Results saved to {self.output_file}.")
         except Exception as e:
             print(f"An error occurred during POS tagging: {e}")
 
-# POS tag files for Tagalog, Bikol, and Cebuano
-languages = ['tagalog', 'bikol', 'cebuano']
+
+# POS tag files only for Cebuano
+languages = ['cebuano']
 
 for language in languages:
     pos_tagger = POSTagger(language)
