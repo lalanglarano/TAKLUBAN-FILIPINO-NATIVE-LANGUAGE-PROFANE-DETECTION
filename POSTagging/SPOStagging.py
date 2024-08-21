@@ -4,7 +4,7 @@ from nltk.tag import StanfordPOSTagger
 
 class POSTagger:
     def __init__(self, language):
-        base_path = 'C:/Users/rando/OneDrive/Documents/GitHub/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/'
+        base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
         self.input_file = f"{base_path}/lemmatized/lemmatize_{language}.csv"
         self.output_dir = f"{base_path}/pos_tagged/"
         self.output_file = f"{self.output_dir}/FPOSTagged_{language}.csv"

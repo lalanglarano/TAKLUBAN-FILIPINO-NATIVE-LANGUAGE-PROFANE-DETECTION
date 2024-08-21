@@ -22,7 +22,7 @@ def parse_pos_data(pos_data):
 
 def cluster_pos_tags(language):
     # Set the base path and the input/output file paths
-    base_path = 'C:/Users/ADMIN/OneDrive/ドキュメント/Annalyn/THESIS/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/'
+    base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
     input_file = f"{base_path}/pos_tagged/FPOSTagged_{language}.csv"
     output_file = f"{base_path}/CLUSTEREDTAG/Clustered_{language}.csv"
 
