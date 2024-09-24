@@ -16,34 +16,28 @@ class TextPreprocessor:
         self.input_file = f"{base_path}/dataset/dataset_{language}.csv"
         self.output_dir = f"{base_path}/preprocessed/"
         self.output_file = f"{self.output_dir}/preprocessed_{language}.csv"
-        self.noise_words = set(["na", "nang", "ng", "mga", "ang", "kung", "yan",
-                                "yun", "ayan", "sina", "sila", "baka", "ano", "anong",
-                                "mag", "doon", "si", "siya", "mo", "so", "ako", "ikaw", "po", "ko",
-                                "eme", "may", "luh", "ito", "ay", "ganon", "basta", "lang", "dito",
-                                "and", "i", "haha", "o", "pang", "daw", "raw", "aww", "kahit", "go",
-                                "rin", "din", "kayo", "baka", "hoy", "ok", "okay", "yung", "yay",
-                                "sa", "sabi", "eh", "sana" "da", "ngani", "tabi", "ning", "kamo",
-                                "ini", "iyo", "sin", "kaya", "basta", "hali", "bala", "aba", "alin",
-                                "baka", "baga", "ganiyan", "gaya", "ho", "ika", "kay", "kumusta", "mo",
-                                "naman", "po", "sapagkat", "tayo", "talaga", "wag", "naman", "yata",
-                                "ba", "bitaw", "dayon", "gani", "kana", "mao", "diay", "mao ni", "mao ba",
-                                "lang", "usa", "kita", "kita tanan", "kamo", "ta", "lagi", "gyud", "bitaw",
-                                "pud", "kay", "ahh", "pag", "pwede", "pwes", "pano", "ok", "ug"])
-        # Ensure the output directory exists
-        if not os.path.exists(self.output_dir):
-            os.makedirs(self.output_dir)
+        self.dictionary_dir = f"{base_path}/LanguageIdentification/Dictionary/"
+        self.dictionary_file = f"{self.dictionary_dir}/{language}.csv"  # Save as [language].csv
+        self.noise_words = set(["na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina", "sila",
+                                "baka", "ano", "anong", "mag", "doon", "si", "siya", "mo", "so", "ako", "ikaw",
+                                "po", "ko", "eme", "may", "luh", "ito", "ay", "ganon", "basta", "lang", "dito",
+                                "and", "i", "haha", "o", "pang", "daw", "raw", "aww", "kahit", "go", "rin", "din",
+                                "kayo", "baka", "hoy", "ok", "okay", "yung", "yay", "sa", "sabi", "eh", "sana"
+                                "da", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "sin", "kaya", "basta",
+                                "hali", "bala", "aba", "alin", "baka", "baga", "ganiyan", "gaya", "ho", "ika",
+                                "kay", "kumusta", "mo", "naman", "po", "sapagkat", "tayo", "talaga", "wag",
+                                "naman", "yata", "ba", "bitaw", "dayon", "gani", "kana", "mao", "diay", "mao ni",
+                                "mao ba", "lang", "usa", "kita", "kita tanan", "kamo", "ta", "lagi", "gyud",
+                                "bitaw", "pud", "kay", "ahh", "pag", "pwede", "pwes", "pano", "ok", "ug"])
+        # Ensure output directories exist
+        os.makedirs(self.output_dir, exist_ok=True)
+        os.makedirs(self.dictionary_dir, exist_ok=True)
 
     def preprocess_text(self, text):
         # Convert text to lowercase
         text = text.lower()
-        # Handle words with apostrophes
-        text = re.sub(r"(\w)\'(\w)", r"\1\2", text)
-        # Remove punctuation and special characters except numbers
-        text = ''.join(char for char in text if char.isalnum() or char == ' ')
-        # Remove isolated numbers (numbers surrounded by whitespace)
-        text = re.sub(r'\b\d+\b', '', text)
-        # Remove extra whitespace
-        text = ' '.join(text.split())
+        # Remove punctuation and special characters
+        text = ''.join(char if char.isalnum() or char == ' ' else '' for char in text)
         # Remove noise words
         text = ' '.join(word for word in text.split() if word not in self.noise_words)
         return text
@@ -53,29 +47,42 @@ class TextPreprocessor:
             if not os.path.exists(self.input_file):
                 print(f"Error: The file {self.input_file} does not exist.")
                 return
+            word_count = {}
             with open(self.input_file, 'r', encoding='utf-8') as infile, open(self.output_file, 'w', newline='', encoding='utf-8') as outfile:
-                # Read the entire file as lines (treating each line as a sentence)
                 lines = infile.readlines()
                 writer = csv.writer(outfile)
 
                 for line in lines:
-                    # Process each line (assuming each line is a sentence)
                     preprocessed_line = self.preprocess_text(line)
-                    writer.writerow([preprocessed_line.strip()])  # Write each preprocessed line as a single row
+                    writer.writerow([preprocessed_line.strip()])
+
+                    # Tokenize by word and update word_count dictionary
+                    for word in preprocessed_line.split():
+                        word_count[word] = word_count.get(word, 0) + 1
+
+            # Sort the word_count dictionary by word (alphabetically)
+            sorted_word_count = dict(sorted(word_count.items()))
+
+            # Save the sorted word dictionary to a CSV file for each language
+            with open(self.dictionary_file, 'w', newline='', encoding='utf-8') as dict_file:
+                writer = csv.writer(dict_file)
+                writer.writerow(['word', 'frequency'])
+                for word, freq in sorted_word_count.items():
+                    writer.writerow([word, freq])
 
         except FileNotFoundError:
             print(f"Error: The file {self.input_file} does not exist.")
         except Exception as e:
             print(f"An error occurred: {e}")
 
-# Preprocess files for Tagalog, Bikol, and Cebuano
+# Preprocess files for Tagalog, Bikol, and Cebuano and create dictionaries
 languages = ['tagalog', 'bikol', 'cebuano']
 
 for language in languages:
     processor = TextPreprocessor(language)
     processor.preprocess_csv()
 
-# Check if the preprocessed files exist before proceeding
+# Load the datasets if the preprocessed files exist
 base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
 tagalog_output_file = f"{base_path}/preprocessed/preprocessed_tagalog.csv"
 bikol_output_file = f"{base_path}/preprocessed/preprocessed_bikol.csv"
@@ -102,7 +109,7 @@ else:
 class LanguageIdentification:
     def __init__(self, data):
         self.data = data
-        self.vectorizer = CountVectorizer(analyzer='char', ngram_range=(1, 2))
+        self.vectorizer = CountVectorizer(token_pattern=r'\b\w+\b')  # Use word-level tokenization
         self.model = MultinomialNB()
 
     def prepare_data(self):
@@ -128,11 +135,7 @@ class LanguageIdentification:
 
     def evaluate_model(self, X_test, y_test):
         y_pred = self.model.predict(X_test)
-
-        # Confusion matrix
         cm = confusion_matrix(y_test, y_pred)
-
-        # Calculate TP, TN, FP, FN
         TP = np.diag(cm)
         FP = cm.sum(axis=0) - TP
         FN = cm.sum(axis=1) - TP
