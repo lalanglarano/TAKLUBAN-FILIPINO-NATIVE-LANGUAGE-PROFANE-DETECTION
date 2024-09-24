@@ -160,3 +160,5 @@ lang_id = LanguageIdentification(data)
 X_train, X_test, y_train, y_test = lang_id.prepare_data()
 lang_id.train_model(X_train, y_train)
 lang_id.evaluate_model(X_test, y_test)
+
+#test
