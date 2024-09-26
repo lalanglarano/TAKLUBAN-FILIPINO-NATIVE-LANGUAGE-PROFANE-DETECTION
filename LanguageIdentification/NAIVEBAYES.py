@@ -16,13 +16,13 @@ class TextPreprocessor:
         self.input_file = f"{base_path}/dataset/dataset_{language}.csv"
         self.output_dir = f"{base_path}/preprocessed/"
         self.output_file = f"{self.output_dir}/preprocessed_{language}.csv"
-        self.dictionary_dir = f"{base_path}/LanguageIdentification/Dictionary/"
-        self.dictionary_file = f"{self.dictionary_dir}/{language}.csv"  # Save as [language].csv
+        self.dictionary_dir = f"{base_path}/LanguageIdentification/Dictionary/"  # Correct dictionary path
+        self.dictionary_file = f"{self.dictionary_dir}/{language}_dictionary.csv"  # Ensure the dictionary file is saved as [language]_dictionary.csv
         self.noise_words = set(["na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina", "sila",
                                 "baka", "ano", "anong", "mag", "doon", "si", "siya", "mo", "so", "ako", "ikaw",
                                 "po", "ko", "eme", "may", "luh", "ito", "ay", "ganon", "basta", "lang", "dito",
                                 "and", "i", "haha", "o", "pang", "daw", "raw", "aww", "kahit", "go", "rin", "din",
-                                "kayo", "baka", "hoy", "ok", "okay", "yung", "yay", "sa", "sabi", "eh", "sana"
+                                "kayo", "baka", "hoy", "ok", "okay", "yung", "yay", "sa", "sabi", "eh", "sana",
                                 "da", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "sin", "kaya", "basta",
                                 "hali", "bala", "aba", "alin", "baka", "baga", "ganiyan", "gaya", "ho", "ika",
                                 "kay", "kumusta", "mo", "naman", "po", "sapagkat", "tayo", "talaga", "wag",
@@ -55,20 +55,21 @@ class TextPreprocessor:
                 for line in lines:
                     preprocessed_line = self.preprocess_text(line)
                     writer.writerow([preprocessed_line.strip()])
-
+                    
                     # Tokenize by word and update word_count dictionary
                     for word in preprocessed_line.split():
                         word_count[word] = word_count.get(word, 0) + 1
 
-            # Sort the word_count dictionary by word (alphabetically)
-            sorted_word_count = dict(sorted(word_count.items()))
-
-            # Save the sorted word dictionary to a CSV file for each language
-            with open(self.dictionary_file, 'w', newline='', encoding='utf-8') as dict_file:
-                writer = csv.writer(dict_file)
-                writer.writerow(['word', 'frequency'])
-                for word, freq in sorted_word_count.items():
-                    writer.writerow([word, freq])
+            # Save the word dictionary to a CSV file for each language in alphabetical order
+            if word_count:  # Ensure the dictionary isn't empty
+                with open(self.dictionary_file, 'w', newline='', encoding='utf-8') as dict_file:
+                    writer = csv.writer(dict_file)
+                    writer.writerow(['word', 'frequency'])
+                    for word, freq in sorted(word_count.items()):  # Sort by word (alphabetically)
+                        writer.writerow([word, freq])
+                print(f"Dictionary saved at {self.dictionary_file}")
+            else:
+                print(f"No words found after preprocessing for {self.dictionary_file}")
 
         except FileNotFoundError:
             print(f"Error: The file {self.input_file} does not exist.")
