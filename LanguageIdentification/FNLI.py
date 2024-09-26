@@ -1,4 +1,3 @@
-# FNLI.py
 import os
 import numpy as np
 import pandas as pd
@@ -6,7 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
 from sklearn.naive_bayes import MultinomialNB
-from preProcess import TextPreprocessor  # Import the preprocessing class
+from PreProcess import TextPreprocessor  # Import the preprocessing class
 
 # Preprocess files for Tagalog, Bikol, and Cebuano
 languages = ['tagalog', 'bikol', 'cebuano']
