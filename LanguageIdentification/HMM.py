@@ -13,8 +13,9 @@ import string
 class TextPreprocessor:
     def __init__(self, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-        self.input_file = f"{base_path}/dataset/dataset_{language}.csv"
-        self.output_dir = f"{base_path}/preprocessed/"
+        results_folder = f"{base_path}/Results"
+        self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
+        self.output_dir = f"{results_folder}/preprocessed/"
         self.output_file = f"{self.output_dir}/preprocessed_{language}.csv"
         self.noise_words = set(["na", "nang", "ng", "mga", "ang", "kung", "yan",
                                 "yun", "ayan", "sina", "sila", "baka", "ano", "anong",
@@ -77,9 +78,10 @@ for language in languages:
 
 # Check if the preprocessed files exist before proceeding
 base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-tagalog_output_file = f"{base_path}/preprocessed/preprocessed_tagalog.csv"
-bikol_output_file = f"{base_path}/preprocessed/preprocessed_bikol.csv"
-cebuano_output_file = f"{base_path}/preprocessed/preprocessed_cebuano.csv"
+results_folder = f"{base_path}/Results"
+tagalog_output_file = f"{results_folder}/preprocessed/preprocessed_tagalog.csv"
+bikol_output_file = f"{results_folder}/preprocessed/preprocessed_bikol.csv"
+cebuano_output_file = f"{results_folder}/preprocessed/preprocessed_cebuano.csv"
 
 if not all(os.path.exists(file) for file in [tagalog_output_file, bikol_output_file, cebuano_output_file]):
     print("Preprocessing failed or input files are missing. Exiting.")
