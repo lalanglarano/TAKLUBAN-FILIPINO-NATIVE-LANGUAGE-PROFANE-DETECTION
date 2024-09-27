@@ -4,8 +4,9 @@ import csv
 class TextPreprocessor:
     def __init__(self, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-        self.input_file = f"{base_path}/dataset/dataset_{language}.csv"
-        self.output_dir = f"{base_path}/preprocessed/"
+        results_folder = f"{base_path}/Results"
+        self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
+        self.output_dir = f"{results_folder}/preprocessed/"
         self.output_file = f"{self.output_dir}/preprocessed_{language}.csv"
         self.dictionary_dir = f"{base_path}/LanguageIdentification/Dictionary/"
         self.dictionary_file = f"{self.dictionary_dir}/{language}_dictionary.csv"
