@@ -26,7 +26,11 @@ class TextPreprocessor:
 
     def preprocess_text(self, text):
         text = text.lower()
+        # Remove non-alphanumeric characters except spaces
         text = ''.join(char if char.isalnum() or char == ' ' else '' for char in text)
+        # Remove digits from the words
+        text = ''.join(char if not char.isdigit() else '' for char in text)
+        # Filter out noise words
         text = ' '.join(word for word in text.split() if word not in self.noise_words)
         return text
 
@@ -45,7 +49,9 @@ class TextPreprocessor:
                     writer.writerow([preprocessed_line.strip()])
                     
                     for word in preprocessed_line.split():
-                        word_count[word] = word_count.get(word, 0) + 1
+                        # Ignore words that are numeric
+                        if not word.isnumeric():
+                            word_count[word] = word_count.get(word, 0) + 1
 
             if word_count:
                 with open(self.dictionary_file, 'w', newline='', encoding='utf-8') as dict_file:
