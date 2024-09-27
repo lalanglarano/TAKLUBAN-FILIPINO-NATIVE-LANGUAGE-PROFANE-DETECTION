@@ -2,4 +2,4 @@ pyspark
 nlu
 nltk
 pandas
-sklearn
+scikit-learn

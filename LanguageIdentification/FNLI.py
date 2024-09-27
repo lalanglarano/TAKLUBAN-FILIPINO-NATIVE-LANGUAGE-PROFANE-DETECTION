@@ -7,7 +7,6 @@ from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_sc
 from sklearn.naive_bayes import MultinomialNB
 from preProcess import TextPreprocessor  # Import the preprocessing class
 
-# Preprocess files for Tagalog, Bikol, and Cebuano
 languages = ['tagalog', 'bikol', 'cebuano']
 
 for language in languages:

@@ -11,17 +11,21 @@ class TextPreprocessor:
         self.output_file = f"{self.output_dir}/preprocessed_{language}.csv"
         self.dictionary_dir = f"{base_path}/LanguageIdentification/Dictionary/"
         self.dictionary_file = f"{self.dictionary_dir}/{language}_dictionary.csv"
-        self.noise_words = set(["na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina", "sila",
-                                "baka", "ano", "anong", "mag", "doon", "mo", "so",
-                                "po", "ko", "eme", "may", "luh", "ito", "ay", "ganon", "lang", "dito",
-                                "and", "i", "haha", "o", "pang", "daw", "raw", "aww", "kahit", "go", "rin", "din",
-                                "baka", "hoy", "ok", "okay", "yung", "yay", "sa", "sabi", "eh", "sana",
-                                "da", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "sin", "kaya",
-                                "hali", "bala", "aba", "alin", "baka", "baga", "ganiyan", "gaya", "ho", "ika",
-                                "kay", "mo", "naman", "wag", "naman", "yata", "ba", "dayon", "gani", "kana", "mao",
-                                "diay", "mao ni", "mao ba", "lang", "usa", "kita", "kita tanan", "kamo", "ta", "gyud",
-                                "bitaw", "pud", "kay", "ahh", "pag", "pwede", "pwes", "pano", "ok", "ug"])
         
+        # Define noise words for each language
+        if language == 'tagalog':
+            self.noise_words = set(["na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina", "sila",
+                                    "baka", "ano", "anong", "mag", "doon", "mo", "so", "po", "ko", "eme", "may", 
+                                    "luh", "ito", "ay", "ganon", "lang", "dito", "pang", "daw", "raw"])
+        elif language == 'bikol':
+            self.noise_words = set(["da", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "sin", "hali", "bala", "aba", 
+                                    "alin", "baga", "ganiyan", "gaya", "ho", "ika", "kay", "mo", "naman", "wag", 
+                                    "naman", "yata", "ba"])
+        elif language == 'cebuano':
+            self.noise_words = set(["dayon", "gani", "kana", "mao", "diay", "mao ni", "mao ba", "lang", "usa", 
+                                    "kita", "kita tanan", "kamo", "ta", "gyud", "bitaw", "pud", "kay", "ahh", 
+                                    "pag", "pwede", "pwes", "pano", "ug"])
+
         os.makedirs(self.output_dir, exist_ok=True)
         os.makedirs(self.dictionary_dir, exist_ok=True)
 
