@@ -5,39 +5,32 @@ import re
 import csv
 from collections import Counter
 
-# Preprocessing class for basic text cleaning and sentence splitting
+
+# TextPreprocessor class for text cleaning and sentence splitting
 class TextPreprocessor:
     def __init__(self, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
         results_folder = f"{base_path}/Results"
         self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
-        self.output_dir = f"{results_folder}/preprocessed/"
-        self.output_file = f"{self.output_dir}/preprocessed_{language}.csv"
-        self.dictionary_dir = f"{base_path}/LanguageIdentification/Dictionary/"
-        self.dictionary_file = f"{self.dictionary_dir}/{language}_dictionary.csv"
-
-        os.makedirs(self.output_dir, exist_ok=True)
-        os.makedirs(self.dictionary_dir, exist_ok=True)
+        self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
+        self.dictionary_file = f"{base_path}/LanguageIdentification/Dictionary/{language}_dictionary.csv"
+        
+        os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
+        os.makedirs(os.path.dirname(self.dictionary_file), exist_ok=True)
 
     def preprocess_text(self, text):
-        # Convert to lowercase and remove non-alphanumeric characters except spaces and commas
-        text = text.lower()
-        text = ''.join(char if char.isalnum() or char in [' ', ','] else '' for char in text)
+        """Clean and lowercase text, removing special characters."""
+        text = re.sub(r'[^a-zA-Z\s]', '', text).lower()
         return text
 
     def split_into_sentences(self, text):
-        # Split the text based on punctuation marks
-        chunks = re.split(r'[.!?]', text)
-        sentences = [chunk.strip() for chunk in chunks if len(chunk.split()) >= 2]
-        return sentences
+        """Split text into sentences of 4 or more words."""
+        return [chunk.strip() for chunk in re.split(r'[.!?]', text) if len(chunk.split()) >= 4]
 
-    def preprocess_csv(self):
+    def process_file(self):
+        """Preprocess text and create word frequency dictionary."""
         word_count = {}
         try:
-            if not os.path.exists(self.input_file):
-                print(f"Error: The file {self.input_file} does not exist.")
-                return
-            
             with open(self.input_file, 'r', encoding='utf-8') as infile, open(self.output_file, 'w', newline='', encoding='utf-8') as outfile:
                 lines = infile.readlines()
                 writer = csv.writer(outfile)
@@ -48,120 +41,92 @@ class TextPreprocessor:
 
                     for sentence in sentences:
                         writer.writerow([sentence])
+                        for word in sentence.split():
+                            word_count[word] = word_count.get(word, 0) + 1
 
-                        # Update the word count dictionary
-                        words = sentence.split()
-                        for word in words:
-                            if not word.isnumeric():
-                                word_count[word] = word_count.get(word, 0) + 1
-
-            if word_count:
-                with open(self.dictionary_file, 'w', newline='', encoding='utf-8') as dict_file:
-                    writer = csv.writer(dict_file)
-                    writer.writerow(['word', 'frequency'])
-                    for word, freq in sorted(word_count.items()):
-                        writer.writerow([word, freq])
-                print(f"Dictionary saved at {self.dictionary_file}")
-            else:
-                print(f"No words found after preprocessing for {self.dictionary_file}")
-
+            return word_count
         except FileNotFoundError:
             print(f"Error: The file {self.input_file} does not exist.")
         except Exception as e:
             print(f"An error occurred: {e}")
 
-# Class for handling language identification with noise word removal
+
+# LanguageIdentification class for removing noise words and predicting language
 class LanguageIdentification:
-    def __init__(self, data, dictionary_dir):
-        self.data = data
+    def __init__(self, dictionary_dir):
         self.dictionary_dir = dictionary_dir
-        
-        # Define noise words for each language
-        self.noise_words = {
-            'Tagalog': set(["na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina",
-                            "baka", "ano", "anong", "mag", "doon", "mo", "so", "po", "ko", "eme", "may", 
-                            "luh", "ito", "ay", "ganon", "lang", "dito", "pang", "daw", "raw", "si"]),
+        self.noise_words = self.initialize_noise_words()
+        self.word_frequencies = self.load_dictionaries()
 
-            'Bikol': set(["nem", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "hali", "bala", "aba", 
-                          "alin", "baga", "ganiyan", "gaya", "ho", "ika", "kay", "mo", "naman", "wag", 
-                          "naman", "yata", "ba", "si", "garo", "ho"]),
-
-            'Cebuano': set(["dayon", "gani", "kana", "mao", "diay", "mao ni", "mao ba", "lang", "usa", "sila", "kang"
-                            "kita", "kita tanan", "kamo", "ta", "gyud", "bitaw", "pud", "kay", "ahh", "sa", "si"
-                            "pag", "pwede", "pwes", "pano", "ug"])
+    def initialize_noise_words(self):
+        """Initialize common noise words for Tagalog, Bikol, and Cebuano."""
+        return {
+            'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po"},
+            'Bikol': {"tabi", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si"},
+            'Cebuano': {"dayon", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
         }
 
-        # Load dictionaries
-        self.word_frequencies = {}
-        self.load_dictionaries()
-
     def load_dictionaries(self):
+        """Load word frequency dictionaries for all languages."""
+        frequencies = {}
         for language in ['Tagalog', 'Bikol', 'Cebuano']:
             dict_file = f"{self.dictionary_dir}/{language.lower()}_dictionary.csv"
             if os.path.exists(dict_file):
                 df = pd.read_csv(dict_file)
-                self.word_frequencies[language] = dict(zip(df['word'], df['frequency']))
+                frequencies[language] = dict(zip(df['word'], df['frequency']))
             else:
-                print(f"Warning: Dictionary file {dict_file} does not exist.")
+                print(f"Warning: Dictionary file {dict_file} not found.")
+        return frequencies
 
-    def remove_noise_words(self, words, language):
-        noise_words_for_language = self.noise_words.get(language, set())
-        cleaned_words = [word for word in words if word not in noise_words_for_language]
-        return cleaned_words
+    def remove_noise(self, words, language):
+        """Remove noise words from the list of words."""
+        return [word for word in words if word not in self.noise_words[language]]
 
     def predict_language(self, sentence):
-        # Clean the sentence
+        """Predict the language of a sentence based on word frequencies."""
         words = sentence.split()
-        words = self.remove_noise_words(words, 'Tagalog') + self.remove_noise_words(words, 'Bikol') + self.remove_noise_words(words, 'Cebuano')
+        scores = {lang: 0 for lang in self.word_frequencies}
 
-        language_scores = {language: 0 for language in self.word_frequencies.keys()}
+        for lang, freq_dict in self.word_frequencies.items():
+            cleaned_words = self.remove_noise(words, lang)
+            for word in cleaned_words:
+                scores[lang] += freq_dict.get(word, 0)
 
-        # Calculate scores based on word frequencies
-        for word in words:
-            for language, frequency_dict in self.word_frequencies.items():
-                if word in frequency_dict:
-                    language_scores[language] += frequency_dict[word]
+        return scores
 
-        return language_scores
-
-    def get_dominant_language(self, sentences):
-        # Initialize a counter for languages
+    def determine_language(self, sentences):
+        """Determine the dominant language from a list of sentences."""
         language_counter = Counter()
 
         for sentence in sentences:
             scores = self.predict_language(sentence)
-            # Find the language with the highest score for the current sentence
-            predicted_language = max(scores, key=scores.get)
-            language_counter[predicted_language] += 1
+            dominant_language = max(scores, key=scores.get)
+            language_counter[dominant_language] += 1
 
-        # Determine the language that is dominant based on counts
-        dominant_language = language_counter.most_common(1)[0][0] if language_counter else None
-        return dominant_language
+        return language_counter.most_common(1)[0][0] if language_counter else None
 
-# Main flow for preprocessing and language identification
+
 if __name__ == "__main__":
     languages = ['tagalog', 'bikol', 'cebuano']
 
-    # Preprocess files for Tagalog, Bikol, and Cebuano
+    # Preprocess and generate dictionaries for each language
     for language in languages:
         processor = TextPreprocessor(language)
-        processor.preprocess_csv()
+        word_count = processor.process_file()
 
-    # Load the preprocessed datasets
-    base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/preprocessed/"
-    dataframes = []
+        # Remove noise words and save dictionary
+        language_identifier = LanguageIdentification(f"../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary")
+        filtered_word_count = {word: freq for word, freq in word_count.items() if word not in language_identifier.noise_words[language.capitalize()]}
 
-    for language in languages:
-        df = pd.read_csv(f"{base_path}/preprocessed_{language}.csv", header=None, names=['sentence'])
-        dataframes.append(df)
+        # Save the dictionary
+        with open(f"../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/{language}_dictionary.csv", 'w', newline='', encoding='utf-8') as dict_file:
+            writer = csv.writer(dict_file)
+            writer.writerow(['word', 'frequency'])
+            for word, freq in sorted(filtered_word_count.items()):
+                writer.writerow([word, freq])
 
-    # Concatenate all dataframes into one
-    all_data = pd.concat(dataframes, ignore_index=True)
-
-    # Initialize language identifier
-    language_identifier = LanguageIdentification(all_data, f"../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/")
-
-    # Example sentences to predict the dominant language
-    sample_sentences = ["kumain mga totoong kaibigan"]
-    dominant_language = language_identifier.get_dominant_language(sample_sentences)
+    # Sample test for language identification
+    sentences = ["maray"]
+    language_identifier = LanguageIdentification(f"../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary")
+    dominant_language = language_identifier.determine_language(sentences)
     print(f"The dominant language is: {dominant_language}")

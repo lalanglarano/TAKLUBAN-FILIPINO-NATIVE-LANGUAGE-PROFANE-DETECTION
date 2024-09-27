@@ -16,32 +16,24 @@ class TextPreprocessor:
         os.makedirs(self.dictionary_dir, exist_ok=True)
 
     def preprocess_text(self, text):
-        # Remove starting double quotes in the sentence
-        text = text.lstrip('"')
+        # Remove special characters, digits, and alphanumeric
+        text = re.sub(r'[^a-zA-Z\s.,!?]', '', text)
 
         # Convert to lowercase
         text = text.lower()
-
-        # Remove non-alphanumeric characters except spaces and commas
-        text = ''.join(char if char.isalnum() or char in [' ', ','] else '' for char in text)
-
-        # Remove digits
-        text = ''.join(char if not char.isdigit() else '' for char in text)
 
         return text
 
     def split_into_sentences(self, text):
         # Split the text based on punctuation marks: periods, exclamation marks, question marks, colons, and commas
-        chunks = re.split(r'[.!?:]', text)
+        chunks = re.split(r'[.!?,]', text)
 
         sentences = []
         for chunk in chunks:
-            # Split the chunk based on commas and filter out segments with fewer than 2 words
-            sub_sentences = re.split(r',', chunk)
-            for sub in sub_sentences:
-                words = sub.strip().split()
-                if len(words) >= 2:  # Accept only if 2 or more consecutive words
-                    sentences.append(sub.strip())
+            # Split the chunk into words and apply the condition
+            words = chunk.strip().split()
+            if len(words) >= 4:  # Accept only if 4 or more consecutive words
+                sentences.append(chunk.strip())
 
         return sentences
 
@@ -77,7 +69,7 @@ class TextPreprocessor:
                         writer.writerow([word, freq])
                 print(f"Dictionary saved at {self.dictionary_file}")
             else:
-                print(f"No words found after preprocessing for {self.dictionary_file}")
+                print(f"No words found after preprocessing for {self.dictionary_file}.")
 
         except FileNotFoundError:
             print(f"Error: The file {self.input_file} does not exist.")
