@@ -46,12 +46,17 @@ class TextPreprocessor:
 
                 for line in lines:
                     preprocessed_line = self.preprocess_text(line)
-                    writer.writerow([preprocessed_line.strip()])
-                    
-                    for word in preprocessed_line.split():
-                        # Ignore words that are numeric
-                        if not word.isnumeric():
-                            word_count[word] = word_count.get(word, 0) + 1
+                    words = preprocessed_line.split()
+
+                    # Split preprocessed_line into chunks of 8-14 words
+                    for i in range(0, len(words), 14):
+                        chunk = words[i:i + 14]
+                        writer.writerow([' '.join(chunk)])
+
+                        # Update the word count dictionary
+                        for word in chunk:
+                            if not word.isnumeric():
+                                word_count[word] = word_count.get(word, 0) + 1
 
             if word_count:
                 with open(self.dictionary_file, 'w', newline='', encoding='utf-8') as dict_file:
