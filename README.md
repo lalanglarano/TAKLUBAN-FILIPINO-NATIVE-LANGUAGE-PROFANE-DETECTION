@@ -1,7 +1,3 @@
-Here's a more structured and detailed version of your `README`:
-
----
-
 # TAKLUBAN: Filipino Native Language Profanity Detection
 
 This project is focused on detecting profane language in Filipino native languages, including Tagalog, Bikol, and Cebuano.
