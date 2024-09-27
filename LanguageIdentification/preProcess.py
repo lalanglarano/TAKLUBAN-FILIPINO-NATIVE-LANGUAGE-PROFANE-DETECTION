@@ -12,16 +12,16 @@ class TextPreprocessor:
         self.dictionary_dir = f"{base_path}/LanguageIdentification/Dictionary/"
         self.dictionary_file = f"{self.dictionary_dir}/{language}_dictionary.csv"
         self.noise_words = set(["na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina", "sila",
-                                "baka", "ano", "anong", "mag", "doon", "si", "siya", "mo", "so", "ako", "ikaw",
-                                "po", "ko", "eme", "may", "luh", "ito", "ay", "ganon", "basta", "lang", "dito",
+                                "baka", "ano", "anong", "mag", "doon", "mo", "so",
+                                "po", "ko", "eme", "may", "luh", "ito", "ay", "ganon", "lang", "dito",
                                 "and", "i", "haha", "o", "pang", "daw", "raw", "aww", "kahit", "go", "rin", "din",
-                                "kayo", "baka", "hoy", "ok", "okay", "yung", "yay", "sa", "sabi", "eh", "sana",
-                                "da", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "sin", "kaya", "basta",
+                                "baka", "hoy", "ok", "okay", "yung", "yay", "sa", "sabi", "eh", "sana",
+                                "da", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "sin", "kaya",
                                 "hali", "bala", "aba", "alin", "baka", "baga", "ganiyan", "gaya", "ho", "ika",
-                                "kay", "kumusta", "mo", "naman", "po", "sapagkat", "tayo", "talaga", "wag",
-                                "naman", "yata", "ba", "bitaw", "dayon", "gani", "kana", "mao", "diay", "mao ni",
-                                "mao ba", "lang", "usa", "kita", "kita tanan", "kamo", "ta", "lagi", "gyud",
+                                "kay", "mo", "naman", "wag", "naman", "yata", "ba", "dayon", "gani", "kana", "mao",
+                                "diay", "mao ni", "mao ba", "lang", "usa", "kita", "kita tanan", "kamo", "ta", "gyud",
                                 "bitaw", "pud", "kay", "ahh", "pag", "pwede", "pwes", "pano", "ok", "ug"])
+        
         os.makedirs(self.output_dir, exist_ok=True)
         os.makedirs(self.dictionary_dir, exist_ok=True)
 
