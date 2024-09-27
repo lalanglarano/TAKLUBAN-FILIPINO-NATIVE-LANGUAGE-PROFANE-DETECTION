@@ -13,41 +13,50 @@ class TextPreprocessor:
         self.dictionary_file = f"{self.dictionary_dir}/{language}_dictionary.csv"
         self.noise_words = set([
             "na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina", "sila",
-            "baka", "ano", "anong", "mag", "doon", "si", "siya", "mo", "so", "ako", "ikaw",
-            "po", "ko", "eme", "may", "luh", "ito", "ay", "ganon", "basta", "lang", "dito",
+            "baka", "ano", "anong", "mag", "doon", "siya", "mo", "so", "ako",
+            "po", "ko", "eme", "may", "luh", "ito", "ay", "ganon", "basta", "lang",
             "and", "i", "haha", "o", "pang", "daw", "raw", "aww", "kahit", "go", "rin", "din",
             "kayo", "baka", "hoy", "ok", "okay", "yung", "yay", "sa", "sabi", "eh", "sana",
             "da", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "sin", "kaya", "basta",
             "hali", "bala", "aba", "alin", "baka", "baga", "ganiyan", "gaya", "ho", "ika",
-            "kay", "kumusta", "mo", "naman", "po", "sapagkat", "tayo", "talaga", "wag",
+            "kay", "mo", "naman", "po", "sapagkat", "tayo", "talaga", "wag",
             "naman", "yata", "ba", "bitaw", "dayon", "gani", "kana", "mao", "diay", "mao ni",
             "mao ba", "lang", "usa", "kita", "kita tanan", "kamo", "ta", "lagi", "gyud",
-            "bitaw", "pud", "kay", "ahh", "pag", "pwede", "pwes", "pano", "ok", "ug"
+            "bitaw", "pud", "ahh", "pag", "pwede", "pwes", "pano", "ok", "ug"
         ])
         os.makedirs(self.output_dir, exist_ok=True)
         os.makedirs(self.dictionary_dir, exist_ok=True)
 
     def preprocess_text(self, text):
+        # Remove starting double quotes in the sentence
+        text = text.lstrip('"')
+
+        # Convert to lowercase
         text = text.lower()
+
         # Remove non-alphanumeric characters except spaces and commas
         text = ''.join(char if char.isalnum() or char in [' ', ','] else '' for char in text)
-        # Remove digits from the words
+
+        # Remove digits
         text = ''.join(char if not char.isdigit() else '' for char in text)
-        # Remove starting double quotes in a sentence
-        text = text.lstrip('"')
+
         # Filter out noise words
         text = ' '.join(word for word in text.split() if word not in self.noise_words)
+
         return text
 
     def split_into_sentences(self, text):
-        # Split based on punctuation marks: periods, exclamation marks, question marks, and colons.
+        # Split the text based on punctuation marks: periods, exclamation marks, question marks, colons, and commas
         chunks = re.split(r'[.!?:]', text)
-        sentences = []
 
-        # After splitting by punctuation, check each chunk for the condition of 3 consecutive words separated by commas.
+        sentences = []
         for chunk in chunks:
-            sub_sentences = re.split(r'(?<=\w,\s\w,\s\w,)', chunk)  # Split if there are 3 words followed by commas.
-            sentences.extend([sub.strip() for sub in sub_sentences if sub.strip()])
+            # Split the chunk based on commas and filter out segments with fewer than 2 words
+            sub_sentences = re.split(r',', chunk)
+            for sub in sub_sentences:
+                words = sub.strip().split()
+                if len(words) >= 2:  # Accept only if 2 or more consecutive words
+                    sentences.append(sub.strip())
 
         return sentences
 
@@ -89,5 +98,3 @@ class TextPreprocessor:
             print(f"Error: The file {self.input_file} does not exist.")
         except Exception as e:
             print(f"An error occurred: {e}")
-
-
