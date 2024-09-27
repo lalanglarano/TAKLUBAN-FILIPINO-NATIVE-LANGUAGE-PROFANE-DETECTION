@@ -93,23 +93,34 @@ class TextPreprocessor:
 
 # Class for handling language identification with noise word removal
 class LanguageIdentification:
-    def __init__(self, data):
+    def __init__(self, data, dictionary_dir):
         self.data = data
         self.vectorizer = CountVectorizer(token_pattern=r'\b\w+\b')
         self.model = MultinomialNB()
+        self.dictionaries = {}
+        self.dictionary_dir = dictionary_dir  # Add this line
 
         # Define noise words for each language
         self.noise_words = {
             'Tagalog': set(["na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina", "sila",
                             "baka", "ano", "anong", "mag", "doon", "mo", "so", "po", "ko", "eme", "may", 
                             "luh", "ito", "ay", "ganon", "lang", "dito", "pang", "daw", "raw"]),
-            'Bikol': set(["da", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "sin", "hali", "bala", "aba", 
-                          "alin", "baga", "ganiyan", "gaya", "ho", "ika", "kay", "mo", "naman", "wag", 
-                          "naman", "yata", "ba"]),
+            'Bikol': set(["da", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "sin", "hali", "bala", 
+                          "aba", "alin", "baga", "ganiyan", "gaya", "ho", "ika", "kay", "mo", "naman", 
+                          "wag", "naman", "yata", "ba"]),
             'Cebuano': set(["dayon", "gani", "kana", "mao", "diay", "mao ni", "mao ba", "lang", "usa", 
                             "kita", "kita tanan", "kamo", "ta", "gyud", "bitaw", "pud", "kay", "ahh", 
                             "pag", "pwede", "pwes", "pano", "ug"])
         }
+
+    def load_dictionaries(self):
+        for language in self.noise_words.keys():
+            dict_file = f"{self.dictionary_dir}/{language.lower()}_dictionary.csv"
+            if os.path.exists(dict_file):
+                df = pd.read_csv(dict_file)
+                self.dictionaries[language] = dict(zip(df['word'], df['frequency']))
+            else:
+                print(f"Warning: Dictionary file {dict_file} not found.")
 
     def remove_noise_words(self, sentences, label):
         noise_words_for_language = self.noise_words.get(label, set())
@@ -181,30 +192,34 @@ if __name__ == "__main__":
     # Load the preprocessed datasets
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
     results_folder = f"{base_path}/Results"
+    
     tagalog_output_file = f"{results_folder}/preprocessed/preprocessed_tagalog.csv"
     bikol_output_file = f"{results_folder}/preprocessed/preprocessed_bikol.csv"
     cebuano_output_file = f"{results_folder}/preprocessed/preprocessed_cebuano.csv"
+    
+    tagalog_data = pd.read_csv(tagalog_output_file, names=['sentence'])
+    tagalog_data['label'] = 'Tagalog'
+    
+    bikol_data = pd.read_csv(bikol_output_file, names=['sentence'])
+    bikol_data['label'] = 'Bikol'
+    
+    cebuano_data = pd.read_csv(cebuano_output_file, names=['sentence'])
+    cebuano_data['label'] = 'Cebuano'
+    
+    combined_data = pd.concat([tagalog_data, bikol_data, cebuano_data], ignore_index=True)
 
-    if not all(os.path.exists(file) for file in [tagalog_output_file, bikol_output_file, cebuano_output_file]):
-        print("Preprocessing failed or input files are missing. Exiting.")
-    else:
-        tagalog_data = pd.read_csv(tagalog_output_file, names=['sentence'])
-        bikol_data = pd.read_csv(bikol_output_file, names=['sentence'])
-        cebuano_data = pd.read_csv(cebuano_output_file, names=['sentence'])
+    # Initialize LanguageIdentification and load dictionaries
+    language_identifier = LanguageIdentification(data=combined_data, dictionary_dir=processor.dictionary_dir)
+    language_identifier.load_dictionaries()
 
-        tagalog_data['label'] = 'Tagalog'
-        bikol_data['label'] = 'Bikol'
-        cebuano_data['label'] = 'Cebuano'
+    # Prepare data and train model
+    X_train, X_test, y_train, y_test = language_identifier.prepare_data()
+    language_identifier.train_model(X_train, y_train)
 
-        combined_data = pd.concat([tagalog_data, bikol_data, cebuano_data])
+    # Evaluate the model
+    language_identifier.evaluate_model(X_test, y_test)
 
-        # Initialize and train the model
-        language_identifier = LanguageIdentification(combined_data)
-        X_train, X_test, y_train, y_test = language_identifier.prepare_data()
-        language_identifier.train_model(X_train, y_train)
-        language_identifier.evaluate_model(X_test, y_test)
-
-        # Test a sample sentence
-        test_sentence = "Kumusta ka ngayon?"
-        predicted_language = language_identifier.predict_language(test_sentence)
-        print(f"The predicted language for the sentence '{test_sentence}' is: {predicted_language}")
+    # Test a sample sentence
+    test_sentence = "Tayo ay magbasa putangina"
+    predicted_language = language_identifier.predict_language(test_sentence)
+    print(f"The predicted language for the sentence '{test_sentence}' is: {predicted_language}")
