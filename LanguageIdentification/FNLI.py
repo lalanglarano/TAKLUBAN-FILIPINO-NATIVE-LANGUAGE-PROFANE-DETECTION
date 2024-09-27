@@ -62,7 +62,7 @@ class LanguageIdentification:
         """Initialize common noise words for Tagalog, Bikol, and Cebuano."""
         return {
             'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po"},
-            'Bikol': {"tabi", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si"},
+            'Bikol': {"tabi", "ngani", "ini", "iyo", "hali", "baga", "ho", "mo", "ba", "si"},
             'Cebuano': {"dayon", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
         }
 
