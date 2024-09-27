@@ -19,6 +19,19 @@ class TextPreprocessor:
         os.makedirs(self.output_dir, exist_ok=True)
         os.makedirs(self.dictionary_dir, exist_ok=True)
 
+        # Define noise words specific to the language
+        self.noise_words = {
+            'tagalog': set(["na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina",
+                            "baka", "ano", "anong", "mag", "doon", "mo", "so", "po", "ko", "eme", "may", 
+                            "luh", "ito", "ay", "ganon", "lang", "dito", "pang", "daw", "raw", "si"]),
+            'bikol': set(["nem", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "hali", "bala", "aba", 
+                          "alin", "baga", "ganiyan", "gaya", "ho", "ika", "kay", "mo", "naman", "wag", 
+                          "naman", "yata", "ba", "si", "garo", "ho"]),
+            'cebuano': set(["dayon", "gani", "kana", "mao", "diay", "mao ni", "mao ba", "lang", "usa", "kang",
+                            "kita", "kita tanan", "kamo", "ta", "gyud", "bitaw", "pud", "kay", "ahh", "sa", "si",
+                            "pag", "pwede", "pwes", "pano", "ug"])
+        }[language]
+
     def preprocess_text(self, text):
         # Convert to lowercase and remove non-alphanumeric characters except spaces and commas
         text = text.lower()
@@ -30,6 +43,10 @@ class TextPreprocessor:
         chunks = re.split(r'[.!?]', text)
         sentences = [chunk.strip() for chunk in chunks if len(chunk.split()) >= 2]
         return sentences
+
+    def remove_noise_words(self, words):
+        # Remove noise words from a list of words
+        return [word for word in words if word not in self.noise_words]
 
     def preprocess_csv(self):
         word_count = {}
@@ -47,11 +64,16 @@ class TextPreprocessor:
                     sentences = self.split_into_sentences(preprocessed_line)
 
                     for sentence in sentences:
-                        writer.writerow([sentence])
+                        words = sentence.split()
+                        cleaned_words = self.remove_noise_words(words)  # Remove noise words
+                        cleaned_sentence = ' '.join(cleaned_words)
+
+                        # Write cleaned sentence to the output file
+                        if cleaned_sentence:  # Only write non-empty sentences
+                            writer.writerow([cleaned_sentence])
 
                         # Update the word count dictionary
-                        words = sentence.split()
-                        for word in words:
+                        for word in cleaned_words:
                             if not word.isnumeric():
                                 word_count[word] = word_count.get(word, 0) + 1
 
@@ -81,12 +103,10 @@ class LanguageIdentification:
             'Tagalog': set(["na", "nang", "ng", "mga", "ang", "kung", "yan", "yun", "ayan", "sina",
                             "baka", "ano", "anong", "mag", "doon", "mo", "so", "po", "ko", "eme", "may", 
                             "luh", "ito", "ay", "ganon", "lang", "dito", "pang", "daw", "raw", "si"]),
-
             'Bikol': set(["nem", "ngani", "tabi", "ning", "kamo", "ini", "iyo", "hali", "bala", "aba", 
                           "alin", "baga", "ganiyan", "gaya", "ho", "ika", "kay", "mo", "naman", "wag", 
                           "naman", "yata", "ba", "si", "garo", "ho"]),
-
-            'Cebuano': set(["dayon", "gani", "kana", "mao", "diay", "mao ni", "mao ba", "lang", "usa", "sila", "kang"
+            'Cebuano': set(["dayon", "gani", "kana", "mao", "diay", "mao ni", "mao ba", "lang", "usa", "kang"
                             "kita", "kita tanan", "kamo", "ta", "gyud", "bitaw", "pud", "kay", "ahh", "sa", "si"
                             "pag", "pwede", "pwes", "pano", "ug"])
         }
@@ -162,6 +182,6 @@ if __name__ == "__main__":
     language_identifier = LanguageIdentification(all_data, f"../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/")
 
     # Example sentences to predict the dominant language
-    sample_sentences = ["kumain mga totoong kaibigan"]
+    sample_sentences = ["ambot sa imong tanan"]
     dominant_language = language_identifier.get_dominant_language(sample_sentences)
     print(f"The dominant language is: {dominant_language}")
