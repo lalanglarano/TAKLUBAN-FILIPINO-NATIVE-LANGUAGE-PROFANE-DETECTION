@@ -1,90 +1,68 @@
 import os
-import numpy as np
 import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
-from sklearn.naive_bayes import MultinomialNB
-from PreProcess import TextPreprocessor  # Import the preprocessing class
-
-# Preprocess files for Tagalog, Bikol, and Cebuano
-languages = ['tagalog', 'bikol', 'cebuano']
-
-for language in languages:
-    processor = TextPreprocessor(language)
-    processor.preprocess_csv()
-
-# Load the datasets if the preprocessed files exist
-base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-results_folder = f"{base_path}/Results"
-tagalog_output_file = f"{results_folder}/preprocessed/preprocessed_tagalog.csv"
-bikol_output_file = f"{results_folder}/preprocessed/preprocessed_bikol.csv"
-cebuano_output_file = f"{results_folder}/preprocessed/preprocessed_cebuano.csv"
-
-if not all(os.path.exists(file) for file in [tagalog_output_file, bikol_output_file, cebuano_output_file]):
-    print("Preprocessing failed or input files are missing. Exiting.")
-else:
-    tagalog_data = pd.read_csv(tagalog_output_file, names=['sentence'])
-    bikol_data = pd.read_csv(bikol_output_file, names=['sentence'])
-    cebuano_data = pd.read_csv(cebuano_output_file, names=['sentence'])
-
-    tagalog_data['label'] = 'Tagalog'
-    bikol_data['label'] = 'Bikol'
-    cebuano_data['label'] = 'Cebuano'
-
-    data = pd.concat([tagalog_data, bikol_data, cebuano_data])
-    data = data.dropna()
+import re
+from collections import Counter
 
 class LanguageIdentification:
-    def __init__(self, data):
-        self.data = data
-        self.vectorizer = CountVectorizer(token_pattern=r'\b\w+\b')
-        self.model = MultinomialNB()
+    def __init__(self, dictionary_dir):
+        self.dictionary_dir = dictionary_dir
+        self.noise_words = self.initialize_noise_words()
+        self.word_dictionaries = self.load_dictionaries()
 
-    def prepare_data(self):
-        sentences = self.data['sentence'].values
-        labels = self.data['label'].values
-        X = self.vectorizer.fit_transform(sentences).toarray()
+    def initialize_noise_words(self):
+        """Initialize common noise words for Tagalog, Bikol, and Cebuano."""
+        return {
+            'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po"},
+            'Bikol': {"tabi", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si"},
+            'Cebuano': {"dayon", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
+        }
 
-        self.label_to_index = {label: idx for idx, label in enumerate(set(labels))}
-        self.index_to_label = {idx: label for label, idx in self.label_to_index.items()}
-        y = np.array([self.label_to_index[label] for label in labels])
+    def load_dictionaries(self):
+        """Load word dictionaries for all languages."""
+        word_sets = {}
+        for language in ['Tagalog', 'Bikol', 'Cebuano']:
+            dict_file = f"{self.dictionary_dir}/{language.lower()}_dictionary.csv"
+            if os.path.exists(dict_file):
+                # Load words directly from the CSV (assumes single-column CSV with words)
+                df = pd.read_csv(dict_file, usecols=[0], header=None, names=['word'])
+                # Convert word column into a set for quick lookup
+                word_sets[language] = set(df['word'].dropna().str.lower())  # Ensure words are lowercase
+            else:
+                print(f"Warning: Dictionary file {dict_file} not found.")
+        return word_sets
 
-        return train_test_split(X, y, test_size=0.3, random_state=50)
+    def remove_noise(self, words, language):
+        """Remove noise words from the list of words."""
+        return [word for word in words if word not in self.noise_words[language]]
 
-    def train_model(self, X_train, y_train):
-        self.model.fit(X_train, y_train)
-    
     def predict_language(self, sentence):
-        X_new = self.vectorizer.transform([sentence]).toarray()
-        predicted_idx = self.model.predict(X_new)[0]
-        return self.index_to_label[predicted_idx]
+        """Predict the language of a sentence based on word existence in dictionaries."""
+        words = sentence.split()
+        scores = {lang: 0 for lang in self.word_dictionaries}
 
-    def evaluate_model(self, X_test, y_test):
-        y_pred = self.model.predict(X_test)
-        cm = confusion_matrix(y_test, y_pred)
-        TP = np.diag(cm)
-        FP = cm.sum(axis=0) - TP
-        FN = cm.sum(axis=1) - TP
-        TN = cm.sum() - (FP + FN + TP)
+        for lang, word_set in self.word_dictionaries.items():
+            cleaned_words = self.remove_noise(words, lang)
+            for word in cleaned_words:
+                if word in word_set:  # Check if word exists in the dictionary
+                    scores[lang] += 1  # Increment score for the matching language
 
-        print(f"True Positives: {TP}")
-        print(f"True Negatives: {TN}")
-        print(f"False Positives: {FP}")
-        print(f"False Negatives: {FN}")
+        return scores
 
-        precision = precision_score(y_test, y_pred, average='weighted')
-        recall = recall_score(y_test, y_pred, average='weighted')
-        f1 = f1_score(y_test, y_pred, average='weighted')
-        accuracy = accuracy_score(y_test, y_pred)
+    def determine_language(self, sentences):
+        """Determine the dominant language from a list of sentences."""
+        language_counter = Counter()
 
-        print(f"Precision: {precision:.2f}")
-        print(f"Recall: {recall:.2f}")
-        print(f"F1 Score: {f1:.2f}")
-        print(f"Accuracy: {accuracy:.2f}")
+        for sentence in sentences:
+            scores = self.predict_language(sentence)
+            dominant_language = max(scores, key=scores.get)  # Get language with the highest score
+            language_counter[dominant_language] += 1
 
-# Initialize and run the LanguageIdentification process
-lang_id = LanguageIdentification(data)
-X_train, X_test, y_train, y_test = lang_id.prepare_data()
-lang_id.train_model(X_train, y_train)
-lang_id.evaluate_model(X_test, y_test)
+        return language_counter.most_common(1)[0][0] if language_counter else None
+
+
+if __name__ == "__main__":
+    # Sample test for language identification
+    sentences = ["subo mo titi"]
+    language_identifier = LanguageIdentification(f"../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary")
+    dominant_language = language_identifier.determine_language(sentences)
+    print(f"The dominant language is: {dominant_language}")
