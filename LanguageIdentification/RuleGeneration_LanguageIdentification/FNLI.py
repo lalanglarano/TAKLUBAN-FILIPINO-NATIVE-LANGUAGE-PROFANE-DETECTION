@@ -3,7 +3,7 @@ import pandas as pd
 import re
 from collections import Counter
 
-class LangIdentification:
+class LanguageIdentification:
     def __init__(self, dictionary_dir):
         self.dictionary_dir = dictionary_dir
         self.noise_words = self.initialize_noise_words()
@@ -62,7 +62,7 @@ class LangIdentification:
 
 if __name__ == "__main__":
     # Sample test for language identification
-    sentences = ["subo mo titi"]
-    language_identifier = LangIdentification(f"../LanguageIdentification/RuleGeneration_LanguageIdentification")
+    sentences = ["Magayunon kang maray masiramon kang padabaon"]
+    language_identifier = LanguageIdentification(f"../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/RuleGeneration_LanguageIdentification/Dictionary")
     dominant_language = language_identifier.determine_language(sentences)
     print(f"The dominant language is: {dominant_language}")
