@@ -3,7 +3,7 @@ import csv
 import subprocess
 from collections import Counter
 import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split
@@ -95,13 +95,13 @@ class LanguageIdentification:
             raise ValueError("Training data or labels are empty. Please check your dictionary files.")
 
         # Split the data (60% training, 30% validation, 10% testing)
-        X_train, X_temp, y_train, y_temp = train_test_split(data, labels, test_size=0.40, random_state=42)
-        X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.25, random_state=42)  # 0.25 * 0.40 = 0.10
+        X_train, X_temp, y_train, y_temp = train_test_split(data, labels, test_size=0.40, random_state=50)
+        X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.25, random_state=50)  # 0.25 * 0.40 = 0.10
 
         print(f"Train size: {len(X_train)}, Validation size: {len(X_val)}, Test size: {len(X_test)}")
 
-        # Create a pipeline with CountVectorizer and MultinomialNB
-        model = make_pipeline(CountVectorizer(), MultinomialNB())
+        # Create a pipeline with TfidfVectorizer for N-gram extraction and MultinomialNB
+        model = make_pipeline(TfidfVectorizer(ngram_range=(1, 3)), MultinomialNB())
         model.fit(X_train, y_train)
         
         return model, X_test, y_test
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     for language in languages:
         generator.generate_dictionary(language)
 
-    # Now, initialize language identification
+    # Now, initialize language identification with N-gram support
     language_id = LanguageIdentification(dictionary_dir)
 
     # Evaluate the model on the test set
@@ -176,6 +176,6 @@ if __name__ == "__main__":
         print("Evaluation failed due to missing or incorrect test data.")
 
     # Determine the dominant language from sentences
-    sentences = ["tatalon sisigaw iiyak"]  # Replace with actual sentences
+    sentences = ["kagulo gulo ang patal na ini"]  # Replace with actual sentences
     dominant_language = language_id.determine_language(sentences)
     print(f"The dominant language is: {dominant_language}")
