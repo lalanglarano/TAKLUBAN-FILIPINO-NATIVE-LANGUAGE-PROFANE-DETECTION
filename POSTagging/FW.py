@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 def extract_fw_words():
-    language = 'cebuano'  
+    language = 'tagalog'  
     # Define the paths
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
     results_folder = f"{base_path}/Results"
