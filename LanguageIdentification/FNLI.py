@@ -6,7 +6,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import make_pipeline
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 class DictionaryGenerator:
@@ -101,9 +101,23 @@ class LanguageIdentification:
         print(f"Train size: {len(X_train)}, Validation size: {len(X_val)}, Test size: {len(X_test)}")
 
         # Create a pipeline with TfidfVectorizer for N-gram extraction and MultinomialNB
-        model = make_pipeline(TfidfVectorizer(ngram_range=(1, 3)), MultinomialNB())
+        pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 3)), MultinomialNB())
+
+        # Hyperparameter tuning using GridSearchCV
+        param_grid = {
+            'tfidfvectorizer__ngram_range': [(1, 1), (1, 2), (1, 3)],
+            'multinomialnb__alpha': [0.1, 0.5, 1.0]
+        }
+        grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
+        grid_search.fit(X_train, y_train)
+
+        print(f"Best parameters: {grid_search.best_params_}")
+        print(f"Best cross-validation score: {grid_search.best_score_}")
+
+        # Train the final model with the best parameters
+        model = grid_search.best_estimator_
         model.fit(X_train, y_train)
-        
+
         return model, X_test, y_test
 
     def predict_language(self, sentence):
