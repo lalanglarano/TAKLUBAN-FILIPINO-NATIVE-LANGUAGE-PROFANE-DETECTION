@@ -10,19 +10,39 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 class DictionaryGenerator:
-    def __init__(self, preprocessed_dir, dictionary_dir):
+    def __init__(self, preprocessed_dir, dictionary_dir, english_dict_path):
         self.preprocessed_dir = preprocessed_dir
         self.dictionary_dir = dictionary_dir
+        self.english_dict_path = english_dict_path
         self.noise_words = self.initialize_noise_words()
         os.makedirs(self.dictionary_dir, exist_ok=True)
 
     def initialize_noise_words(self):
-        """Initialize common noise words for Tagalog, Bikol, and Cebuano."""
-        return {
+        """Initialize common noise words for Tagalog, Bikol, Cebuano, and English."""
+        noise_words = {
             'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po"},
             'Bikol': {"ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si"},
             'Cebuano': {"dayon", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
         }
+        noise_words['English'] = self.load_english_noise_words()
+        return noise_words
+
+    def load_english_noise_words(self):
+        """Load noise words from the English dictionary CSV file."""
+        noise_words = set()
+        try:
+            with open(self.english_dict_path, 'r', encoding='utf-8') as infile:
+                reader = csv.reader(infile)
+                next(reader)  # Skip header
+                for row in reader:
+                    if row:  # Check if the row is not empty
+                        word = row[0].strip()
+                        noise_words.add(word.lower())
+        except FileNotFoundError:
+            print(f"Error: The file {self.english_dict_path} does not exist.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        return noise_words
 
     def remove_noise(self, words, language):
         """Remove noise words from the list of words."""
@@ -100,13 +120,13 @@ class LanguageIdentification:
 
         print(f"Train size: {len(X_train)}, Validation size: {len(X_val)}, Test size: {len(X_test)}")
 
-        # Create a pipeline with TfidfVectorizer for N-gram extraction and MultinomialNB
-        pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 3)), MultinomialNB())
+        # Create a pipeline with TfidfVectorizer for N-gram extraction and MultinomialNB with Laplace smoothing
+        pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 3)), MultinomialNB(alpha=1.0))
 
         # Hyperparameter tuning using GridSearchCV
         param_grid = {
             'tfidfvectorizer__ngram_range': [(1, 1), (1, 2), (1, 3)],
-            'multinomialnb__alpha': [0.1, 0.5, 1.0]
+            'multinomialnb__alpha': [0.1, 0.5, 1.0]  # Laplace smoothing parameters
         }
         grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
         grid_search.fit(X_train, y_train)
@@ -167,8 +187,9 @@ if __name__ == "__main__":
     # Proceed with dictionary generation
     preprocessed_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/preprocessed"
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
+    english_dict_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/english_dictionary.csv"
 
-    generator = DictionaryGenerator(preprocessed_dir, dictionary_dir)
+    generator = DictionaryGenerator(preprocessed_dir, dictionary_dir, english_dict_path)
     languages = ['tagalog', 'bikol', 'cebuano']
 
     for language in languages:
