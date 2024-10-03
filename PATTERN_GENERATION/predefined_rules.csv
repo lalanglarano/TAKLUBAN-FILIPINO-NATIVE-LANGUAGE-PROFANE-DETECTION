@@ -1,0 +1,9 @@
+Rule Name,POS Pattern,Description
+adj_noun,JJD NNC,Profane Adjective followed by Noun
+verb_noun,VBW NNC,Profane Verb followed by Noun
+foreign_curse,FW,Foreign Curse Word
+adj_repeated,JJD JJD,Repeated Profane Adjectives
+adj_pronoun_noun,JJD PRS NNC,Profane Adjective followed by Pronoun and Noun
+verb_adj_noun,VBS JJD NNC,Verb followed by Adjective and Noun
+pronoun_verb,PRS VBW,Pronoun followed by Verb (possible command or insult)
+curse_verb_noun,FW VBW NNC,Foreign Curse followed by Verb and Noun
