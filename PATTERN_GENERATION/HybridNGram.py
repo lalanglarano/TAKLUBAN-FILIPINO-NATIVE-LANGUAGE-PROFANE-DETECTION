@@ -62,8 +62,11 @@ def rule_based_profanity_detection(pos_tagged_ngram, pattern_generator):
     profane_patterns = pattern_generator.detect_profane_patterns(pos_tagged_ngram)
     if profane_patterns and profane_patterns != "No profane patterns detected":
         print(f"Matched profane pattern: {profane_patterns}")
-        return True
-    return False  
+        
+        # Return the n-gram with POS-tagged pairs enclosed in <>
+        profane_ngram = ' '.join([f"<{word}>" for word in pos_tagged_ngram])
+        return profane_ngram
+    return False
 
 # Function to tag N-grams with POS tags
 def pos_tag_ngrams(ngrams_list, pos_tagger):
@@ -79,13 +82,21 @@ def tag_and_apply_rules(potential_profanity, pattern_generator, pos_tagger):
     # POS tag each N-gram
     pos_tagged_ngrams = pos_tag_ngrams(potential_profanity, pos_tagger)
     
+    modified_sentence = ""
     for pos_tagged_ngram in pos_tagged_ngrams:
         # Print for debugging purposes
         print(f"POS-tagged N-gram: {pos_tagged_ngram}")
         
-        if rule_based_profanity_detection(pos_tagged_ngram, pattern_generator):
-            return True  # Profanity detected
-    return False
+        profane_ngram = rule_based_profanity_detection(pos_tagged_ngram, pattern_generator)
+        if profane_ngram:
+            # Append the profane POS-tagged n-gram to the modified sentence enclosed in <>
+            modified_sentence += f"{profane_ngram} "
+        else:
+            # If no profanity detected, append the original POS-tagged n-gram as is
+            original_ngram = ' '.join([f"<{word}|{tag}>" for word, tag in pos_tagged_ngram])
+            modified_sentence += f"{original_ngram} "
+
+    return modified_sentence.strip()  # Return the modified sentence
 
 # Example usage:
 csv_file = 'PATTERN_GENERATION/predefined_rules.csv'
@@ -115,10 +126,10 @@ if potential_profanity:
     print("Potentially profane N-grams found:")
     
     # Apply custom rules for further filtering profane N-grams using predefined rules
-    filtered_profanity = tag_and_apply_rules(potential_profanity, pattern_generator, stanford_pos_tagger)
+    modified_sentence = tag_and_apply_rules(potential_profanity, pattern_generator, stanford_pos_tagger)
     
-    if filtered_profanity:
-        print(f"Profanity detected: {filtered_profanity}")
+    if modified_sentence:
+        print(f"Final sentence with POS-tagged N-grams enclosed: {modified_sentence}")
     else:
         print("No profane N-grams detected after rule-based filtering.")
 else:
