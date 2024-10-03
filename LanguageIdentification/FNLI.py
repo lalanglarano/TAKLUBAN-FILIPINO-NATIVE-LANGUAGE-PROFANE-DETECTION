@@ -13,7 +13,6 @@ class DictionaryGenerator:
     def __init__(self, preprocessed_dir, dictionary_dir, english_dict_path, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
         results_folder = f"{base_path}/Results"
-        dictionary_dir = f"{base_path}/LanguageIdentification/Dictionary"
         self.language = language  # Add language to the instance
         self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
         self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
@@ -106,6 +105,7 @@ class DictionaryGenerator:
             for word, freq in sorted(word_count.items()):
                 writer.writerow([word, freq])
         print(f"Dictionary saved at {dict_file}")
+
 class LanguageIdentification:
     def __init__(self, dictionary_dir):
         self.dictionary_dir = dictionary_dir
