@@ -7,3 +7,6 @@ adj_pronoun_noun,JJD PRS NNC,Profane Adjective followed by Pronoun and Noun
 verb_adj_noun,VBS JJD NNC,Verb followed by Adjective and Noun
 pronoun_verb,PRS VBW,Pronoun followed by Verb (possible command or insult)
 curse_verb_noun,FW VBW NNC,Foreign Curse followed by Verb and Noun
+new_adj_noun_rule,"['JJD', 'PRS', 'NNC']",Profane Adjective-Pronoun-Noun
+new_adj_noun_rule,"['JJD', 'PRS', 'NNC']",Profane Adjective-Pronoun-Noun
+new_adj_noun_rule,JJD PRS NNC,Profane Adjective-Pronoun-Noun
