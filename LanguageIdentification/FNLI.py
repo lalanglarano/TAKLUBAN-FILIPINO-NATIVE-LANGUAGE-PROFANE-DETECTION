@@ -10,12 +10,20 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 class DictionaryGenerator:
-    def __init__(self, preprocessed_dir, dictionary_dir, english_dict_path):
-        self.preprocessed_dir = preprocessed_dir
+    def __init__(self, preprocessed_dir, dictionary_dir, english_dict_path, language):
+        base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
+        results_folder = f"{base_path}/Results"
+        dictionary_dir = f"{base_path}/LanguageIdentification/Dictionary"
+        self.language = language  # Add language to the instance
+        self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
+        self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
+        self.english_dict_path = f"{dictionary_dir}/english_dictionary.csv"
+        self.preprocessed_dir = preprocessed_dir  # Ensure the directory paths are available
         self.dictionary_dir = dictionary_dir
-        self.english_dict_path = english_dict_path
+        os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
+
+        # Initialize noise words for all languages
         self.noise_words = self.initialize_noise_words()
-        os.makedirs(self.dictionary_dir, exist_ok=True)
 
     def initialize_noise_words(self):
         """Initialize common noise words for Tagalog, Bikol, Cebuano, and English."""
@@ -25,10 +33,13 @@ class DictionaryGenerator:
             'Cebuano': {"dayon", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
         }
         noise_words['English'] = self.load_english_noise_words()
+
+        # Clean the English noise words by removing common words in the three languages
+        self.clean_english_noise_words(noise_words)
+
         return noise_words
 
     def load_english_noise_words(self):
-        """Load noise words from the English dictionary CSV file."""
         noise_words = set()
         try:
             with open(self.english_dict_path, 'r', encoding='utf-8') as infile:
@@ -38,18 +49,31 @@ class DictionaryGenerator:
                     if row:  # Check if the row is not empty
                         word = row[0].strip()
                         noise_words.add(word.lower())
+            print(f"Loaded {len(noise_words)} English noise words.")  # Debugging line
         except FileNotFoundError:
             print(f"Error: The file {self.english_dict_path} does not exist.")
         except Exception as e:
             print(f"An error occurred: {e}")
         return noise_words
 
+    def clean_english_noise_words(self, noise_words):
+        """Remove words from English noise words that exist in any of the other three language dictionaries."""
+        tagalog_set = noise_words.get('Tagalog', set())
+        bikol_set = noise_words.get('Bikol', set())
+        cebuano_set = noise_words.get('Cebuano', set())
+
+        # Find common words in the three languages and English, then remove them from English
+        common_words = (tagalog_set | bikol_set | cebuano_set) & noise_words['English']
+        noise_words['English'] = noise_words['English'] - common_words
+
+        print(f"Removed {len(common_words)} common words from the English noise words list.")
+
     def remove_noise(self, words, language):
         """Remove noise words from the list of words."""
         return [word for word in words if word.lower() not in self.noise_words[language.capitalize()]]
 
     def generate_dictionary(self, language):
-        """Generate a word frequency dictionary from preprocessed sentences."""
+        """Generate a word frequency dictionary from preprocessed sentences, excluding words found in the English dictionary."""
         word_count = Counter()
         preprocessed_file = os.path.join(self.preprocessed_dir, f"preprocessed_{language}.csv")
 
@@ -60,8 +84,9 @@ class DictionaryGenerator:
                     if row:  # Check if the row is not empty
                         sentence = row[0]
                         words = sentence.split()
-                        # Remove noise words before counting
-                        cleaned_words = self.remove_noise(words, language)
+                        # Remove noise words and English words before counting
+                        cleaned_words = [word for word in self.remove_noise(words, language)
+                                         if word.lower() not in self.noise_words['English']]
                         word_count.update(cleaned_words)
 
             # Save the dictionary
@@ -81,7 +106,6 @@ class DictionaryGenerator:
             for word, freq in sorted(word_count.items()):
                 writer.writerow([word, freq])
         print(f"Dictionary saved at {dict_file}")
-
 class LanguageIdentification:
     def __init__(self, dictionary_dir):
         self.dictionary_dir = dictionary_dir
@@ -189,10 +213,10 @@ if __name__ == "__main__":
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
     english_dict_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/english_dictionary.csv"
 
-    generator = DictionaryGenerator(preprocessed_dir, dictionary_dir, english_dict_path)
     languages = ['tagalog', 'bikol', 'cebuano']
 
     for language in languages:
+        generator = DictionaryGenerator(preprocessed_dir, dictionary_dir, english_dict_path, language)
         generator.generate_dictionary(language)
 
     # Now, initialize language identification with N-gram support
