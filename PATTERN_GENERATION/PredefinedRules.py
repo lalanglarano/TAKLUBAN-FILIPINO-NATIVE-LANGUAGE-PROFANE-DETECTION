@@ -62,12 +62,23 @@ class PatternGenerator:
         return results if results else "No profane patterns detected"
 
     def add_new_rule(self, csv_filename, rule_name, pos_pattern, description):
-        """Add a new predefined rule to the CSV file."""
+        """Add a new predefined rule to the CSV file if it doesn't already exist."""
+        # Load current rules to check for duplicates
+        current_rules = self.load_predefined_rules(csv_filename)
+        
+        # Check if the rule already exists
+        for rule in current_rules:
+            if rule['Rule Name'] == rule_name and ' '.join(rule['POS Pattern']) == pos_pattern:
+                print(f"Rule '{rule_name}' with POS pattern '{pos_pattern}' already exists.")
+                return  # Exit the function if rule already exists
+        
+        # If the rule doesn't exist, add the new rule
         new_rule = {
             'Rule Name': rule_name,
             'POS Pattern': pos_pattern,  # Store as string; split during reading
             'Description': description
         }
+        
         try:
             with open(csv_filename, 'a', newline='') as file:
                 writer = csv.DictWriter(file, fieldnames=['Rule Name', 'POS Pattern', 'Description'])
@@ -75,7 +86,7 @@ class PatternGenerator:
             print(f"New rule '{rule_name}' added successfully.")
         except Exception as e:
             print(f"Error adding new rule to {csv_filename}: {e}")
-        
+            
 # Example usage
 if __name__ == "__main__":
     # Set the correct path to the predefined rules CSV file
