@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from nltk.tag import StanfordPOSTagger
+from nltk.tag.stanford import StanfordPOSTagger
 
 class POSTagger:
     def __init__(self, language):

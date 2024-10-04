@@ -1,6 +1,5 @@
 import csv
 import os
-from collections import Counter
 from nltk.util import ngrams
 
 class PatternGenerator:
