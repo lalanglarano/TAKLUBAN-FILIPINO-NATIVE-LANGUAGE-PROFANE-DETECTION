@@ -1,5 +1,6 @@
 import os
 import csv
+import joblib
 import subprocess
 from collections import Counter
 import pandas as pd
@@ -29,7 +30,7 @@ class DictionaryGenerator:
         noise_words = {
             'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po"},
             'Bikol': {"ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si"},
-            'Cebuano': {"dayon", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
+            'Cebuano': {"dayon", "ang", "ini", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
         }
         noise_words['English'] = self.load_english_noise_words()
 
@@ -65,7 +66,6 @@ class DictionaryGenerator:
         common_words = (tagalog_set | bikol_set | cebuano_set) & noise_words['English']
         noise_words['English'] = noise_words['English'] - common_words
 
-        print(f"Removed {len(common_words)} common words from the English noise words list.")
 
     def remove_noise(self, words, language):
         """Remove noise words from the list of words."""
@@ -106,11 +106,12 @@ class DictionaryGenerator:
                 writer.writerow([word, freq])
         print(f"Dictionary saved at {dict_file}")
 
-class LanguageIdentification:
+class ModelTraining:
+    """This class is responsible for training the language identification model."""
+    
     def __init__(self, dictionary_dir):
         self.dictionary_dir = dictionary_dir
         self.word_frequencies = self.load_dictionaries()
-        self.model, self.X_test, self.y_test = self.train_model()
 
     def load_dictionaries(self):
         frequencies = {}
@@ -155,14 +156,23 @@ class LanguageIdentification:
         grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
         grid_search.fit(X_train, y_train)
 
-        print(f"Best parameters: {grid_search.best_params_}")
-        print(f"Best cross-validation score: {grid_search.best_score_}")
-
-        # Train the final model with the best parameters
         model = grid_search.best_estimator_
         model.fit(X_train, y_train)
 
+        # Save the trained model to a file
+        model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
+        joblib.dump(model, model_path)  # Save the model to a .pkl file
+        print(f"Model saved at {model_path}")
+
         return model, X_test, y_test
+
+class LanguageIdentification:
+    """This class is responsible for predicting the language based on a pre-trained model."""
+    
+    def __init__(self, model, X_test, y_test):
+        self.model = model
+        self.X_test = X_test
+        self.y_test = y_test
 
     def predict_language(self, sentence):
         return self.model.predict([sentence])[0]
@@ -174,19 +184,15 @@ class LanguageIdentification:
             language_counter[dominant_language] += 1
         return language_counter.most_common(1)[0][0] if language_counter else None
 
-    def evaluate_model(self, test_sentences, true_labels):
+    def evaluate_model(self):
         """Evaluate the model and calculate accuracy, precision, recall, and F1 score."""
-        if not test_sentences or not true_labels:
-            print("Test data is empty or not loaded correctly.")
-            return None, None, None, None
-
-        predictions = [self.predict_language(sentence) for sentence in test_sentences]
+        predictions = [self.predict_language(sentence) for sentence in self.X_test]
 
         # Calculate metrics
-        accuracy = accuracy_score(true_labels, predictions)
-        precision = precision_score(true_labels, predictions, average='weighted', zero_division=0)
-        recall = recall_score(true_labels, predictions, average='weighted', zero_division=0)
-        f1 = f1_score(true_labels, predictions, average='weighted', zero_division=0)
+        accuracy = accuracy_score(self.y_test, predictions)
+        precision = precision_score(self.y_test, predictions, average='weighted', zero_division=0)
+        recall = recall_score(self.y_test, predictions, average='weighted', zero_division=0)
+        f1 = f1_score(self.y_test, predictions, average='weighted', zero_division=0)
 
         return accuracy, precision, recall, f1
 
@@ -219,22 +225,22 @@ if __name__ == "__main__":
         generator = DictionaryGenerator(preprocessed_dir, dictionary_dir, english_dict_path, language)
         generator.generate_dictionary(language)
 
-    # Now, initialize language identification with N-gram support
-    language_id = LanguageIdentification(dictionary_dir)
+    # Train the model
+    trainer = ModelTraining(dictionary_dir)
+    model, X_test, y_test = trainer.train_model()
 
-    # Evaluate the model on the test set
-    accuracy, precision, recall, f1 = language_id.evaluate_model(language_id.X_test, language_id.y_test)
+    # Language identification using the trained model
+    language_identifier = LanguageIdentification(model, X_test, y_test)
 
-    if accuracy is not None:
-        print(f"Model Evaluation Metrics on Test Set:\n"
-              f"Accuracy: {accuracy:.2f}\n"
-              f"Precision: {precision:.2f}\n"
-              f"Recall: {recall:.2f}\n"
-              f"F1 Score: {f1:.2f}")
-    else:
-        print("Evaluation failed due to missing or incorrect test data.")
+    # Evaluate the model
+    accuracy, precision, recall, f1 = language_identifier.evaluate_model()
+    print(f"Model Evaluation Metrics on Test Set:\n"
+          f"Accuracy: {accuracy:.2f}\n"
+          f"Precision: {precision:.2f}\n"
+          f"Recall: {recall:.2f}\n"
+          f"F1 Score: {f1:.2f}")
 
     # Determine the dominant language from sentences
     sentences = ["kagulo gulo ang patal na ini"]  # Replace with actual sentences
-    dominant_language = language_id.determine_language(sentences)
+    dominant_language = language_identifier.determine_language(sentences)
     print(f"The dominant language is: {dominant_language}")
