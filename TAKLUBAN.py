@@ -1,7 +1,7 @@
 import csv
 import os
 import joblib  # Add this for loading the model
-from LanguageIdentification.FNLI import LanguageIdentification  # Import only the required class
+from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining  # Import necessary classes
 
 # Define the path to save the results
 output_file = "data.csv"
@@ -18,23 +18,35 @@ def save_to_csv(sentence, language):
         writer = csv.writer(csvfile)
         writer.writerow([sentence, language])
 
-def main():
-    # Load the pre-trained model from the saved file
-    model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
-    
-    # Use joblib to load the pre-trained model
-    try:
-        model = joblib.load(model_path)
-        print("Model loaded successfully.")
-    except FileNotFoundError:
-        print(f"Error: The model file {model_path} does not exist.")
-        return
-    except Exception as e:
-        print(f"An error occurred while loading the model: {e}")
-        return
+def train_model_if_not_exists(model_path, dictionary_dir):
+    """Train and save the model if the pre-saved model is not found."""
+    if not os.path.exists(model_path):
+        print(f"Model file {model_path} not found. Training a new model...")
+        
+        # Run the model training process
+        trainer = ModelTraining(dictionary_dir)
+        model, X_test, y_test = trainer.train_model()
 
-    # Initialize the LanguageIdentification class with the loaded model
-    language_identifier = LanguageIdentification(model=model, X_test=[], y_test=[])
+        # Save the trained model
+        joblib.dump(model, model_path)
+        print(f"Model trained and saved at {model_path}.")
+        return model, X_test, y_test
+    else:
+        # If model exists, load it
+        print(f"Loading pre-saved model from {model_path}.")
+        model = joblib.load(model_path)
+        return model, [], []
+
+def main():
+    # Define the paths
+    model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
+    dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
+
+    # Check if the model exists, if not train it
+    model, X_test, y_test = train_model_if_not_exists(model_path, dictionary_dir)
+
+    # Initialize the LanguageIdentification class with the loaded or newly trained model
+    language_identifier = LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
 
     print("Welcome to Takluban Language Identifier! Enter your sentences below:")
 
