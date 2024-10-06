@@ -46,5 +46,3 @@ Ensure that the following software is installed on your system:
    ```bash
    java -version
    ```
-
-With these steps, you're all set to run the TAKLUBAN project locally!

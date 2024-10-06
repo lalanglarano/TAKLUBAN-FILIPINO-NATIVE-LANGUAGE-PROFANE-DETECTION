@@ -4,6 +4,7 @@ from nltk.util import ngrams
 
 class PatternGenerator:
     def __init__(self, csv_filename):
+        # Load predefined rules from CSV
         self.rules = self.load_predefined_rules(csv_filename)
         
     def load_predefined_rules(self, csv_filename):
@@ -46,7 +47,8 @@ class PatternGenerator:
         for n in range(1, 4):
             ngrams_list = self.generate_ngrams(pos_tagged_text, n)
             results += self.apply_rules_to_ngrams(ngrams_list)
-        return results if results else ["No profane patterns detected"]
+        
+        return results if results else "No profane patterns detected"
 
     def add_new_rule(self, csv_filename, rule_name, pos_pattern, description):
         current_rules = self.load_predefined_rules(csv_filename)
@@ -75,9 +77,11 @@ if __name__ == "__main__":
     
     pattern_generator = PatternGenerator(predefined_rules_path)
     
+    # Example POS-tagged text (e.g., ['Tanga|JJD', 'mo|PRS', 'bobo|NNC'])
     pos_tagged_sentence = ['Tanga|JJD', 'mo|PRS', 'bobo|NNC', 'pakyu|FW']
     
     detected_patterns = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
     print("Detected Profane Patterns:", detected_patterns)
     
+    # Example of adding a new rule to the CSV file
     pattern_generator.add_new_rule(predefined_rules_path, 'new_adj_noun_rule', 'JJD PRS NNC', 'Profane Adjective-Pronoun-Noun')
