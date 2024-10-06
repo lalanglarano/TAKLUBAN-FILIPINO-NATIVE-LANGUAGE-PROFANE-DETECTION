@@ -32,8 +32,8 @@ class POSTagger:
         # Define regex patterns for different parts of speech
         patterns = {
             'VB': r'\b(mag|nag|mi|ni)[a-zA-Z]+\b',  # Cebuano verb markers
-            'NN': r'\b[a-zA-Z]+on\b',  # Cebuano nouns ending in "on"
-            'JJ': r'\b(ma|ka)[a-zA-Z]+an\b',  # Cebuano adjectives
+            'NNC': r'\b[a-zA-Z]+on\b',  # Cebuano nouns ending in "on"
+            'JJD': r'\b(ma|ka)[a-zA-Z]+an\b',  # Cebuano adjectives
             'PRP': r'\bako|ikaw|siya|kami|kita|sila\b',  # Cebuano pronouns
             'DT': r'\bang|ang mga\b',  # Cebuano determiners
         }
