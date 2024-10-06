@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-from nltk.tag.stanford import StanfordPOSTagger
 import re
 
 class POSTagger:
@@ -19,58 +18,77 @@ class POSTagger:
         self.data = pd.read_csv(self.input_file, names=['lemmatized'])
         print(f"Loaded lemmatized data for Bikol. Number of sentences: {len(self.data)}")
 
-        # Set up the Stanford POS Tagger
-        self.tagger = StanfordPOSTagger(
-            model_filename='Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger',
-            path_to_jar='Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
-        )
-
-    def apply_custom_rules(self, pos_tagged_text):
+    def apply_custom_rules(self, token):
         """
         Apply custom regex rules to handle specific Bikol structures.
         """
-        # Define regex patterns for different parts of speech
+
+        # Define regex patterns for different parts of speech (case-insensitive)
         patterns = {
-            'VB': r'\b(ma|mag|nag)[a-zA-Z]+\b',  # Bikol verb markers
-            'NN': r'\b[a-zA-Z]+on\b',  # Bikol nouns ending in "on"
-            'JJ': r'\b(a|ka)[a-zA-Z]+on\b',  # Bikol adjectives
-            'PRP': r'\bako|ikaw|siya|kami|kita|sinda\b',  # Bikol pronouns
-            'DT': r'\bang|mga\b',  # Bikol determiners
+            'VB': r'\b(ma|mag|nag|mang|pinag|pa|ka)[a-zA-Z]+\b',  # Bikol verb markers
+            'NN': r'\b[a-zA-Z]+on\b|\b[a-zA-Z]+an\b|\b[a-zA-Z]+(ta|hon|lay|li)[a-zA-Z]*\b',  # Bikol nouns
+            'JJ': r'\b(a|ka|mala)[a-zA-Z]+on\b|\bpinaka[a-zA-Z]+\b',  # Bikol adjectives
+            'PRP': r'\bako|ikaw|siya|kami|kita|sinda|niya|ninda|niato|nato|saindo\b',  # Bikol pronouns
+            'DT': r'\bang|mga|si|sa|kan|kun\b',  # Bikol determiners
+            'RB': r'\b(dakul|gad|hala|dai|maya|sira|sinya|urug)\b',  # Bikol adverbs
+            'CC': r'\bog|pero|kundi\b',  # Conjunctions like "og", "pero"
+            'IN': r'\bpara|paagi|asin|kan\b',  # Prepositions like "para", "paagi"
+            'CD': r'\bisa|duwa|tulo|apat|lima|anum|pito|walo|siyam|sampulo\b',  # Numbers in Bikol
+            'EX': r'\bmay\b|\bmayda\b',  # Existentials
+            'NNC': r'\bENOT|IGWA\b'  # Custom Bikol nouns
         }
 
-        # Apply regex patterns to the POS tagged text
+        # Apply regex patterns to the token with case-insensitivity
         for tag, pattern in patterns.items():
-            pos_tagged_text = re.sub(pattern, lambda m: f"{m.group(0)}/{tag}", pos_tagged_text)
-        
-        return pos_tagged_text
+            if re.fullmatch(pattern, token, flags=re.IGNORECASE):
+                print(f"Matched: {token} -> {tag}")  # Debugging print
+                return f"{token}/{tag}"
+
+        # If no pattern matched, return token with 'UNK' tag
+        print(f"No match for: {token}")  # Debugging print for unmatched tokens
+        return f"{token}/UNK"
 
     def pos_tag_text(self, text):
-        # Perform POS tagging using SPOST
-        try:
+        # Ensure the text is a string and not a float or other type
+        if isinstance(text, str):
+            # Convert text to lowercase before tokenizing
+            text = text.lower()
+            print(f"Processing text: {text}")  # Debugging print
+            
+            # Tokenize the text
             tokens = text.split()
-            pos_tags = self.tagger.tag(tokens)
-            pos_tagged_text = ' '.join([f"{word}/{tag}" for word, tag in pos_tags])
+            print(f"Tokens: {tokens}")  # Debugging print to check tokens
 
-            # Apply custom regex rules
-            pos_tagged_text = self.apply_custom_rules(pos_tagged_text)
+            # Apply custom rules to each token
+            pos_tagged_tokens = [self.apply_custom_rules(token) for token in tokens]
 
-            print(f"POS-tagged text (with custom rules): {pos_tagged_text}")
+            pos_tagged_text = ' '.join(pos_tagged_tokens)
+            print(f"POS-tagged text: {pos_tagged_text}")  # Debugging print
             return pos_tagged_text
-        except Exception as e:
-            print(f"Error during POS tagging: {e}")
-            return text
+        else:
+            # Handle non-string values (e.g., NaN) by returning an appropriate tag
+            print(f"Invalid text: {text} (not a string)")  # Debugging print for invalid values
+            return 'UNK'
 
     def pos_tag_sentences(self, batch_size=10):
         try:
             for i in range(0, len(self.data), batch_size):
-                batch = self.data.iloc[i:i+batch_size]
+                # Create a copy of the batch to avoid the warning
+                batch = self.data.iloc[i:i+batch_size].copy()
+
+                # Fill missing values and convert to string
+                batch['lemmatized'] = batch['lemmatized'].fillna('').astype(str)
+
+                # Apply POS tagging
                 batch['pos_tagged'] = batch['lemmatized'].apply(self.pos_tag_text)
+
+                # Save the output to the CSV file
                 batch[['pos_tagged']].to_csv(self.output_file, mode='a', index=False, header=(i == 0))
                 print(f"Processed batch {i//batch_size + 1} of {len(self.data) // batch_size + 1}")
+
             print(f"POS tagging complete. Results saved to {self.output_file}.")
         except Exception as e:
             print(f"An error occurred during POS tagging: {e}")
-
 
 if __name__ == "__main__":
     pos_tagger = POSTagger()
