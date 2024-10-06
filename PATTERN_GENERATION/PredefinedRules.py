@@ -6,6 +6,7 @@ import os
 class PatternGenerator:
     def __init__(self, csv_filename):
         # Load predefined rules from CSV
+        self.csv_filename = csv_filename
         self.rules = self.load_predefined_rules(csv_filename)
         
     def load_predefined_rules(self, csv_filename):
@@ -59,7 +60,14 @@ class PatternGenerator:
             ngrams_list = self.generate_ngrams(pos_tagged_text, n)
             results += self.apply_rules_to_ngrams(ngrams_list)
         
-        return results if results else "No profane patterns detected"
+        if results:
+            return results
+        else:
+            print("No profane patterns detected, adding new pattern for future reference.")
+            # If no patterns detected, add the new sentence to the CSV
+            pos_pattern = ' '.join([item.split('|')[1] for item in pos_tagged_text])  # Extract the POS pattern
+            self.add_new_rule(self.csv_filename, f"New Pattern: {' '.join([item.split('|')[0] for item in pos_tagged_text])}", pos_pattern, "Automatically learned")
+            return "No profane patterns detected, but the new pattern has been saved."
 
     def add_new_rule(self, csv_filename, rule_name, pos_pattern, description):
         """Add a new predefined rule to the CSV file if it doesn't already exist."""
@@ -96,13 +104,10 @@ if __name__ == "__main__":
     # Initialize pattern generator with predefined rules CSV file
     pattern_generator = PatternGenerator(predefined_rules_path)
     
-    # Example POS-tagged text (e.g., ['Tanga|JJD', 'mo|PRS', 'bobo|NNC'])
-    pos_tagged_sentence = ['Tanga|JJD', 'mo|PRS', 'bobo|NNC', 'pakyu|FW']
+    # Example POS-tagged text (e.g., ['Tanga|JJD', 'mo|PRS', 'bobo|NNC', 'pakyu|FW'])
+    pos_tagged_sentence = ['kingina|JJD', 'mo|PRS', 'poging|JJD', 'pakyu|FW']
     
     # Detect profane patterns in the POS-tagged sentence
     detected_patterns = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
     
     print("Detected Profane Patterns:", detected_patterns)
-    
-    # Example of adding a new rule to the CSV file
-    pattern_generator.add_new_rule(predefined_rules_path, 'new_adj_noun_rule', 'JJD PRS NNC', 'Profane Adjective-Pronoun-Noun')

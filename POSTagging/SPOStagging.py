@@ -48,8 +48,8 @@ class POSTagger:
             print(f"An error occurred during POS tagging: {e}")
 
 
-# POS tag files only for Cebuano
-languages = ['cebuano']
+# POS tag files 
+languages = ['tagalog','bikol','cebuano']
 
 for language in languages:
     pos_tagger = POSTagger(language)
