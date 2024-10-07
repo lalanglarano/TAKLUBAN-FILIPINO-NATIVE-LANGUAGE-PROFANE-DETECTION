@@ -5,9 +5,8 @@ import csv
 class TextPreprocessor:
     def __init__(self, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-        results_folder = os.path.join(base_path, "Results")
-        self.input_file = os.path.join(results_folder, "dataset", f"dataset_{language}.csv")
-        self.output_file = os.path.join(results_folder, "preprocessed", f"preprocessed_{language}.csv")
+        self.input_file = os.path.join(base_path, f"UsedDataset/dataset_{language}_sentence_profane.csv")
+        self.output_file = os.path.join(base_path, f"Results/preprocessed/preprocessed_{language}_sentence_profane.csv")
 
         os.makedirs(os.path.dirname(self.input_file), exist_ok=True)
         os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
@@ -23,24 +22,39 @@ class TextPreprocessor:
         return [chunk.strip() for chunk in re.split(r'[.!?]', text) if len(chunk.split()) >= 4]
 
     def process_file(self):
-        """Preprocess text and save sentences to a CSV file."""
+        """Preprocess text and save sentences with labels to a CSV file."""
         if not os.path.exists(self.input_file):
             print(f"Error: The file {self.input_file} does not exist.")
             return
 
         try:
             with open(self.input_file, 'r', encoding='utf-8') as infile, open(self.output_file, 'w', newline='', encoding='utf-8') as outfile:
+                reader = csv.reader(infile)
                 writer = csv.writer(outfile)
-                for line in infile:
-                    preprocessed_line = self.preprocess_text(line)
-                    sentences = self.split_into_sentences(preprocessed_line)
-                    for sentence in sentences:
-                        writer.writerow([sentence])
+
+                header = next(reader) 
+                writer.writerow(header)
+
+                # Process each row
+                for row in reader:
+                    sentence = row[0]
+                    label = row[1]
+
+                    # Preprocess the sentence
+                    preprocessed_sentence = self.preprocess_text(sentence)
+
+                    # Split into multiple sentences if needed
+                    sentences = self.split_into_sentences(preprocessed_sentence)
+
+                    # Write each sentence with the corresponding label
+                    for processed_sentence in sentences:
+                        writer.writerow([processed_sentence, label])
+        
         except Exception as e:
             print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    languages = ['tagalog', 'bikol', 'cebuano']
+    languages = ['bikol', 'tagalog']
     for language in languages:
         processor = TextPreprocessor(language)
         processor.process_file()
