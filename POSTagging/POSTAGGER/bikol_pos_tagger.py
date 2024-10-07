@@ -33,7 +33,7 @@ class POSTagger:
             'RB': r'\b(dakul|gad|hala|dai|maya|sira|sinya|urug)\b',  # Bikol adverbs
             'CC': r'\bog|pero|kundi\b',  # Conjunctions like "og", "pero"
             'IN': r'\bpara|paagi|asin|kan\b',  # Prepositions like "para", "paagi"
-            'CD': r'\bisa|duwa|tulo|apat|lima|anum|pito|walo|siyam|sampulo\b',  # Numbers in Bikol
+            'CD': r'\bisa|duwa|tulo|apat|lima|anum|pito|walo|siyam|sampulo\b',  # Cardinal Numbers in Bikol
             'EX': r'\bmay\b|\bmayda\b',  # Existentials
             'NNC': r'\bENOT|IGWA\b'  # Custom Bikol nouns
         }
