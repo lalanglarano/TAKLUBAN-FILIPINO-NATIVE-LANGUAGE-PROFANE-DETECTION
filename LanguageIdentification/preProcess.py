@@ -54,7 +54,7 @@ class TextPreprocessor:
             print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    languages = ['bikol', 'tagalog']
+    languages = ['bikol', 'tagalog', 'cebuano']
     for language in languages:
         processor = TextPreprocessor(language)
         processor.process_file()
