@@ -4,7 +4,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #800008; 
+    background-color: #800000; 
     padding: 10px 20px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -39,6 +39,11 @@ nav .title {
     color: #FFD700; /* Gold color on hover */
 }
 
+/* Active link styling */
+.nav-links .active {
+    font-weight: bold; /* Bold the active link */
+}
+
 /* Style for the body background image */
 body {
     background-image: url('../assets/tklbn-bg.png'); 
@@ -55,11 +60,9 @@ body {
     min-height: 100vh;
 }
 
-
-
 /* Footer styles */
 footer {
-    background-color: #800008; /* Dark red background color */
+    background-color: #800000; 
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -77,4 +80,3 @@ footer p {
     font-size: 14px;
     vertical-align: middle;
 }
-
