@@ -4,10 +4,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #800008; 
+    background-color: #800000; 
     padding: 10px 20px;
     font-family: 'Montserrat', sans-serif;
-    margin-bottom: 50px;/* Adds some space below the navigation bar */
+    margin-bottom: 50px; /* Adds some space below the navigation bar */
 }
 
 /* Style for the title */
@@ -38,6 +38,11 @@ nav .title {
 
 .nav-links a:hover {
     color: #FFD700; /* Gold color on hover */
+}
+
+/* Active link styling */
+.nav-links .active {
+    font-weight: bold; /* Bold the active link */
 }
 
 /* Style for the body background image */
