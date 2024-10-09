@@ -1,0 +1,189 @@
+/* Style for the navigation bar */
+nav {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #800008; 
+    padding: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 50px;/* Adds some space below the navigation bar */
+}
+
+/* Style for the title */
+nav .title {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Style for the navigation links */
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px; /* Space between the links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FFD700; /* Gold color on hover */
+}
+
+/* Style for the body background image */
+body {
+    background-image: url('../assets/tklbn-bg.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+/* Centering container */
+.container {
+    display: flex;
+    justify-content: center; /* Centers the container horizontally */
+    align-items: flex-start; /* Aligns the container items to the top */
+    gap: 25px; /* Gap between the left and right sections */
+    padding: 20px;
+    width: 90%; /* Container width */
+    max-width: 1300px; /* Max width for responsiveness */
+    margin: 0 auto; /* Centers the container */
+    flex-grow: 1; /* Ensures the container takes up available space */
+}
+
+/* Left container */
+.left {
+    width: 600px;
+    height: 700px;
+    background: #F9EFEF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0; /* Remove padding to maximize the text area space */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between text area and detect button */
+}
+
+/* Text area */
+#text-area {
+    width: 100%;
+    height: calc(100% - 60px);
+    background: #F9EFEF; /* Full height minus the space for the detect button */
+    padding: 20px;
+    border: none; /* Removes the border */
+    border-radius: 0; /* Removes any rounded corners */
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    transition: height 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+    resize: none; /* Prevents resizing */
+    outline: none; /* Removes the outline when focused */
+    box-sizing: border-box; /* Ensures padding is included within width/height */
+    margin: 0; /* Remove default margins */
+}
+
+/* Style for the text area placeholder */
+#text-area::placeholder {
+    font-weight: bold; /* Make the placeholder text bold */
+    color: rgba(0, 0, 0, 0.31); /* Set color similar to placeholder */
+    font-style: italic; /* Keep italic for the placeholder */
+}
+
+/* Change font style and color when text area is focused or contains text */
+#text-area:not(:placeholder-shown) {
+    font-size: 18px;
+    font-style: normal; /* Removes italic */
+}
+
+/* Detect button container (inside left container, aligned to right side) */
+.detect-button-container {
+    width: 146px;
+    height: 40px;
+    background: #800000;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px; /* Adjusts vertical positioning to the bottom of the left container */
+    right: 20px; /* Aligns the button container to the right side of the left container */
+}
+
+/* Detect button */
+.detect-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Frame 6, Frame 5, Frame 7 (Right side) */
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between the modules */
+}
+
+.right .module {
+    width: 600px;
+    height: 180px;
+    background: #F9EFEF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    position: relative;
+}
+
+/* Module title */
+.module-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #800000; /* Dark red background color */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px; 
+}
+
+footer img {
+    height: 20px;
+    vertical-align: middle;
+}
+
+footer p {
+    margin: 0;
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: middle;
+}
