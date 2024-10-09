@@ -1,6 +1,5 @@
 import os
 import csv
-import joblib
 import subprocess
 from collections import Counter
 import pandas as pd
@@ -11,35 +10,25 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 class DictionaryGenerator:
-    def __init__(self, preprocessed_dir, dictionary_dir, english_dict_path, language):
-        base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-        results_folder = f"{base_path}/Results"
-        self.language = language  # Add language to the instance
-        self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
-        self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
-        self.english_dict_path = f"{dictionary_dir}/english_dictionary.csv"
-        self.preprocessed_dir = preprocessed_dir  # Ensure the directory paths are available
+    def __init__(self, preprocessed_dir, dictionary_dir, english_dict_path):
+        self.preprocessed_dir = preprocessed_dir
         self.dictionary_dir = dictionary_dir
-        os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
-
-        # Initialize noise words for all languages
+        self.english_dict_path = english_dict_path
         self.noise_words = self.initialize_noise_words()
+        os.makedirs(self.dictionary_dir, exist_ok=True)
 
     def initialize_noise_words(self):
         """Initialize common noise words for Tagalog, Bikol, Cebuano, and English."""
         noise_words = {
             'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po"},
             'Bikol': {"ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si"},
-            'Cebuano': {"dayon", "ang", "ini", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
+            'Cebuano': {"dayon", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
         }
         noise_words['English'] = self.load_english_noise_words()
-
-        # Clean the English noise words by removing common words in the three languages
-        self.clean_english_noise_words(noise_words)
-
         return noise_words
 
     def load_english_noise_words(self):
+        """Load noise words from the English dictionary CSV file."""
         noise_words = set()
         try:
             with open(self.english_dict_path, 'r', encoding='utf-8') as infile:
@@ -49,30 +38,18 @@ class DictionaryGenerator:
                     if row:  # Check if the row is not empty
                         word = row[0].strip()
                         noise_words.add(word.lower())
-            print(f"Loaded {len(noise_words)} English noise words.")  # Debugging line
         except FileNotFoundError:
             print(f"Error: The file {self.english_dict_path} does not exist.")
         except Exception as e:
             print(f"An error occurred: {e}")
         return noise_words
 
-    def clean_english_noise_words(self, noise_words):
-        """Remove words from English noise words that exist in any of the other three language dictionaries."""
-        tagalog_set = noise_words.get('Tagalog', set())
-        bikol_set = noise_words.get('Bikol', set())
-        cebuano_set = noise_words.get('Cebuano', set())
-
-        # Find common words in the three languages and English, then remove them from English
-        common_words = (tagalog_set | bikol_set | cebuano_set) & noise_words['English']
-        noise_words['English'] = noise_words['English'] - common_words
-
-
     def remove_noise(self, words, language):
         """Remove noise words from the list of words."""
         return [word for word in words if word.lower() not in self.noise_words[language.capitalize()]]
 
     def generate_dictionary(self, language):
-        """Generate a word frequency dictionary from preprocessed sentences, excluding words found in the English dictionary."""
+        """Generate a word frequency dictionary from preprocessed sentences."""
         word_count = Counter()
         preprocessed_file = os.path.join(self.preprocessed_dir, f"preprocessed_{language}.csv")
 
@@ -83,9 +60,8 @@ class DictionaryGenerator:
                     if row:  # Check if the row is not empty
                         sentence = row[0]
                         words = sentence.split()
-                        # Remove noise words and English words before counting
-                        cleaned_words = [word for word in self.remove_noise(words, language)
-                                         if word.lower() not in self.noise_words['English']]
+                        # Remove noise words before counting
+                        cleaned_words = self.remove_noise(words, language)
                         word_count.update(cleaned_words)
 
             # Save the dictionary
@@ -106,12 +82,11 @@ class DictionaryGenerator:
                 writer.writerow([word, freq])
         print(f"Dictionary saved at {dict_file}")
 
-class ModelTraining:
-    """This class is responsible for training the language identification model."""
-    
+class LanguageIdentification:
     def __init__(self, dictionary_dir):
         self.dictionary_dir = dictionary_dir
         self.word_frequencies = self.load_dictionaries()
+        self.model, self.X_test, self.y_test = self.train_model()
 
     def load_dictionaries(self):
         frequencies = {}
@@ -156,23 +131,14 @@ class ModelTraining:
         grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
         grid_search.fit(X_train, y_train)
 
+        print(f"Best parameters: {grid_search.best_params_}")
+        print(f"Best cross-validation score: {grid_search.best_score_}")
+
+        # Train the final model with the best parameters
         model = grid_search.best_estimator_
         model.fit(X_train, y_train)
 
-        # Save the trained model to a file
-        model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
-        joblib.dump(model, model_path)  # Save the model to a .pkl file
-        print(f"Model saved at {model_path}")
-
         return model, X_test, y_test
-
-class LanguageIdentification:
-    """This class is responsible for predicting the language based on a pre-trained model."""
-    
-    def __init__(self, model, X_test, y_test):
-        self.model = model
-        self.X_test = X_test
-        self.y_test = y_test
 
     def predict_language(self, sentence):
         return self.model.predict([sentence])[0]
@@ -184,15 +150,19 @@ class LanguageIdentification:
             language_counter[dominant_language] += 1
         return language_counter.most_common(1)[0][0] if language_counter else None
 
-    def evaluate_model(self):
+    def evaluate_model(self, test_sentences, true_labels):
         """Evaluate the model and calculate accuracy, precision, recall, and F1 score."""
-        predictions = [self.predict_language(sentence) for sentence in self.X_test]
+        if not test_sentences or not true_labels:
+            print("Test data is empty or not loaded correctly.")
+            return None, None, None, None
+
+        predictions = [self.predict_language(sentence) for sentence in test_sentences]
 
         # Calculate metrics
-        accuracy = accuracy_score(self.y_test, predictions)
-        precision = precision_score(self.y_test, predictions, average='weighted', zero_division=0)
-        recall = recall_score(self.y_test, predictions, average='weighted', zero_division=0)
-        f1 = f1_score(self.y_test, predictions, average='weighted', zero_division=0)
+        accuracy = accuracy_score(true_labels, predictions)
+        precision = precision_score(true_labels, predictions, average='weighted', zero_division=0)
+        recall = recall_score(true_labels, predictions, average='weighted', zero_division=0)
+        f1 = f1_score(true_labels, predictions, average='weighted', zero_division=0)
 
         return accuracy, precision, recall, f1
 
@@ -219,28 +189,28 @@ if __name__ == "__main__":
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
     english_dict_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/english_dictionary.csv"
 
+    generator = DictionaryGenerator(preprocessed_dir, dictionary_dir, english_dict_path)
     languages = ['tagalog', 'bikol', 'cebuano']
 
     for language in languages:
-        generator = DictionaryGenerator(preprocessed_dir, dictionary_dir, english_dict_path, language)
         generator.generate_dictionary(language)
 
-    # Train the model
-    trainer = ModelTraining(dictionary_dir)
-    model, X_test, y_test = trainer.train_model()
+    # Now, initialize language identification with N-gram support
+    language_id = LanguageIdentification(dictionary_dir)
 
-    # Language identification using the trained model
-    language_identifier = LanguageIdentification(model, X_test, y_test)
+    # Evaluate the model on the test set
+    accuracy, precision, recall, f1 = language_id.evaluate_model(language_id.X_test, language_id.y_test)
 
-    # Evaluate the model
-    accuracy, precision, recall, f1 = language_identifier.evaluate_model()
-    print(f"Model Evaluation Metrics on Test Set:\n"
-          f"Accuracy: {accuracy:.2f}\n"
-          f"Precision: {precision:.2f}\n"
-          f"Recall: {recall:.2f}\n"
-          f"F1 Score: {f1:.2f}")
+    if accuracy is not None:
+        print(f"Model Evaluation Metrics on Test Set:\n"
+              f"Accuracy: {accuracy:.2f}\n"
+              f"Precision: {precision:.2f}\n"
+              f"Recall: {recall:.2f}\n"
+              f"F1 Score: {f1:.2f}")
+    else:
+        print("Evaluation failed due to missing or incorrect test data.")
 
     # Determine the dominant language from sentences
     sentences = ["kagulo gulo ang patal na ini"]  # Replace with actual sentences
-    dominant_language = language_identifier.determine_language(sentences)
+    dominant_language = language_id.determine_language(sentences)
     print(f"The dominant language is: {dominant_language}")
