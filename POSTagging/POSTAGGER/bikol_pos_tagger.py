@@ -6,56 +6,96 @@ class POSTagger:
     def __init__(self):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
         results_folder = f"{base_path}/Results"
-        self.input_file = f"{results_folder}/lemmatized/lemmatize_bikol.csv"
-        self.output_dir = f"{results_folder}/pos_tagged/"
-        self.output_file = f"{self.output_dir}/FPOSTagged_bikol.csv"
+        self.input_file = f"{results_folder}/pos_tagged/FPOSTagged_bikol.csv"
+        self.output_dir = f"{results_folder}/DATASETOFREGEX"
+        self.output_file = f"{self.output_dir}/Tagged_bikol.csv"
 
         # Ensure the output directory exists
         if not os.path.exists(self.output_dir):
             os.makedirs(self.output_dir)
 
-        # Load the lemmatized data
-        self.data = pd.read_csv(self.input_file, names=['lemmatized'])
-        print(f"Loaded lemmatized data for Bikol. Number of sentences: {len(self.data)}")
+        # Check if the input file exists
+        if not os.path.exists(self.input_file):
+            raise FileNotFoundError(f"Input file not found: {self.input_file}")
+
+        # Load the data
+        self.data = pd.read_csv(self.input_file)
+        print(f"Loaded data for Bikol. Number of sentences: {len(self.data)}")
+
+        # Check if the 'pos_tagged' column exists
+        if 'pos_tagged' not in self.data.columns:
+            raise ValueError(f"'pos_tagged' column not found in the input file. Available columns: {self.data.columns}")
+
+    def clean_token(self, token):
+        """
+        Clean the token by removing unwanted characters like slashes and trimming extra spaces.
+        Expected format: word|tag
+        """
+
+        # Remove any leading/trailing spaces or slashes
+        token = token.strip()
+
+        # Remove leading '/' if present before the word
+        if token.startswith('/'):
+            token = token[1:]
+
+        # Ensure proper formatting of 'word|tag'
+        if '|' not in token:
+            print(f"Invalid token format, no '|': {token}")
+            return token  # Return as-is if formatting is wrong
+
+        word, tag = token.split('|', 1)  # Split only once at '|'
+        word = word.strip()  # Clean up spaces around the word
+        tag = tag.strip()  # Clean up spaces around the tag
+
+        # Return the cleaned token
+        return f"{word}|{tag}"
 
     def apply_custom_rules(self, token):
         """
-        Apply custom regex rules to handle specific Bikol structures.
+        Apply custom regex rules to handle specific Bikol structures and update the POS tag if a match is found.
         """
+
+        # First, clean the token
+        token = self.clean_token(token)
 
         # Define regex patterns for different parts of speech (case-insensitive)
         patterns = {
-            'VB': r'\b(ma|mag|nag|mang|pinag|pa|ka)[a-zA-Z]+\b',  # Bikol verb markers
-            'NN': r'\b[a-zA-Z]+on\b|\b[a-zA-Z]+an\b|\b[a-zA-Z]+(ta|hon|lay|li)[a-zA-Z]*\b',  # Bikol nouns
-            'JJ': r'\b(a|ka|mala)[a-zA-Z]+on\b|\bpinaka[a-zA-Z]+\b',  # Bikol adjectives
-            'PRP': r'\bako|ikaw|siya|kami|kita|sinda|niya|ninda|niato|nato|saindo\b',  # Bikol pronouns
-            'DT': r'\bang|mga|si|sa|kan|kun\b',  # Bikol determiners
-            'RB': r'\b(dakul|gad|hala|dai|maya|sira|sinya|urug)\b',  # Bikol adverbs
-            'CC': r'\bog|pero|kundi\b',  # Conjunctions like "og", "pero"
-            'IN': r'\bpara|paagi|asin|kan\b',  # Prepositions like "para", "paagi"
-            'CD': r'\bisa|duwa|tulo|apat|lima|anum|pito|walo|siyam|sampulo\b',  # Cardinal Numbers in Bikol
-            'EX': r'\bmay\b|\bmayda\b',  # Existentials
-            'NNC': r'\bENOT|IGWA\b'  # Custom Bikol nouns
+            'VB': r'\b(MA|MAG|NAG|MANG|PINAG|PA|KA)[a-zA-Z]+\b',  # Bikol verb markers
+            'NN': r'\b[a-zA-Z]+on\b|\b[a-zA-Z]+an\b|\b[a-zA-Z]+(TA|HON|LAY|LI)[a-zA-Z]*\b',  # Bikol nouns
+            'JJ': r'\b(A|KA|MALA)[a-zA-Z]+on\b|\bPINAKA[a-zA-Z]+\b',  # Bikol adjectives
+            'PRP': r'\bAKO|IKAW|SIYA|KAMI|KITA|SINDA|NIYA|NINDA|NIATO|NATO|SAINDO\b',  # Bikol pronouns
+            'DT': r'\bANG|MGA|SI|SA|KAN|KUN\b',  # Bikol determiners
+            'RB': r'\b(DAKUL|GAD|HALA|DAI|MAYA|SIRA|SINYA|URUG)\b',  # Bikol adverbs
+            'CC': r'\bOG|PERO|KUNDI\b',  # Conjunctions like "og", "pero"
+            'IN': r'\bPARA|PAAGI|ASIN|KAN\b',  # Prepositions like "para", "paagi"
+            'CD': r'\bSARO|DUWA|TULO|APAT|LIMA|ANOM|PITO|WALO|SIYAM|SAMPULO\b',  # Cardinal Numbers in Bikol
+            'EX': r'\bMAY\b|\bMAYDA\b'  # Existentials
         }
 
-        # Apply regex patterns to the token with case-insensitivity
-        for tag, pattern in patterns.items():
-            if re.fullmatch(pattern, token, flags=re.IGNORECASE):
-                print(f"Matched: {token} -> {tag}")  # Debugging print
-                return f"{token}/{tag}"
+        # Split the cleaned token into word and tag
+        try:
+            word, current_tag = token.split('|')
+        except ValueError:
+            print(f"Invalid token format after cleaning: {token}")
+            return token  # Return as-is if formatting is still wrong
 
-        # If no pattern matched, return token with 'UNK' tag
-        print(f"No match for: {token}")  # Debugging print for unmatched tokens
-        return f"{token}/UNK"
+        # Apply regex patterns to the word with case-insensitivity
+        for tag, pattern in patterns.items():
+            if re.fullmatch(pattern, word, flags=re.IGNORECASE):
+                print(f"Matched: {word} -> {tag}")  # Debugging print
+                return f"{word}|{tag}"  # Update the tag
+
+        # If no pattern matched, return the original token with its current tag
+        print(f"No match for: {word}")  # Debugging print for unmatched tokens
+        return token
 
     def pos_tag_text(self, text):
         # Ensure the text is a string and not a float or other type
         if isinstance(text, str):
-            # Convert text to lowercase before tokenizing
-            text = text.lower()
             print(f"Processing text: {text}")  # Debugging print
             
-            # Tokenize the text
+            # Tokenize the text by splitting on spaces
             tokens = text.split()
             print(f"Tokens: {tokens}")  # Debugging print to check tokens
 
@@ -77,10 +117,10 @@ class POSTagger:
                 batch = self.data.iloc[i:i+batch_size].copy()
 
                 # Fill missing values and convert to string
-                batch['lemmatized'] = batch['lemmatized'].fillna('').astype(str)
+                batch['pos_tagged'] = batch['pos_tagged'].fillna('').astype(str)
 
                 # Apply POS tagging
-                batch['pos_tagged'] = batch['lemmatized'].apply(self.pos_tag_text)
+                batch['pos_tagged'] = batch['pos_tagged'].apply(self.pos_tag_text)
 
                 # Save the output to the CSV file
                 batch[['pos_tagged']].to_csv(self.output_file, mode='a', index=False, header=(i == 0))

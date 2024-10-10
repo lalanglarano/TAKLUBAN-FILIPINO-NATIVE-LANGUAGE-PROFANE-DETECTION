@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('UsedDataset/dataset_tagalog_sentence_profane.csv')
 
 # Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.2, random_state=48)
 
 # Create a pipeline that combines the TfidfVectorizer with N-Grams and SVM to reduce overfitting
 pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 2)), SVC())
@@ -38,7 +38,7 @@ def predict_profane(sentence):
     return best_model.predict([sentence])
 
 # Example usage
-sentence = "kailan tayo lalabas nakakayamot na sa bwiset na bahay toh"
+sentence = "nakaka putangina dito sa bahay"
 prediction = predict_profane(sentence)
 print(f"The sentence '{sentence}' is classified as {'profane' if prediction == 1 else 'not profane'}.")
 
