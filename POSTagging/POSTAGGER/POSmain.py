@@ -1,4 +1,3 @@
-import os
 import joblib
 from SPOStagging import POSTagger as SPOSTagger
 from cebuano_pos_tagger import POSTagger as CebuanoTagger
