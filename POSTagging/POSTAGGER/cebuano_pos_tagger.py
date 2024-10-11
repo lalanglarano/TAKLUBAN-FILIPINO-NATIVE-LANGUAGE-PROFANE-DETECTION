@@ -61,19 +61,19 @@ class POSTagger:
 
         # Define regex patterns for different parts of speech (case-insensitive)
         patterns = {
-            'VB': r'\b(?:mag|nag|mi|mo|mu|mang|manag|man)[a-zA-Z]+\b',  # Cebuano verb markers (actor/object focus)
-            'NNC': r'\b(?:[a-zA-Z]+on|[a-zA-Z]+an)\b',  # Cebuano nouns ending in "on" or "an"
-            'NNCA': r'\b(?:ka|pang)[a-zA-Z]+an\b',  # Cebuano nouns with affixes
+            'VB': r'\b(mag|nag|mi|mo|mu|mang|manag|man)[a-zA-Z]+\b',  # Cebuano verb markers (actor/object focus)
+            'NNC': r'\b([a-zA-Z]+on|[a-zA-Z]+an)\b',  # Cebuano nouns ending in "on" or "an"
+            'NNCA': r'\b(ka|pang)[a-zA-Z]+an\b',  # Cebuano nouns with affixes
             'NNPL': r'\bmga\s+[a-zA-Z]+\b',  # Plural nouns prefixed by "mga"
-            'JJD': r'\b(?:ma|ka)[a-zA-Z]+an\b',  # Cebuano adjectives with "ma" or "ka"
+            'JJD': r'\b(ma|ka)[a-zA-Z]+an\b',  # Cebuano adjectives with "ma" or "ka"
             'JJCM': r'\bmas\s+[a-zA-Z]+\b',  # Cebuano comparative adjectives
-            'PRP': r'\b(?:ako|ikaw|siya|kami|kita|sila)\b',  # Cebuano pronouns
-            'RBF': r'\b(?:kanunay|pirme|usahay|permi)\b',  # Frequency adverbs
-            'RBI': r'\b(?:kaayo|pagka)[a-zA-Z]+\b',  # Intensifying adverbs with "kaayo" or "pagka"
+            'PRP': r'\bako|ikaw|siya|kami|kita|sila\b',  # Cebuano pronouns
+            'RBF': r'\bkanunay|pirme|usahay|permi\b',  # Frequency adverbs
+            'RBI': r'\b(kaayo|pagka)[a-zA-Z]+\b',  # Intensifying adverbs with "kaayo" or "pagka"
             'RBR': r'\b([a-zA-Z]+)-\1\b',  # Repeated/reduplicated words (emphasis)
-            'DT': r'\bang\b|\bang mga\b',  # Cebuano determiners
-            'CCP': r'\b(?:ug|o|kundi)\b',  # Coordinating conjunctions
-            'CCL': r'\b(?:kay|tungod|bisan)\b',  # Subordinating conjunctions
+            'DT': r'\bang|bang|mga\b',  # Cebuano determiners
+            'CCP': r'\bug|o|kundi\b',  # Coordinating conjunctions
+            'CCL': r'\bkay|tungod|bisan\b',  # Subordinating conjunctions
         }
 
         # Split the cleaned token into word and tag
