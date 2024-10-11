@@ -6,12 +6,13 @@ from sklearn.pipeline import make_pipeline
 from sklearn.metrics import classification_report, accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 import joblib
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Load the CSV file
 df = pd.read_csv('UsedDataset/dataset_tagalog_sentence_profane.csv')
 
 # Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.2, random_state=48)
+X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.5, random_state=48)
 
 # Create a pipeline that combines the TfidfVectorizer with N-Grams and SVM to reduce overfitting
 pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 2)), SVC())
@@ -38,7 +39,7 @@ def predict_profane(sentence):
     return best_model.predict([sentence])
 
 # Example usage
-sentence = "nakaka putangina dito sa bahay"
+sentence = "alam mo ang ganda mo lagi sa mga suot mo"
 prediction = predict_profane(sentence)
 print(f"The sentence '{sentence}' is classified as {'profane' if prediction == 1 else 'not profane'}.")
 
@@ -65,30 +66,11 @@ print(f"Model Evaluation Metrics on Test Set:\n"
 # Save the best model to a file
 joblib.dump(best_model, 'ngram_svm_profane_detector_model.pkl')
 
-# Plotting the distribution of n-grams in the dataset
-
-# Create a TfidfVectorizer with n-gram range (1, 2)
-vectorizer = TfidfVectorizer(ngram_range=(1, 2))
-X = vectorizer.fit_transform(df['sentence'])
-
-# Get feature names (n-grams)
-feature_names = vectorizer.get_feature_names_out()
-
-# Sum the tf-idf values for each n-gram across all documents
-tfidf_sum = X.sum(axis=0).A1
-
-# Create a DataFrame with n-grams and their corresponding tf-idf sums
-ngram_tfidf = pd.DataFrame({'ngram': feature_names, 'tfidf': tfidf_sum})
-
-# Sort the DataFrame by tf-idf values in descending order
-ngram_tfidf = ngram_tfidf.sort_values(by='tfidf', ascending=False)
-
-# Plot the distribution of the top 20 n-grams
-top_20_ngrams = ngram_tfidf.head(20)
-plt.figure(figsize=(10, 6))
-plt.barh(top_20_ngrams['ngram'], top_20_ngrams['tfidf'], color='skyblue')
-plt.xlabel('TF-IDF')
-plt.ylabel('N-gram')
-plt.title('Top 20 N-grams by TF-IDF')
-plt.gca().invert_yaxis()
-plt.show()
+# Plot confusion matrix
+#conf_matrix = confusion_matrix(y_test, y_pred)
+#plt.figure(figsize=(10, 7))
+#sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['Not Profane', 'Profane'], yticklabels=['Not Profane', 'Profane'])
+#plt.xlabel('Predicted')
+#plt.ylabel('Actual')
+#plt.title('Confusion Matrix')
+#plt.show()
