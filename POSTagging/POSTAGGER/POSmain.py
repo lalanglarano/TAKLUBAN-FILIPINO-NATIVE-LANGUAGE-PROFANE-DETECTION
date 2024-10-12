@@ -30,25 +30,25 @@ def step2_cebuano_regex():
     """Step 2: Apply regex rules for Cebuano POS refinement."""
     print("Running regex-based POS refinement for Cebuano...")
     pos_tagger = CebuanoTagger()
-    pos_tagger.pos_tag_sentences()
+    pos_tagger.pos_tag_sentences()  # This will overwrite the previous SPOST tagged output for Cebuano
     return pos_tagger
 
 def step2_bikol_regex():
     """Step 2: Apply regex rules for Bikol POS refinement."""
     print("Running regex-based POS refinement for Bikol...")
     pos_tagger = BikolTagger()
-    pos_tagger.pos_tag_sentences()
+    pos_tagger.pos_tag_sentences()  # This will overwrite the previous SPOST tagged output for Bikol
     return pos_tagger
 
 def main():
-    # Step 1: POS tagging for Tagalog, Cebuano, and Bikol
+    # Step 1: POS tagging using SPOST for Tagalog, Cebuano, and Bikol
     languages = ['bikol', 'cebuano', 'tagalog']
     for language in languages:
         pos_model = step1_spost_tagging(language)
         # Save the POS tagging model for each language
         save_model(pos_model, f"../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/models/pos_{language}_model.pkl")
 
-    # Step 2: Apply regex refinements and save the final models
+    # Step 2: Apply regex refinements for Cebuano and Bikol, overwriting the SPOST tagged output
     cebuano_model = step2_cebuano_regex()
     save_model(cebuano_model, "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/models/tagged_cebuano_model.pkl")
 
