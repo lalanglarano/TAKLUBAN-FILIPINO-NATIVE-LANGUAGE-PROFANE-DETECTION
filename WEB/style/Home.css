@@ -141,6 +141,11 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.detect-button:hover {
+    color: #FFD700;
 }
 
 /* Frame 6, Frame 5, Frame 7 (Right side) */
