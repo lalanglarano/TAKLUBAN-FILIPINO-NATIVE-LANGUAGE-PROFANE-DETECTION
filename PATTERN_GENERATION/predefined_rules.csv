@@ -11,3 +11,4 @@ new_adj_noun_rule,"['JJD', 'PRS', 'NNC']",Profane Adjective-Pronoun-Noun
 new_adj_noun_rule,"['JJD', 'PRS', 'NNC']",Profane Adjective-Pronoun-Noun
 new_adj_noun_rule,JJD PRS NNC,Profane Adjective-Pronoun-Noun
 rule_from_sentence_12,DTC NNC PRS JJD NNC RBI,Pattern from user-provided sentence
+rule_from_sentence_13,PANGIT MO BATA,Profane sentence example
