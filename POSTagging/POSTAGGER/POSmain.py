@@ -1,3 +1,4 @@
+import os
 import joblib
 from SPOStagging import POSTagger as SPOSTagger
 from cebuano_pos_tagger import POSTagger as CebuanoTagger
@@ -5,6 +6,10 @@ from bikol_pos_tagger import POSTagger as BikolTagger
 
 def save_model(model, file_path):
     """Save the POS process or any object to a pickle file."""
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    
+    # Save the model using joblib
     with open(file_path, 'wb') as file:
         joblib.dump(model, file)
     print(f"Model saved to {file_path}")
