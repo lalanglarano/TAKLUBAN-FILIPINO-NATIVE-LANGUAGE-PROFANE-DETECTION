@@ -137,6 +137,10 @@ footer p {
     transition: max-height 0.5s;
 }
 
-#accordion label + input[type="radio"]:checked + .content{
+#accordion label + input[type="radio"]:checked + .content {
     max-height: 300px;
+}
+
+.content a {
+    color: #800000; 
 }
