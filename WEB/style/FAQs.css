@@ -131,7 +131,7 @@ footer p {
 
 #accordion .content{
     padding: 10px;
-    line-height: 26px;
+    line-height: 24px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s;

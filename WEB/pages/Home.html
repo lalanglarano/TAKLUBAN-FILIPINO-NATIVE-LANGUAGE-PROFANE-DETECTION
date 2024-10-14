@@ -44,10 +44,14 @@
         <img src="../assets/tklbn-favicon.png" alt="Footer Icon"> 
         <p>All Rights Reserved, 2024</p>
     </footer>
-
     <script>
         const textArea = document.getElementById('text-area');
         const instruction = document.getElementById('instruction');
+        const maxWords = 10;
+        const wordsLeftDisplay = document.createElement('div');
+        wordsLeftDisplay.id = 'words-left';
+        wordsLeftDisplay.textContent = `Allowed number of words remaining: ${maxWords}`;
+        textArea.parentNode.insertBefore(wordsLeftDisplay, textArea.nextSibling);
 
         textArea.addEventListener('focus', function() {
             instruction.style.display = 'none'; 
@@ -56,6 +60,16 @@
         textArea.addEventListener('blur', function() {
             if (textArea.value === '') {
                 instruction.style.display = 'block'; 
+            }
+        });
+
+        textArea.addEventListener('input', function() {
+            const words = textArea.value.split(/\s+/).filter(word => word.length > 0);
+            const wordsLeft = maxWords - words.length;
+            wordsLeftDisplay.textContent = `Allowed number of words remaining: ${wordsLeft >= 0 ? wordsLeft : 0}`;
+            if (words.length > maxWords) {
+                textArea.value = words.slice(0, maxWords).join(' ');
+                alert(`Word limit of ${maxWords} reached.`);
             }
         });
     </script>
