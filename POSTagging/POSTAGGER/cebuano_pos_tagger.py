@@ -6,9 +6,9 @@ class POSTagger:
     def __init__(self):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
         results_folder = f"{base_path}/Results"
-        self.input_file = f"{results_folder}/pos_tagged/FPOSTagged_cebuano.csv"
+        self.input_file = f"{results_folder}/DATASETOFREGEX/Tagged_cebuano.csv"
         self.output_dir = f"{results_folder}/DATASETOFREGEX"
-        self.output_file = f"{self.output_dir}/Tagged_cebuano.csv"
+        self.output_file = f"{self.output_dir}/REGEXTagged_cebuano.csv"
 
         # Ensure the output directory exists
         if not os.path.exists(self.output_dir):
