@@ -48,6 +48,7 @@
     <script>
         const textArea = document.getElementById('text-area');
         const instruction = document.getElementById('instruction');
+        const maxWords = 10;
 
         textArea.addEventListener('focus', function() {
             instruction.style.display = 'none'; 
@@ -56,6 +57,14 @@
         textArea.addEventListener('blur', function() {
             if (textArea.value === '') {
                 instruction.style.display = 'block'; 
+            }
+        });
+
+        textArea.addEventListener('input', function() {
+            const words = textArea.value.split(/\s+/).filter(word => word.length > 0);
+            if (words.length > maxWords) {
+                textArea.value = words.slice(0, maxWords).join(' ');
+                alert(`Word limit of ${maxWords} reached.`);
             }
         });
     </script>
