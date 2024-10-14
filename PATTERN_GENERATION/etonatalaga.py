@@ -85,9 +85,20 @@ class PatternGenerator:
     
     def save_patterns_from_sentence(self, csv_filename, sentence, description):
         pos_tagged_sentence = self.tag_sentence(sentence)
-        pos_pattern = ' '.join([tag.split('|')[1] for tag in pos_tagged_sentence])
+        
+        print(f"POS-tagged Sentence: {pos_tagged_sentence}")
+        
+        try:
+            pos_pattern = ' '.join([item.split('|')[-1] for item in pos_tagged_sentence if '|' in item])
+            print(f"Extracted POS Pattern: {pos_pattern}")
+            
+        except IndexError:
+            print("Error: Incorrect tagging format in sentence.")
+            return
+
         rule_name = f"rule_from_sentence_{len(self.rules) + 1}"
         self.add_new_rule(csv_filename, rule_name, pos_pattern, description)
+        print(f"New rule '{rule_name}' added with POS pattern: {pos_pattern}")
 
 def main():
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
