@@ -17,10 +17,6 @@ class PatternGenerator:
     
     def load_predefined_rules(self, csv_filename):
         rules = []
-        if not os.path.exists(csv_filename):
-            print(f"Error: {csv_filename} does not exist.")
-            return rules
-        
         try:
             with open(csv_filename, 'r') as file:
                 reader = csv.DictReader(file)
@@ -35,51 +31,55 @@ class PatternGenerator:
         return rules
     
     def generate_ngrams(self, pos_tagged_text, n):
-        tokens = []
-        for item in pos_tagged_text:
-            parts = item.split('|')
-            if len(parts) == 2:  # Ensure it's properly formatted 'WORD|POS'
-                tokens.append(parts[1])  # Append the POS tag
-            else:
-                print(f"Skipping invalid POS-tagged item: {item}")
-        return list(ngrams(tokens, n))
+        # Reuse the POS extraction code
+        pos_tags = [item.split('|')[-1] for item in pos_tagged_text if '|' in item]  # Extract POS tags only
+        
+        print(f"Extracted POS Tags: {pos_tags}")  # Debugging: Print extracted POS tags
+
+        # Generate n-grams using the extracted POS tags
+        ngrams_list = list(ngrams(pos_tags, n))
+        print(f"Generated {n}-grams: {ngrams_list}")  # Debugging: Print generated n-grams
+        return ngrams_list
 
     def apply_rules_to_ngrams(self, ngram_list):
         flagged_patterns = []
-        
-        for ngram in ngram_list:
-            ngram_tags = [item.split('|')[-1] for item in ngram]  # Extract POS tags from n-grams
-            print(f"Checking n-gram: {ngram_tags}")  # Debug: Show generated n-gram
-            
+        matching_ngram_indices = []  # Store indices of the profane n-grams
+
+        for idx, ngram in enumerate(ngram_list):
+            print(f"Checking n-gram: {ngram}")  # Debugging: Output the generated n-gram
+
             for rule in self.rules:
-                pattern = rule['POS Pattern'].split()
-                print(f"Checking against rule: {rule['Rule Name']} with pattern {pattern}")  # Debug
-                
-                # Matching: Check if the n-gram matches the rule's POS pattern
-                if ngram_tags == pattern:
+                pattern = rule['POS Pattern']  # The POS Pattern is already a list of POS tags
+
+                # Ensure the n-gram and pattern are of the same length before comparison
+                if len(ngram) == len(pattern) and list(ngram) == pattern:
                     flagged_patterns.append(f"Rule Matched: {rule['Rule Name']} - {rule['Description']}")
-                    print(f"Match found with rule: {rule['Rule Name']}")  # Debug: Show match found
-        
-        return flagged_patterns
+                    matching_ngram_indices.append(idx)  # Store the index of the matched n-gram
+                    print(f"Match found: {rule['Rule Name']}")  # Debugging
+
+        return flagged_patterns, matching_ngram_indices
+
 
     def detect_profane_patterns(self, pos_tagged_text):
         results = []
-        
+        profane_ngram_indices = []  # Add this to track the indices of matched n-grams
+
         # Loop over n-gram lengths (1-gram, 2-gram, 3-gram)
-        for n in range(1, 4):
+        for n in range(1, 4):  # For 1-gram, 2-gram, 3-gram
             # Generate n-grams from the POS-tagged sentence
             ngrams_list = self.generate_ngrams(pos_tagged_text, n)
-            
-            # Apply the predefined rules to the generated n-grams
-            detected_patterns = self.apply_rules_to_ngrams(ngrams_list)
-            
-            # If patterns are detected, add them to the results
-            results += detected_patterns
-        
-        # Return the detected patterns or indicate none were found
-        return results if results else ["No profane patterns detected"]
 
-    
+            # Apply the predefined rules to the generated n-grams
+            detected_patterns, ngram_indices = self.apply_rules_to_ngrams(ngrams_list)
+
+            # If patterns are detected, add them to the results and track the n-gram indices
+            if detected_patterns:
+                results += detected_patterns
+                profane_ngram_indices += ngram_indices
+
+        # Return the detected patterns and the indices of the profane n-grams
+        return results if results else ["No profane patterns detected"], profane_ngram_indices
+
     def add_new_rule(self, csv_filename, rule_name, pos_pattern, description):
         current_rules = self.load_predefined_rules(csv_filename)
         for rule in current_rules:
@@ -107,7 +107,7 @@ class PatternGenerator:
         tokens = sentence.split()
         tagged_sentence = self.tagger.tag(tokens)
         return [f"{word}|{tag}" for word, tag in tagged_sentence]
-    
+ 
     def save_patterns_from_sentence(self, csv_filename, sentence, description):
         pos_tagged_sentence = self.tag_sentence(sentence)
         
@@ -128,8 +128,8 @@ class PatternGenerator:
     # Censoring the sentence based on the detected profane pattern
     def censor_sentence(pos_tagged_sentence, profane_indices):
         return ' '.join(
-        '*****' if idx in profane_indices else word.split('|')[0] for idx, word in enumerate(pos_tagged_sentence)
-    )
+            '*****' if idx in profane_indices else word.split('|')[0] for idx, word in enumerate(pos_tagged_sentence)
+        )
     
 def main():
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
@@ -168,23 +168,34 @@ def main():
         print("POS-tagged Sentence:", pos_tagged_sentence)  # Check if POS tags are correct
         
         # Step 3: Detect profane patterns in the sentence using the rules
-        detected_patterns = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
+        detected_patterns, profane_ngram_indices = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
         print("Detected Patterns:", detected_patterns)  # Check if the rules are being detected
         
         if "No profane patterns detected" in detected_patterns:
             return sentence  # No patterns detected, return original sentence
         
-        # Debugging: Output the generated n-grams for each length (1, 2, 3)
-        for n in range(1, 4):
-            ngrams_list = pattern_generator.generate_ngrams(pos_tagged_sentence, n)
-            print(f"{n}-Grams: {ngrams_list}")
+        # Step 4: Implement censoring based on detected profane patterns
+        # Loop through the pos_tagged_sentence and censor only the detected profane words
+        censored_sentence = []
+        ngram_size = len(profane_ngram_indices)  # Size of the n-grams we are censoring
+        profane_word_indices = []
+
+        # Generate n-grams based on the POS-tagged sentence
+        pos_tags = [item.split('|')[-1] for item in pos_tagged_sentence if '|' in item]
+        words = [item.split('|')[1] for item in pos_tagged_sentence if '|' in item]
+
+        # Identify the word indices to censor based on profane n-grams
+        for idx in profane_ngram_indices:
+            profane_word_indices.extend(range(idx, idx + ngram_size))  # Get all word indices in the profane n-gram
+
+        # Censor the words at the profane indices
+        for idx, word in enumerate(words):
+            if idx in profane_word_indices:
+                censored_sentence.append('*****')  # Censor this word
+            else:
+                censored_sentence.append(word)  # Keep the word as is
         
-        # Step 4: Implement censoring (if patterns detected)
-        censored_sentence = ' '.join(
-            '*****' if word.split('|')[1] == 'JJD' else word.split('|')[0] for word in pos_tagged_sentence
-        )
-        
-        return censored_sentence
+        return ' '.join(censored_sentence)
 
     # Function to save the profane dictionary to CSV
     def save_profane_dictionary(profane_dict):
@@ -218,7 +229,7 @@ def main():
     
     # Define the sentence to test
     sentence = "pangit mo bata"
-    
+        
     # Save pattern from the sentence
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
     
@@ -251,6 +262,15 @@ def main():
     # Example usage
     prediction = predict_and_censor(sentence, best_model)
     print(f"Output: {prediction}")
+
+    pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
+    print("POS-tagged Sentence:", pos_tagged_sentence)
+
+    detected_patterns = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
+    print("Detected Patterns:", detected_patterns)
+
+    censored_sentence = predict_and_censor(sentence, best_model)
+    print(f"Output: {censored_sentence}")
 
 if __name__ == "__main__":
     main()
