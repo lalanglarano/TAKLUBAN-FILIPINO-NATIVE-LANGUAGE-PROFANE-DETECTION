@@ -7,14 +7,14 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
-from sklearn.metrics import classification_report, accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import classification_report
 import joblib
 
 class PatternGenerator:
     def __init__(self, csv_filename, model_filename, path_to_jar):
         self.rules = self.load_predefined_rules(csv_filename)
         self.tagger = StanfordPOSTagger(model_filename=model_filename, path_to_jar=path_to_jar)
-        
+    
     def load_predefined_rules(self, csv_filename):
         rules = []
         if not os.path.exists(csv_filename):
@@ -35,25 +35,50 @@ class PatternGenerator:
         return rules
     
     def generate_ngrams(self, pos_tagged_text, n):
-        tokens = [item.split('|')[2] for item in pos_tagged_text if '|' in item]
+        tokens = []
+        for item in pos_tagged_text:
+            parts = item.split('|')
+            if len(parts) == 2:  # Ensure it's properly formatted 'WORD|POS'
+                tokens.append(parts[1])  # Append the POS tag
+            else:
+                print(f"Skipping invalid POS-tagged item: {item}")
         return list(ngrams(tokens, n))
-    
+
     def apply_rules_to_ngrams(self, ngram_list):
         flagged_patterns = []
+        
         for ngram in ngram_list:
-            ngram_tags = list(ngram)
+            ngram_tags = [item.split('|')[-1] for item in ngram]  # Extract POS tags from n-grams
+            print(f"Checking n-gram: {ngram_tags}")  # Debug: Show generated n-gram
+            
             for rule in self.rules:
-                pattern = rule['POS Pattern']
+                pattern = rule['POS Pattern'].split()
+                print(f"Checking against rule: {rule['Rule Name']} with pattern {pattern}")  # Debug
+                
+                # Matching: Check if the n-gram matches the rule's POS pattern
                 if ngram_tags == pattern:
                     flagged_patterns.append(f"Rule Matched: {rule['Rule Name']} - {rule['Description']}")
+                    print(f"Match found with rule: {rule['Rule Name']}")  # Debug: Show match found
+        
         return flagged_patterns
-    
+
     def detect_profane_patterns(self, pos_tagged_text):
         results = []
+        
+        # Loop over n-gram lengths (1-gram, 2-gram, 3-gram)
         for n in range(1, 4):
+            # Generate n-grams from the POS-tagged sentence
             ngrams_list = self.generate_ngrams(pos_tagged_text, n)
-            results += self.apply_rules_to_ngrams(ngrams_list)
+            
+            # Apply the predefined rules to the generated n-grams
+            detected_patterns = self.apply_rules_to_ngrams(ngrams_list)
+            
+            # If patterns are detected, add them to the results
+            results += detected_patterns
+        
+        # Return the detected patterns or indicate none were found
         return results if results else ["No profane patterns detected"]
+
     
     def add_new_rule(self, csv_filename, rule_name, pos_pattern, description):
         current_rules = self.load_predefined_rules(csv_filename)
@@ -100,17 +125,102 @@ class PatternGenerator:
         self.add_new_rule(csv_filename, rule_name, pos_pattern, description)
         print(f"New rule '{rule_name}' added with POS pattern: {pos_pattern}")
 
+    # Censoring the sentence based on the detected profane pattern
+    def censor_sentence(pos_tagged_sentence, profane_indices):
+        return ' '.join(
+        '*****' if idx in profane_indices else word.split('|')[0] for idx, word in enumerate(pos_tagged_sentence)
+    )
+    
 def main():
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
     predefined_rules_path = f"{base_path}/PATTERN_GENERATION/predefined_rules.csv"
     model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
     path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
+    profane_dictionary_path = 'PATTERN_GENERATION/profane_dictionary.csv'
     
+    def load_profane_dictionary():
+        profane_dict = {}
+        try:
+            with open(profane_dictionary_path, mode='r', newline='', encoding='utf-8') as file:
+                reader = csv.reader(file)
+                for row in reader:
+                    if len(row) == 2:  # Ensure that we have exactly two columns (word and count)
+                        word, count = row
+                        profane_dict[word] = int(count)
+                    else:
+                        print(f"Skipping invalid row in dictionary: {row}")
+        except FileNotFoundError:
+            print(f"{profane_dictionary_path} not found. A new dictionary will be created.")
+        except Exception as e:
+            print(f"Error loading profane dictionary: {e}")
+        return profane_dict
+    
+    def predict_and_censor(sentence, best_model):
+        # Step 1: SVM predicts if the sentence is profane
+        is_profane = best_model.predict([sentence])[0]  # Predict using the SVM model
+        print(f"SVM Prediction - Is sentence profane?: {is_profane}")
+        
+        if not is_profane:
+            return sentence  # If the sentence is not profane, return it as is
+        
+        # Step 2: If the sentence is profane, tag the sentence with POS tags
+        pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
+        print("POS-tagged Sentence:", pos_tagged_sentence)  # Check if POS tags are correct
+        
+        # Step 3: Detect profane patterns in the sentence using the rules
+        detected_patterns = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
+        print("Detected Patterns:", detected_patterns)  # Check if the rules are being detected
+        
+        if "No profane patterns detected" in detected_patterns:
+            return sentence  # No patterns detected, return original sentence
+        
+        # Debugging: Output the generated n-grams for each length (1, 2, 3)
+        for n in range(1, 4):
+            ngrams_list = pattern_generator.generate_ngrams(pos_tagged_sentence, n)
+            print(f"{n}-Grams: {ngrams_list}")
+        
+        # Step 4: Implement censoring (if patterns detected)
+        censored_sentence = ' '.join(
+            '*****' if word.split('|')[1] == 'JJD' else word.split('|')[0] for word in pos_tagged_sentence
+        )
+        
+        return censored_sentence
+
+    # Function to save the profane dictionary to CSV
+    def save_profane_dictionary(profane_dict):
+        try:
+            with open(profane_dictionary_path, mode='w', newline='', encoding='utf-8') as file:
+                writer = csv.writer(file)
+                for word, count in profane_dict.items():
+                    writer.writerow([word, count])
+            print(f"Profane dictionary saved successfully to {profane_dictionary_path}.")
+        except Exception as e:
+            print(f"Error saving profane dictionary: {e}")
+
+    # Function to update and save detected profane words to the CSV
+    def save_profane_to_dict(profane_words):
+        # Load existing profane dictionary from the CSV file
+        profane_dict = load_profane_dictionary()
+
+        # Update the dictionary with new profane words
+        for word in profane_words:
+            if word in profane_dict:
+                profane_dict[word] += 1
+            else:
+                profane_dict[word] = 1
+
+        # Save the updated profane dictionary back to the CSV file
+        save_profane_dictionary(profane_dict)
+        
+        print(f"Updated Profane Dictionary: {profane_dict}")
+
     pattern_generator = PatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     
-    # Test new rule saving
-    user_sentence = "pangit mo bata"
-    pattern_generator.save_patterns_from_sentence(predefined_rules_path, user_sentence, "Profane sentence example")
+    # Define the sentence to test
+    sentence = "pangit mo bata"
+    
+    # Save pattern from the sentence
+    pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
     
     # Load your dataset
     df = pd.read_csv('UsedDataset/dataset_tagalog_sentence_profane.csv')
@@ -138,38 +248,8 @@ def main():
     y_pred = best_model.predict(X_test)
     print(classification_report(y_test, y_pred))
 
-    def predict_and_censor(sentence):
-        pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
-        print("POS-tagged Sentence:", pos_tagged_sentence)
-        
-        # Detect profane patterns in the sentence
-        detected_patterns = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
-        print("Detected Patterns:", detected_patterns)
-        
-        # Set to store the indices of profane words
-        profane_word_indices = set()
-        
-        # Extract ngrams and match against detected patterns
-        for n in range(1, 4):  # Check for unigrams, bigrams, trigrams
-            ngrams_list = pattern_generator.generate_ngrams(pos_tagged_sentence, n)
-            for i, ngram in enumerate(ngrams_list):
-                for pattern in detected_patterns:
-                    if 'Rule Matched' in pattern:
-                        matched_rule = pattern.split(': ')[1].split(' - ')[0]
-                        # Flag all the words in the ngram that match the rule
-                        profane_word_indices.update(range(i, i + n))
-
-        # Create the result sentence with censored profane words
-        result_sentence = ' '.join(
-            f"{word}<{tag}>" if idx not in profane_word_indices else "*****<profane>"
-            for idx, (word, tag) in enumerate(item.rsplit('|', 1) for item in pos_tagged_sentence)
-        )
-        
-        return result_sentence
-
     # Example usage
-    sentence = "pangit mo bata"
-    prediction = predict_and_censor(sentence)
+    prediction = predict_and_censor(sentence, best_model)
     print(f"Output: {prediction}")
 
 if __name__ == "__main__":

@@ -3,12 +3,9 @@ adj_noun,JJD NNC,Profane Adjective followed by Noun
 verb_noun,VBW NNC,Profane Verb followed by Noun
 foreign_curse,FW,Foreign Curse Word
 adj_repeated,JJD JJD,Repeated Profane Adjectives
-adj_pronoun_noun,JJD PRS NNC,Profane Adjective followed by Pronoun and Noun
 verb_adj_noun,VBS JJD NNC,Verb followed by Adjective and Noun
 pronoun_verb,PRS VBW,Pronoun followed by Verb (possible command or insult)
 curse_verb_noun,FW VBW NNC,Foreign Curse followed by Verb and Noun
-new_adj_noun_rule,"['JJD', 'PRS', 'NNC']",Profane Adjective-Pronoun-Noun
-new_adj_noun_rule,"['JJD', 'PRS', 'NNC']",Profane Adjective-Pronoun-Noun
 new_adj_noun_rule,JJD PRS NNC,Profane Adjective-Pronoun-Noun
-rule_from_sentence_12,DTC NNC PRS JJD NNC RBI,Pattern from user-provided sentence
-rule_from_sentence_13,PANGIT MO BATA,Profane sentence example
+rule_from_sentence_12,FW CCP NNC,Profane sentence example
+rule_from_sentence_10,JJCC PRS VBOF PRS RBI PRP PRL,Profane sentence example
