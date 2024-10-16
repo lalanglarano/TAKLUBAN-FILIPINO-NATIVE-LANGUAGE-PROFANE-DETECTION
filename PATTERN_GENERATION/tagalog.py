@@ -253,9 +253,14 @@ def main():
     # Perform Grid Search with Cross-Validation
     grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
     grid_search.fit(X_train, y_train)
-    
+
     # Best model from grid search
     best_model = grid_search.best_estimator_
+
+    # Save the trained model to a .pkl file using joblib
+    joblib.dump(best_model, 'tagalog_trained_profane_model.pkl')
+    print("Model saved as 'tagalog_trained_profane_model.pkl'")
+
     
     # Evaluate the model
     y_pred = best_model.predict(X_test)
