@@ -1,9 +1,9 @@
 import csv
 import os
 import pandas as pd
-import joblib  # For loading the model
-from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining  # Import necessary classes
-from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger  # Import the POS tagger from POS.py
+import joblib  
+from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining  
+from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger  
 
 # Define the path to save the results
 output_file = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/POSdata.csv"
@@ -43,15 +43,13 @@ def perform_pos_tagging(language, sentence):
     """Perform POS tagging based on the identified language."""
     pos_tagger = POSTagger(language)  # Initialize the POS tagger for the given language
 
-    # Show the POS tagging process in the output
-    print(f"\nPerforming POS tagging for '{language}' on the sentence: {sentence}")
-    
     # Perform POS tagging directly on the sentence and return the result
     pos_tagged = pos_tagger.pos_tag_text(sentence)
     
     return pos_tagged
 
-def main():
+def process_sentence(sentence):
+    """Process the sentence received from Flask, detect language, and perform POS tagging."""
     # Define the paths
     model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
@@ -62,30 +60,16 @@ def main():
     # Initialize the LanguageIdentification class with the loaded or newly trained model
     language_identifier = LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
 
-    print("Welcome to Takluban Language Identifier! Enter your sentences below:")
+    # Identify the language of the sentence
+    predicted_language = language_identifier.predict_language(sentence)
 
-    while True:
-        sentence = input("Enter a sentence (or type 'exit' to quit): ").strip()
+    # Perform POS tagging based on the identified language
+    if predicted_language in ['cebuano', 'bikol', 'tagalog']:
+        pos_tagged_sentence = perform_pos_tagging(predicted_language, sentence)
 
-        if sentence.lower() == 'exit':
-            print("Exiting the program.")
-            break
+        # Save the result to the CSV file
+        save_to_csv(predicted_language, sentence, pos_tagged_sentence)
 
-        # Identify the language of the sentence
-        predicted_language = language_identifier.predict_language(sentence)
-
-        # Perform POS tagging based on the identified language
-        if predicted_language in ['cebuano', 'bikol', 'tagalog']:
-            pos_tagged_sentence = perform_pos_tagging(predicted_language, sentence)
-
-            # Save the result to the CSV file
-            save_to_csv(predicted_language, sentence, pos_tagged_sentence)
-
-            print(f"Detected language: {predicted_language}")
-            print(f"POS Tagged Sentence: {pos_tagged_sentence}")
-            print(f"Sentence '{sentence}' saved with the detected language and POS tagging result.\n")
-        else:
-            print(f"Unsupported language detected: {predicted_language}. No POS tagging performed.")
-
-if __name__ == "__main__":
-    main()
+        return predicted_language, pos_tagged_sentence
+    else:
+        return predicted_language, None
