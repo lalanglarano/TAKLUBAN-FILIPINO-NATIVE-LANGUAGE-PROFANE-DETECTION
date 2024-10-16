@@ -4,3 +4,33 @@ cebuano,bisaya man ko dong,|BISAYA|CCT |MAN|RBI |KO|PRS |DONG|FW
 tagalog,bisaya man ka day,|BISAYA|CCT |MAN|RBI |KA|PRS |DAY|NNC
 tagalog,"python -u ""c:\Users\Jeo Abarre\OneDrive\Documents\TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION\TAKLUBANver.py""","|PYTHON|FW |-U|FW |""C:\USERS\JEO|FW |ABARRE\ONEDRIVE\DOCUMENTS\TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION\TAKLUBANVER.PY""|FW"
 cebuano,bisaya man ko dong,|BISAYA|CCT |MAN|RBI |KO|PRS |DONG|FW
+bikol,puta ka talagang bata ka,"['|PUTA|NNC', '|KA|PRS', 'talagang|RBT|CCP', '|BATA|NNC', '|KA|PRS']",puta ka talagang bata ka
+bikol,puta ka talagang bata ka,"['|PUTA|NNC', '|KA|PRS', 'talagang|RBT|CCP', '|BATA|NNC', '|KA|PRS']",puta ka talagang bata ka
+bikol,tanga mo talagang bata ka,"['|TANGA|JJD', '|MO|PRS', 'talagang|RBT|CCP', '|BATA|NNC', '|KA|PRS']",tanga mo talagang bata ka
+tagalog,huy para kayong tanga seryoso ba ito,"['|HUY|FW', '|PARA|CCT', 'kayong|NNC|CCP', '|TANGA|JJD', '|SERYOSO|JJD', '|BA|RBI', '|ITO|PRO']",*****  kayong *****   
+tagalog,ganda mo lagi parang bulaklak,"['|GANDA|NNC', '|MO|PRS', '|LAGI|RBW', '|PARANG|CCT', '|BULAKLAK|NNC']",ganda mo lagi parang bulaklak
+tagalog,pakyu hindi nga kasi ako yun,"['|PAKYU|CCT', '|HINDI|RBF', '|NGA|RBI', '|KASI|CCR', '|AKO|PRS', '|YUN|PRO']",pakyu hindi nga kasi ako yun
+tagalog,tangina ng kidlat gago tarantado,"['|TANGINA|JJD', '|NG|CCB', '|KIDLAT|NNC', '|GAGO|NNC', '|TARANTADO|NNC']",tangina ng kidlat gago tarantado
+tagalog,pangit mo bata,"['|PANGIT|JJD', '|MO|PRS', '|BATA|NNC']",*****  
+tagalog,nagugutom ako punyeta,"['|NAGUGUTOM|VBTR', '|AKO|PRS', '|PUNYETA|NNC']",nagugutom ako punyeta
+tagalog,nagugutom ako punyeta,"['|NAGUGUTOM|VBTR', '|AKO|PRS', '|PUNYETA|NNC']",nagugutom ako punyeta
+tagalog,nagugutom ako punyeta,"['|NAGUGUTOM|VBTR', '|AKO|PRS', '|PUNYETA|NNC']",nagugutom ako punyeta
+bikol,putangina mo bitch mang aagaw ka,"['|PUTANGINA|JJCC', '|MO|PRS', '|BITCH|FW', 'mang|RBI|CCP', '|AAGAW|VBTF', '|KA|PRS']",putangina mo bitch mang aagaw ka
+tagalog,tanga ka talaga kahit kailan,"['|TANGA|JJD', '|KA|PRS', '|TALAGA|RBT', '|KAHIT|CCT', '|KAILAN|PRQ']",*****    
+tagalog,ang ganda talaga ni tisha,"['|ANG|DTC', '|GANDA|NNC', '|TALAGA|RBT', '|NI|DTP', '|TISHA|NNC']",ang ganda talaga ni tisha
+tagalog,ganda mo talaga lagi,"['|GANDA|NNC', '|MO|PRS', '|TALAGA|RBT', '|LAGI|RBW']",ganda mo talaga lagi
+tagalog,asan kana namang bata ka,"['|ASAN|RBR', '|KANA|NNC', 'namang|RBI|CCP', '|BATA|NNC', '|KA|PRS']",asan kana namang bata ka
+tagalog,nagugutom ako punyeta,"['|NAGUGUTOM|VBTR', '|AKO|PRS', '|PUNYETA|NNC']",nagugutom ako punyeta
+tagalog,san ka pupunta,"['|SAN|RBQ', '|KA|PRS', '|PUPUNTA|VBTF']",*****
+tagalog,asan ka na naman pupunta,"['|ASAN|RBR', '|KA|PRS', '|NA|CCP', '|NAMAN|RBI', '|PUPUNTA|VBTF']",*****
+tagalog,asan kana naman,"['|ASAN|RBR', '|KANA|NNC', '|NAMAN|RBI']",asan kana naman
+bikol,putangina mo ka,"['|PUTANGINA|JJCC', '|MO|PRS', '|KA|PRS']",putangina mo ka
+bikol,tangina mo bata,"['|TANGINA|JJCC', '|MO|PRS', '|BATA|NNC']",tangina mo bata
+tagalog,bwiset lagi nalang ganto,"['|BWISET|CCT', '|LAGI|RBW', '|NALANG|VBTS', '|GANTO|NNC']",*****
+bikol,yudeputang buhay ini,"['yudeputang|VBTR|CCP', '|BUHAY|NNC', '|INI|FW']",yudeputang buhay ini
+bikol,yudeputa ka pirmi na sana,"['yudeputa|VBTR|VBAF', '|KA|PRS', '|PIRMI|NNC', '|NA|CCP', '|SANA|VBS']",*****
+bikol,patal ka kaya,"['|PATAL|JJD', '|KA|PRS', '|KAYA|CCR']",*****
+cebuano,kolera kang dako,"['|KOLERA|NNC', 'kang|PRS|CCP', '|DAKO|NNC']",kolera kang dako
+cebuano,yawa ka bai,"['|YAWA|RBM', '|KA|PRS', '|BAI|NNC']",*****
+cebuano,& C:/Users/Annalyn/AppData/Local/Programs/Python/Python311/python.exe c:/Users/Annalyn/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/main.py,"['|&|PMS', '|C:/USERS/ANNALYN/APPDATA/LOCAL/PROGRAMS/PYTHON/PYTHON311/PYTHON.EXE|NNP', '|C:/USERS/ANNALYN/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/MAIN.PY|FW']",& C:/Users/Annalyn/AppData/Local/Programs/Python/Python311/python.exe c:/Users/Annalyn/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/main.py
+cebuano,gisuportahan niini ang lainlaing mga ihalas nga hayop,"['|GISUPORTAHAN|VBTR', '|NIINI|FW', '|ANG|DTC', 'lainlaing|NNC|CCP', '|MGA|DTCP', '|IHALAS|VBTF', '|NGA|RBI', '|HAYOP|NNC']",*****
