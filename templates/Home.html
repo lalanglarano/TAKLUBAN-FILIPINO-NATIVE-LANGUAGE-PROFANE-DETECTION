@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Takluban Profane Detector</title>
-    <link rel="icon" href="../WEB/assets/tklbn-favicon.png" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/style/Home.css">
 </head>
 
-<nav>
-    <div class="logo">
-        <img src="../WEB/assets/tklbn-logo.png" alt="Takluban Logo">
-    </div>
-    <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span> 
-    <div class="nav-links">
-        <a href="{{ url_for('home') }}" class="home-link active">HOME</a>
-        <a href="{{ url_for('creators') }}" class="creators-link">ABOUT US</a>
-        <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>        
-    </div> <!-- Navigation Links -->
-</nav>
-
 <body>
+    <nav>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/tklbn-logo.png') }}" alt="Takluban Logo">
+        </div>
+        <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span> 
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="home-link active">HOME</a>
+            <a href="{{ url_for('creators') }}" class="creators-link">ABOUT US</a>
+            <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>        
+        </div> <!-- Navigation Links -->
+    </nav>
+
     <div class="container">
         <div class="left">
             <textarea id="text-area" placeholder="To detect profanities, input text here and click 'DETECT'."></textarea>
@@ -41,13 +41,7 @@
         </div>
     </div>
 
-    <footer>
-        <img src="../WEB/assets/tklbn-favicon.png" alt="Footer Icon"> 
-        <p>All Rights Reserved, 2024</p>
-    </footer>
-
     <script>
-        // Original script for word count and instructions
         const textArea = document.getElementById('text-area');
         const instruction = document.getElementById('instruction');
         const maxWords = 10;
@@ -76,7 +70,7 @@
             }
         });
     
-        // New script to send text to Flask and display detected language and POS tagged sentence
+        // Script to send text to Flask and display detected language and POS tagged sentence
         document.querySelector('.detect-button').addEventListener('click', function() {
             const text = document.getElementById('text-area').value;
             
@@ -105,5 +99,11 @@
             });
         });
     </script>
+
+    <footer>
+        <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
+        <p>All Rights Reserved, 2024</p>
+    </footer>
+
 </body>
 </html>

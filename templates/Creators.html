@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creators</title>
-    <link rel="icon" href="../WEB/assets/tklbn-favicon.png" type="image/png">
+    <title>About Us | Takluban Profane Detector</title>
+    <link rel="icon" href="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/style/Creators.css">
 </head>
 
-<nav>
-    <div class="logo">
-        <img src="../WEB/assets/tklbn-logo.png" alt="Takluban Logo">
-    </div>
-    <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span> 
-    <div class="nav-links">
-        <a href="{{ url_for('home') }}" class="home-link">HOME</a>
-        <a href="{{ url_for('creators') }}" class="creators-link active">ABOUT US</a>
-        <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>        
-    </div> <!-- Navigation Links -->
-</nav>
-
-
 <body>
+    <nav>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/tklbn-logo.png') }}" alt="Takluban Logo">
+        </div>
+        <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span> 
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="home-link">HOME</a>
+            <a href="{{ url_for('creators') }}" class="creators-link active">ABOUT US</a>
+            <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>        
+        </div> <!-- Navigation Links -->
+    </nav>
+    
     <div class="container">
         <!-- Left Side -->
         <div class="left-container">
             <h2>WHAT IS TAKLUBAN</h2>
-            <img src="../WEB/assets/tklbn-logo-xl.png" alt="Takluban Logo" class="takluban-logo">
+            <img src="{{ url_for('static', filename='assets/tklbn-logo-xl.png') }}" alt="Takluban Logo" class="takluban-logo">
             <div class="rectangle">
                 <p>Derived from the Filipino word <b>'TAKLUBAN'</b>, meaning 'to cover,' this tool is designed to filter and protect online conversations by detecting and masking inappropriate Tagalog, Cebuano, and Bikol languages.</p>
                 <p><b>TAKLUBAN</b>, a tool developed for an undergraduate thesis, 
@@ -72,7 +71,7 @@
     </div>
 
     <footer>
-        <img src="../WEB/assets/tklbn-favicon.png" alt="Footer Icon"> 
+        <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
         <p>All Rights Reserved, 2024</p>
     </footer>
 </body>
