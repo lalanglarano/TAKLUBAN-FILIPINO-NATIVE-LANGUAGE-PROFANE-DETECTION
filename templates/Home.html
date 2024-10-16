@@ -4,68 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Takluban Profane Detector</title>
-    <link rel="icon" href="../WEB/assets/tklbn-favicon.png" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/style/Home.css">
 </head>
 
-<nav>
-    <div class="logo">
-        <img src="../WEB/assets/tklbn-logo.png" alt="Takluban Logo">
-    </div>
-    <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span> 
-    <div class="nav-links">
-        <a href="{{ url_for('home') }}" class="home-link active">HOME</a>
-        <a href="{{ url_for('creators') }}" class="creators-link">ABOUT US</a>
-        <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>        
-    </div> <!-- Navigation Links -->
-</nav>
-
 <body>
-    <div class="container">
-        <div class="left">
-            <textarea id="text-area" placeholder="To detect profanities, input text here and click 'DETECT'."></textarea>
-            <div class="detect-button-container">
-                <button class="detect-button">DETECT</button>
-            </div>
-        </div>
-        <div class="right">
-            <div class="module module-1">
-                <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED</div>
-                <div id="detected-language"></div> 
-            </div>
-            <div class="module module-2">
-                <div class="module-title">POS TAGGED SENTENCE</div>
-                <div id="pos-tagged-sentence"></div> <!-- POS tagged sentence will appear here -->
-            </div>
-        </div>
+    <!-- Loader section with video -->
+    <div id="loader">
+        <video autoplay muted loop id="loadingVideo">
+            <source src="../static/assets/tklbn-loading.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <footer>
-        <img src="../WEB/assets/tklbn-favicon.png" alt="Footer Icon"> 
-        <p>All Rights Reserved, 2024</p>
-    </footer>
+    <!-- Main landing page content -->
+    <div id="landingPage" style="display: none;">
+        <nav>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='assets/tklbn-logo.png') }}" alt="Takluban Logo">
+            </div>
+            <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="home-link active">HOME</a>
+                <a href="{{ url_for('creators') }}" class="creators-link">ABOUT US</a>
+                <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>
+            </div> <!-- Navigation Links -->
+        </nav>
+
+        <div class="container">
+            <div class="left">
+                <textarea id="text-area" placeholder="To detect profanities, input text here and click 'DETECT'."></textarea>
+                <div class="detect-button-container">
+                    <button class="detect-button">DETECT</button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="module module-1">
+                    <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED:</div>
+                    <div id="detected-language"></div>
+                </div>
+                <div class="module module-2">
+                    <div class="module-title">POS TAGGED SENTENCE:</div>
+                    <div id="pos-tagged-sentence"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
+            <p>All Rights Reserved, 2024</p>
+        </footer>
+    </div>
 
     <script>
-        // Original script for word count and instructions
+        // Show loader on page load, then display the landing page
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('landingPage').style.display = 'block';
+            }, 6000);
+        };
+
+        // Word count limitation script
         const textArea = document.getElementById('text-area');
-        const instruction = document.getElementById('instruction');
         const maxWords = 10;
         const wordsLeftDisplay = document.createElement('div');
         wordsLeftDisplay.id = 'words-left';
         wordsLeftDisplay.textContent = `Allowed number of words remaining: ${maxWords}`;
         textArea.parentNode.insertBefore(wordsLeftDisplay, textArea.nextSibling);
-    
-        textArea.addEventListener('focus', function() {
-            instruction.style.display = 'none'; 
-        });
-    
-        textArea.addEventListener('blur', function() {
-            if (textArea.value === '') {
-                instruction.style.display = 'block'; 
-            }
-        });
-    
+
         textArea.addEventListener('input', function() {
             const words = textArea.value.split(/\s+/).filter(word => word.length > 0);
             const wordsLeft = maxWords - words.length;
@@ -75,12 +82,11 @@
                 alert(`Word limit of ${maxWords} reached.`);
             }
         });
-    
-        // New script to send text to Flask and display detected language and POS tagged sentence
+
+        // Detect button functionality (connecting with backend)
         document.querySelector('.detect-button').addEventListener('click', function() {
             const text = document.getElementById('text-area').value;
-            
-            // Send input to Flask using Fetch API
+
             fetch('/detect_language', {
                 method: 'POST',
                 headers: {
@@ -91,8 +97,8 @@
             .then(response => response.json())
             .then(data => {
                 if (data.predicted_language) {
-                    document.getElementById('detected-language').innerText = `Detected language: ${data.predicted_language}`;
-                    document.getElementById('pos-tagged-sentence').innerText = `POS Tagged Sentence: ${data.pos_tagged_sentence}`;
+                    document.getElementById('detected-language').innerText = `${data.predicted_language}`;
+                    document.getElementById('pos-tagged-sentence').innerText = `${data.pos_tagged_sentence}`;
                 } else {
                     document.getElementById('detected-language').innerText = 'Error detecting language';
                     document.getElementById('pos-tagged-sentence').innerText = '';
@@ -105,5 +111,6 @@
             });
         });
     </script>
+
 </body>
 </html>

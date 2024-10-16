@@ -3,3 +3,4 @@ nlu
 nltk
 pandas
 scikit-learn
+flask
