@@ -13,3 +13,17 @@ rule_from_sentence_11,FW CCA NNC,Profane sentence example
 rule_from_sentence_12,NNP NNC NNC,Profane sentence example
 rule_from_sentence_13,FW NNC NNC,Profane sentence example
 rule_from_sentence_14,FW DTC NNC,Profane sentence example
+rule_from_sentence_15,FW DTC NNC NNC,Profane sentence example
+rule_from_sentence_16,JJCC PRS NNC,Profane sentence example
+rule_from_sentence_17,RBW RBW VBTF PRS,Profane sentence example
+rule_from_sentence_18,JJD RBT DTP FW CCA NNC,Profane sentence example
+rule_from_sentence_19,NNC CCP NNC CCP PRS,Profane sentence example
+rule_from_sentence_20,FW CCT CCP JJD JJD RBI PRO,Profane sentence example
+rule_from_sentence_21,VBAF RBT PRP,Profane sentence example
+rule_from_sentence_22,VBTR JJD CCP NNC,Profane sentence example
+rule_from_sentence_23,JJD PRS RBT,Profane sentence example
+rule_from_sentence_24,CCT RBF RBI CCR PRS PRO,Profane sentence example
+rule_from_sentence_25,CCP JJD CCB JJD NNC,Profane sentence example
+rule_from_sentence_26,JJD CCP NNC,Profane sentence example
+rule_from_sentence_27,VBAF PRS NNC CCP VBS,Profane sentence example
+rule_from_sentence_28,PRC PRS RBI,Profane sentence example

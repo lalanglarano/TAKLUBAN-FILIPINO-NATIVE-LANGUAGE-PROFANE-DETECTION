@@ -64,7 +64,7 @@ class PatternGenerator:
         profane_ngram_indices = []  # Add this to track the indices of matched n-grams
 
         # Loop over n-gram lengths (1-gram, 2-gram, 3-gram)
-        for n in range(1, 4):  # For 1-gram, 2-gram, 3-gram
+        for n in range(1, 11):  # For 1-gram, 2-gram, 3-gram
             # Generate n-grams from the POS-tagged sentence
             ngrams_list = self.generate_ngrams(pos_tagged_text, n)
 
@@ -125,10 +125,21 @@ class PatternGenerator:
         print(f"New rule '{rule_name}' added with POS pattern: {pos_pattern}")
 
     # Censoring the sentence based on the detected profane pattern
-    def censor_sentence(pos_tagged_sentence, profane_indices):
-        return ' '.join(
-            '*****' if idx in profane_indices else word.split('|')[0] for idx, word in enumerate(pos_tagged_sentence)
-        )
+    def censor_sentence(self, pos_tagged_sentence, profane_indices):
+        """Censor the profane words in the sentence based on the profane indices."""
+        # We will censor only the words at the indices found in profane_indices
+        censored_sentence = []
+        
+        # Iterate through the POS-tagged sentence
+        for idx, word in enumerate(pos_tagged_sentence):
+            # Censor only if the current word index is in profane_indices
+            if idx in profane_indices:
+                censored_sentence.append('*****')  # Censor the word
+            else:
+                censored_sentence.append(word.split('|')[0])  # Keep the word as is
+        
+        # Return the censored sentence as a string
+        return ' '.join(censored_sentence)
     
 def main():
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
@@ -230,26 +241,26 @@ def main():
     pattern_generator = PatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     
     # Define the sentence to test
-    sentence = "fuck ang trabaho"
+    sentence = "yudeputa ka pirmi na sana"
         
     # Save pattern from the sentence
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
     
     # Load your dataset
     df = pd.read_csv('UsedDataset/dataset_bikol_sentence_profane.csv')
-    
+
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.5, random_state=48)
-    
+
     # Create a pipeline that combines the TfidfVectorizer with N-Grams and SVM
-    pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 2)), SVC())
-    
+    pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 2)), SVC(probability=True))
+
     # Define the hyperparameters grid
     param_grid = {
         'svc__C': [0.1, 1, 10],
         'svc__kernel': ['linear', 'rbf']
     }
-    
+
     # Perform Grid Search with Cross-Validation
     grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
     grid_search.fit(X_train, y_train)
@@ -261,7 +272,6 @@ def main():
     joblib.dump(best_model, 'bikol_trained_profane_model.pkl')
     print("Model saved as 'bikol_trained_profane_model.pkl'")
 
-    
     # Evaluate the model
     y_pred = best_model.predict(X_test)
     print(classification_report(y_test, y_pred))
