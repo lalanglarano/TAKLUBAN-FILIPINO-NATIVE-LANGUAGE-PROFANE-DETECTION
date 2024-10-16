@@ -95,7 +95,7 @@ body {
     padding: 20px;
     border: none; /* Removes the border */
     border-radius: 0; /* Removes any rounded corners */
-    font-size: 16px;
+    font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
     transition: height 0.3s ease, font-size 0.3s ease, color 0.3s ease;
@@ -114,8 +114,14 @@ body {
 
 /* Change font style and color when text area is focused or contains text */
 #text-area:not(:placeholder-shown) {
-    font-size: 18px;
+    font-size: 30px;
     font-style: normal; /* Removes italic */
+}
+
+#detected-language, #pos-tagged-sentence {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 40px;
 }
 
 #words-left {
@@ -177,9 +183,11 @@ body {
 .module-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 20px;
-    color: #000000;
+    font-size: 25px;
+    color: #800000;
+    margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 5px;
 }
 
 /* Footer styles */

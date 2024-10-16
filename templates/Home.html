@@ -31,11 +31,11 @@
         </div>
         <div class="right">
             <div class="module module-1">
-                <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED</div>
+                <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED:</div>
                 <div id="detected-language"></div> 
             </div>
             <div class="module module-2">
-                <div class="module-title">POS TAGGED SENTENCE</div>
+                <div class="module-title">POS TAGGED SENTENCE:</div>
                 <div id="pos-tagged-sentence"></div> <!-- POS tagged sentence will appear here -->
             </div>
         </div>
@@ -85,8 +85,8 @@
             .then(response => response.json())
             .then(data => {
                 if (data.predicted_language) {
-                    document.getElementById('detected-language').innerText = `Detected language: ${data.predicted_language}`;
-                    document.getElementById('pos-tagged-sentence').innerText = `POS Tagged Sentence: ${data.pos_tagged_sentence}`;
+                    document.getElementById('detected-language').innerText = `${data.predicted_language}`;
+                    document.getElementById('pos-tagged-sentence').innerText = `${data.pos_tagged_sentence}`;
                 } else {
                     document.getElementById('detected-language').innerText = 'Error detecting language';
                     document.getElementById('pos-tagged-sentence').innerText = '';
