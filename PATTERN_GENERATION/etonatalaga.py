@@ -59,7 +59,6 @@ class PatternGenerator:
 
         return flagged_patterns, matching_ngram_indices
 
-
     def detect_profane_patterns(self, pos_tagged_text):
         results = []
         profane_ngram_indices = []  # Add this to track the indices of matched n-grams
@@ -174,6 +173,10 @@ def main():
         if "No profane patterns detected" in detected_patterns:
             return sentence  # No patterns detected, return original sentence
         
+        # ** Save detected POS patterns to the dictionary **
+        pos_patterns = [pattern.split(' - ')[0] for pattern in detected_patterns if 'Rule Matched' in pattern]
+        save_profane_to_dict(pos_patterns)  # Save detected POS patterns
+        
         # Step 4: Implement censoring based on detected profane patterns
         # Loop through the pos_tagged_sentence and censor only the detected profane words
         censored_sentence = []
@@ -208,22 +211,21 @@ def main():
         except Exception as e:
             print(f"Error saving profane dictionary: {e}")
 
-    # Function to update and save detected profane words to the CSV
-    def save_profane_to_dict(profane_words):
+    # Function to update and save detected POS patterns to the CSV
+    def save_profane_to_dict(pos_patterns):
         # Load existing profane dictionary from the CSV file
         profane_dict = load_profane_dictionary()
 
-        # Update the dictionary with new profane words
-        for word in profane_words:
-            if word in profane_dict:
-                profane_dict[word] += 1
+        # Update the dictionary with new POS patterns
+        for pattern in pos_patterns:
+            if pattern in profane_dict:
+                profane_dict[pattern] += 1  # Increment the count if pattern already exists
             else:
-                profane_dict[word] = 1
+                profane_dict[pattern] = 1  # Add new pattern
 
         # Save the updated profane dictionary back to the CSV file
         save_profane_dictionary(profane_dict)
-        
-        print(f"Updated Profane Dictionary: {profane_dict}")
+        print(f"Updated Profane Dictionary with POS Patterns: {profane_dict}")
 
     pattern_generator = PatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     
