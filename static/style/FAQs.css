@@ -60,7 +60,7 @@ body {
     min-height: 100vh;
 }
 
-h2{
+h2 {
     color: black;
     text-align: center;
     margin-top: 70px;
@@ -91,13 +91,13 @@ footer p {
 }
 
 /* Accordion design */
-#accordion{
+#accordion {
     width: 600px;
     margin: 20px auto;
     padding-bottom: 40px;
 }
 
-#accordion li{
+#accordion li {
     list-style: none;
     width: 100%;
     margin-bottom: 10px;
@@ -107,7 +107,7 @@ footer p {
     border-radius: 5px;
 }
 
-#accordion li label{
+#accordion li label {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 15px;
@@ -120,16 +120,16 @@ footer p {
     color: #800000;
 }
 
-#accordion li label span{
+#accordion li label span {
     font-size: 22px;
     color:#878787;
 }
 
-#accordion label + input[type="radio"]{
+#accordion label + input[type="radio"] {
     display: none;
 }
 
-#accordion .content{
+#accordion .content {
     padding: 10px;
     line-height: 24px;
     max-height: 0;
@@ -137,6 +137,10 @@ footer p {
     transition: max-height 0.5s;
 }
 
-#accordion label + input[type="radio"]:checked + .content{
+#accordion label + input[type="radio"]:checked + .content {
     max-height: 300px;
+}
+
+.content a {
+    color: #800000; 
 }
