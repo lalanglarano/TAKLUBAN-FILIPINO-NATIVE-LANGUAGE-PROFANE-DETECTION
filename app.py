@@ -3,10 +3,22 @@ from TAKLUBAN import process_sentence  # Import the process_sentence function fr
 
 app = Flask(__name__)
 
+# Route for the home page
 @app.route('/')
 def home():
     return render_template('Home.html')
 
+# Route for the creators page
+@app.route('/creators')
+def creators():
+    return render_template('Creators.html')
+
+# Route for the FAQs page
+@app.route('/faqs')
+def faqs():
+    return render_template('FAQs.html')
+
+# Route for detecting language
 @app.route('/detect_language', methods=['POST'])
 def detect_language():
     sentence = request.form['text']  # Get input text from HTML form
