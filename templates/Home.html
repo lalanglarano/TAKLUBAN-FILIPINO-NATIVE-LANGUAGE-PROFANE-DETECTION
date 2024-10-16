@@ -10,56 +10,70 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <img src="{{ url_for('static', filename='assets/tklbn-logo.png') }}" alt="Takluban Logo">
-        </div>
-        <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span> 
-        <div class="nav-links">
-            <a href="{{ url_for('home') }}" class="home-link active">HOME</a>
-            <a href="{{ url_for('creators') }}" class="creators-link">ABOUT US</a>
-            <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>        
-        </div> <!-- Navigation Links -->
-    </nav>
+    <!-- Loader section with video -->
+    <div id="loader">
+        <video autoplay muted loop id="loadingVideo">
+            <source src="../static/assets/TAKLUBAN - Loading.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
-    <div class="container">
-        <div class="left">
-            <textarea id="text-area" placeholder="To detect profanities, input text here and click 'DETECT'."></textarea>
-            <div class="detect-button-container">
-                <button class="detect-button">DETECT</button>
+    <!-- Main landing page content -->
+    <div id="landingPage" style="display: none;">
+        <nav>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='assets/tklbn-logo.png') }}" alt="Takluban Logo">
+            </div>
+            <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="home-link active">HOME</a>
+                <a href="{{ url_for('creators') }}" class="creators-link">ABOUT US</a>
+                <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>
+            </div> <!-- Navigation Links -->
+        </nav>
+
+        <div class="container">
+            <div class="left">
+                <textarea id="text-area" placeholder="To detect profanities, input text here and click 'DETECT'."></textarea>
+                <div class="detect-button-container">
+                    <button class="detect-button">DETECT</button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="module module-1">
+                    <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED:</div>
+                    <div id="detected-language"></div>
+                </div>
+                <div class="module module-2">
+                    <div class="module-title">POS TAGGED SENTENCE:</div>
+                    <div id="pos-tagged-sentence"></div>
+                </div>
             </div>
         </div>
-        <div class="right">
-            <div class="module module-1">
-                <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED:</div>
-                <div id="detected-language"></div> 
-            </div>
-            <div class="module module-2">
-                <div class="module-title">POS TAGGED SENTENCE:</div>
-                <div id="pos-tagged-sentence"></div> <!-- POS tagged sentence will appear here -->
-            </div>
-        </div>
+
+        <footer>
+            <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
+            <p>All Rights Reserved, 2024</p>
+        </footer>
     </div>
 
     <script>
+        // Show loader on page load, then display the landing page
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('landingPage').style.display = 'block';
+            }, 4600); // Adjust the delay (1000ms = 1s)
+        };
+
+        // Word count limitation script
         const textArea = document.getElementById('text-area');
-        const instruction = document.getElementById('instruction');
         const maxWords = 10;
         const wordsLeftDisplay = document.createElement('div');
         wordsLeftDisplay.id = 'words-left';
         wordsLeftDisplay.textContent = `Allowed number of words remaining: ${maxWords}`;
         textArea.parentNode.insertBefore(wordsLeftDisplay, textArea.nextSibling);
-    
-        textArea.addEventListener('focus', function() {
-            instruction.style.display = 'none'; 
-        });
-    
-        textArea.addEventListener('blur', function() {
-            if (textArea.value === '') {
-                instruction.style.display = 'block'; 
-            }
-        });
-    
+
         textArea.addEventListener('input', function() {
             const words = textArea.value.split(/\s+/).filter(word => word.length > 0);
             const wordsLeft = maxWords - words.length;
@@ -69,12 +83,11 @@
                 alert(`Word limit of ${maxWords} reached.`);
             }
         });
-    
-        // Script to send text to Flask and display detected language and POS tagged sentence
+
+        // Detect button functionality (connecting with backend)
         document.querySelector('.detect-button').addEventListener('click', function() {
             const text = document.getElementById('text-area').value;
-            
-            // Send input to Flask using Fetch API
+
             fetch('/detect_language', {
                 method: 'POST',
                 headers: {
@@ -99,11 +112,6 @@
             });
         });
     </script>
-
-    <footer>
-        <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
-        <p>All Rights Reserved, 2024</p>
-    </footer>
 
 </body>
 </html>
