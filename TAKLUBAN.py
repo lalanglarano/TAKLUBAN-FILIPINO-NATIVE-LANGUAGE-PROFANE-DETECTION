@@ -12,6 +12,7 @@ from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger  # Import the POSTag
 model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
 dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
 output_file = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/POSdata.csv"
+profanity_dictionary_file = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/profanity_dictionary.csv"
 
 # Function to check if the CSV file exists and create if necessary
 def initialize_csv():
@@ -65,7 +66,10 @@ def process_sentence(sentence, language_identifier):
 
     if pos_tagger and predicted_language in ['cebuano', 'bikol', 'tagalog']:
         # Perform initial POS tagging using Stanford POS Tagger
-        pos_tagged_sentence = pos_tagger.pos_tag_text(sentence)  # Use the POS tagger from POSTagger.py
+        pos_tagged_sentence = pos_tagger.pos_tag_text(sentence)
+
+        # Save the POS tag to profanity_dictionary.csv
+        save_pos_to_profanity_dictionary(pos_tagged_sentence)
         
         profanity_model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
         
@@ -79,6 +83,13 @@ def process_sentence(sentence, language_identifier):
         return predicted_language, pos_tagged_sentence, censored_sentence, is_profane
     return "Unsupported language", None, sentence, False
 
+def save_pos_to_profanity_dictionary(pos_tagged):
+    """Save only the POS tag to the profanity dictionary CSV file."""
+    with open(profanity_dictionary_file, 'a', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([pos_tagged])
+
+# Original function if you still need it for other data
 def save_to_csv(language, sentence, pos_tagged, censored_sentence):
     """Save the language, sentence, POS tagged result, and censored sentence to a CSV file."""
     with open(output_file, 'a', newline='', encoding='utf-8') as csvfile:

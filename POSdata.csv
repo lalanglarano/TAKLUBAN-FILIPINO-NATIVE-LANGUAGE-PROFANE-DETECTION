@@ -126,3 +126,25 @@ tagalog,ang bilis niya tumakbo,|ANG|DTC |BILIS|NNC |NIYA|PRS |TUMAKBO|VBAF,ang b
 tagalog,puta ang hirap naman nito,|PUTA|NNC |ANG|DTC |HIRAP|JJD |NAMAN|RBI |NITO|PRO,**** *** ***** ***** ****
 bikol,patalon talaga ang hamagan,"['|PATALON|RBD', '|TALAGA|RBT', '|ANG|DTC', '|HAMAGAN|NNC']",******* ****** *** *******
 cebuano,kolera ka bai,"['|KOLERA|NNC', '|KA|PRS', '|BAI|NNC']",kolera ka bai
+cebuano,kolera ka bai,"['|KOLERA|NNC', '|KA|PRS', '|BAI|NNC']",kolera ka bai
+bikol,bugay lamang kaan,"['|BUGAY|CCT', '|LAMANG|RBI', '|KAAN|CCB']",***** ****** ****
+cebuano,bogo man diay to dili,"['|BOGO|FW', '|MAN|FW', '|DIAY|FW', '|TO|FW', '|DILI|FW']",bogo man diay to dili
+cebuano,kolera ka bai,|KOLERA|NNC |KA|PRS |BAI|NNC,kolera ka bai
+bikol,bogo ka boi,|BOGO|RBM |KA|PRS |BOI|NNCA,**** ** ***
+cebuano,bogo man diay,|BOGO|FW |MAN|FW |DIAY|FW,bogo man diay
+cebuano,bogo kaayo siya sa matematika,|BOGO|FW |KAAYO|CCB |SIYA|PRS |SA|CCT |MATEMATIKA|NNC,bogo kaayo siya sa matematika
+cebuano,bogo kaayo siya,|BOGO|FW |KAAYO|CCB |SIYA|PRS,**** ***** ****
+tagalog,baliw ka ba,"['|BALIW|JJD', '|KA|PRS', '|BA|RBI']",baliw ka ba
+cebuano,bogo kaayo ka bai,"['|BOGO|FW', '|KAAYO|CCB', '|KA|PRS', '|BAI|NNC']",**** ***** ** ***
+bikol,maray na aga saindo gabos,"['|MARAY|JJD', '|NA|CCP', '|AGA|JJD', '|SAINDO|NNC', '|GABOS|NNC']",maray na aga saindo gabos
+cebuano,bogo kaayo bai,|BOGO|FW |KAAYO|CCB |BAI|NNC,**** ***** ***
+cebuano,ang galing mo naman,|ANG|DTC |GALING|RBL |MO|PRS |NAMAN|RBI,ang galing mo naman
+tagalog,bobo ka talaga,|BOBO|JJD |KA|PRS |TALAGA|RBT,**** ** ******
+cebuano,bogo kaayo bai,|BOGO|FW |KAAYO|CCB |BAI|NNC,**** ***** ***
+bikol,makauragon ang bulininaniya,|MAKAURAGON|VBW |ANG|DTC |BULININANIYA|NNC,********** *** ************
+tagalog,pagod nako mag isip sa putanginang problema na ito,|PAGOD|JJD |NAKO|RBD |MAG|VBW |ISIP|NNC |SA|CCT putanginang|RBD|CCP |PROBLEMA|NNC |NA|CCP |ITO|PRO,pagod nako mag isip sa putanginang problema na ito
+tagalog,pagod nako sa putangina na problema,|PAGOD|JJD |NAKO|RBD |SA|CCT |PUTANGINA|NNC |NA|CCP |PROBLEMA|NNC,***** **** ** ********* ** ********
+tagalog,pagod nako tangina,|PAGOD|JJD |NAKO|RBD |TANGINA|RBD,***** **** *******
+tagalog,pagod nako tangina,|PAGOD|JJD |NAKO|RBD |TANGINA|RBD,***** **** *******
+tagalog,pagod nako tangina,|PAGOD|JJD |NAKO|RBD |TANGINA|RBD,***** **** *******
+tagalog,asan ka na tanga,|ASAN|RBR |KA|PRS |NA|CCP |TANGA|JJD,**** ** ** *****
