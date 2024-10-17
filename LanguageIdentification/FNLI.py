@@ -15,9 +15,9 @@ class DictionaryGenerator:
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
         results_folder = f"{base_path}/Results"
         self.language = language  # Add language to the instance
-        self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
-        self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
-        self.english_dict_path = f"{dictionary_dir}/english_dictionary.csv"
+        self.input_file = os.path.join(preprocessed_dir, f"preprocessed_{language}_sentence_profane.csv")
+        self.output_file = os.path.join(preprocessed_dir, f"preprocessed_{language}.csv")
+        self.english_dict_path = english_dict_path  # Corrected path for the English dictionary
         self.preprocessed_dir = preprocessed_dir  # Ensure the directory paths are available
         self.dictionary_dir = dictionary_dir
         os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
@@ -28,9 +28,9 @@ class DictionaryGenerator:
     def initialize_noise_words(self):
         """Initialize common noise words for Tagalog, Bikol, Cebuano, and English."""
         noise_words = {
-            'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po"},
-            'Bikol': {"ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si"},
-            'Cebuano': {"dayon", "ang", "ini", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
+            'Tagalog': {"ang", "ng", "sa", "na", "ay", "mga", "yung", "itong", "dito", "iyan", "kay", "kina"},
+            'Bikol': {"ang", "an", "na", "sa", "iyo", "kang", "hali", "ini", "ngani", "iyo", "baga", "si", "sinda"},
+            'Cebuano': {"ang", "sa", "na", "ug", "ni", "kay", "kani", "adto", "kini", "katong", "ilang", "iyang"}
         }
         noise_words['English'] = self.load_english_noise_words()
 
@@ -66,7 +66,6 @@ class DictionaryGenerator:
         common_words = (tagalog_set | bikol_set | cebuano_set) & noise_words['English']
         noise_words['English'] = noise_words['English'] - common_words
 
-
     def remove_noise(self, words, language):
         """Remove noise words from the list of words."""
         return [word for word in words if word.lower() not in self.noise_words[language.capitalize()]]
@@ -74,7 +73,7 @@ class DictionaryGenerator:
     def generate_dictionary(self, language):
         """Generate a word frequency dictionary from preprocessed sentences, excluding words found in the English dictionary."""
         word_count = Counter()
-        preprocessed_file = os.path.join(self.preprocessed_dir, f"preprocessed_{language}.csv")
+        preprocessed_file = os.path.join(self.preprocessed_dir, f"preprocessed_{language}_sentence_profane.csv")
 
         try:
             with open(preprocessed_file, 'r', encoding='utf-8') as infile:
@@ -217,7 +216,7 @@ if __name__ == "__main__":
     # Proceed with dictionary generation
     preprocessed_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/preprocessed"
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
-    english_dict_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/english_dictionary.csv"
+    english_dict_path = "LanguageIdentification/Dictionary/english_dictionary.csv"  # Updated path
 
     languages = ['tagalog', 'bikol', 'cebuano']
 
@@ -244,3 +243,4 @@ if __name__ == "__main__":
     sentences = ["kagulo gulo ang patal na ini"]  # Replace with actual sentences
     dominant_language = language_identifier.determine_language(sentences)
     print(f"The dominant language is: {dominant_language}")
+
