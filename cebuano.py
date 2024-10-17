@@ -2,19 +2,19 @@ import os
 import pandas as pd
 import csv
 import joblib
-from nltk.tag.stanford import StanfordPOSTagger
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import classification_report
 from nltk.util import ngrams
+from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger 
 
 class PatternGenerator:
-    def __init__(self, csv_filename, model_filename, path_to_jar):
+    def __init__(self, csv_filename, language='cebuano'):
         self.rules = self.load_predefined_rules(csv_filename)
-        self.tagger = StanfordPOSTagger(model_filename=model_filename, path_to_jar=path_to_jar)
-    
+        self.tagger = POSTagger(language)
+
     def load_predefined_rules(self, csv_filename):
         rules = []
         try:
@@ -97,9 +97,11 @@ class PatternGenerator:
         print(f"New rule '{rule_name}' added with POS pattern: {pos_pattern}")
 
     def tag_sentence(self, sentence):
-        tokens = sentence.split()
-        tagged_sentence = self.tagger.tag(tokens)
-        return [f"{word}|{tag}" for word, tag in tagged_sentence]
+        """
+        Use the POSTagger from POSTagger.py to tag the sentence.
+        """
+        pos_tagged_text = self.tagger.pos_tag_text(sentence)  # Use pos_tag_text instead of tag
+        return pos_tagged_text.split()  # Return the tagged tokens as a list
 
     def add_new_rule(self, csv_filename, rule_name, pos_pattern, description):
         """
@@ -134,17 +136,16 @@ class PatternGenerator:
             censored_sentence.append('*****')  # Censor the entire sentence
         return ' '.join(censored_sentence)
 
+# Main function remains unchanged
 def main():
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
     predefined_rules_path = f"{base_path}/PATTERN_GENERATION/predefined_rules.csv"
-    model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
-    path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
 
-    # Initialize PatternGenerator
-    pattern_generator = PatternGenerator(predefined_rules_path, model_filename, path_to_jar)
+    # Initialize PatternGenerator with POSTagger
+    pattern_generator = PatternGenerator(predefined_rules_path, language='cebuano')
 
     # Define the sentence to test
-    sentence = "kijuray ka bai"
+    sentence = "sobrang pangit ng gising puta"
         
     # Save pattern from the sentence
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
@@ -177,16 +178,6 @@ def main():
 
     # Evaluate the model
     y_pred = best_model.predict(X_test)
-
-    # Debugging: Print unique values in y_test and y_pred
-    print("Unique values in y_test:", set(y_test))
-    print("Unique values in y_pred:", set(y_pred))
-
-    # Convert y_test and y_pred to string type
-    y_test = y_test.astype(str)
-    y_pred = y_pred.astype(str)
-
-    # Generate the classification report
     print(classification_report(y_test, y_pred))
 
     # Example usage

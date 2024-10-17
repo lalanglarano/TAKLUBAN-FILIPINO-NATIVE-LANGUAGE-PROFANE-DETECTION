@@ -2,19 +2,19 @@ import os
 import pandas as pd
 import csv
 import joblib
-from nltk.tag.stanford import StanfordPOSTagger
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import classification_report
 from nltk.util import ngrams
+from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger 
 
 class PatternGenerator:
-    def __init__(self, csv_filename, model_filename, path_to_jar):
+    def __init__(self, csv_filename):
         self.rules = self.load_predefined_rules(csv_filename)
-        self.tagger = StanfordPOSTagger(model_filename=model_filename, path_to_jar=path_to_jar)
-    
+        self.tagger = POSTagger()
+
     def load_predefined_rules(self, csv_filename):
         rules = []
         try:
@@ -97,6 +97,9 @@ class PatternGenerator:
         print(f"New rule '{rule_name}' added with POS pattern: {pos_pattern}")
 
     def tag_sentence(self, sentence):
+        """
+        Use the POSTagger from POSTagger.py to tag the sentence.
+        """
         tokens = sentence.split()
         tagged_sentence = self.tagger.tag(tokens)
         return [f"{word}|{tag}" for word, tag in tagged_sentence]
@@ -134,14 +137,13 @@ class PatternGenerator:
             censored_sentence.append('*****')  # Censor the entire sentence
         return ' '.join(censored_sentence)
 
+# Main function remains unchanged
 def main():
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
     predefined_rules_path = f"{base_path}/PATTERN_GENERATION/predefined_rules.csv"
-    model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
-    path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
 
-    # Initialize PatternGenerator
-    pattern_generator = PatternGenerator(predefined_rules_path, model_filename, path_to_jar)
+    # Initialize PatternGenerator with POSTagger
+    pattern_generator = PatternGenerator(predefined_rules_path)
 
     # Define the sentence to test
     sentence = "sobrang pangit ng gising puta"
