@@ -39,16 +39,16 @@
                 </div>
             </div>
             <div class="right">
-                <div class="module module-1">
+                <div class="module-1">
                     <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED:</div>
                     <div id="detected-language"></div>
                 </div>
-                <div class="module module-2">
+                <div class="module-2">
                     <div class="module-title">POS TAGGED SENTENCE:</div>
                     <div id="pos-tagged-sentence"></div>
                 </div>
-                <div class="module module-3">
-                    <div class="module-title">CENSORED/CLEANED SENTENCE:</div>
+                <div class="module-3">
+                    <div class="module-title">CENSORED OR CLEAN SENTENCE:</div>
                     <div id="censored-sentence"></div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                     document.getElementById('landingPage').style.display = 'block';
                     // Store in session storage that the user has visited
                     sessionStorage.setItem('visited', 'true');
-                }, 6000); // The loading screen will show for 6 seconds
+                }, 5900); // The loading screen will show for 6 seconds
             }
         };
 
@@ -123,9 +123,9 @@
 
                 if (data.censored_sentence) {
                     if (data.is_profane) {
-                        document.getElementById('censored-sentence').innerText = `Censored Sentence: ${data.censored_sentence}`;
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
                     } else {
-                        document.getElementById('censored-sentence').innerText = `Cleaned Sentence: ${data.censored_sentence}`;
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
                     }
                 } else {
                     document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
@@ -134,7 +134,7 @@
             .catch(error => {
                 console.error('Error:', error);
                 document.getElementById('detected-language').innerText = 'Error detecting language';
-                document.getElementById('pos-tagged-sentence').innerText = '';
+                document.getElementById('pos-tagged-sentence').innerText = 'Error processing the sentence.';
                 document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
             });
         });
