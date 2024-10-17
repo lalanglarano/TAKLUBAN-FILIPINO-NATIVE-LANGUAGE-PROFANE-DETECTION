@@ -75,3 +75,10 @@ tagalog,gagi ang lakas mo naman,"['|GAGI|JJD', '|ANG|DTC', '|LAKAS|NNC', '|MO|PR
 tagalog,baliw ka ba,"['|BALIW|JJD', '|KA|PRS', '|BA|RBI']",baliw ka ba
 tagalog,ang galing mong puta ka,"['|ANG|DTC', '|GALING|RBL', 'mong|PRS|CCP', '|PUTA|NNC', '|KA|PRS']",*****
 tagalog,siya ay mukhang burat,"['|SIYA|PRS', '|AY|LM', '|MUKHANG|RBM', '|BURAT|NNC']",*****
+bikol,kumusta ka jan sa maynila,"['kumusta|VBTS|VBAF', '|KA|PRS', '|JAN|NNC', '|SA|CCT', '|MAYNILA|NNC']",kumusta ka jan sa maynila
+tagalog,asan ka na namang puta ka,"['|ASAN|RBR', '|KA|PRS', '|NA|CCP', 'namang|RBI|CCP', '|PUTA|NNC', '|KA|PRS']",*****
+tagalog,bwakanang bitch,"['bwakanang|JJD|CCP', '|BITCH|NNC']",*****
+bikol,tangina mo bitch,"['|TANGINA|JJCC', '|MO|PRS', '|BITCH|NNC']",*****
+bikol,fuck ang trabaho,"['|FUCK|FW', '|ANG|DTC', '|TRABAHO|NNC']",*****
+cebuano,yawa man bai,"['|YAWA|FW', '|MAN|FW', '|BAI|FW']",*****
+cebuano,buang na si bai,"['|BUANG|JJD', '|NA|CCP', '|SI|DTP', '|BAI|NNP']",*****
