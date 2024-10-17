@@ -67,13 +67,14 @@ def process_sentence(sentence, language_identifier):
     if pos_tagger and predicted_language in ['cebuano', 'bikol', 'tagalog']:
         # Perform initial POS tagging using Stanford POS Tagger
         pos_tagged_sentence = pos_tagger.pos_tag_text(sentence)
-        
+
         profanity_model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
         
         if os.path.exists(profanity_model_path):
             best_model = joblib.load(profanity_model_path)
             censored_sentence, is_profane = predict_and_censor(sentence, best_model)
-            
+            save_to_csv(predicted_language, sentence, pos_tagged_sentence, censored_sentence)
+
             # Save the POS tag to profanity_dictionary.csv only if the sentence is profane
             if is_profane:
                 save_pos_to_profanity_dictionary(pos_tagged_sentence)
