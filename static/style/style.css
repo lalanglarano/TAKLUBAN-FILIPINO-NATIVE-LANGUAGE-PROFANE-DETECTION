@@ -87,6 +87,10 @@ h1 {
     bottom: 40px;
 }
 
+.continue-button:hover {
+    color: #FFD700;
+}
+
 .continue-button {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
