@@ -27,3 +27,5 @@ rule_from_sentence_25,CCP JJD CCB JJD NNC,Profane sentence example
 rule_from_sentence_26,JJD CCP NNC,Profane sentence example
 rule_from_sentence_27,VBAF PRS NNC CCP VBS,Profane sentence example
 rule_from_sentence_28,PRC PRS RBI,Profane sentence example
+rule_from_sentence_29,RBM PRS NNC,Profane sentence example
+rule_from_sentence_30,RBD PRS RBT CCT NNC,Profane sentence example

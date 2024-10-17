@@ -2,10 +2,13 @@ import csv
 import os
 import pandas as pd
 import joblib
+from sklearn.metrics import confusion_matrix, classification_report
+import matplotlib.pyplot as plt
+import seaborn as sns
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
 from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger
-from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator  # Import PatternGenerator for Tagalog
-from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator  # Import PatternGenerator for Bikol
+from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator 
+from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator 
 from PATTERN_GENERATION.cebuano import PatternGenerator as CebuanoPatternGenerator 
 
 # Define the path to save the results
@@ -16,6 +19,10 @@ if not os.path.exists(output_file):
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['Language', 'Sentence', 'POS', 'Censored Sentence'])  # Header for CSV
+
+# Initialize lists to store predictions and true labels
+predictions = []
+true_labels = []
 
 def save_to_csv(language, sentence, pos_tagged, censored_sentence):
     """Save the language, sentence, POS tagged result, and censored sentence to a CSV file."""
@@ -57,25 +64,21 @@ def get_pattern_generator(language):
     else:
         return None
 
-def predict_and_censor(sentence, pattern_generator, best_model, threshold=0.9):
+def predict_and_censor(sentence, pattern_generator, best_model, threshold=0.5):
     """Perform profanity detection and censorship using SVM and the pattern generator."""
-    # Step 1: Use SVM to predict if the sentence is profane
     probas = best_model.predict_proba([sentence])[0]  # Predict probabilities using the SVM model
-    print(f"Probabilities: {probas}")
     
     is_profane = probas[1] >= threshold  # Only classify as profane if probability is above the threshold
-    print(f"SVM Prediction - {'Profane' if is_profane else 'Not Profane'} with probability: {probas[1]}")
+    print(f"SVM Prediction: {'1' if is_profane else '0'}")  # Print 1 for profane, 0 for not profane
 
     # If SVM says the sentence is profane, censor the entire sentence
     if is_profane:
         print(f"Censoring the entire sentence due to SVM detection.")
         return '*****'  # Censor the entire sentence
     
-    # Step 2: If the sentence is not detected as profane, return it as-is
     return sentence  # Return the sentence uncensored if not profane
 
 def main():
-    # Define the paths
     model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
 
@@ -94,38 +97,53 @@ def main():
             print("Exiting the program.")
             break
 
-        # Step 1: Identify the language of the sentence
         predicted_language = language_identifier.predict_language(sentence)
-
-        # Step 2: Initialize PatternGenerator for detected language
         pattern_generator = get_pattern_generator(predicted_language)
 
         if pattern_generator and predicted_language in ['cebuano', 'bikol', 'tagalog']:
             print(f"\nDetected language: {predicted_language}")
             
-            # Step 3: Perform POS tagging
             pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
             print(f"POS Tagged Sentence: {pos_tagged_sentence}")
 
-            # Step 4: Load the SVM model for profanity detection
             model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
             if os.path.exists(model_path):
                 best_model = joblib.load(model_path)
                 print(f"Loaded SVM model for {predicted_language}.")
                 
-                # Step 5: Perform profanity detection and censoring
                 censored_sentence = predict_and_censor(sentence, pattern_generator, best_model)
                 print(f"Censored Sentence: {censored_sentence}")
             else:
                 print(f"No SVM model found for {predicted_language}. Skipping censorship.")
-                censored_sentence = sentence  # No model available, skip censoring
+                censored_sentence = sentence
 
-            # Step 6: Save the result to the CSV file
             save_to_csv(predicted_language, sentence, pos_tagged_sentence, censored_sentence)
+
+            # Asking the user for the true label (1 = Profane, 0 = Not Profane)
+            true_label = int(input("Is the sentence profane? (1 for profane, 0 for not profane): "))
+            predictions.append(1 if censored_sentence == '*****' else 0)
+            true_labels.append(true_label)
 
             print(f"Sentence '{sentence}' saved with the detected language, POS tagging result, and censored sentence.\n")
         else:
             print(f"Unsupported language detected: {predicted_language}. No POS tagging performed.")
+    
+    # Confusion matrix and performance metrics calculation
+    if len(predictions) > 0:
+        print("Confusion Matrix and Performance Metrics:")
+        cm = confusion_matrix(true_labels, predictions)
+        print(f"Confusion Matrix:\n{cm}")
+        
+        print("\nClassification Report:")
+        print(classification_report(true_labels, predictions))
+        
+        # Plot the confusion matrix
+        plt.figure(figsize=(6,6))
+        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False, xticklabels=['Not Profane', 'Profane'], yticklabels=['Not Profane', 'Profane'])
+        plt.xlabel('Predicted')
+        plt.ylabel('True')
+        plt.title('Confusion Matrix')
+        plt.show()
 
 if __name__ == "__main__":
     main()
