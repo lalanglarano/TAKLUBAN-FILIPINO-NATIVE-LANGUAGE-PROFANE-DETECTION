@@ -144,7 +144,7 @@ def main():
     pattern_generator = PatternGenerator(predefined_rules_path, model_filename, path_to_jar)
 
     # Define the sentence to test
-    sentence = "yawa ka bai"
+    sentence = "kijuray ka bai"
         
     # Save pattern from the sentence
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
@@ -177,6 +177,16 @@ def main():
 
     # Evaluate the model
     y_pred = best_model.predict(X_test)
+
+    # Debugging: Print unique values in y_test and y_pred
+    print("Unique values in y_test:", set(y_test))
+    print("Unique values in y_pred:", set(y_pred))
+
+    # Convert y_test and y_pred to string type
+    y_test = y_test.astype(str)
+    y_pred = y_pred.astype(str)
+
+    # Generate the classification report
     print(classification_report(y_test, y_pred))
 
     # Example usage
