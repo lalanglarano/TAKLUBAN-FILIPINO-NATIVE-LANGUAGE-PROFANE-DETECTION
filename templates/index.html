@@ -22,11 +22,27 @@
         </div> <!-- Navigation Links -->
     </nav>
 
-    
+    <div class="container">
+        <img src="{{ url_for('static', filename='assets/tklbn-logo-xl.png') }}" alt="Takluban Logo" class="takluban-logo">
+        <h1 class="title">INTEGRATING POS TAGGING AND RULE GENERATION
+        <br> IN MULTILINGUAL FILIPINO NATIVE LANGUAGE 
+        <br> PROFANE DETECTION</h1>
+        <div class="continue-button-container">
+            <button class="continue-button">CONTINUE</button>
+        </div>
+        
+    </div>
 
     <footer>
         <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
         <p>All Rights Reserved, 2024</p>
     </footer>
+
+    <script>
+        const continueButton = document.querySelector('.continue-button');
+        continueButton.addEventListener('click', () => {
+            window.location.href = "{{ url_for('home') }}";
+        });
+    </script>
 </body>
 </html>

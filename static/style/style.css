@@ -7,7 +7,6 @@ nav {
     background-color: #800000; 
     padding: 10px 20px;
     font-family: 'Montserrat', sans-serif;
-    margin-bottom: 50px; /* Adds some space below the navigation bar */
 }
 
 /* Style for the title */
@@ -58,6 +57,45 @@ body {
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    overflow: hidden; 
+}
+
+h1 {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    height: calc(100vh - 100px);
+}
+
+.continue-button-container {
+    width: 146px;
+    height: 40px;
+    background: #800000;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    bottom: 40px;
+}
+
+.continue-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 /* Footer styles */
