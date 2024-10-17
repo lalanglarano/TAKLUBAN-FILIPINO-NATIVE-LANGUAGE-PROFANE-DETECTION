@@ -90,3 +90,39 @@ cebuano,ang ganda mo bossin,"['|ANG|DTC', '|GANDA|NNC', '|MO|PRS', '|BOSSIN|VBOF
 bikol,tangina mo,"['|TANGINA|RBW', '|MO|PRS']",******* **
 cebuano,itim ang suot nila,"['|ITIM|JJD', '|ANG|DTC', '|SUOT|JJD', '|NILA|PRP']",itim ang suot nila
 cebuano,itim ang titi,"['|ITIM|JJD', '|ANG|DTC', '|TITI|NNC']",**** *** ****
+tagalog,never mind ill find someone like you,"['|NEVER|FW', '|MIND|FW', '|ILL|FW', '|FIND|FW', '|SOMEONE|FW', '|LIKE|FW', '|YOU|FW']",***** **** *** **** ******* **** ***
+tagalog,dont forgive me,"['|DONT|FW', '|FORGIVE|FW', '|ME|FW']",**** ******* **
+tagalog,nothings gonna stop me but divine intervention,"['|NOTHINGS|FW', '|GONNA|FW', '|STOP|FW', '|ME|FW', '|BUT|FW', '|DIVINE|FW', '|INTERVENTION|FW']",******** ***** **** ** *** ****** ************
+cebuano,ang ganda mo naman,"['|ANG|DTC', '|GANDA|NNC', '|MO|PRS', '|NAMAN|RBI']",ang ganda mo naman
+tagalog,asan kana,"['|ASAN|RBW', '|KANA|NNC']",asan kana
+bikol,tanginang yan,"['tanginang|NNC|CCP', '|YAN|PRO']",********* ***
+tagalog,pukingina talaga natalo pa,"['pukingina|VBTR|VBAF', '|TALAGA|RBT', '|NATALO|VBTS', '|PA|RBI']",********* ****** ****** **
+tagalog,asan kana tanga,"['|ASAN|RBR', '|KANA|NNC', '|TANGA|JJD']",**** **** *****
+bikol,bobo mo boi zero ka sa exam,"['|BOBO|JJD', '|MO|PRS', '|BOI|FW', '|ZERO|FW', '|KA|PRS', '|SA|CCT', '|EXAM|NNC']",**** ** *** **** ** ** ****
+tagalog,punyeta ka bakla,"['|PUNYETA|NNC', '|KA|PRS', '|BAKLA|NNC']",******* ** *****
+tagalog,bwakanang bitch,"['bwakanang|JJD|CCP', '|BITCH|NNC']",********* *****
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,baliw ka ba?,"['|BALIW|JJD', '|KA|PRS', '|BA?|NNCA']",baliw ka ba?
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+cebuano,ang galing mo naman,|ANG|DTC |GALING|RBL |MO|PRS |NAMAN|RBI,ang galing mo naman
+bikol,ang galing mo puta,|ANG|DTC |GALING|RBL |MO|PRS |PUTA|NNC,ang galing mo puta
+cebuano,hatdog ka ba,|HATDOG|CCR |KA|PRS |BA|RBI,hatdog ka ba
+bikol,ang galing mo puta,"['|ANG|DTC', '|GALING|RBL', '|MO|PRS', '|PUTA|NNC']",*** ****** ** ****
+cebuano,ang galing mo naman,"['|ANG|DTC', '|GALING|RBL', '|MO|PRS', '|NAMAN|RBI']",ang galing mo naman
+cebuano,hatdog ka ba,"['|HATDOG|CCR', '|KA|PRS', '|BA|RBI']",hatdog ka ba
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,hotdog ka ba?,|HOTDOG|FW |KA|PRS |BA?|NNCA,****** ** ***
+cebuano,ang galing mo naman,|ANG|DTC |GALING|RBL |MO|PRS |NAMAN|RBI,ang galing mo naman
+bikol,ang galing mo puta ka,|ANG|DTC |GALING|RBL |MO|PRS |PUTA|NNC |KA|PRS,*** ****** ** **** **
+cebuano,ang taas mo naman tumalon,|ANG|DTC |TAAS|NNC |MO|PRS |NAMAN|RBI |TUMALON|VBAF,ang taas mo naman tumalon
+tagalog,naglalakad siya nang mabilis,|NAGLALAKAD|VBTR |SIYA|PRS |NANG|RBW |MABILIS|RBD,********** **** **** *******
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,puta ang galing,|PUTA|NNC |ANG|DTC |GALING|NNC,**** *** ******
+cebuano,,,
+tagalog,naglalakad siya nang mabagal,|NAGLALAKAD|VBTR |SIYA|PRS |NANG|RBW |MABAGAL|JJD,********** **** **** *******
+tagalog,ang bilis niya tumakbo,|ANG|DTC |BILIS|NNC |NIYA|PRS |TUMAKBO|VBAF,ang bilis niya tumakbo
+tagalog,puta ang hirap naman nito,|PUTA|NNC |ANG|DTC |HIRAP|JJD |NAMAN|RBI |NITO|PRO,**** *** ***** ***** ****
+bikol,patalon talaga ang hamagan,"['|PATALON|RBD', '|TALAGA|RBT', '|ANG|DTC', '|HAMAGAN|NNC']",******* ****** *** *******
+cebuano,kolera ka bai,"['|KOLERA|NNC', '|KA|PRS', '|BAI|NNC']",kolera ka bai

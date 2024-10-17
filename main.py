@@ -5,8 +5,8 @@ import joblib
 from sklearn.metrics import confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
-from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger
 from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator 
 from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator 
 from PATTERN_GENERATION.cebuano import PatternGenerator as CebuanoPatternGenerator 
@@ -59,7 +59,7 @@ def get_pattern_generator(language):
         return TagalogPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     elif language == 'bikol':
         return BikolPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
-    elif language == 'cebuano':  # Add Cebuano pattern generator here
+    elif language == 'cebuano': 
         return CebuanoPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     else:
         return None
@@ -92,6 +92,9 @@ def main():
 
     print("Welcome to Takluban Language Identifier! Enter your sentences below:")
 
+    # Define a set of supported languages
+    supported_languages = {'tagalog', 'bikol', 'cebuano'}
+
     while True:
         sentence = input("Enter a sentence (or type 'exit' to quit): ").strip()
 
@@ -100,9 +103,16 @@ def main():
             break
 
         predicted_language = language_identifier.predict_language(sentence)
+
+        # Check if the predicted language is supported
+        if predicted_language not in supported_languages:
+            print(f"Detected language: {predicted_language}. This language is not supported.")
+            print("Skipping POS tagging and censorship for this sentence.\n")
+            continue  # Skip to the next iteration if the language is not supported
+
         pattern_generator = get_pattern_generator(predicted_language)
 
-        if pattern_generator and predicted_language in ['cebuano', 'bikol', 'tagalog']:
+        if pattern_generator:
             print(f"\nDetected language: {predicted_language}")
             
             pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
@@ -132,7 +142,7 @@ def main():
 
             print(f"Sentence '{sentence}' saved with the detected language, POS tagging result, and censored sentence.\n")
         else:
-            print(f"Unsupported language detected: {predicted_language}. No POS tagging performed.")
+            print(f"Pattern generator for {predicted_language} is not available.")
     
     # Confusion matrix and performance metrics calculation
     if len(predictions) > 0:
