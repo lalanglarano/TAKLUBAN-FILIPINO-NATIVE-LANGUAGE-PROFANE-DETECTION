@@ -96,6 +96,8 @@ nav .title {
     padding: 20px;
     background-color: #F9EFEF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    border-radius: 5px;
 }
 
 .rectangle p {
@@ -130,6 +132,8 @@ nav .title {
     padding: 15px;
     background-color: #F9EFEF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -152,7 +156,7 @@ nav .title {
 .creator-degree,
 .creator-school {
     text-align: center;
-    margin-top: 1px;
+    margin-top: 0.5px;
     margin-bottom: 5px;
 }
 
