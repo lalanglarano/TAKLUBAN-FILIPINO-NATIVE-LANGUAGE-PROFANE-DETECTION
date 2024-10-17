@@ -6,82 +6,37 @@ from sklearn.metrics import confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 import seaborn as sns
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
-from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger
 from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator 
 from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator 
 from PATTERN_GENERATION.cebuano import PatternGenerator as CebuanoPatternGenerator 
 
-# Add this function at the end of TAKLUBAN.py
-def process_sentence(sentence):
-    """Process the sentence to predict the language, POS tag it, and censor if necessary."""
-    model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
-    dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
-
-    # Load the language identification model
-    model, X_test, y_test = train_model_if_not_exists(model_path, dictionary_dir)
-    language_identifier = LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
-
-    # Predict the language
-    predicted_language = language_identifier.predict_language(sentence)
-    pattern_generator = get_pattern_generator(predicted_language)
-
-    if pattern_generator and predicted_language in ['cebuano', 'bikol', 'tagalog']:
-        pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
-
-        # Load the profanity detection model for the predicted language
-        model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
-        if os.path.exists(model_path):
-            best_model = joblib.load(model_path)
-            
-            # Censor the sentence if it's profane
-            censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, best_model)
-        else:
-            censored_sentence = sentence  # No profanity model found, return the original sentence
-            is_profane = False  # Mark as not profane since no model is available
-
-        # Return the results
-        return predicted_language, pos_tagged_sentence, censored_sentence, is_profane
-    else:
-        # Unsupported language case, return appropriate response
-        return "Unsupported language", None, sentence, False
-
-# Define the path to save the results
+# Global paths to avoid redundancy
+model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
+dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
 output_file = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/POSdata.csv"
 
-# Check if the CSV file already exists. If not, create it and add a header
-if not os.path.exists(output_file):
-    with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(['Language', 'Sentence', 'POS', 'Censored Sentence'])  # Header for CSV
+# Function to check if the CSV file exists and create if necessary
+def initialize_csv():
+    """Ensure that the CSV file exists and has a header."""
+    if not os.path.exists(output_file):
+        with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(['Language', 'Sentence', 'POS', 'Censored Sentence'])  # Header for CSV
 
-# Initialize lists to store predictions and true labels
-predictions = []
-true_labels = []
-
-def save_to_csv(language, sentence, pos_tagged, censored_sentence):
-    """Save the language, sentence, POS tagged result, and censored sentence to a CSV file."""
-    with open(output_file, 'a', newline='', encoding='utf-8') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow([language, sentence, pos_tagged, censored_sentence])
-
-def train_model_if_not_exists(model_path, dictionary_dir):
-    """Train and save the model if the pre-saved model is not found."""
+# Centralized function for loading or training the language identification model
+def load_or_train_model():
+    """Load or train the language identification model."""
     if not os.path.exists(model_path):
         print(f"Model file {model_path} not found. Training a new model...")
-        
-        # Run the model training process
         trainer = ModelTraining(dictionary_dir)
         model, X_test, y_test = trainer.train_model()
-
-        # Save the trained model
         joblib.dump(model, model_path)
         print(f"Model trained and saved at {model_path}.")
-        return model, X_test, y_test
     else:
-        # If model exists, load it
         print(f"Loading pre-saved model from {model_path}.")
         model = joblib.load(model_path)
-        return model, [], []
+        X_test, y_test = [], []  # Empty test sets as they aren't needed for prediction
+    return LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
 
 def get_pattern_generator(language):
     """Return the appropriate pattern generator for the given language."""
@@ -93,38 +48,61 @@ def get_pattern_generator(language):
         return TagalogPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     elif language == 'bikol':
         return BikolPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
-    elif language == 'cebuano':  # Add Cebuano pattern generator here
+    elif language == 'cebuano':
         return CebuanoPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
-    else:
-        return None
+    return None
 
 def predict_and_censor(sentence, pattern_generator, best_model, threshold=0.5):
     """Perform profanity detection and censorship using SVM and the pattern generator."""
     probas = best_model.predict_proba([sentence])[0]  # Predict probabilities using the SVM model
     
     is_profane = probas[1] >= threshold  # Only classify as profane if probability is above the threshold
-    print(f"SVM Prediction: {'Profane' if is_profane else 'Not Profane'}")  # Print 'Profane' or 'Not Profane'
+    print(f"SVM Prediction: {'Profane' if is_profane else 'Not Profane'}")
 
     # If SVM says the sentence is profane, censor it
     if is_profane:
         print(f"Censoring the sentence based on its length.")
-        # Censor the sentence by replacing each word with the same number of '*'
         censored_sentence = ' '.join(['*' * len(word) for word in sentence.split()])
         return censored_sentence, True  # Return censored sentence and True to indicate it's profane
     
     return sentence, False  # Return the original sentence and False to indicate it's not profane
 
+# Central function for processing a sentence
+def process_sentence(sentence, language_identifier):
+    """Process the sentence to predict the language, POS tag it, and censor if necessary."""
+    predicted_language = language_identifier.predict_language(sentence)
+    pattern_generator = get_pattern_generator(predicted_language)
+
+    if pattern_generator and predicted_language in ['cebuano', 'bikol', 'tagalog']:
+        pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
+        profanity_model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
+        
+        if os.path.exists(profanity_model_path):
+            best_model = joblib.load(profanity_model_path)
+            censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, best_model)
+        else:
+            censored_sentence = sentence
+            is_profane = False
+
+        return predicted_language, pos_tagged_sentence, censored_sentence, is_profane
+    return "Unsupported language", None, sentence, False
+
+def save_to_csv(language, sentence, pos_tagged, censored_sentence):
+    """Save the language, sentence, POS tagged result, and censored sentence to a CSV file."""
+    with open(output_file, 'a', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([language, sentence, pos_tagged, censored_sentence])
+
+# Main function to run the program
 def main():
-    model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
-    dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
-
-    # Train the language identification model if it doesn't exist
-    model, X_test, y_test = train_model_if_not_exists(model_path, dictionary_dir)
-
-    # Initialize the LanguageIdentification class with the loaded model
-    language_identifier = LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
+    # Initialize CSV file and load or train the model
+    initialize_csv()
+    language_identifier = load_or_train_model()
 
     print("Welcome to Takluban Language Identifier! Enter your sentences below:")
+    
+    predictions = []
+    true_labels = []
 
     while True:
         sentence = input("Enter a sentence (or type 'exit' to quit): ").strip()
@@ -133,29 +111,12 @@ def main():
             print("Exiting the program.")
             break
 
-        predicted_language = language_identifier.predict_language(sentence)
-        pattern_generator = get_pattern_generator(predicted_language)
+        predicted_language, pos_tagged_sentence, censored_sentence, is_profane = process_sentence(sentence, language_identifier)
 
-        if pattern_generator and predicted_language in ['cebuano', 'bikol', 'tagalog']:
-            print(f"\nDetected language: {predicted_language}")
-            
-            pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
+        if predicted_language in ['cebuano', 'bikol', 'tagalog']:
+            print(f"Detected language: {predicted_language}")
             print(f"POS Tagged Sentence: {pos_tagged_sentence}")
-
-            model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
-            if os.path.exists(model_path):
-                best_model = joblib.load(model_path)
-                print(f"Loaded SVM model for {predicted_language}.")
-                
-                censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, best_model)
-                if is_profane:
-                    print(f"Censored Sentence: {censored_sentence}")
-                else:
-                    print(f"Cleaned Sentence: {censored_sentence}")
-            else:
-                print(f"No SVM model found for {predicted_language}. Skipping censorship.")
-                censored_sentence = sentence
-                print(f"Cleaned Sentence: {censored_sentence}")
+            print(f"{'Censored Sentence' if is_profane else 'Cleaned Sentence'}: {censored_sentence}")
 
             save_to_csv(predicted_language, sentence, pos_tagged_sentence, censored_sentence)
 
