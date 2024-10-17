@@ -59,10 +59,19 @@
     <script>
         // Show loader on page load, then display the landing page
         window.onload = function() {
-            setTimeout(function() {
+            if (sessionStorage.getItem('visited')) {
+                // Skips the loader if visiting the landing page again
                 document.getElementById('loader').style.display = 'none';
                 document.getElementById('landingPage').style.display = 'block';
-            }, 6000);
+            } else {
+                // Show loader for the first visit
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('landingPage').style.display = 'block';
+                    // Store in session storage that the user has visited
+                    sessionStorage.setItem('visited', 'true');
+                }, 6000); // The loading screen will show for 6 seconds
+            }
         };
 
         // Word count limitation script
