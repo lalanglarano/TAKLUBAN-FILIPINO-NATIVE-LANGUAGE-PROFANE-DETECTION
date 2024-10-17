@@ -92,15 +92,14 @@ nav .title {
 }
 
 .rectangle {
-    height: 400px;
+    height: 353px;
     padding: 20px;
     background-color: #F9EFEF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .rectangle p {
-    padding: 1px;
-    font-size: 24px;
+    font-size: 23px;
     line-height: 1.25;
 }
 
@@ -136,6 +135,16 @@ nav .title {
     align-items: center;
     text-align: center;
     padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.creator-image {
+    width: 170px;
+    height: 190px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .creator-name,
@@ -150,13 +159,13 @@ nav .title {
 .creator-name {
     font-size: 20px;
     font-weight: bold;
-    margin-top: 204px;
 }
 
 .creator-role {
     font-size: 18px;
     font-weight: 600; /* Semi-bold */
-    font-style: italic; /* Italicize the role */
+    font-style: italic; /* Italicized */
+
 }
 
 .creator-degree {
