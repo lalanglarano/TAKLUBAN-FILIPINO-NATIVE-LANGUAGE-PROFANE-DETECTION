@@ -4,3 +4,6 @@ nltk
 pandas
 scikit-learn
 flask
+matplotlib
+seaborn
+joblib
