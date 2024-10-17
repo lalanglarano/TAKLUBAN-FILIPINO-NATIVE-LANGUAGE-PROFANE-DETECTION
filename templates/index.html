@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Link to Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+    <title>Takluban Profane Detector</title>
+    <link rel="icon" href="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/style/style.css">
 </head>
 
-<nav>
-    <div class="logo">
-        <img src="../assets/tklbn-logo.png" alt="Takluban Logo"> <!-- Logo -->
-    </div>
-    <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span> <!-- Title -->
-    <div class="nav-links">
-        <a href="Home.html" class="home-link">HOME</a>
-        <a href="Creators.html" class="creators-link">CREATORS</a>
-        <a href="FAQs.html" class="faqs-link">FAQs</a>
-    </div> <!-- Navigation Links -->
-</nav>
-
 <body>
-</body>
+    <nav>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/tklbn-logo.png') }}" alt="Takluban Logo">
+        </div>
+        <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="home-link active">HOME</a>
+            <a href="{{ url_for('creators') }}" class="creators-link">ABOUT US</a>
+            <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>
+        </div> <!-- Navigation Links -->
+    </nav>
 
-<footer>
-    <img src="../assets/tklbn-favicon.png" alt="Footer Icon"> <!-- Footer icon -->
-    <p>All Rights Reserved, 2024</p>
-</footer>
+    
+
+    <footer>
+        <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
+        <p>All Rights Reserved, 2024</p>
+    </footer>
+</body>
 </html>
