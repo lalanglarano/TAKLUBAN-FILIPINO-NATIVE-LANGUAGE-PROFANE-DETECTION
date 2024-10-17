@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, jsonify
-from TAKLUBAN import process_sentence  # Import the process_sentence function from TAKLUBAN
+from TAKLUBAN import process_sentence, load_or_train_model  # Import the necessary functions from TAKLUBAN
 
 app = Flask(__name__)
+
+# Load the language identifier model once at the start of the app
+language_identifier = load_or_train_model()
 
 # Route for the home page
 @app.route('/')
@@ -23,8 +26,8 @@ def faqs():
 def detect_language():
     sentence = request.form['text']  # Get input text from HTML form
     if sentence:
-        # Call the function from TAKLUBAN.py to process the sentence
-        predicted_language, pos_tagged_sentence, censored_sentence, is_profane = process_sentence(sentence)
+        # Call the function from TAKLUBAN.py to process the sentence, passing both sentence and language_identifier
+        predicted_language, pos_tagged_sentence, censored_sentence, is_profane = process_sentence(sentence, language_identifier)
         
         # Return the predicted language, POS tagged sentence, censored sentence, and profanity status as JSON response
         return jsonify({
