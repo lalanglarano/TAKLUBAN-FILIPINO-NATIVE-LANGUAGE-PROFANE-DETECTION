@@ -83,3 +83,10 @@ bikol,fuck ang trabaho,"['|FUCK|FW', '|ANG|DTC', '|TRABAHO|NNC']",*****
 cebuano,yawa man bai,"['|YAWA|FW', '|MAN|FW', '|BAI|FW']",*****
 cebuano,buang na si bai,"['|BUANG|JJD', '|NA|CCP', '|SI|DTP', '|BAI|NNP']",*****
 bikol,tangina mo ka,"['|TANGINA|JJCC', '|MO|PRS', '|KA|PRS']",******* ** **
+bikol,tangina mo ka,"['|TANGINA|JJCC', '|MO|PRS', '|KA|PRS']",******* ** **
+bikol,tangina mo ka,"['|TANGINA|JJCC', '|MO|PRS', '|KA|PRS']",******* ** **
+cebuano,hayop ka ginago mo ako,"['|HAYOP|RBF', '|KA|PRS', '|GINAGO|VBOF', '|MO|PRS', '|AKO|PRS']",***** ** ****** ** ***
+cebuano,ang ganda mo bossin,"['|ANG|DTC', '|GANDA|NNC', '|MO|PRS', '|BOSSIN|VBOF']",ang ganda mo bossin
+bikol,tangina mo,"['|TANGINA|RBW', '|MO|PRS']",******* **
+cebuano,itim ang suot nila,"['|ITIM|JJD', '|ANG|DTC', '|SUOT|JJD', '|NILA|PRP']",itim ang suot nila
+cebuano,itim ang titi,"['|ITIM|JJD', '|ANG|DTC', '|TITI|NNC']",**** *** ****

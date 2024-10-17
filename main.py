@@ -69,17 +69,16 @@ def predict_and_censor(sentence, pattern_generator, best_model, threshold=0.5):
     probas = best_model.predict_proba([sentence])[0]  # Predict probabilities using the SVM model
     
     is_profane = probas[1] >= threshold  # Only classify as profane if probability is above the threshold
-    print(f"SVM Prediction: {'1' if is_profane else '0'}")  # Print 1 for profane, 0 for not profane
+    print(f"SVM Prediction: {'Profane' if is_profane else 'Not Profane'}")  # Print 'Profane' or 'Not Profane'
 
-    # If SVM says the sentence is profane, censor it based on its length
+    # If SVM says the sentence is profane, censor it
     if is_profane:
         print(f"Censoring the sentence based on its length.")
         # Censor the sentence by replacing each word with the same number of '*'
         censored_sentence = ' '.join(['*' * len(word) for word in sentence.split()])
-        return censored_sentence
+        return censored_sentence, True  # Return censored sentence and True to indicate it's profane
     
-    return sentence  # Return the sentence uncensored if not profane
-
+    return sentence, False  # Return the original sentence and False to indicate it's not profane
 
 def main():
     model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
@@ -114,17 +113,21 @@ def main():
                 best_model = joblib.load(model_path)
                 print(f"Loaded SVM model for {predicted_language}.")
                 
-                censored_sentence = predict_and_censor(sentence, pattern_generator, best_model)
-                print(f"Censored Sentence: {censored_sentence}")
+                censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, best_model)
+                if is_profane:
+                    print(f"Censored Sentence: {censored_sentence}")
+                else:
+                    print(f"Cleaned Sentence: {censored_sentence}")
             else:
                 print(f"No SVM model found for {predicted_language}. Skipping censorship.")
                 censored_sentence = sentence
+                print(f"Cleaned Sentence: {censored_sentence}")
 
             save_to_csv(predicted_language, sentence, pos_tagged_sentence, censored_sentence)
 
             # Asking the user for the true label (1 = Profane, 0 = Not Profane)
             true_label = int(input("Is the sentence profane? (1 for profane, 0 for not profane): "))
-            predictions.append(1 if censored_sentence == '*****' else 0)
+            predictions.append(1 if is_profane else 0)
             true_labels.append(true_label)
 
             print(f"Sentence '{sentence}' saved with the detected language, POS tagging result, and censored sentence.\n")
@@ -150,4 +153,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-#testing
