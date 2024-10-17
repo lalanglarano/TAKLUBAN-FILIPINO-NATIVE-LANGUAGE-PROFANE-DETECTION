@@ -7,43 +7,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
 from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger
-from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator 
-from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator 
-from PATTERN_GENERATION.cebuano import PatternGenerator as CebuanoPatternGenerator 
-
-# Add this function at the end of TAKLUBAN.py
-def process_sentence(sentence):
-    """Process the sentence to predict the language, POS tag it, and censor if necessary."""
-    model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
-    dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
-
-    # Load the language identification model
-    model, X_test, y_test = train_model_if_not_exists(model_path, dictionary_dir)
-    language_identifier = LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
-
-    # Predict the language
-    predicted_language = language_identifier.predict_language(sentence)
-    pattern_generator = get_pattern_generator(predicted_language)
-
-    if pattern_generator and predicted_language in ['cebuano', 'bikol', 'tagalog']:
-        pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
-
-        # Load the profanity detection model for the predicted language
-        model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
-        if os.path.exists(model_path):
-            best_model = joblib.load(model_path)
-            
-            # Censor the sentence if it's profane
-            censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, best_model)
-        else:
-            censored_sentence = sentence  # No profanity model found, return the original sentence
-            is_profane = False  # Mark as not profane since no model is available
-
-        # Return the results
-        return predicted_language, pos_tagged_sentence, censored_sentence, is_profane
-    else:
-        # Unsupported language case, return appropriate response
-        return "Unsupported language", None, sentence, False
 
 # Define the path to save the results
 output_file = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/POSdata.csv"
@@ -84,35 +47,25 @@ def train_model_if_not_exists(model_path, dictionary_dir):
         return model, [], []
 
 def get_pattern_generator(language):
-    """Return the appropriate pattern generator for the given language."""
-    predefined_rules_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/PATTERN_GENERATION/predefined_rules.csv"
-    model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
-    path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
-
-    if language == 'tagalog':
-        return TagalogPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
-    elif language == 'bikol':
-        return BikolPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
-    elif language == 'cebuano':  # Add Cebuano pattern generator here
-        return CebuanoPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
+    """Return the appropriate POSTagger based on the language."""
+    if language in ['tagalog', 'bikol', 'cebuano']:
+        return POSTagger(language)  # Use POSTagger for these languages
     else:
         return None
 
-def predict_and_censor(sentence, pattern_generator, best_model, threshold=0.5):
-    """Perform profanity detection and censorship using SVM and the pattern generator."""
+def predict_and_censor(sentence, best_model, threshold=0.5):
+    """Perform profanity detection and censorship using the SVM model."""
     probas = best_model.predict_proba([sentence])[0]  # Predict probabilities using the SVM model
     
     is_profane = probas[1] >= threshold  # Only classify as profane if probability is above the threshold
-    print(f"SVM Prediction: {'Profane' if is_profane else 'Not Profane'}")  # Print 'Profane' or 'Not Profane'
+    print(f"SVM Prediction: {'1' if is_profane else '0'}")  # Print 1 for profane, 0 for not profane
 
-    # If SVM says the sentence is profane, censor it
+    # If SVM says the sentence is profane, censor the entire sentence
     if is_profane:
-        print(f"Censoring the sentence based on its length.")
-        # Censor the sentence by replacing each word with the same number of '*'
-        censored_sentence = ' '.join(['*' * len(word) for word in sentence.split()])
-        return censored_sentence, True  # Return censored sentence and True to indicate it's profane
+        print(f"Censoring the entire sentence due to SVM detection.")
+        return '*****'  # Censor the entire sentence
     
-    return sentence, False  # Return the original sentence and False to indicate it's not profane
+    return sentence  # Return the sentence uncensored if not profane
 
 def main():
     model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
@@ -134,12 +87,13 @@ def main():
             break
 
         predicted_language = language_identifier.predict_language(sentence)
-        pattern_generator = get_pattern_generator(predicted_language)
+        pos_tagger = get_pattern_generator(predicted_language)  # Get POSTagger for the language
 
-        if pattern_generator and predicted_language in ['cebuano', 'bikol', 'tagalog']:
+        if pos_tagger:
             print(f"\nDetected language: {predicted_language}")
-            
-            pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
+
+            # Use POSTagger to tag the sentence
+            pos_tagged_sentence = pos_tagger.pos_tag_text(sentence)
             print(f"POS Tagged Sentence: {pos_tagged_sentence}")
 
             model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
@@ -147,21 +101,17 @@ def main():
                 best_model = joblib.load(model_path)
                 print(f"Loaded SVM model for {predicted_language}.")
                 
-                censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, best_model)
-                if is_profane:
-                    print(f"Censored Sentence: {censored_sentence}")
-                else:
-                    print(f"Cleaned Sentence: {censored_sentence}")
+                censored_sentence = predict_and_censor(sentence, best_model)
+                print(f"Censored Sentence: {censored_sentence}")
             else:
                 print(f"No SVM model found for {predicted_language}. Skipping censorship.")
                 censored_sentence = sentence
-                print(f"Cleaned Sentence: {censored_sentence}")
 
             save_to_csv(predicted_language, sentence, pos_tagged_sentence, censored_sentence)
 
             # Asking the user for the true label (1 = Profane, 0 = Not Profane)
             true_label = int(input("Is the sentence profane? (1 for profane, 0 for not profane): "))
-            predictions.append(1 if is_profane else 0)
+            predictions.append(1 if censored_sentence == '*****' else 0)
             true_labels.append(true_label)
 
             print(f"Sentence '{sentence}' saved with the detected language, POS tagging result, and censored sentence.\n")

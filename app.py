@@ -18,22 +18,23 @@ def creators():
 def faqs():
     return render_template('FAQs.html')
 
-# Route for detecting language
+# Route for detecting language and checking profanity
 @app.route('/detect_language', methods=['POST'])
 def detect_language():
     sentence = request.form['text']  # Get input text from HTML form
     if sentence:
         # Call the function from TAKLUBAN.py to process the sentence
-        predicted_language, pos_tagged_sentence = process_sentence(sentence)
+        predicted_language, pos_tagged_sentence, censored_sentence, is_profane = process_sentence(sentence)
         
-        # Return the predicted language and POS tagged sentence as JSON response
+        # Return the predicted language, POS tagged sentence, censored sentence, and profanity status as JSON response
         return jsonify({
             'predicted_language': predicted_language,
-            'pos_tagged_sentence': pos_tagged_sentence if pos_tagged_sentence else 'POS tagging not performed'
+            'pos_tagged_sentence': pos_tagged_sentence if pos_tagged_sentence else 'POS tagging not performed',
+            'censored_sentence': censored_sentence,
+            'is_profane': is_profane
         })
     else:
         return jsonify({'error': 'No input provided'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
-#test
