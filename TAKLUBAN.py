@@ -6,9 +6,7 @@ from sklearn.metrics import confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 import seaborn as sns
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
-from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator 
-from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator 
-from PATTERN_GENERATION.cebuano import PatternGenerator as CebuanoPatternGenerator 
+from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger  # Import the POSTagger class from POSTagger.py
 
 # Global paths to avoid redundancy
 model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
@@ -38,22 +36,14 @@ def load_or_train_model():
         X_test, y_test = [], []  # Empty test sets as they aren't needed for prediction
     return LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
 
-def get_pattern_generator(language):
-    """Return the appropriate pattern generator for the given language."""
-    predefined_rules_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/PATTERN_GENERATION/predefined_rules.csv"
-    model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
-    path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
-
-    if language == 'tagalog':
-        return TagalogPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
-    elif language == 'bikol':
-        return BikolPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
-    elif language == 'cebuano':
-        return CebuanoPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
+def get_pos_tagger(language):
+    """Return the appropriate POS tagger from POSTagger.py for the given language."""
+    if language in ['tagalog', 'bikol', 'cebuano']:
+        return POSTagger(language)  # Create an instance of the POS tagger for the detected language
     return None
 
-def predict_and_censor(sentence, pattern_generator, best_model, threshold=0.5):
-    """Perform profanity detection and censorship using SVM and the pattern generator."""
+def predict_and_censor(sentence, best_model, threshold=0.5):
+    """Perform profanity detection and censorship using SVM."""
     probas = best_model.predict_proba([sentence])[0]  # Predict probabilities using the SVM model
     
     is_profane = probas[1] >= threshold  # Only classify as profane if probability is above the threshold
@@ -69,17 +59,19 @@ def predict_and_censor(sentence, pattern_generator, best_model, threshold=0.5):
 
 # Central function for processing a sentence
 def process_sentence(sentence, language_identifier):
-    """Process the sentence to predict the language, POS tag it, and censor if necessary."""
+    """Process the sentence to predict the language, POS tag it using POSTagger, apply regex rules, and censor if necessary."""
     predicted_language = language_identifier.predict_language(sentence)
-    pattern_generator = get_pattern_generator(predicted_language)
+    pos_tagger = get_pos_tagger(predicted_language)
 
-    if pattern_generator and predicted_language in ['cebuano', 'bikol', 'tagalog']:
-        pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
+    if pos_tagger and predicted_language in ['cebuano', 'bikol', 'tagalog']:
+        # Perform initial POS tagging using Stanford POS Tagger
+        pos_tagged_sentence = pos_tagger.pos_tag_text(sentence)  # Use the POS tagger from POSTagger.py
+        
         profanity_model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
         
         if os.path.exists(profanity_model_path):
             best_model = joblib.load(profanity_model_path)
-            censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, best_model)
+            censored_sentence, is_profane = predict_and_censor(sentence, best_model)
         else:
             censored_sentence = sentence
             is_profane = False
