@@ -71,12 +71,15 @@ def predict_and_censor(sentence, pattern_generator, best_model, threshold=0.5):
     is_profane = probas[1] >= threshold  # Only classify as profane if probability is above the threshold
     print(f"SVM Prediction: {'1' if is_profane else '0'}")  # Print 1 for profane, 0 for not profane
 
-    # If SVM says the sentence is profane, censor the entire sentence
+    # If SVM says the sentence is profane, censor it based on its length
     if is_profane:
-        print(f"Censoring the entire sentence due to SVM detection.")
-        return '*****'  # Censor the entire sentence
+        print(f"Censoring the sentence based on its length.")
+        # Censor the sentence by replacing each word with the same number of '*'
+        censored_sentence = ' '.join(['*' * len(word) for word in sentence.split()])
+        return censored_sentence
     
     return sentence  # Return the sentence uncensored if not profane
+
 
 def main():
     model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
