@@ -11,6 +11,11 @@ language_identifier = load_or_train_model()
 def home():
     return render_template('Home.html')
 
+# Route for the index page
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
 # Route for the creators page
 @app.route('/creators')
 def creators():
