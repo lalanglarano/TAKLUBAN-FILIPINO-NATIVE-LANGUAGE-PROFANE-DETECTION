@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from TAKLUBAN import process_sentence, load_or_train_model  # Import the necessary functions from TAKLUBAN
 
 app = Flask(__name__)
@@ -6,10 +6,10 @@ app = Flask(__name__)
 # Load the language identifier model once at the start of the app
 language_identifier = load_or_train_model()
 
-# Route for the home page
+# Redirect the home route to index
 @app.route('/')
 def home():
-    return render_template('Home.html')
+    return redirect(url_for('index'))
 
 # Route for the index page
 @app.route('/index')
