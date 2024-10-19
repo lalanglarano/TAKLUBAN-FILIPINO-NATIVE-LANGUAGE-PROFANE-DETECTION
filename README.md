@@ -87,7 +87,12 @@ Ensure that the following software is installed on your system:
         venv\Scripts\activate
         ```
 
-   3. **Run the app:**
+   3. **Install the Python libraries listed in `requirements.txt` for venv:**
+         ```bash
+         pip install -r requirements.txt
+         ```
+
+   4. **Run the app:**
    
       ```bash
       python app.py
