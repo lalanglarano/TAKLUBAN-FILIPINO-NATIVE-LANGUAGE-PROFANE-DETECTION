@@ -64,7 +64,7 @@ def cluster_pos_tags(language):
 
     print(f"Clustering complete. Output saved to {output_file}.")
 
-# List of languages to process
+# List of languages to process  
 languages = ['tagalog', 'bikol', 'cebuano']
 
 # Loop through each language and cluster POS tags

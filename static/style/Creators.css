@@ -1,0 +1,203 @@
+/* General styles */
+body {
+    background-image: url('../assets/tklbn-bg.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+/* Navigation bar styles */
+nav {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #800000; 
+    padding: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav .title {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FFD700;
+}
+
+/* Active link styling */
+.nav-links .active {
+    font-weight: bold; /* Bold the active link */
+}
+
+/* Main container styles */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 35px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Left section styles */
+.left-container {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.left-container h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.takluban-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.rectangle {
+    height: 353px;
+    padding: 20px;
+    background-color: #F9EFEF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.rectangle p {
+    font-size: 23px;
+    line-height: 1.25;
+}
+
+/* Right section styles */
+.right-container {
+    flex: 1;
+    max-width: 600px;
+    text-align: center; /* Center all text in the right container */
+}
+
+.right-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center; /* Center the h2 text */
+    margin-bottom: 20px;
+}
+
+/* Creators grid styles */
+.creators-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.creator-box {
+    width: 290px;
+    height: 320px;
+    padding: 15px;
+    background-color: #F9EFEF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.creator-image {
+    width: 170px;
+    height: 190px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.creator-name,
+.creator-role,
+.creator-degree,
+.creator-school {
+    text-align: center;
+    margin-top: 0.5px;
+    margin-bottom: 5px;
+}
+
+.creator-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.creator-role {
+    font-size: 18px;
+    font-weight: 600; /* Semi-bold */
+    font-style: italic; /* Italicized */
+
+}
+
+.creator-degree {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.creator-school {
+    font-size: 13px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #800000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+footer img {
+    height: 20px;
+    vertical-align: middle;
+}
+
+footer p {
+    margin: 0;
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: middle;
+}

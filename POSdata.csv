@@ -1,0 +1,152 @@
+tagalog,ako ay isang makabayan,|AKO|PRS |AY|LM isang|PRI|CCP |MAKABAYAN|JJD
+cebuano,bisaya man ako dong,bisaya man ako dong
+cebuano,bisaya man ko dong,|BISAYA|CCT |MAN|RBI |KO|PRS |DONG|FW
+tagalog,bisaya man ka day,|BISAYA|CCT |MAN|RBI |KA|PRS |DAY|NNC
+tagalog,"python -u ""c:\Users\Jeo Abarre\OneDrive\Documents\TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION\TAKLUBANver.py""","|PYTHON|FW |-U|FW |""C:\USERS\JEO|FW |ABARRE\ONEDRIVE\DOCUMENTS\TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION\TAKLUBANVER.PY""|FW"
+cebuano,bisaya man ko dong,|BISAYA|CCT |MAN|RBI |KO|PRS |DONG|FW
+bikol,puta ka talagang bata ka,"['|PUTA|NNC', '|KA|PRS', 'talagang|RBT|CCP', '|BATA|NNC', '|KA|PRS']",puta ka talagang bata ka
+bikol,puta ka talagang bata ka,"['|PUTA|NNC', '|KA|PRS', 'talagang|RBT|CCP', '|BATA|NNC', '|KA|PRS']",puta ka talagang bata ka
+bikol,tanga mo talagang bata ka,"['|TANGA|JJD', '|MO|PRS', 'talagang|RBT|CCP', '|BATA|NNC', '|KA|PRS']",tanga mo talagang bata ka
+tagalog,huy para kayong tanga seryoso ba ito,"['|HUY|FW', '|PARA|CCT', 'kayong|NNC|CCP', '|TANGA|JJD', '|SERYOSO|JJD', '|BA|RBI', '|ITO|PRO']",*****  kayong *****   
+tagalog,ganda mo lagi parang bulaklak,"['|GANDA|NNC', '|MO|PRS', '|LAGI|RBW', '|PARANG|CCT', '|BULAKLAK|NNC']",ganda mo lagi parang bulaklak
+tagalog,pakyu hindi nga kasi ako yun,"['|PAKYU|CCT', '|HINDI|RBF', '|NGA|RBI', '|KASI|CCR', '|AKO|PRS', '|YUN|PRO']",pakyu hindi nga kasi ako yun
+tagalog,tangina ng kidlat gago tarantado,"['|TANGINA|JJD', '|NG|CCB', '|KIDLAT|NNC', '|GAGO|NNC', '|TARANTADO|NNC']",tangina ng kidlat gago tarantado
+tagalog,pangit mo bata,"['|PANGIT|JJD', '|MO|PRS', '|BATA|NNC']",*****  
+tagalog,nagugutom ako punyeta,"['|NAGUGUTOM|VBTR', '|AKO|PRS', '|PUNYETA|NNC']",nagugutom ako punyeta
+tagalog,nagugutom ako punyeta,"['|NAGUGUTOM|VBTR', '|AKO|PRS', '|PUNYETA|NNC']",nagugutom ako punyeta
+tagalog,nagugutom ako punyeta,"['|NAGUGUTOM|VBTR', '|AKO|PRS', '|PUNYETA|NNC']",nagugutom ako punyeta
+bikol,putangina mo bitch mang aagaw ka,"['|PUTANGINA|JJCC', '|MO|PRS', '|BITCH|FW', 'mang|RBI|CCP', '|AAGAW|VBTF', '|KA|PRS']",putangina mo bitch mang aagaw ka
+tagalog,tanga ka talaga kahit kailan,"['|TANGA|JJD', '|KA|PRS', '|TALAGA|RBT', '|KAHIT|CCT', '|KAILAN|PRQ']",*****    
+tagalog,ang ganda talaga ni tisha,"['|ANG|DTC', '|GANDA|NNC', '|TALAGA|RBT', '|NI|DTP', '|TISHA|NNC']",ang ganda talaga ni tisha
+tagalog,ganda mo talaga lagi,"['|GANDA|NNC', '|MO|PRS', '|TALAGA|RBT', '|LAGI|RBW']",ganda mo talaga lagi
+tagalog,asan kana namang bata ka,"['|ASAN|RBR', '|KANA|NNC', 'namang|RBI|CCP', '|BATA|NNC', '|KA|PRS']",asan kana namang bata ka
+tagalog,nagugutom ako punyeta,"['|NAGUGUTOM|VBTR', '|AKO|PRS', '|PUNYETA|NNC']",nagugutom ako punyeta
+tagalog,san ka pupunta,"['|SAN|RBQ', '|KA|PRS', '|PUPUNTA|VBTF']",*****
+tagalog,asan ka na naman pupunta,"['|ASAN|RBR', '|KA|PRS', '|NA|CCP', '|NAMAN|RBI', '|PUPUNTA|VBTF']",*****
+tagalog,asan kana naman,"['|ASAN|RBR', '|KANA|NNC', '|NAMAN|RBI']",asan kana naman
+bikol,putangina mo ka,"['|PUTANGINA|JJCC', '|MO|PRS', '|KA|PRS']",putangina mo ka
+bikol,tangina mo bata,"['|TANGINA|JJCC', '|MO|PRS', '|BATA|NNC']",tangina mo bata
+tagalog,bwiset lagi nalang ganto,"['|BWISET|CCT', '|LAGI|RBW', '|NALANG|VBTS', '|GANTO|NNC']",*****
+bikol,yudeputang buhay ini,"['yudeputang|VBTR|CCP', '|BUHAY|NNC', '|INI|FW']",yudeputang buhay ini
+bikol,yudeputa ka pirmi na sana,"['yudeputa|VBTR|VBAF', '|KA|PRS', '|PIRMI|NNC', '|NA|CCP', '|SANA|VBS']",*****
+bikol,patal ka kaya,"['|PATAL|JJD', '|KA|PRS', '|KAYA|CCR']",*****
+cebuano,kolera kang dako,"['|KOLERA|NNC', 'kang|PRS|CCP', '|DAKO|NNC']",kolera kang dako
+cebuano,yawa ka bai,"['|YAWA|RBM', '|KA|PRS', '|BAI|NNC']",*****
+cebuano,& C:/Users/Annalyn/AppData/Local/Programs/Python/Python311/python.exe c:/Users/Annalyn/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/main.py,"['|&|PMS', '|C:/USERS/ANNALYN/APPDATA/LOCAL/PROGRAMS/PYTHON/PYTHON311/PYTHON.EXE|NNP', '|C:/USERS/ANNALYN/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/MAIN.PY|FW']",& C:/Users/Annalyn/AppData/Local/Programs/Python/Python311/python.exe c:/Users/Annalyn/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/main.py
+cebuano,gisuportahan niini ang lainlaing mga ihalas nga hayop,"['|GISUPORTAHAN|VBTR', '|NIINI|FW', '|ANG|DTC', 'lainlaing|NNC|CCP', '|MGA|DTCP', '|IHALAS|VBTF', '|NGA|RBI', '|HAYOP|NNC']",*****
+tagalog,ang ganda ng mga bulaklak,"['|ANG|DTC', '|GANDA|NNC', '|NG|CCB', '|MGA|DTCP', '|BULAKLAK|NNC']",ang ganda ng mga bulaklak
+cebuano,san ka na naman pupunta,"['|SAN|RBQ', '|KA|PRS', '|NA|CCP', '|NAMAN|RBI', '|PUPUNTA|VBTF']",san ka na naman pupunta
+tagalog,mag mano ka muna bago umalis,"['|MAG|VBW', '|MANO|VBW', '|KA|PRS', '|MUNA|RBI', '|BAGO|RBW', '|UMALIS|VBAF']",mag mano ka muna bago umalis
+tagalog,magandang umaga sainyong lahat,"['magandang|JJD|CCP', '|UMAGA|RBW', '|SAINYONG|RBW', '|LAHAT|PRI']",magandang umaga sainyong lahat
+bikol,yudeputang buhay ini,"['yudeputang|VBTR|CCP', '|BUHAY|NNC', '|INI|FW']",yudeputang buhay ini
+bikol,kumusta kana jan,"['|KUMUSTA|VBAF', '|KANA|JJD', '|JAN|NNC']",kumusta kana jan
+cebuano,san ka pumuntang bata ka,"['|SAN|RBQ', '|KA|PRS', 'pumuntang|VBAF|CCP', '|BATA|NNC', '|KA|PRS']",san ka pumuntang bata ka
+bikol,yudeputang pakaurag kang buhay,"['yudeputang|VBTR|VBAF', '|PAKAURAG|JJD', 'kang|PRS|CCP', '|BUHAY|NNC']",yudeputang pakaurag kang buhay
+bikol,yudeputang pakaurag kang buhay,"['yudeputang|VBTR|VBAF', '|PAKAURAG|JJD', 'kang|PRS|CCP', '|BUHAY|NNC']",yudeputang pakaurag kang buhay
+tagalog,nakakainis naman tong ginagawa ko,"['|NAKAKAINIS|VBTR', '|NAMAN|RBI', '|TONG|RBD', 'ginagawa|VBTR|VBOF', '|KO|PRS']",*****
+bikol,puta pahirap sa buhay,"['|PUTA|JJD', '|PAHIRAP|RBD', '|SA|CCT', '|BUHAY|NNC']",*****
+bikol,san ka na naman nag putang bwiset ka,"['|SAN|RBQ', '|KA|PRS', '|NA|CCP', '|NAMAN|RBI', 'nag|PRSP|CCP', 'putang|NNC|CCP', '|BWISET|FW', '|KA|PRS']",*****
+cebuano,yawa ka bai,"['|YAWA|RBM', '|KA|PRS', '|BAI|NNC']",*****
+tagalog,san ka pupunta,"['|SAN|RBQ', '|KA|PRS', '|PUPUNTA|VBTF']",*****
+bikol,puta ka talaga,"['|PUTA|NNC', '|KA|PRS', '|TALAGA|RBT']",*****
+tagalog,ang tanga mo talaga,"['|ANG|DTC', '|TANGA|JJD', '|MO|PRS', '|TALAGA|RBT']",*****
+tagalog,bobo ni boy,"['|BOBO|JJD', '|NI|DTP', '|BOY|FW']",*****
+tagalog,tanga mo kahit kailan,"['|TANGA|JJD', '|MO|PRS', '|KAHIT|CCT', '|KAILAN|PRQ']",*****
+bikol,yudeputang pakaurag kang buhay,"['yudeputang|VBTR|VBAF', '|PAKAURAG|JJD', 'kang|PRS|CCP', '|BUHAY|NNC']",yudeputang pakaurag kang buhay
+bikol,punyetang mga aki ini,"['punyetang|JJD|CCP', '|MGA|DTCP', '|AKI|NNC', '|INI|FW']",punyetang mga aki ini
+bikol,bulininaniyang pakaurag kang mga hamag na ini,"['bulininaniyang|NNC|CCP', '|PAKAURAG|JJD', 'kang|PRS|CCP', '|MGA|DTCP', '|HAMAG|NNC', '|NA|CCP', '|INI|FW']",*****
+bikol,lose lamang kang hamag na an,"['|LOSE|FW', '|LAMANG|RBI', 'kang|PRS|CCP', '|HAMAG|JJD', '|NA|RBI', '|AN|DTC']",lose lamang kang hamag na an
+bikol,yudeputa ka,"['yudeputa|VBTR|VBAF', '|KA|PRS']",*****
+cebuano,san kana,"['|SAN|RBQ', '|KANA|NNC']",san kana
+bikol,padabaon taka,"['|PADABAON|RBW', '|TAKA|NNC']",*****
+bikol,burat ka talaga,"['|BURAT|FW', '|KA|PRS', '|TALAGA|RBT']",*****
+tagalog,puta nakakainis ka,"['|PUTA|NNC', '|NAKAKAINIS|VBTR', '|KA|PRS']",*****
+tagalog,nakakainis naman eh,"['|NAKAKAINIS|VBTR', '|NAMAN|RBI', '|EH|NNCA']",*****
+tagalog,san ka pumunta kaninang umaga,"['|SAN|RBQ', '|KA|PRS', '|PUMUNTA|VBAF', '|KANINANG|RBW', '|UMAGA|RBW']",*****
+tagalog,asan kana namang bata ka,"['|ASAN|RBR', '|KANA|NNC', 'namang|RBI|CCP', '|BATA|NNC', '|KA|PRS']",asan kana namang bata ka
+tagalog,she said never in your wildest dreams,"['|SHE|FW', '|SAID|FW', '|NEVER|FW', '|IN|FW', '|YOUR|FW', '|WILDEST|FW', '|DREAMS|FW']",*****
+bikol,burat,['|BURAT|NNC'],burat
+tagalog,ang burat mo ay malaki,"['|ANG|DTC', '|BURAT|FW', '|MO|PRS', '|AY|LM', '|MALAKI|JJD']",ang burat mo ay malaki
+tagalog,ganda mo bossing ah,"['|GANDA|NNC', '|MO|PRS', '|BOSSING|FW', '|AH|FW']",ganda mo bossing ah
+tagalog,ang ganda mo tangina,"['|ANG|DTC', '|GANDA|NNC', '|MO|PRS', '|TANGINA|NNC']",*****
+cebuano,nakaitim siya,"['|NAKAITIM|VBTS', '|SIYA|PRS']",nakaitim siya
+cebuano,siya ay tumalon sa taas,"['|SIYA|PRS', '|AY|LM', '|TUMALON|VBAF', '|SA|CCT', '|TAAS|NNC']",siya ay tumalon sa taas
+tagalog,gagi ang lakas mo naman,"['|GAGI|JJD', '|ANG|DTC', '|LAKAS|NNC', '|MO|PRS', '|NAMAN|RBI']",gagi ang lakas mo naman
+tagalog,baliw ka ba,"['|BALIW|JJD', '|KA|PRS', '|BA|RBI']",baliw ka ba
+tagalog,ang galing mong puta ka,"['|ANG|DTC', '|GALING|RBL', 'mong|PRS|CCP', '|PUTA|NNC', '|KA|PRS']",*****
+tagalog,siya ay mukhang burat,"['|SIYA|PRS', '|AY|LM', '|MUKHANG|RBM', '|BURAT|NNC']",*****
+bikol,kumusta ka jan sa maynila,"['kumusta|VBTS|VBAF', '|KA|PRS', '|JAN|NNC', '|SA|CCT', '|MAYNILA|NNC']",kumusta ka jan sa maynila
+tagalog,asan ka na namang puta ka,"['|ASAN|RBR', '|KA|PRS', '|NA|CCP', 'namang|RBI|CCP', '|PUTA|NNC', '|KA|PRS']",*****
+tagalog,bwakanang bitch,"['bwakanang|JJD|CCP', '|BITCH|NNC']",*****
+bikol,tangina mo bitch,"['|TANGINA|JJCC', '|MO|PRS', '|BITCH|NNC']",*****
+bikol,fuck ang trabaho,"['|FUCK|FW', '|ANG|DTC', '|TRABAHO|NNC']",*****
+cebuano,yawa man bai,"['|YAWA|FW', '|MAN|FW', '|BAI|FW']",*****
+cebuano,buang na si bai,"['|BUANG|JJD', '|NA|CCP', '|SI|DTP', '|BAI|NNP']",*****
+bikol,tangina mo ka,"['|TANGINA|JJCC', '|MO|PRS', '|KA|PRS']",******* ** **
+bikol,tangina mo ka,"['|TANGINA|JJCC', '|MO|PRS', '|KA|PRS']",******* ** **
+bikol,tangina mo ka,"['|TANGINA|JJCC', '|MO|PRS', '|KA|PRS']",******* ** **
+cebuano,hayop ka ginago mo ako,"['|HAYOP|RBF', '|KA|PRS', '|GINAGO|VBOF', '|MO|PRS', '|AKO|PRS']",***** ** ****** ** ***
+cebuano,ang ganda mo bossin,"['|ANG|DTC', '|GANDA|NNC', '|MO|PRS', '|BOSSIN|VBOF']",ang ganda mo bossin
+bikol,tangina mo,"['|TANGINA|RBW', '|MO|PRS']",******* **
+cebuano,itim ang suot nila,"['|ITIM|JJD', '|ANG|DTC', '|SUOT|JJD', '|NILA|PRP']",itim ang suot nila
+cebuano,itim ang titi,"['|ITIM|JJD', '|ANG|DTC', '|TITI|NNC']",**** *** ****
+tagalog,never mind ill find someone like you,"['|NEVER|FW', '|MIND|FW', '|ILL|FW', '|FIND|FW', '|SOMEONE|FW', '|LIKE|FW', '|YOU|FW']",***** **** *** **** ******* **** ***
+tagalog,dont forgive me,"['|DONT|FW', '|FORGIVE|FW', '|ME|FW']",**** ******* **
+tagalog,nothings gonna stop me but divine intervention,"['|NOTHINGS|FW', '|GONNA|FW', '|STOP|FW', '|ME|FW', '|BUT|FW', '|DIVINE|FW', '|INTERVENTION|FW']",******** ***** **** ** *** ****** ************
+cebuano,ang ganda mo naman,"['|ANG|DTC', '|GANDA|NNC', '|MO|PRS', '|NAMAN|RBI']",ang ganda mo naman
+tagalog,asan kana,"['|ASAN|RBW', '|KANA|NNC']",asan kana
+bikol,tanginang yan,"['tanginang|NNC|CCP', '|YAN|PRO']",********* ***
+tagalog,pukingina talaga natalo pa,"['pukingina|VBTR|VBAF', '|TALAGA|RBT', '|NATALO|VBTS', '|PA|RBI']",********* ****** ****** **
+tagalog,asan kana tanga,"['|ASAN|RBR', '|KANA|NNC', '|TANGA|JJD']",**** **** *****
+bikol,bobo mo boi zero ka sa exam,"['|BOBO|JJD', '|MO|PRS', '|BOI|FW', '|ZERO|FW', '|KA|PRS', '|SA|CCT', '|EXAM|NNC']",**** ** *** **** ** ** ****
+tagalog,punyeta ka bakla,"['|PUNYETA|NNC', '|KA|PRS', '|BAKLA|NNC']",******* ** *****
+tagalog,bwakanang bitch,"['bwakanang|JJD|CCP', '|BITCH|NNC']",********* *****
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,baliw ka ba?,"['|BALIW|JJD', '|KA|PRS', '|BA?|NNCA']",baliw ka ba?
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+cebuano,ang galing mo naman,|ANG|DTC |GALING|RBL |MO|PRS |NAMAN|RBI,ang galing mo naman
+bikol,ang galing mo puta,|ANG|DTC |GALING|RBL |MO|PRS |PUTA|NNC,ang galing mo puta
+cebuano,hatdog ka ba,|HATDOG|CCR |KA|PRS |BA|RBI,hatdog ka ba
+bikol,ang galing mo puta,"['|ANG|DTC', '|GALING|RBL', '|MO|PRS', '|PUTA|NNC']",*** ****** ** ****
+cebuano,ang galing mo naman,"['|ANG|DTC', '|GALING|RBL', '|MO|PRS', '|NAMAN|RBI']",ang galing mo naman
+cebuano,hatdog ka ba,"['|HATDOG|CCR', '|KA|PRS', '|BA|RBI']",hatdog ka ba
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,hotdog ka ba?,|HOTDOG|FW |KA|PRS |BA?|NNCA,****** ** ***
+cebuano,ang galing mo naman,|ANG|DTC |GALING|RBL |MO|PRS |NAMAN|RBI,ang galing mo naman
+bikol,ang galing mo puta ka,|ANG|DTC |GALING|RBL |MO|PRS |PUTA|NNC |KA|PRS,*** ****** ** **** **
+cebuano,ang taas mo naman tumalon,|ANG|DTC |TAAS|NNC |MO|PRS |NAMAN|RBI |TUMALON|VBAF,ang taas mo naman tumalon
+tagalog,naglalakad siya nang mabilis,|NAGLALAKAD|VBTR |SIYA|PRS |NANG|RBW |MABILIS|RBD,********** **** **** *******
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,baliw ka ba?,|BALIW|JJD |KA|PRS |BA?|NNCA,baliw ka ba?
+tagalog,puta ang galing,|PUTA|NNC |ANG|DTC |GALING|NNC,**** *** ******
+cebuano,,,
+tagalog,naglalakad siya nang mabagal,|NAGLALAKAD|VBTR |SIYA|PRS |NANG|RBW |MABAGAL|JJD,********** **** **** *******
+tagalog,ang bilis niya tumakbo,|ANG|DTC |BILIS|NNC |NIYA|PRS |TUMAKBO|VBAF,ang bilis niya tumakbo
+tagalog,puta ang hirap naman nito,|PUTA|NNC |ANG|DTC |HIRAP|JJD |NAMAN|RBI |NITO|PRO,**** *** ***** ***** ****
+bikol,patalon talaga ang hamagan,"['|PATALON|RBD', '|TALAGA|RBT', '|ANG|DTC', '|HAMAGAN|NNC']",******* ****** *** *******
+cebuano,kolera ka bai,"['|KOLERA|NNC', '|KA|PRS', '|BAI|NNC']",kolera ka bai
+cebuano,kolera ka bai,"['|KOLERA|NNC', '|KA|PRS', '|BAI|NNC']",kolera ka bai
+bikol,bugay lamang kaan,"['|BUGAY|CCT', '|LAMANG|RBI', '|KAAN|CCB']",***** ****** ****
+cebuano,bogo man diay to dili,"['|BOGO|FW', '|MAN|FW', '|DIAY|FW', '|TO|FW', '|DILI|FW']",bogo man diay to dili
+cebuano,kolera ka bai,|KOLERA|NNC |KA|PRS |BAI|NNC,kolera ka bai
+bikol,bogo ka boi,|BOGO|RBM |KA|PRS |BOI|NNCA,**** ** ***
+cebuano,bogo man diay,|BOGO|FW |MAN|FW |DIAY|FW,bogo man diay
+cebuano,bogo kaayo siya sa matematika,|BOGO|FW |KAAYO|CCB |SIYA|PRS |SA|CCT |MATEMATIKA|NNC,bogo kaayo siya sa matematika
+cebuano,bogo kaayo siya,|BOGO|FW |KAAYO|CCB |SIYA|PRS,**** ***** ****
+tagalog,baliw ka ba,"['|BALIW|JJD', '|KA|PRS', '|BA|RBI']",baliw ka ba
+cebuano,bogo kaayo ka bai,"['|BOGO|FW', '|KAAYO|CCB', '|KA|PRS', '|BAI|NNC']",**** ***** ** ***
+bikol,maray na aga saindo gabos,"['|MARAY|JJD', '|NA|CCP', '|AGA|JJD', '|SAINDO|NNC', '|GABOS|NNC']",maray na aga saindo gabos
+cebuano,bogo kaayo bai,|BOGO|FW |KAAYO|CCB |BAI|NNC,**** ***** ***
+cebuano,ang galing mo naman,|ANG|DTC |GALING|RBL |MO|PRS |NAMAN|RBI,ang galing mo naman
+tagalog,bobo ka talaga,|BOBO|JJD |KA|PRS |TALAGA|RBT,**** ** ******
+cebuano,bogo kaayo bai,|BOGO|FW |KAAYO|CCB |BAI|NNC,**** ***** ***
+bikol,makauragon ang bulininaniya,|MAKAURAGON|VBW |ANG|DTC |BULININANIYA|NNC,********** *** ************
+tagalog,pagod nako mag isip sa putanginang problema na ito,|PAGOD|JJD |NAKO|RBD |MAG|VBW |ISIP|NNC |SA|CCT putanginang|RBD|CCP |PROBLEMA|NNC |NA|CCP |ITO|PRO,pagod nako mag isip sa putanginang problema na ito
+tagalog,pagod nako sa putangina na problema,|PAGOD|JJD |NAKO|RBD |SA|CCT |PUTANGINA|NNC |NA|CCP |PROBLEMA|NNC,***** **** ** ********* ** ********
+tagalog,pagod nako tangina,|PAGOD|JJD |NAKO|RBD |TANGINA|RBD,***** **** *******
+tagalog,pagod nako tangina,|PAGOD|JJD |NAKO|RBD |TANGINA|RBD,***** **** *******
+tagalog,pagod nako tangina,|PAGOD|JJD |NAKO|RBD |TANGINA|RBD,***** **** *******
+tagalog,asan ka na tanga,|ASAN|RBR |KA|PRS |NA|CCP |TANGA|JJD,**** ** ** *****
+tagalog,bobo ka talaga,|BOBO|JJD |KA|PRS |TALAGA|RBT,**** ** ******
+tagalog,bobo ka talaga,|BOBO|JJD |KA|PRS |TALAGA|RBT,**** ** ******

@@ -5,6 +5,7 @@ import csv
 class TextPreprocessor:
     def __init__(self, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
+<<<<<<< HEAD
         results_folder = f"{base_path}/Results"
         self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
         self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
@@ -38,24 +39,63 @@ class TextPreprocessor:
 
     def process_file(self):
         """Preprocess text and save sentences into CSV."""
+=======
+        self.input_file = os.path.join(base_path, f"UsedDataset/dataset_{language}_sentence_profane.csv")
+        self.output_file = os.path.join(base_path, f"Results/preprocessed/preprocessed_{language}_sentence_profane.csv")
+
+        os.makedirs(os.path.dirname(self.input_file), exist_ok=True)
+        os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
+
+    @staticmethod
+    def preprocess_text(text):
+        """Clean and lowercase text, removing special characters."""
+        return re.sub(r'[^a-zA-Z\s]', '', text).lower()
+
+    @staticmethod
+    def split_into_sentences(text):
+        """Split text into sentences of 4 or more words."""
+        return [chunk.strip() for chunk in re.split(r'[.!?]', text) if len(chunk.split()) >= 4]
+
+    def process_file(self):
+        """Preprocess text and save sentences with labels to a CSV file."""
+        if not os.path.exists(self.input_file):
+            print(f"Error: The file {self.input_file} does not exist.")
+            return
+
+>>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
         try:
             with open(self.input_file, 'r', encoding='utf-8') as infile, open(self.output_file, 'w', newline='', encoding='utf-8') as outfile:
-                lines = infile.readlines()
+                reader = csv.reader(infile)
                 writer = csv.writer(outfile)
 
-                for line in lines:
-                    preprocessed_line = self.preprocess_text(line)
-                    sentences = self.split_into_sentences(preprocessed_line)
+                header = next(reader) 
+                writer.writerow(header)
 
+<<<<<<< HEAD
                     for sentence in sentences:
                         writer.writerow([sentence])
             print(f"Preprocessed sentences saved at {self.output_file}")
+=======
+                # Process each row
+                for row in reader:
+                    sentence = row[0]
+                    label = row[1]
 
-        except FileNotFoundError:
-            print(f"Error: The file {self.input_file} does not exist.")
+                    # Preprocess the sentence
+                    preprocessed_sentence = self.preprocess_text(sentence)
+
+                    # Split into multiple sentences if needed
+                    sentences = self.split_into_sentences(preprocessed_sentence)
+>>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
+
+                    # Write each sentence with the corresponding label
+                    for processed_sentence in sentences:
+                        writer.writerow([processed_sentence, label])
+        
         except Exception as e:
             print(f"An error occurred: {e}")
 
+<<<<<<< HEAD
     def create_dictionary(self):
         """Create a dictionary of unique words without frequencies."""
         try:
@@ -95,3 +135,10 @@ if __name__ == "__main__":
         processor = TextPreprocessor(language)
         processor.process_file()  # Preprocess the file
         processor.create_dictionary()  # Create the dictionary
+=======
+if __name__ == "__main__":
+    languages = ['bikol', 'tagalog', 'cebuano']
+    for language in languages:
+        processor = TextPreprocessor(language)
+        processor.process_file()
+>>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
