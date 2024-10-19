@@ -38,25 +38,20 @@ def load_or_train_model():
     return LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
 
 def get_pos_tagger(language):
-    """Return the appropriate POS tagger from POSTagger.py for the given language."""
     if language in ['tagalog', 'bikol', 'cebuano']:
-        return POSTagger(language)  # Create an instance of the POS tagger for the detected language
+        return POSTagger(language)
     return None
 
 def predict_and_censor(sentence, best_model, threshold=0.5):
-    """Perform profanity detection and censorship using SVM."""
-    probas = best_model.predict_proba([sentence])[0]  # Predict probabilities using the SVM model
+    probas = best_model.predict_proba([sentence])[0]
     
-    is_profane = probas[1] >= threshold  # Only classify as profane if probability is above the threshold
-    print(f"SVM Prediction: {'Profane' if is_profane else 'Not Profane'}")
+    is_profane = probas[1] >= threshold
 
-    # If SVM says the sentence is profane, censor it
     if is_profane:
-        print(f"Censoring the sentence based on its length.")
         censored_sentence = ' '.join(['*' * len(word) for word in sentence.split()])
         return censored_sentence, True  # Return censored sentence and True to indicate it's profane
     
-    return sentence, False  # Return the original sentence and False to indicate it's not profane
+    return sentence, False  # Return original sentence and False to indicate it's not profane
 
 # Central function for processing a sentence
 def process_sentence(sentence, language_identifier):
