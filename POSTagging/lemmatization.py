@@ -5,9 +5,8 @@ import nlu
 class Lemmatizer:
     def __init__(self, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-        results_folder = f"{base_path}/Results"
-        self.input_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
-        self.output_dir = f"{results_folder}/lemmatized/"
+        self.input_file = f"{base_path}/preprocessed/preprocessed_{language}.csv"
+        self.output_dir = f"{base_path}/lemmatized/"
         self.output_file = f"{self.output_dir}/lemmatize_{language}.csv"
 
         # Ensure the output directory exists

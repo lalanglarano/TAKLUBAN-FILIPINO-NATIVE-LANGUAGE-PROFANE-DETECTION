@@ -1,7 +1,12 @@
 import os
+<<<<<<< HEAD
+import pandas as pd
+import re
+=======
 import csv
 import joblib
 import subprocess
+>>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
 from collections import Counter
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -10,6 +15,10 @@ from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
+<<<<<<< HEAD
+class LanguageIdentification:
+    def __init__(self, dictionary_dir):
+=======
 class DictionaryGenerator:
     def __init__(self, preprocessed_dir, dictionary_dir, english_dict_path, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
@@ -19,11 +28,16 @@ class DictionaryGenerator:
         self.output_file = os.path.join(preprocessed_dir, f"preprocessed_{language}.csv")
         self.english_dict_path = english_dict_path  # Corrected path for the English dictionary
         self.preprocessed_dir = preprocessed_dir  # Ensure the directory paths are available
+>>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
         self.dictionary_dir = dictionary_dir
         os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
 
         # Initialize noise words for all languages
         self.noise_words = self.initialize_noise_words()
+<<<<<<< HEAD
+        self.word_dictionaries = self.load_dictionaries()
+=======
+>>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
 
     def initialize_noise_words(self):
         """Initialize common noise words for Tagalog, Bikol, Cebuano, and English."""
@@ -34,6 +48,21 @@ class DictionaryGenerator:
         }
         noise_words['English'] = self.load_english_noise_words()
 
+<<<<<<< HEAD
+    def load_dictionaries(self):
+        """Load word dictionaries for all languages."""
+        word_sets = {}
+        for language in ['Tagalog', 'Bikol', 'Cebuano']:
+            dict_file = f"{self.dictionary_dir}/{language.lower()}_dictionary.csv"
+            if os.path.exists(dict_file):
+                # Load words directly from the CSV (assumes single-column CSV with words)
+                df = pd.read_csv(dict_file, usecols=[0], header=None, names=['word'])
+                # Convert word column into a set for quick lookup
+                word_sets[language] = set(df['word'].dropna().str.lower())  # Ensure words are lowercase
+            else:
+                print(f"Warning: Dictionary file {dict_file} not found.")
+        return word_sets
+=======
         # Clean the English noise words by removing common words in the three languages
         self.clean_english_noise_words(noise_words)
 
@@ -65,11 +94,24 @@ class DictionaryGenerator:
         # Find common words in the three languages and English, then remove them from English
         common_words = (tagalog_set | bikol_set | cebuano_set) & noise_words['English']
         noise_words['English'] = noise_words['English'] - common_words
+>>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
 
     def remove_noise(self, words, language):
         """Remove noise words from the list of words."""
         return [word for word in words if word.lower() not in self.noise_words[language.capitalize()]]
 
+<<<<<<< HEAD
+    def predict_language(self, sentence):
+        """Predict the language of a sentence based on word existence in dictionaries."""
+        words = sentence.split()
+        scores = {lang: 0 for lang in self.word_dictionaries}
+
+        for lang, word_set in self.word_dictionaries.items():
+            cleaned_words = self.remove_noise(words, lang)
+            for word in cleaned_words:
+                if word in word_set:  # Check if word exists in the dictionary
+                    scores[lang] += 1  # Increment score for the matching language
+=======
     def generate_dictionary(self, language):
         """Generate a word frequency dictionary from preprocessed sentences, excluding words found in the English dictionary."""
         word_count = Counter()
@@ -86,6 +128,7 @@ class DictionaryGenerator:
                         cleaned_words = [word for word in self.remove_noise(words, language)
                                          if word.lower() not in self.noise_words['English']]
                         word_count.update(cleaned_words)
+>>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
 
             # Save the dictionary
             self.save_dictionary(word_count, language)
@@ -95,6 +138,20 @@ class DictionaryGenerator:
         except Exception as e:
             print(f"An error occurred: {e}")
 
+<<<<<<< HEAD
+        for sentence in sentences:
+            scores = self.predict_language(sentence)
+            dominant_language = max(scores, key=scores.get)  # Get language with the highest score
+            language_counter[dominant_language] += 1
+
+        return language_counter.most_common(1)[0][0] if language_counter else None
+
+
+if __name__ == "__main__":
+    # Sample test for language identification
+    sentences = ["subo mo titi"]
+    language_identifier = LanguageIdentification(f"../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary")
+=======
     def save_dictionary(self, word_count, language):
         """Save the word frequency dictionary to a CSV file."""
         dict_file = os.path.join(self.dictionary_dir, f"{language}_dictionary.csv")
@@ -241,6 +298,7 @@ if __name__ == "__main__":
 
     # Determine the dominant language from sentences
     sentences = ["kagulo gulo ang patal na ini"]  # Replace with actual sentences
+>>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
     dominant_language = language_identifier.determine_language(sentences)
     print(f"The dominant language is: {dominant_language}")
 
