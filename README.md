@@ -1,12 +1,3 @@
-<<<<<<< HEAD
--- A thesis proposal
-
---pip install pyspark
---pip install nlu
---pip install nltk
---pip install pandas
---pip install sklearn
-=======
 # TAKLUBAN: Filipino Native Language Profanity Detection
 
 This project aims to detect profane language in Filipino native languages such as Tagalog, Bikol, and Cebuano using context-based methods instead of a profanity list.
