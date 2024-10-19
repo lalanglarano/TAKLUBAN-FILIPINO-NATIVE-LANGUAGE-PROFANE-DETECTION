@@ -67,7 +67,15 @@ Ensure that the following software is installed on your system:
 
    Once everything is set up, you can now run the Flask app.
 
-   1. **Activate the virtual environment** (if not already activated):
+   1. **Create a virtual environment**:
+
+   Run the following command to create a virtual environment named `venv`:
+
+   ```bash
+   python -m venv venv
+   ```
+
+   2. **Activate the virtual environment** (if not already activated):
    
       - On Linux/Mac:
         ```bash
@@ -79,7 +87,7 @@ Ensure that the following software is installed on your system:
         venv\Scripts\activate
         ```
 
-   2. **Run the app:**
+   3. **Run the app:**
    
       ```bash
       python app.py
