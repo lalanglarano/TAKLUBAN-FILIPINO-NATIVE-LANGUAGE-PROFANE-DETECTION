@@ -7,18 +7,25 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
-from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator 
-from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator 
-from PATTERN_GENERATION.cebuano import PatternGenerator as CebuanoPatternGenerator 
+from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator
+from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator
+from PATTERN_GENERATION.cebuano import PatternGenerator as CebuanoPatternGenerator
 
 # Define the path to save the results
 output_file = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/POSdata.csv"
+profanity_dictionary_file = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/profanity_dictionary.csv"
 
 # Check if the CSV file already exists. If not, create it and add a header
 if not os.path.exists(output_file):
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['Language', 'Sentence', 'POS', 'Censored Sentence'])  # Header for CSV
+
+# Check if the profanity dictionary exists. If not, create it with a header
+if not os.path.exists(profanity_dictionary_file):
+    with open(profanity_dictionary_file, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['Language', 'Profane Sentence', 'POS Pattern'])  # Header for CSV
 
 # Initialize lists to store predictions and true labels
 predictions = []
@@ -29,6 +36,12 @@ def save_to_csv(language, sentence, pos_tagged, censored_sentence):
     with open(output_file, 'a', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([language, sentence, pos_tagged, censored_sentence])
+
+def save_profane_pattern(language, sentence, pos_pattern):
+    """Save the language, profane sentence, and POS pattern to the profanity dictionary."""
+    with open(profanity_dictionary_file, 'a', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([language, sentence, pos_pattern])
 
 def train_model_if_not_exists(model_path, dictionary_dir):
     """Train and save the model if the pre-saved model is not found."""
@@ -50,7 +63,7 @@ def train_model_if_not_exists(model_path, dictionary_dir):
         return model, [], []
 
 def get_pattern_generator(language):
-    """Return the appropriate pattern generator for the given language."""
+    print(f"Loading pattern generator for language: {language}")
     predefined_rules_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/PATTERN_GENERATION/predefined_rules.csv"
     model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
     path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
@@ -62,20 +75,28 @@ def get_pattern_generator(language):
     elif language == 'cebuano': 
         return CebuanoPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     else:
+        print(f"No pattern generator available for {language}")
         return None
 
-def predict_and_censor(sentence, pattern_generator, best_model, threshold=0.5):
+def predict_and_censor(sentence, pattern_generator, best_model, language, threshold=0.5):
     """Perform profanity detection and censorship using SVM and the pattern generator."""
     probas = best_model.predict_proba([sentence])[0]  # Predict probabilities using the SVM model
     
     is_profane = probas[1] >= threshold  # Only classify as profane if probability is above the threshold
     print(f"SVM Prediction: {'Profane' if is_profane else 'Not Profane'}")  # Print 'Profane' or 'Not Profane'
 
+    pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
+    print(f"POS Tagged Sentence: {pos_tagged_sentence}")
+
     # If SVM says the sentence is profane, censor it
     if is_profane:
-        print(f"Censoring the sentence based on its length.")
-        # Censor the sentence by replacing each word with the same number of '*'
         censored_sentence = ' '.join(['*' * len(word) for word in sentence.split()])
+        
+        # Save the POS tag pattern to the profanity dictionary
+        pos_pattern = ' '.join([item.split('|')[-1] for item in pos_tagged_sentence if '|' in item])
+        save_profane_pattern(language, sentence, pos_pattern)
+        
+        print(f"Censoring the sentence. POS Pattern saved to profanity dictionary.")
         return censored_sentence, True  # Return censored sentence and True to indicate it's profane
     
     return sentence, False  # Return the original sentence and False to indicate it's not profane
@@ -114,16 +135,14 @@ def main():
 
         if pattern_generator:
             print(f"\nDetected language: {predicted_language}")
-            
-            pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
-            print(f"POS Tagged Sentence: {pos_tagged_sentence}")
 
             model_path = f'../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/{predicted_language}_trained_profane_model.pkl'
+            print(f"Model path: {model_path}")
             if os.path.exists(model_path):
                 best_model = joblib.load(model_path)
                 print(f"Loaded SVM model for {predicted_language}.")
                 
-                censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, best_model)
+                censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, best_model, predicted_language)
                 if is_profane:
                     print(f"Censored Sentence: {censored_sentence}")
                 else:
@@ -133,7 +152,7 @@ def main():
                 censored_sentence = sentence
                 print(f"Cleaned Sentence: {censored_sentence}")
 
-            save_to_csv(predicted_language, sentence, pos_tagged_sentence, censored_sentence)
+            save_to_csv(predicted_language, sentence, ' '.join(pattern_generator.tag_sentence(sentence)), censored_sentence)
 
             # Asking the user for the true label (1 = Profane, 0 = Not Profane)
             true_label = int(input("Is the sentence profane? (1 for profane, 0 for not profane): "))
