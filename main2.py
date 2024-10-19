@@ -6,7 +6,7 @@ from sklearn.metrics import confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 import seaborn as sns
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
-from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger
+from POSTagging.POSTagger import POSTagger
 
 # Define the path to save the results
 output_file = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/POSdata.csv"

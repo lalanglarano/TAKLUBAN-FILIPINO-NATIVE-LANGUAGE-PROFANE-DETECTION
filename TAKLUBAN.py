@@ -6,7 +6,7 @@ from sklearn.metrics import confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 import seaborn as sns
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
-from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger  # Import the POSTagger class from POSTagger.py
+from POSTagging.POSTagger import POSTagger  # Import the POSTagger class from POSTagger.py
 
 # Global paths to avoid redundancy
 model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"

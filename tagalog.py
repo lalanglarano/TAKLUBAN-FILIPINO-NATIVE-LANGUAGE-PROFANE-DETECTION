@@ -8,7 +8,7 @@ from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import classification_report
 from nltk.util import ngrams
-from POSTagging.POSTAGGER.pospkl.POSTagger import POSTagger 
+from POSTagging.POSTagger import POSTagger 
 
 class PatternGenerator:
     def __init__(self, csv_filename, language='tagalog'):
