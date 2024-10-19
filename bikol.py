@@ -165,7 +165,7 @@ def main():
     pattern_generator = PatternGenerator(predefined_rules_path, language='bikol')
 
     # Define the sentence to test
-    sentence = "patal ka mananggad"
+    sentence = "patalon ka talaga maski nuarin"
         
     # Save pattern from the sentence
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
