@@ -31,7 +31,23 @@ Ensure that the following software is installed on your system:
    cd TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION
    ```
 
-3. **Install the required dependencies:**
+3. **Create and activate a virtual environment:**
+
+   Create a virtual environment to isolate project dependencies.
+
+   - On Linux/Mac:
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+
+   - On Windows:
+     ```bash
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+
+4. **Install the required dependencies:**
 
    Install the Python libraries listed in `requirements.txt`:
 
@@ -39,10 +55,34 @@ Ensure that the following software is installed on your system:
    pip install -r requirements.txt
    ```
 
-4. **Set up Java for the API:**
+5. **Set up Java for the API:**
 
    Ensure Java 22.0.2 or a later version is installed to support Java-based modules used for the project. You can verify the installation by running:
 
    ```bash
    java -version
    ```
+
+6. **Run the Flask application:**
+
+   Once everything is set up, you can now run the Flask app.
+
+   1. **Activate the virtual environment** (if not already activated):
+   
+      - On Linux/Mac:
+        ```bash
+        source venv/bin/activate
+        ```
+
+      - On Windows:
+        ```bash
+        venv\Scripts\activate
+        ```
+
+   2. **Run the app:**
+   
+      ```bash
+      python app.py
+      ```
+
+   This will start the Flask web server at `http://127.0.0.1:5000/`, and you can use it to process sentences for profanity detection.
