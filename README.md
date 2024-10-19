@@ -69,11 +69,11 @@ Ensure that the following software is installed on your system:
 
    1. **Create a virtual environment**:
 
-   Run the following command to create a virtual environment named `venv`:
+      Run the following command to create a virtual environment named `venv`:
 
-   ```bash
-   python -m venv venv
-   ```
+      ```bash
+      python -m venv venv
+      ```
 
    2. **Activate the virtual environment** (if not already activated):
    
