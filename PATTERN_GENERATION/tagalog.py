@@ -11,9 +11,10 @@ from nltk.util import ngrams
 from POSTagging.POSTagger import POSTagger 
 
 class PatternGenerator:
-    def __init__(self, csv_filename):
+    def __init__(self, csv_filename, language='tagalog'):
         self.rules = self.load_predefined_rules(csv_filename)
-        self.tagger = POSTagger()
+        self.tagger = POSTagger(language)
+        self.profane_dict_filename = f"PROFANE_PATTERN_DICTIONARY/{language}_profane_patterns.csv"  # Path for storing profane patterns
 
     def load_predefined_rules(self, csv_filename):
         rules = []
@@ -40,6 +41,22 @@ class PatternGenerator:
         print(f"Generated {n}-grams: {ngrams_list}")  # Debugging: Print generated n-grams
         return ngrams_list
 
+    def save_profane_patterns_to_dict(self, profane_ngram):
+        """
+        Save the detected profane n-gram (POS pattern) to a CSV file.
+        This version only saves the POS pattern without rule name or description.
+        """
+        pos_pattern = ' '.join(profane_ngram)  # Join the n-gram into a space-separated POS pattern
+
+        try:
+            # Append new POS pattern to the CSV
+            with open(self.profane_dict_filename, 'a', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow([pos_pattern])  # Only save the POS pattern
+                print(f"Profane pattern '{pos_pattern}' saved successfully.")
+        except Exception as e:
+            print(f"Error saving profane pattern to {self.profane_dict_filename}: {e}")
+
     def apply_rules_to_ngrams(self, ngram_list):
         flagged_patterns = []
         matching_ngram_indices = []  # Store indices of the profane n-grams
@@ -54,6 +71,9 @@ class PatternGenerator:
                     flagged_patterns.append(f"Rule Matched: {rule['Rule Name']} - {rule['Description']}")
                     matching_ngram_indices.append(idx)  # Store the index of the matched n-gram
                     print(f"Match found: {rule['Rule Name']}")  # Debugging
+                    
+                    # Save the detected profane pattern (only POS pattern)
+                    self.save_profane_patterns_to_dict(ngram)
 
         return flagged_patterns, matching_ngram_indices
 
@@ -100,9 +120,8 @@ class PatternGenerator:
         """
         Use the POSTagger from POSTagger.py to tag the sentence.
         """
-        tokens = sentence.split()
-        tagged_sentence = self.tagger.tag(tokens)
-        return [f"{word}|{tag}" for word, tag in tagged_sentence]
+        pos_tagged_text = self.tagger.pos_tag_text(sentence)  # Use pos_tag_text instead of tag
+        return pos_tagged_text.split()  # Return the tagged tokens as a list
 
     def add_new_rule(self, csv_filename, rule_name, pos_pattern, description):
         """
@@ -143,7 +162,7 @@ def main():
     predefined_rules_path = f"{base_path}/PATTERN_GENERATION/predefined_rules.csv"
 
     # Initialize PatternGenerator with POSTagger
-    pattern_generator = PatternGenerator(predefined_rules_path)
+    pattern_generator = PatternGenerator(predefined_rules_path, language='tagalog')
 
     # Define the sentence to test
     sentence = "sobrang pangit ng gising puta"
