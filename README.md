@@ -1,12 +1,3 @@
-<<<<<<< HEAD
--- A thesis proposal
-
---pip install pyspark
---pip install nlu
---pip install nltk
---pip install pandas
---pip install sklearn
-=======
 # TAKLUBAN: Filipino Native Language Profanity Detection
 
 This project aims to detect profane language in Filipino native languages such as Tagalog, Bikol, and Cebuano using context-based methods instead of a profanity list.
@@ -78,11 +69,11 @@ Ensure that the following software is installed on your system:
 
    1. **Create a virtual environment**:
 
-   Run the following command to create a virtual environment named `venv`:
+      Run the following command to create a virtual environment named `venv`:
 
-   ```bash
-   python -m venv venv
-   ```
+      ```bash
+      python -m venv venv
+      ```
 
    2. **Activate the virtual environment** (if not already activated):
    
