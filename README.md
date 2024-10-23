@@ -98,5 +98,4 @@ Ensure that the following software is installed on your system:
       python app.py
       ```
 
-   This will start the Flask web server at `http://127.0.0.1:5000/`, and you can use it to process sentences for profanity detection.
->>>>>>> ae2d9ede2f4a4aca94474c35185fed698ea7697d
+   This will start the Flask web server at `http://127.0.0.1:5000/`; you can use it to process sentences for profanity detection.
