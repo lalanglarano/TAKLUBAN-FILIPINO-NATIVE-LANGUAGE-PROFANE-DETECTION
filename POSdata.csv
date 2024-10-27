@@ -4,3 +4,9 @@ cebuano,bisaya man ko dong,|BISAYA|CCT |MAN|RBI |KO|PRS |DONG|FW
 tagalog,bisaya man ka day,|BISAYA|CCT |MAN|RBI |KA|PRS |DAY|NNC
 tagalog,"python -u ""c:\Users\Jeo Abarre\OneDrive\Documents\TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION\TAKLUBANver.py""","|PYTHON|FW |-U|FW |""C:\USERS\JEO|FW |ABARRE\ONEDRIVE\DOCUMENTS\TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION\TAKLUBANVER.PY""|FW"
 cebuano,bisaya man ko dong,|BISAYA|CCT |MAN|RBI |KO|PRS |DONG|FW
+bikol,magayunon na maray,|MAGAYUNON|VBAF |NA|RBI |MARAY|NNC,magayunon ** maray
+bikol,patalon ka talagang maray,|PATALON|RBD |KA|PRS talagang|RBT|CCP |MARAY|NNC,******* ** ******** maray
+tagalog,bopols ka talaga,|BOPOLS|FW |KA|PRS |TALAGA|RBT,bopols ** ******
+bikol,garu ka gamadya,|GARU|FW |KA|PRS |GAMADYA|VBOF,garu ** gamadya
+tagalog,nakakainis ang mga nangyayare,|NAKAKAINIS|VBTR |ANG|DTC |MGA|DTCP |NANGYAYARE|NNC,nakakainis ang *** nangyayare
+tagalog,mali mali mga nilalabas neto,|MALI|JJD |MALI|JJD |MGA|DTCP |NILALABAS|VBTR |NETO|NNC,mali mali *** nilalabas neto

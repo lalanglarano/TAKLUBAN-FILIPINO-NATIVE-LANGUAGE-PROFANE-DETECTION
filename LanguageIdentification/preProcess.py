@@ -5,8 +5,8 @@ import csv
 class TextPreprocessor:
     def __init__(self, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-        self.input_file = os.path.join(base_path, f"UsedDataset/dataset_{language}_sentence_profane.csv")
-        self.output_file = os.path.join(base_path, f"Results/preprocessed/preprocessed_{language}_sentence_profane.csv")
+        self.input_file = os.path.join(base_path, f"UsedDataset/dataset_{language}.csv")
+        self.output_file = os.path.join(base_path, f"Results/PFW/preprocessed_{language}.csv")
 
         os.makedirs(os.path.dirname(self.input_file), exist_ok=True)
         os.makedirs(os.path.dirname(self.output_file), exist_ok=True)

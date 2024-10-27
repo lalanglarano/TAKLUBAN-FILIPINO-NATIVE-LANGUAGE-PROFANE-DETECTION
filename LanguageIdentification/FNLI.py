@@ -16,7 +16,7 @@ class DictionaryGenerator:
         results_folder = f"{base_path}/Results"
         self.language = language  # Add language to the instance
         self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
-        self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
+        self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}_sentence_profane.csv"
         self.english_dict_path = f"{dictionary_dir}/english_dictionary.csv"
         self.preprocessed_dir = preprocessed_dir  # Ensure the directory paths are available
         self.dictionary_dir = dictionary_dir
@@ -28,9 +28,12 @@ class DictionaryGenerator:
     def initialize_noise_words(self):
         """Initialize common noise words for Tagalog, Bikol, Cebuano, and English."""
         noise_words = {
-            'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po"},
-            'Bikol': {"ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si"},
-            'Cebuano': {"dayon", "ang", "ini", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug"}
+            'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po", "ka", "ikaw", "siya", "oo",
+                    "sa", "may", "ni", "dahil", "kasi", "pero", "at", "para", "niya", "saan", "ganito", "doon", "noon"},
+            'Bikol': {"ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si",
+                    "kan", "kun", "ngani", "yan", "sadi", "pala", "yaon", "ini", "yan", "na", "digdi", "dakol", "bangan"},
+            'Cebuano': {"dayon", "ang", "ini", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug",
+                    "naa", "dili", "kini", "adto", "man", "kay", "unta", "nga", "sa", "kani", "mo", "lang", "sila", "unsa"}
         }
         noise_words['English'] = self.load_english_noise_words()
 
@@ -74,7 +77,7 @@ class DictionaryGenerator:
     def generate_dictionary(self, language):
         """Generate a word frequency dictionary from preprocessed sentences, excluding words found in the English dictionary."""
         word_count = Counter()
-        preprocessed_file = os.path.join(self.preprocessed_dir, f"preprocessed_{language}.csv")
+        preprocessed_file = os.path.join(self.preprocessed_dir, f"preprocessed_{language}.csv") #This shit causes an error
 
         try:
             with open(preprocessed_file, 'r', encoding='utf-8') as infile:
