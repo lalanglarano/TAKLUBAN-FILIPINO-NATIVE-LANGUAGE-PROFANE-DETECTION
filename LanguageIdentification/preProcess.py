@@ -5,7 +5,7 @@ import csv
 class TextPreprocessor:
     def __init__(self, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-        self.input_file = os.path.join(base_path, f"UsedDataset/dataset_{language}.csv")
+        self.input_file = os.path.join(base_path, f"Results/dataset/dataset_{language}.csv")
         self.output_file = os.path.join(base_path, f"Results/PFW/preprocessed_{language}.csv")
 
         os.makedirs(os.path.dirname(self.input_file), exist_ok=True)
@@ -13,16 +13,17 @@ class TextPreprocessor:
 
     @staticmethod
     def preprocess_text(text):
-        """Clean and lowercase text, removing special characters."""
-        return re.sub(r'[^a-zA-Z\s]', '', text).lower()
+        """Clean and lowercase text, removing special characters, numbers, and quotes."""
+        # Remove numbers and quotes, retain letters and spaces only
+        return re.sub(r'[^a-zA-Z\s]', '', text).lower().strip()
 
     @staticmethod
     def split_into_sentences(text):
-        """Split text into sentences of 4 or more words."""
-        return [chunk.strip() for chunk in re.split(r'[.!?]', text) if len(chunk.split()) >= 4]
+        """Split text into sentences of 4 or more words, ignoring empty sentences."""
+        return [chunk.strip() for chunk in re.split(r'[.!?]', text) if len(chunk.split()) >= 4 and chunk.strip()]
 
     def process_file(self):
-        """Preprocess text and save sentences with labels to a CSV file."""
+        """Preprocess text and save sentences to a CSV file, including already-preprocessed sentences."""
         if not os.path.exists(self.input_file):
             print(f"Error: The file {self.input_file} does not exist.")
             return
@@ -32,24 +33,27 @@ class TextPreprocessor:
                 reader = csv.reader(infile)
                 writer = csv.writer(outfile)
 
-                header = next(reader) 
-                writer.writerow(header)
+                # Write header to output file
+                writer.writerow(["sentence"])
 
                 # Process each row
                 for row in reader:
-                    sentence = row[0]
-                    label = row[1]
+                    sentence = row[0].strip()
 
-                    # Preprocess the sentence
+                    # Preprocess the sentence if needed
                     preprocessed_sentence = self.preprocess_text(sentence)
 
-                    # Split into multiple sentences if needed
+                    # Split into sentences, ensuring each has 4+ words
                     sentences = self.split_into_sentences(preprocessed_sentence)
 
-                    # Write each sentence with the corresponding label
+                    # If no splitting occurred, retain the original (single) preprocessed sentence
+                    if not sentences:
+                        sentences = [preprocessed_sentence]
+
+                    # Write each sentence to the output file
                     for processed_sentence in sentences:
-                        writer.writerow([processed_sentence, label])
-        
+                        writer.writerow([processed_sentence])
+
         except Exception as e:
             print(f"An error occurred: {e}")
 

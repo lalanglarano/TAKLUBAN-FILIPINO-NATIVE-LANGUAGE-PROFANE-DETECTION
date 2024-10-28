@@ -77,7 +77,7 @@ class DictionaryGenerator:
     def generate_dictionary(self, language):
         """Generate a word frequency dictionary from preprocessed sentences, excluding words found in the English dictionary."""
         word_count = Counter()
-        preprocessed_file = os.path.join(self.preprocessed_dir, f"preprocessed_{language}.csv") #This shit causes an error
+        preprocessed_file = os.path.join(self.preprocessed_dir, f"dataset_{language}.csv") # Fix the error here
 
         try:
             with open(preprocessed_file, 'r', encoding='utf-8') as infile:
@@ -218,7 +218,7 @@ if __name__ == "__main__":
     run_preprocessing(preprocess_script)
 
     # Proceed with dictionary generation
-    preprocessed_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/preprocessed"
+    preprocessed_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/dataset"
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
     english_dict_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/english_dictionary.csv"
 
