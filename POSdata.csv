@@ -10,3 +10,16 @@ tagalog,bopols ka talaga,|BOPOLS|FW |KA|PRS |TALAGA|RBT,bopols ** ******
 bikol,garu ka gamadya,|GARU|FW |KA|PRS |GAMADYA|VBOF,garu ** gamadya
 tagalog,nakakainis ang mga nangyayare,|NAKAKAINIS|VBTR |ANG|DTC |MGA|DTCP |NANGYAYARE|NNC,nakakainis ang *** nangyayare
 tagalog,mali mali mga nilalabas neto,|MALI|JJD |MALI|JJD |MGA|DTCP |NILALABAS|VBTR |NETO|NNC,mali mali *** nilalabas neto
+bikol,oragon ka boss,|ORAGON|CCT |KA|PRS |BOSS|FW,oragon ** boss
+tagalog,putanginang bobo mo,putanginang|NNC|CCP |BOBO|JJD |MO|PRS,putanginang **** **
+tagalog,putangina lagi kang nandyan eh,|PUTANGINA|VBTR |LAGI|RBW kang|PRS|CCP |NANDYAN|VBTS |EH|NNC,********* lagi **** nandyan **
+tagalog,mali ata ang detection na ginagawa neto,|MALI|JJD |ATA|NNC |ANG|DTC |DETECTION|FW |NA|CCP |GINAGAWA|VBTR |NETO|NNC,mali ata ang detection ** ginagawa neto
+cebuano,yawa ka bai,|YAWA|RBM |KA|PRS |BAI|NNC,**** ** bai
+tagalog,kainis ang putanginang words,|KAINIS|JJD |ANG|DTC putanginang|NNC|CCP |WORDS|NNC,kainis ang putanginang words
+tagalog,pukingina,|PUKINGINA|NNC,pukingina
+bikol,losi lamang kaini,|LOSI|FW |LAMANG|RBI |KAINI|NNC,losi lamang kaini
+bikol,patalon ang code na ini sarala baga,|PATALON|JJD |ANG|DTC |CODE|FW |NA|CCP |INI|FW |SARALA|FW |BAGA|NNC,******* ang code ** *** sarala baga
+bikol,sarala ang hayop,|SARALA|NNC |ANG|DTC |HAYOP|NNC,sarala ang *****
+tagalog,minsan tama minsan mali,|MINSAN|RBW |TAMA|RBT |MINSAN|RBW |MALI|JJD,minsan tama minsan mali
+bikol,makauragon ang bulininaniyang ini,|MAKAURAGON|VBW |ANG|DTC bulininaniyang|NNC|CCP |INI|FW,********** ang ************** ***
+tagalog,mali ang censoring shuta,|MALI|JJD |ANG|DTC |CENSORING|FW |SHUTA|FW,mali ang censoring *****
