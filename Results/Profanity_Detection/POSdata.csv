@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-Language,Sentence,POS,Censored Sentence
-=======
 tagalog,ako ay isang makabayan,|AKO|PRS |AY|LM isang|PRI|CCP |MAKABAYAN|JJD
 cebuano,bisaya man ako dong,bisaya man ako dong
 cebuano,bisaya man ko dong,|BISAYA|CCT |MAN|RBI |KO|PRS |DONG|FW
@@ -153,26 +150,3 @@ tagalog,pagod nako tangina,|PAGOD|JJD |NAKO|RBD |TANGINA|RBD,***** **** *******
 tagalog,asan ka na tanga,|ASAN|RBR |KA|PRS |NA|CCP |TANGA|JJD,**** ** ** *****
 tagalog,bobo ka talaga,|BOBO|JJD |KA|PRS |TALAGA|RBT,**** ** ******
 tagalog,bobo ka talaga,|BOBO|JJD |KA|PRS |TALAGA|RBT,**** ** ******
-bikol,oragon ka talaga,|ORAGON|CCT |KA|PRS |TALAGA|RBT,oragon ka talaga
-bikol,oragon ka talaga,|ORAGON|CCT |KA|PRS |TALAGA|RBT,oragon ka talaga
-bikol,oragon,|ORAGON|NNC,oragon
-bikol,oragon,|ORAGON|NNC,oragon
-bikol,oragon kami,|ORAGON|NNC |KAMI|PRP,oragon kami
-bikol,oragon kami,|ORAGON|NNC |KAMI|PRP,oragon kami
-bikol,hamag ka natakdag daa su kahuron mo kasubago,|HAMAG|RBF |KA|PRS |NATAKDAG|VBTS |DAA|FW |SU|FW |KAHURON|FW |MO|PRS |KASUBAGO|NNC,***** ** ******** *** ** ******* ** ********
-bikol,hamag ka natakdag daa su kahuron mo kasubago,|HAMAG|RBF |KA|PRS |NATAKDAG|VBTS |DAA|FW |SU|FW |KAHURON|FW |MO|PRS |KASUBAGO|NNC,***** ** ******** *** ** ******* ** ********
-bikol,makauragon su defense me kasuhapon,|MAKAURAGON|VBW |SU|FW |DEFENSE|FW |ME|FW |KASUHAPON|NNC,********** ** ******* ** *********
-bikol,makauragon su defense me kasuhapon,|MAKAURAGON|VBW |SU|FW |DEFENSE|FW |ME|FW |KASUHAPON|NNC,********** ** ******* ** *********
-tagalog,potek natalo yung laro namin,|POTEK|FW |NATALO|VBTS |YUNG|PRO |LARO|NNC |NAMIN|PRP,potek natalo yung laro namin
-tagalog,potek natalo yung laro namin,|POTEK|FW |NATALO|VBTS |YUNG|PRO |LARO|NNC |NAMIN|PRP,potek natalo yung laro namin
-cebuano,bogo man dili bai,|BOGO|FW |MAN|FW |DILI|FW |BAI|FW,**** *** **** ***
-cebuano,bogo man dili bai,|BOGO|FW |MAN|FW |DILI|FW |BAI|FW,**** *** **** ***
-cebuano,kolera ka bai,|KOLERA|NNC |KA|PRS |BAI|NNC,kolera ka bai
-cebuano,kolera ka bai,|KOLERA|NNC |KA|PRS |BAI|NNC,kolera ka bai
-bikol,agang aga ika na sana nabutlaan,agang|NNC|CCP |AGA|JJD |IKA|JJN |NA|CCP |SANA|VBS |NABUTLAAN|VBTS,***** *** *** ** **** *********
-bikol,agang aga ika na sana nabutlaan,agang|NNC|CCP |AGA|JJD |IKA|JJN |NA|CCP |SANA|VBS |NABUTLAAN|VBTS,***** *** *** ** **** *********
-bikol,grabeng model toh mali mali,grabeng|JJD|CCP |MODEL|FW |TOH|FW |MALI|JJD |MALI|JJD,******* ***** *** **** ****
-bikol,grabeng model toh mali mali,grabeng|JJD|CCP |MODEL|FW |TOH|FW |MALI|JJD |MALI|JJD,******* ***** *** **** ****
-tagalog,mali mali ang labas,|MALI|JJD |MALI|JJD |ANG|DTC |LABAS|NNC,mali mali ang labas
-tagalog,mali mali ang labas,|MALI|JJD |MALI|JJD |ANG|DTC |LABAS|NNC,mali mali ang labas
->>>>>>> main
