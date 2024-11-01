@@ -5,21 +5,26 @@ import csv
 class TextPreprocessor:
     def __init__(self, language):
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-        self.input_file = os.path.join(base_path, f"UsedDataset/dataset_{language}_sentence_profane.csv")
-        self.output_file = os.path.join(base_path, f"Results/preprocessed/preprocessed_{language}_sentence_profane.csv")
+        self.input_file = os.path.join(base_path, f"Results/dataset/dataset_{language}.csv")
+        self.output_file = os.path.join(base_path, f"Results/PFW/preprocessed_{language}.csv")
 
         os.makedirs(os.path.dirname(self.input_file), exist_ok=True)
         os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
 
     @staticmethod
     def preprocess_text(text):
-        """Clean and lowercase text, removing special characters."""
-        return re.sub(r'[^a-zA-Z\s]', '', text).lower()
+        """Clean and lowercase text, removing numbers, special characters, and extra whitespace."""
+        # Remove all numbers
+        text = re.sub(r'\d+', '', text)
+        # Remove specified special characters and retain only letters and spaces
+        text = re.sub(r'[^a-zA-Z\s]', '', text).lower().strip()
+        # Normalize whitespace by collapsing multiple spaces into a single space
+        return re.sub(r'\s+', ' ', text)
 
     @staticmethod
     def split_into_sentences(text):
-        """Split text into sentences of 4 or more words."""
-        return [chunk.strip() for chunk in re.split(r'[.!?]', text) if len(chunk.split()) >= 4]
+        """Split text into sentences of 4 or more words, ignoring empty sentences."""
+        return [chunk.strip() for chunk in re.split(r'[.!?]', text) if len(chunk.split()) >= 4 and chunk.strip()]
 
     def process_file(self):
         """Preprocess text and save sentences with labels to a CSV file."""
