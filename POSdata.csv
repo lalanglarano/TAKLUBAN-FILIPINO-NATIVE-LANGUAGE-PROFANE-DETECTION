@@ -30,3 +30,15 @@ bikol,ang daming bobo sa lugar na ito,|ANG|DTC daming|JJD|CCP |BOBO|NNC |SA|CCT 
 bikol,mali na naman ang nakuha,|MALI|JJD |NA|CCP |NAMAN|RBI |ANG|DTC |NAKUHA|VBTS,mali ** ***** ang nakuha
 tagalog,puta bobo mo,|PUTA|NNC |BOBO|JJD |MO|PRS,**** **** **
 cebuano,hayop ka,|HAYOP|RBF |KA|PRS,***** **
+cebuano,pota bakit ka andito,|POTA|FW |BAKIT|PRQ |KA|PRS |ANDITO|RBR,**** ***** ** andito
+tagalog,tangina talaga,|TANGINA|RBW |TALAGA|RBT,******* ******
+bikol,lininaniya urualdaw isira,|LININANIYA|VBTR |URUALDAW|FW |ISIRA|FW,********** urualdaw isira
+tagalog,pukingina tinalo nila yon,pukingina|RBD|CCP |TINALO|VBOF |NILA|PRP |YON|PRO,pukingina tinalo nila ***
+tagalog,puta panalo,|PUTA|NNC |PANALO|NNC,**** panalo
+bikol,mga puta ako ang harapin niyo,|MGA|DTCP |PUTA|NNC |AKO|PRS |ANG|DTC |HARAPIN|VBOF |NIYO|PRP,*** **** *** ang harapin ****
+cebuano,mga hayop ako harapin niyo,|MGA|DTCP |HAYOP|NNC |AKO|PRS |HARAPIN|VBOF |NIYO|PRP,*** ***** *** harapin ****
+tagalog,ako harapin niyo mga putangina,|AKO|PRS |HARAPIN|VBOF |NIYO|PRP |MGA|DTCP |PUTANGINA|NNC,*** harapin **** *** *********
+cebuano,mao ug na yawa,|MAO|JJD |UG|NNC |NA|CCP |YAWA|NNC,mao ug na ****
+tagalog,tangina mo teh,|TANGINA|JJCC |MO|PRS |TEH|NNCA,******* mo teh
+bikol,putcha nagtatalon ang gago,|PUTCHA|JJD |NAGTATALON|VBTR |ANG|DTC |GAGO|NNC,putcha nagtatalon ang ****
+bikol,para turon su patal,|PARA|CCT |TURON|FW |SU|FW |PATAL|FW,para turon ** *****

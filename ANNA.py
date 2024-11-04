@@ -26,7 +26,7 @@ if not os.path.exists(output_file):
 if not os.path.exists(profanity_dictionary_file):
     with open(profanity_dictionary_file, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Language', 'Profane Sentence', 'POS Pattern'])  # Header for CSV
+        writer.writerow(['Language', 'Profane Sentence'])  # Header for CSV
 
 # Initialize lists to store predictions and true labels
 predictions = []
@@ -39,7 +39,7 @@ noise_words = {
     "ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si", "kan", "kun", "ngani",
     "yan", "sadi", "pala", "yaon", "ini", "yan", "na", "digdi", "dakol", "bangan", "dayon", "ang", "ini",
     "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug", "naa", "dili", "kini", "adto", "man", "kay",
-    "unta", "nga", "sa", "kani", "mo", "lang", "sila", "unsa"
+    "unta", "nga", "sa", "kani", "mo", "lang", "sila", "unsa", "ako", "niyo", "su"
 }
 
 def save_to_csv(language, sentence, pos_tagged, censored_sentence):
@@ -91,11 +91,11 @@ def predict_and_censor(sentence, pattern_generator, model, language):
     """Perform profanity detection and censorship using the provided model, excluding noise words."""
     pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
     tokens = sentence.split()
-    
-    # Filter out noise words from the sentence
+
+    # Filter tokens to exclude noise words before passing to the model
     filtered_tokens = [token for token in tokens if token.lower() not in noise_words]
     
-    # If all tokens are noise words, return the original sentence without censorship
+    # If only noise words are left, return the sentence as-is without censorship
     if not filtered_tokens:
         print("Sentence contains only noise words; skipping censorship.")
         return sentence, False
@@ -104,20 +104,25 @@ def predict_and_censor(sentence, pattern_generator, model, language):
     is_profane = False
     
     for token in tokens:
-        if model.predict([token])[0] == 1:  # Assuming 1 indicates a profane word
-            censored_tokens.append(re.sub(r'\w', '*', token))
-            is_profane = True
+        if token.lower() in noise_words:
+            censored_tokens.append(token)  # Keep noise words as-is
         else:
-            censored_tokens.append(token)
-    
+            # Predict only on non-noise words
+            if model.predict([token])[0] == 1:  # Assuming 1 indicates a profane word
+                censored_tokens.append(re.sub(r'\w', '*', token))
+                is_profane = True
+            else:
+                censored_tokens.append(token)
+
     censored_sentence = ' '.join(censored_tokens)
-    
+
     if is_profane:
         pos_pattern = ' '.join([item.split('\n')[-1] for item in pos_tagged_sentence if '\n' in item])
         save_profane_pattern(language, sentence, pos_pattern)
         print("Profane pattern saved to dictionary.")
-    
+
     return censored_sentence, is_profane
+
 
 def main():
     model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
