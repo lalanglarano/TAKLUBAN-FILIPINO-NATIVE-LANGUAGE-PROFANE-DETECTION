@@ -32,6 +32,16 @@ if not os.path.exists(profanity_dictionary_file):
 predictions = []
 true_labels = []
 
+# Define noise words
+noise_words = {
+    "na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po", "ka", "ikaw", "siya", "oo",
+    "sa", "may", "ni", "dahil", "kasi", "pero", "at", "para", "niya", "saan", "ganito", "doon", "noon", 
+    "ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si", "kan", "kun", "ngani",
+    "yan", "sadi", "pala", "yaon", "ini", "yan", "na", "digdi", "dakol", "bangan", "dayon", "ang", "ini",
+    "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug", "naa", "dili", "kini", "adto", "man", "kay",
+    "unta", "nga", "sa", "kani", "mo", "lang", "sila", "unsa"
+}
+
 def save_to_csv(language, sentence, pos_tagged, censored_sentence):
     """Save the language, sentence, POS tagged result, and censored sentence to a CSV file."""
     with open(output_file, 'a', newline='', encoding='utf-8') as csvfile:
@@ -77,13 +87,19 @@ def get_pattern_generator(language):
         print(f"No pattern generator available for {language}")
         return None
 
-
 def predict_and_censor(sentence, pattern_generator, model, language):
-    """Perform profanity detection and censorship using the provided model."""
+    """Perform profanity detection and censorship using the provided model, excluding noise words."""
     pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
-    print(f"POS Tagged Sentence: {pos_tagged_sentence}")
-    
     tokens = sentence.split()
+    
+    # Filter out noise words from the sentence
+    filtered_tokens = [token for token in tokens if token.lower() not in noise_words]
+    
+    # If all tokens are noise words, return the original sentence without censorship
+    if not filtered_tokens:
+        print("Sentence contains only noise words; skipping censorship.")
+        return sentence, False
+
     censored_tokens = []
     is_profane = False
     
@@ -97,10 +113,9 @@ def predict_and_censor(sentence, pattern_generator, model, language):
     censored_sentence = ' '.join(censored_tokens)
     
     if is_profane:
-        # Save the POS tag pattern to the profanity dictionary
         pos_pattern = ' '.join([item.split('\n')[-1] for item in pos_tagged_sentence if '\n' in item])
         save_profane_pattern(language, sentence, pos_pattern)
-        print(f"Censoring the sentence. POS Pattern saved to profanity dictionary.")
+        print("Profane pattern saved to dictionary.")
     
     return censored_sentence, is_profane
 
@@ -167,4 +182,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-# This shit is getting on my nerves
+#This shit is getting on my nerves
