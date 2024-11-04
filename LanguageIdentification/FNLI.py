@@ -15,8 +15,8 @@ class DictionaryGenerator:
         base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
         results_folder = f"{base_path}/Results"
         self.language = language  # Add language to the instance
-        self.input_file = f"{results_folder}/dataset/dataset_{language}.csv"
-        self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}_sentence_profane.csv"
+        self.input_file = f"{results_folder}/PFW/preprocessed_{language}.csv"
+        self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
         self.english_dict_path = f"{dictionary_dir}/english_dictionary.csv"
         self.preprocessed_dir = preprocessed_dir  # Ensure the directory paths are available
         self.dictionary_dir = dictionary_dir
@@ -69,7 +69,6 @@ class DictionaryGenerator:
         common_words = (tagalog_set | bikol_set | cebuano_set) & noise_words['English']
         noise_words['English'] = noise_words['English'] - common_words
 
-
     def remove_noise(self, words, language):
         """Remove noise words from the list of words."""
         return [word for word in words if word.lower() not in self.noise_words[language.capitalize()]]
@@ -77,7 +76,7 @@ class DictionaryGenerator:
     def generate_dictionary(self, language):
         """Generate a word frequency dictionary from preprocessed sentences, excluding words found in the English dictionary."""
         word_count = Counter()
-        preprocessed_file = os.path.join(self.preprocessed_dir, f"dataset_{language}.csv") # Fix the error here
+        preprocessed_file = os.path.join(self.preprocessed_dir, f"preprocessed_{language}.csv") # Fix the error here
 
         try:
             with open(preprocessed_file, 'r', encoding='utf-8') as infile:
@@ -218,7 +217,7 @@ if __name__ == "__main__":
     run_preprocessing(preprocess_script)
 
     # Proceed with dictionary generation
-    preprocessed_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/dataset"
+    preprocessed_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/PFW"
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
     english_dict_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/english_dictionary.csv"
 
