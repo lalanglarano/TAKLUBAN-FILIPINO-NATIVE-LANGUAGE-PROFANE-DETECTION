@@ -1,0 +1,4 @@
+venv/
+__pycache__/TAKLUBAN.cpython-312.pyc
+LanguageIdentification/__pycache__/FNLI.cpython-312.pyc
+POSTagging/POSTAGGER/pospkl/__pycache__/POSTagger.cpython-312.pyc
