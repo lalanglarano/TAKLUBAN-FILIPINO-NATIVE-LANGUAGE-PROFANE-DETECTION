@@ -6,14 +6,14 @@
     <title>Detection - Takluban Profane Detector</title>
     <link rel="icon" href="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/Home.css') }}">
+    <link rel="stylesheet" href="../static/style/Home.css">
 </head>
 
 <body>
     <!-- Loader section with video -->
     <div id="loader">
         <video autoplay muted loop id="loadingVideo">
-            <source src="{{ url_for('static', filename='assets/tklbn-loading.mp4') }}" type="video/mp4">
+            <source src="../static/assets/tklbn-loading.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -39,24 +39,29 @@
                 </div>
             </div>
             <div class="right">
-                <div class="module">
-                    <div class="module-title">DETECTED LANGUAGE:</div>
+                <div class="module-1">
+                    <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED:</div>
                     <div id="detected-language"></div>
                 </div>
-                <div class="module">
-                    <div class="module-title">POS TAGGED SENTENCE:</div>
+                <div class="module-2">
+                    <div class="module-title">TAGGED SENTENCE:</div>
                     <div id="pos-tagged-sentence"></div>
                 </div>
-                <div class="module">
+                <div class="module-3">
+                    <div class="module-title">PROFANITY CHECK:</div>
+                    <div id="profanity-status"></div>
+                </div>
+                <div class="module-4">
                     <div class="module-title">CENSORED OR CLEAN SENTENCE:</div>
                     <div id="censored-sentence"></div>
                 </div>
-                <div class="module">
-                    <div class="module-title">PROFANITY STATUS:</div>
-                    <div id="profanity-status"></div>
-                </div>
             </div>
         </div>
+
+        <div id="detect-loader" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Processing, please wait...</p>
+        </div>        
 
         <footer>
             <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
@@ -79,9 +84,29 @@
             }
         };
 
+        // Word count limitation script
+        const textArea = document.getElementById('text-area');
+        const maxWords = 10;
+        const wordsLeftDisplay = document.createElement('div');
+        wordsLeftDisplay.id = 'words-left';
+        wordsLeftDisplay.textContent = `Allowed number of words remaining: ${maxWords}`;
+        textArea.parentNode.insertBefore(wordsLeftDisplay, textArea.nextSibling);
+
+        textArea.addEventListener('input', function() {
+            const words = textArea.value.split(/\s+/).filter(word => word.length > 0);
+            const wordsLeft = maxWords - words.length;
+            wordsLeftDisplay.textContent = `Allowed number of words remaining: ${wordsLeft >= 0 ? wordsLeft : 0}`;
+            if (words.length > maxWords) {
+                textArea.value = words.slice(0, maxWords).join(' ');
+                alert(`Word limit of ${maxWords} reached.`);
+            }
+        });
+
         // Detect button functionality (connecting with backend)
         document.querySelector('.detect-button').addEventListener('click', function() {
             const text = document.getElementById('text-area').value;
+            
+            document.getElementById('detect-loader').style.display = 'block';
 
             fetch('/detect_language', {
                 method: 'POST',
@@ -92,6 +117,7 @@
             })
             .then(response => response.json())
             .then(data => {
+                document.getElementById('detect-loader').style.display = 'none';
                 // Module 1: Show the detected language
                 if (data.predicted_language) {
                     document.getElementById('detected-language').innerText = `${data.predicted_language}`;
@@ -109,9 +135,11 @@
                 // Module 3: Show censored/cleaned sentence
                 if (data.censored_sentence) {
                     if (data.is_profane) {
-                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence} (Profane)`;
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
+                        document.getElementById('profanity-status').innerText = `Profanity detected.`;
                     } else {
-                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence} (Clean)`;
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
+                        document.getElementById('profanity-status').innerText = `No profanity detected.`;
                     }
                 } else {
                     document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
@@ -119,6 +147,7 @@
             })
             .catch(error => {
                 console.error('Error:', error);
+                document.getElementById('detect-loader').style.display = 'none';
                 document.getElementById('detected-language').innerText = 'Error detecting language';
                 document.getElementById('pos-tagged-sentence').innerText = 'Error processing the sentence.';
                 document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';

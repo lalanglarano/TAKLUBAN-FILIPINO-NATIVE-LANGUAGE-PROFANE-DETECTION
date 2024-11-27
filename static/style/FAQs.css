@@ -24,7 +24,7 @@ nav .title {
 .nav-links {
     display: flex;
     justify-content: flex-end;
-    gap: 20px; /* Space between the links */
+    gap: 40px; /* Space between the links */
 }
 
 .nav-links a {
