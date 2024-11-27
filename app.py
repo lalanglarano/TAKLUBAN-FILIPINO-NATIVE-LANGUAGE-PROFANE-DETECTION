@@ -1,76 +1,99 @@
 from flask import Flask, render_template, request, jsonify
+from TAKLUBAN import predict_and_censor, get_pattern_generator
+from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
 import joblib
-import os
-from TAKLUBAN import LanguageIdentification, TagalogPatternGenerator, BikolPatternGenerator, CebuanoPatternGenerator, predict_and_censor
 
 app = Flask(__name__)
 
-# Paths required for initializing pattern generators
-predefined_rules_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/PATTERN_GENERATION/predefined_rules.csv"
-model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
-path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger-4.2.0.jar'
+# Paths and initialization
+model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
+dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
+svm_model_path = "trained_profane_model.pkl"
 
-# Load the language identifier model once at the start of the app
-try:
-    language_identifier = LanguageIdentification.load_or_train_model()
-except Exception as e:
-    print(f"Error loading language identifier model: {e}")
-    language_identifier = None  # Set to None if loading fails
+# Global variables for models
+language_model = None
+X_test, y_test = None, None
+svm_model = None
 
-# Load the pre-trained profanity detection model
-model_path = "trained_profane_model.pkl"
-svm_model = joblib.load(model_path)
+def load_models():
+    """Function to load models during app startup."""
+    global language_model, X_test, y_test, svm_model
 
-# Initialize pattern generators with required arguments
-pattern_generators = {
-    'tagalog': TagalogPatternGenerator(predefined_rules_path, model_filename, path_to_jar),
-    'bikol': BikolPatternGenerator(predefined_rules_path, model_filename, path_to_jar),
-    'cebuano': CebuanoPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
-}
+    # Load or train the language identification model
+    if not language_model:
+        trainer = ModelTraining(dictionary_dir)
+        language_model, X_test, y_test = trainer.train_model()
+        joblib.dump(language_model, model_path)
+    else:
+        language_model = joblib.load(model_path)
+
+    # Load SVM model for profanity detection
+    if not svm_model:
+        svm_model = joblib.load(svm_model_path)
+
+# Load models during app startup
+with app.app_context():
+    load_models()
 
 # Routes for various pages
 @app.route('/')
 def home():
+    """Render the Home page."""
     return render_template('Home.html')
 
 @app.route('/index')
 def index():
+    """Render the Index page."""
     return render_template('index.html')
 
 @app.route('/creators')
 def creators():
+    """Render the Creators page."""
     return render_template('Creators.html')
 
 @app.route('/faqs')
 def faqs():
+    """Render the FAQs page."""
     return render_template('FAQs.html')
 
-# Language detection and profanity filtering endpoint
 @app.route('/detect_language', methods=['POST'])
 def detect_language():
-    text = request.form.get('text')
-    
-    # Ensure language_identifier is loaded
-    if language_identifier is None:
-        return jsonify({"error": "Language model not loaded"}), 500
-    
-    # Detect language
+    """API endpoint to detect language, perform POS tagging, and censor profane words."""
+    text = request.form.get('text', '').strip()
+    if not text:
+        return jsonify({
+            'error': 'No input text provided'
+        })
+
+    # Predict the language
+    language_identifier = LanguageIdentification(model=language_model, X_test=X_test, y_test=y_test)
     predicted_language = language_identifier.predict_language(text)
-    if predicted_language not in pattern_generators:
-        return jsonify({"error": "Language not supported"}), 400
-    
-    # POS tagging and profanity check
-    pattern_generator = pattern_generators[predicted_language]
-    pos_tagged_sentence = pattern_generator.tag_sentence(text)
+    supported_languages = {'tagalog', 'bikol', 'cebuano'}
+
+    if predicted_language not in supported_languages:
+        return jsonify({
+            'predicted_language': predicted_language,
+            'error': f"The language '{predicted_language}' is not supported."
+        })
+
+    # Get the pattern generator for the predicted language
+    pattern_generator = get_pattern_generator(predicted_language)
+    if not pattern_generator:
+        return jsonify({
+            'predicted_language': predicted_language,
+            'error': f"Pattern generator for '{predicted_language}' is not available."
+        })
+
+    # Perform POS tagging and censorship
+    pos_tagged_sentence = ' '.join(pattern_generator.tag_sentence(text))
     censored_sentence, is_profane = predict_and_censor(text, pattern_generator, svm_model, predicted_language)
 
-    response = {
-        "predicted_language": predicted_language,
-        "pos_tagged_sentence": " ".join(pos_tagged_sentence),
-        "censored_sentence": censored_sentence,
-        "is_profane": is_profane
-    }
-    return jsonify(response)
+    return jsonify({
+        'predicted_language': predicted_language,
+        'pos_tagged_sentence': pos_tagged_sentence,
+        'censored_sentence': censored_sentence,
+        'is_profane': is_profane
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)
