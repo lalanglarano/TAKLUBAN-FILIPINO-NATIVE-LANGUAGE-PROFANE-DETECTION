@@ -92,24 +92,36 @@
             })
             .then(response => response.json())
             .then(data => {
-                // Module 1: Detected language
-                document.getElementById('detected-language').innerText = data.predicted_language || 'Error detecting language';
+                // Module 1: Show the detected language
+                if (data.predicted_language) {
+                    document.getElementById('detected-language').innerText = `${data.predicted_language}`;
+                } else {
+                    document.getElementById('detected-language').innerText = 'Error detecting language';
+                }
 
-                // Module 2: POS tagged sentence
-                document.getElementById('pos-tagged-sentence').innerText = data.pos_tagged || 'Error processing the sentence.';
+                // Module 2: Show POS tagged sentence
+                if (data.pos_tagged_sentence) {
+                    document.getElementById('pos-tagged-sentence').innerText = `${data.pos_tagged_sentence}`;
+                } else {
+                    document.getElementById('pos-tagged-sentence').innerText = 'Error processing the sentence.';
+                }
 
-                // Module 3: Censored or clean sentence
-                document.getElementById('censored-sentence').innerText = data.censored_sentence || 'Error processing the sentence.';
-
-                // Module 4: Profanity status
-                document.getElementById('profanity-status').innerText = data.is_profane ? 'Profane' : 'Not Profane';
+                // Module 3: Show censored/cleaned sentence
+                if (data.censored_sentence) {
+                    if (data.is_profane) {
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence} (Profane)`;
+                    } else {
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence} (Clean)`;
+                    }
+                } else {
+                    document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
                 document.getElementById('detected-language').innerText = 'Error detecting language';
                 document.getElementById('pos-tagged-sentence').innerText = 'Error processing the sentence.';
                 document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
-                document.getElementById('profanity-status').innerText = 'Error detecting profanity.';
             });
         });
     </script>
