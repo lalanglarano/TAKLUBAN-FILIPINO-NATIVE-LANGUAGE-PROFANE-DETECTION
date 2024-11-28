@@ -1,3 +1,38 @@
+"""
+Program Title: Profanity Detection and Censorship
+
+Programmers: Jeo Abarre, Annalyn Belen, Telish Gonzales, Randolph Larano
+
+Where the program fits in the general system designs: This module detects and censors profane language in various Filipino languages.
+
+Date written and last revised: October 5, 2024   |   November 18, 2024
+
+Purpose: To detect and censor profane language in Tagalog, Bikol, and Cebuano using predefined rules 
+and POS tagging. This module loads predefined rules, tags sentences with POS tags, detects profane 
+patterns, censors detected patterns, and saves the results to a CSV file.
+
+Data structures, algorithms, and control:
+
+Data Structures:
+output_file: Path to the CSV file for saving results.
+profanity_dictionary_file: Path to the CSV file for saving profane patterns.
+predictions, true_labels: Lists for storing predictions and true labels.
+noise_words: A set of common noise words.
+
+Algorithms:
+Uses StanfordPOSTagger for POS tagging.
+Uses predefined rules for detecting profane patterns.
+Uses confusion matrix and classification report for performance evaluation.
+
+Control:
+Initializes with paths to output files and models.
+Loads and preprocesses text data.
+Tags sentences with POS tags.
+Detects and censors profane patterns.
+Saves results to CSV files.
+Evaluates model performance using confusion matrix and classification report.
+"""
+
 import csv
 import os
 import pandas as pd

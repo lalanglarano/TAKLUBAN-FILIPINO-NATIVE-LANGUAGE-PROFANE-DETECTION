@@ -1,3 +1,18 @@
+/* 
+    Program Title: Takluban Profane Detector - General Styles
+    
+    Programmers: Jeo Abarre, Telish Gonzales
+    
+    Where the program fits in the general system designs: This file contains the general styles for the Takluban Profane Detector web application.
+    
+    Date written and last revised: October 5, 2024   |   November 18, 2024
+    
+    Purpose: To provide consistent styling across the Takluban Profane Detector web application.
+    
+    Data structures, algorithms, and control: CSS for styling.
+*/
+
+
 /* Style for the navigation bar */
 nav {
     height: 50px;

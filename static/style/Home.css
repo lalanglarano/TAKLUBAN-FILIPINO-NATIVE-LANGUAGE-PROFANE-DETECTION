@@ -1,3 +1,17 @@
+/* 
+    Program Title: Takluban Profane Detector - Home Page Styles
+    
+    Programmers: Jeo Abarre, Telish Gonzales
+    
+    Where the program fits in the general system designs: This file contains the styles for the Home page of the Takluban Profane Detector web application.
+    
+    Date written and last revised: October 5, 2024   |   November 18, 2024
+    
+    Purpose: To provide specific styling for the Home page of the Takluban Profane Detector.
+    
+    Data structures, algorithms, and control: CSS for styling.
+*/
+
 /* Video loader styles */
 #loader {
     position: fixed;
