@@ -1,10 +1,25 @@
+/* 
+    Program Title: Takluban Profane Detector - General Styles
+    
+    Programmers: Jeo Abarre, Telish Gonzales
+    
+    Where the program fits in the general system designs: This file contains the general styles for the Takluban Profane Detector web application.
+    
+    Date written and last revised: October 5, 2024   |   November 18, 2024
+    
+    Purpose: To provide consistent styling across the Takluban Profane Detector web application.
+    
+    Data structures, algorithms, and control: CSS for styling.
+*/
+
+
 /* Style for the navigation bar */
 nav {
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #800008; 
+    background-color: #800000; 
     padding: 10px 20px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -24,7 +39,7 @@ nav .title {
 .nav-links {
     display: flex;
     justify-content: flex-end;
-    gap: 20px; /* Space between the links */
+    gap: 40px; /* Space between the links */
 }
 
 .nav-links a {
@@ -39,6 +54,10 @@ nav .title {
     color: #FFD700; /* Gold color on hover */
 }
 
+.nav-links .active {
+    font-weight: bold; /* Bold the active link */
+}
+
 /* Style for the body background image */
 body {
     background-image: url('../assets/tklbn-bg.png'); 
@@ -48,14 +67,55 @@ body {
     background-attachment: fixed; 
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    padding: 0;
+    padding-bottom: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    overflow: hidden; 
 }
 
+h1 {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    height: calc(100vh - 100px);
+}
+
+.continue-button-container {
+    width: 146px;
+    height: 40px;
+    background: #800000;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    bottom: 40px;
+}
+
+.continue-button:hover {
+    color: #FFD700;
+}
+
+.continue-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
 
 /* Footer styles */
 footer {
@@ -64,6 +124,10 @@ footer {
     text-align: center;
     padding: 10px 0;
     font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px; 
 }
 
 footer img {

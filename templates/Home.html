@@ -1,71 +1,111 @@
+<!-- 
+    Program Title: Takluban Profane Detector - Home Page
+
+    Programmers: Jeo Abarre, Telish Gonzales
+    
+    Where the program fits in the general system designs: This is the main detection page of the Takluban Profane Detector web application.
+    
+    Date written and last revised: October 5, 2024   |   November 18, 2024
+    
+    Purpose: To allow users to input text and detect profanities using the Takluban Profane Detector.
+    
+    Data structures, algorithms, and control: HTML for structure, CSS for styling, JavaScript for interactivity, and AJAX for backend communication.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takluban Profane Detector</title>
-    <link rel="icon" href="../assets/tklbn-favicon.png" type="image/png">
+    <title>Detection - Takluban Profane Detector</title>
+    <link rel="icon" href="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style/Home.css">
+    <link rel="stylesheet" href="../static/style/Home.css">
 </head>
 
-<nav>
-    <div class="logo">
-        <img src="../assets/tklbn-logo.png" alt="Takluban Logo">
-    </div>
-    <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span> 
-    <div class="nav-links">
-        <a href="Home.html" class="home-link active">HOME</a> 
-        <a href="Creators.html" class="creators-link">ABOUT US</a>
-        <a href="FAQs.html" class="faqs-link">FAQs</a>
-    </div> <!-- Navigation Links -->
-</nav>
-
 <body>
-    <div class="container">
-        <div class="left">
-            <textarea id="text-area" placeholder="To detect profanities, input text here and click 'DETECT'."></textarea>
-            <div class="detect-button-container">
-                <button class="detect-button">DETECT</button>
-            </div>
-        </div>
-        <div class="right">
-            <div class="module module-1">
-                <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED</div>
-                <div id="detected-language"></div> 
-            </div>
-            <div class="module module-2">
-                <div class="module-title">POS TAGGED SENTENCE</div>
-                <div id="pos-tagged-sentence"></div> <!-- POS tagged sentence will appear here -->
-            </div>
-        </div>
+    <!-- Loader section with video -->
+    <div id="loader">
+        <video autoplay muted loop id="loadingVideo">
+            <source src="../static/assets/tklbn-loading.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <footer>
-        <img src="../assets/tklbn-favicon.png" alt="Footer Icon"> 
-        <p>All Rights Reserved, 2024</p>
-    </footer>
+    <!-- Main landing page content -->
+    <div id="landingPage" style="display: none;">
+        <nav>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='assets/tklbn-logo.png') }}" alt="Takluban Logo">
+            </div>
+            <span class="title">FILIPINO NATIVE LANGUAGE PROFANE DETECTION</span>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="home-link active">HOME</a>
+                <a href="{{ url_for('creators') }}" class="creators-link">ABOUT US</a>
+                <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="left">
+                <textarea id="text-area" placeholder="Input text here to detect profanity and language."></textarea>
+                <div class="detect-button-container">
+                    <button class="detect-button">DETECT</button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="module-1">
+                    <div class="module-title">FILIPINO NATIVE LANGUAGE IDENTIFIED:</div>
+                    <div id="detected-language"></div>
+                </div>
+                <div class="module-2">
+                    <div class="module-title">TAGGED SENTENCE:</div>
+                    <div id="pos-tagged-sentence"></div>
+                </div>
+                <div class="module-3">
+                    <div class="module-title">PROFANITY CHECK:</div>
+                    <div id="profanity-status"></div>
+                </div>
+                <div class="module-4">
+                    <div class="module-title">CENSORED OR CLEAN SENTENCE:</div>
+                    <div id="censored-sentence"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="detect-loader" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Processing, please wait...</p>
+        </div>        
+
+        <footer>
+            <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
+            <p>All Rights Reserved, 2024</p>
+        </footer>
+    </div>
 
     <script>
-        // Original script for word count and instructions
+        // Show loader on page load, then display the landing page
+        window.onload = function() {
+            if (sessionStorage.getItem('visited')) {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('landingPage').style.display = 'block';
+            } else {
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('landingPage').style.display = 'block';
+                    sessionStorage.setItem('visited', 'true');
+                }, 5900);
+            }
+        };
+
+        // Word count limitation script
         const textArea = document.getElementById('text-area');
-        const instruction = document.getElementById('instruction');
         const maxWords = 10;
         const wordsLeftDisplay = document.createElement('div');
         wordsLeftDisplay.id = 'words-left';
         wordsLeftDisplay.textContent = `Allowed number of words remaining: ${maxWords}`;
         textArea.parentNode.insertBefore(wordsLeftDisplay, textArea.nextSibling);
-    
-        textArea.addEventListener('focus', function() {
-            instruction.style.display = 'none'; 
-        });
-    
-        textArea.addEventListener('blur', function() {
-            if (textArea.value === '') {
-                instruction.style.display = 'block'; 
-            }
-        });
-    
+
         textArea.addEventListener('input', function() {
             const words = textArea.value.split(/\s+/).filter(word => word.length > 0);
             const wordsLeft = maxWords - words.length;
@@ -75,12 +115,13 @@
                 alert(`Word limit of ${maxWords} reached.`);
             }
         });
-    
-        // New script to send text to Flask and display detected language and POS tagged sentence
+
+        // Detect button functionality (connecting with backend)
         document.querySelector('.detect-button').addEventListener('click', function() {
             const text = document.getElementById('text-area').value;
             
-            // Send input to Flask using Fetch API
+            document.getElementById('detect-loader').style.display = 'block';
+
             fetch('/detect_language', {
                 method: 'POST',
                 headers: {
@@ -90,18 +131,40 @@
             })
             .then(response => response.json())
             .then(data => {
+                document.getElementById('detect-loader').style.display = 'none';
+                // Module 1: Show the detected language
                 if (data.predicted_language) {
-                    document.getElementById('detected-language').innerText = `Detected language: ${data.predicted_language}`;
-                    document.getElementById('pos-tagged-sentence').innerText = `POS Tagged Sentence: ${data.pos_tagged_sentence}`;
+                    document.getElementById('detected-language').innerText = `${data.predicted_language}`;
                 } else {
                     document.getElementById('detected-language').innerText = 'Error detecting language';
-                    document.getElementById('pos-tagged-sentence').innerText = '';
+                }
+
+                // Module 2: Show POS tagged sentence
+                if (data.pos_tagged_sentence) {
+                    document.getElementById('pos-tagged-sentence').innerText = `${data.pos_tagged_sentence}`;
+                } else {
+                    document.getElementById('pos-tagged-sentence').innerText = 'Error processing the sentence.';
+                }
+
+                // Module 3: Show censored/cleaned sentence
+                if (data.censored_sentence) {
+                    if (data.is_profane) {
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
+                        document.getElementById('profanity-status').innerText = `Profanity detected.`;
+                    } else {
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
+                        document.getElementById('profanity-status').innerText = `No profanity detected.`;
+                    }
+                } else {
+                    document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
+                document.getElementById('detect-loader').style.display = 'none';
                 document.getElementById('detected-language').innerText = 'Error detecting language';
-                document.getElementById('pos-tagged-sentence').innerText = '';
+                document.getElementById('pos-tagged-sentence').innerText = 'Error processing the sentence.';
+                document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
             });
         });
     </script>

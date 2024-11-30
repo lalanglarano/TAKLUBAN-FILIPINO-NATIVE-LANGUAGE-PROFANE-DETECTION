@@ -1,38 +1,3 @@
-"""
-Program Title: Profanity Detection and Censorship
-
-Programmers: Jeo Abarre, Annalyn Belen, Telish Gonzales, Randolph Larano
-
-Where the program fits in the general system designs: This module detects and censors profane language in various Filipino languages.
-
-Date written and last revised: October 5, 2024   |   November 18, 2024
-
-Purpose: To detect and censor profane language in Tagalog, Bikol, and Cebuano using predefined rules 
-and POS tagging. This module loads predefined rules, tags sentences with POS tags, detects profane 
-patterns, censors detected patterns, and saves the results to a CSV file.
-
-Data structures, algorithms, and control:
-
-Data Structures:
-output_file: Path to the CSV file for saving results.
-profanity_dictionary_file: Path to the CSV file for saving profane patterns.
-predictions, true_labels: Lists for storing predictions and true labels.
-noise_words: A set of common noise words.
-
-Algorithms:
-Uses StanfordPOSTagger for POS tagging.
-Uses predefined rules for detecting profane patterns.
-Uses confusion matrix and classification report for performance evaluation.
-
-Control:
-Initializes with paths to output files and models.
-Loads and preprocesses text data.
-Tags sentences with POS tags.
-Detects and censors profane patterns.
-Saves results to CSV files.
-Evaluates model performance using confusion matrix and classification report.
-"""
-
 import csv
 import os
 import pandas as pd
@@ -158,19 +123,23 @@ def predict_and_censor(sentence, pattern_generator, model, language):
 
     return censored_sentence, is_profane
 
+# Additional function to print POS-tagged sentences
+def print_pos_tagged_sentence(language, sentence, pos_tagged):
+    """Print the language, sentence, and its POS-tagged result."""
+    print(f"Language: {language}")
+    print(f"Original Sentence: {sentence}")
+    print(f"POS-Tagged Sentence: {pos_tagged}\n")
 
+# Update in main process where POS tagging happens
 def main():
     model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
-    # Train the language identification model if it doesn't exist
+    
     model, X_test, y_test = train_model_if_not_exists(model_path, dictionary_dir)
-    # Initialize the LanguageIdentification class with the loaded model
     language_identifier = LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
     print("Welcome to Takluban Language Identifier! Enter your sentences below:")
-    # Define a set of supported languages
-    supported_languages = {'tagalog', 'bikol', 'cebuano'}
     
-    # Load the SVM model for profanity detection
+    supported_languages = {'tagalog', 'bikol', 'cebuano'}
     svm_model_path = "trained_profane_model.pkl"
     svm_model = joblib.load(svm_model_path)
     
@@ -179,22 +148,24 @@ def main():
         if sentence.lower() == 'exit':
             print("Exiting the program.")
             break
+        
         predicted_language = language_identifier.predict_language(sentence)
-        # Check if the predicted language is supported
         if predicted_language not in supported_languages:
             print(f"Detected language: {predicted_language}. This language is not supported.")
-            print("Skipping POS tagging and censorship for this sentence.\n")
-            continue  # Skip to the next iteration if the language is not supported
+            continue
+        
         pattern_generator = get_pattern_generator(predicted_language)
         if pattern_generator:
-            print(f"\nDetected language: {predicted_language}")
+            pos_tagged = ' '.join(pattern_generator.tag_sentence(sentence))
+            print_pos_tagged_sentence(predicted_language, sentence, pos_tagged)  # Print POS tagging result
+            
             censored_sentence, is_profane = predict_and_censor(sentence, pattern_generator, svm_model, predicted_language)
             if is_profane:
                 print(f"Censored Sentence: {censored_sentence}")
             else:
                 print(f"Cleaned Sentence: {censored_sentence}")
-            save_to_csv(predicted_language, sentence, ' '.join(pattern_generator.tag_sentence(sentence)), censored_sentence)
-            # Asking the user for the true label (1 = Profane, 0 = Not Profane)
+            
+            save_to_csv(predicted_language, sentence, pos_tagged, censored_sentence)
             true_label = int(input("Is the sentence profane? (1 for profane, 0 for not profane): "))
             predictions.append(1 if is_profane else 0)
             true_labels.append(true_label)
@@ -202,16 +173,12 @@ def main():
         else:
             print(f"Pattern generator for {predicted_language} is not available.")
     
-    # Confusion matrix and performance metrics calculation
     if len(predictions) > 0:
-        print("Confusion Matrix and Performance Metrics:")
         cm = confusion_matrix(true_labels, predictions)
         print(f"Confusion Matrix:\n{cm}")
-        
         print("\nClassification Report:")
         print(classification_report(true_labels, predictions))
         
-        # Plot the confusion matrix
         plt.figure(figsize=(6,6))
         sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False, xticklabels=['Not Profane', 'Profane'], yticklabels=['Not Profane', 'Profane'])
         plt.xlabel('Predicted')
@@ -221,5 +188,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-#This shit is getting on my nerves

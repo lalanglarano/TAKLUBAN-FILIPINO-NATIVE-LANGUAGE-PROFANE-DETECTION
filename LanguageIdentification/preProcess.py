@@ -1,3 +1,35 @@
+"""
+Program Title: Text Preprocessor
+
+Programmers: Jeo Abarre, Annalyn Belen, Telish Gonzales, Randolph Larano
+
+Where the program fits in the general system designs: This module preprocesses text data for 
+language identification and profanity detection.
+
+Date written and last revised: September 26, 2024   |   November 18, 2024
+
+Purpose: To clean and preprocess text data, splitting it into sentences and removing noise. 
+This module reads raw text data from a CSV file, preprocesses the text by removing numbers and 
+special characters, splits the text into sentences, and saves the preprocessed sentences to a new CSV file.
+
+Data structures, algorithms, and control:
+
+Data Structures:
+self.input_file: Path to the input CSV file containing raw text data.
+self.output_file: Path to the output CSV file for saving preprocessed text data.
+
+Algorithms:
+Uses regular expressions to clean and preprocess text.
+Splits text into sentences based on punctuation.
+Writes preprocessed sentences to a CSV file.
+
+Control:
+Initializes with paths to input and output files.
+Preprocesses text by removing numbers and special characters.
+Splits text into sentences.
+Saves preprocessed sentences to a CSV file.
+"""
+
 import os
 import re
 import csv

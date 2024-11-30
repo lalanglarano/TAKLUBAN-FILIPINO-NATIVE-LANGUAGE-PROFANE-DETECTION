@@ -1,3 +1,17 @@
+/* 
+    Program Title: Takluban Profane Detector - FAQs Page Styles
+    
+    Programmers: Jeo Abarre, Telish Gonzales
+    
+    Where the program fits in the general system designs: This file contains the styles for the FAQs page of the Takluban Profane Detector web application.
+    
+    Date written and last revised: October 5, 2024   |   November 18, 2024
+    
+    Purpose: To provide specific styling for the FAQs page of the Takluban Profane Detector.
+    
+    Data structures, algorithms, and control: CSS for styling.
+*/
+
 /* Style for the navigation bar */
 nav {
     height: 50px;
@@ -24,7 +38,7 @@ nav .title {
 .nav-links {
     display: flex;
     justify-content: flex-end;
-    gap: 20px; /* Space between the links */
+    gap: 40px; /* Space between the links */
 }
 
 .nav-links a {
@@ -60,7 +74,11 @@ body {
     min-height: 100vh;
 }
 
-h2{
+p {
+    text-align: justify;
+}
+
+h2 {
     color: black;
     text-align: center;
     margin-top: 70px;
@@ -91,13 +109,13 @@ footer p {
 }
 
 /* Accordion design */
-#accordion{
+#accordion {
     width: 600px;
     margin: 20px auto;
     padding-bottom: 40px;
 }
 
-#accordion li{
+#accordion li {
     list-style: none;
     width: 100%;
     margin-bottom: 10px;
@@ -107,7 +125,7 @@ footer p {
     border-radius: 5px;
 }
 
-#accordion li label{
+#accordion li label {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 15px;
@@ -120,16 +138,16 @@ footer p {
     color: #800000;
 }
 
-#accordion li label span{
+#accordion li label span {
     font-size: 22px;
     color:#878787;
 }
 
-#accordion label + input[type="radio"]{
+#accordion label + input[type="radio"] {
     display: none;
 }
 
-#accordion .content{
+#accordion .content {
     padding: 10px;
     line-height: 24px;
     max-height: 0;
@@ -137,6 +155,10 @@ footer p {
     transition: max-height 0.5s;
 }
 
-#accordion label + input[type="radio"]:checked + .content{
+#accordion label + input[type="radio"]:checked + .content {
     max-height: 300px;
+}
+
+.content a {
+    color: #800000; 
 }

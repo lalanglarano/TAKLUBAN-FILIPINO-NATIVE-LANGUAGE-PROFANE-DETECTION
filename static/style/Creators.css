@@ -1,3 +1,17 @@
+/* 
+    Program Title: Takluban Profane Detector - Creators Page Styles
+    
+    Programmers: Jeo Abarre, Telish Gonzales
+    
+    Where the program fits in the general system designs: This file contains the styles for the Creators page of the Takluban Profane Detector web application.
+    
+    Date written and last revised: October 5, 2024   |   November 18, 2024
+    
+    Purpose: To provide specific styling for the Creators page of the Takluban Profane Detector.
+    
+    Data structures, algorithms, and control: CSS for styling.
+*/
+
 /* General styles */
 body {
     background-image: url('../assets/tklbn-bg.png'); 
@@ -38,7 +52,7 @@ nav .title {
 .nav-links {
     display: flex;
     justify-content: flex-end;
-    gap: 20px;
+    gap: 40px;
 }
 
 .nav-links a {
@@ -80,7 +94,7 @@ nav .title {
 }
 
 .left-container h2 {
-    font-size: 25px;
+    font-size: 27px;
     font-weight: bold;
     margin-bottom: 30px;
 }
@@ -88,19 +102,21 @@ nav .title {
 .takluban-logo {
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-top: 30px;
+    margin-bottom: 40px;
 }
 
 .rectangle {
-    height: 400px;
+    height: 230px;
     padding: 20px;
-    background-color: #F9EFEF;
+    background-color: #fbf9e9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    border-radius: 5px;
 }
 
 .rectangle p {
-    padding: 1px;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.25;
 }
 
@@ -127,15 +143,27 @@ nav .title {
 
 .creator-box {
     width: 290px;
-    height: 320px;
+    height: 290px;
     padding: 15px;
     background-color: #F9EFEF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.creator-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .creator-name,
@@ -143,25 +171,26 @@ nav .title {
 .creator-degree,
 .creator-school {
     text-align: center;
-    margin-top: 1px;
+    margin-top: 0.5px;
     margin-bottom: 5px;
 }
 
 .creator-name {
     font-size: 20px;
     font-weight: bold;
-    margin-top: 204px;
 }
 
 .creator-role {
     font-size: 18px;
     font-weight: 600; /* Semi-bold */
-    font-style: italic; /* Italicize the role */
+    font-style: italic; /* Italicized */
+
 }
 
 .creator-degree {
     font-size: 16px;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .creator-school {
