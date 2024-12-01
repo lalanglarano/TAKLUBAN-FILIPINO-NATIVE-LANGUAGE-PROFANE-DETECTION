@@ -47,6 +47,7 @@ from collections import Counter
 from sklearn.metrics import accuracy_score
 import csv
 import os
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, precision_recall_curve
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
@@ -81,9 +82,9 @@ noise_words = {
     "na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po", "ka", "ikaw", "siya", "oo",
     "sa", "may", "ni", "dahil", "kasi", "pero", "at", "para", "niya", "saan", "ganito", "doon", "noon", 
     "ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si", "kan", "kun", "ngani",
-    "yan", "sadi", "pala", "yaon", "ini", "yan", "na", "digdi", "dakol", "bangan", "dayon", "ang", "ini",
-    "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug", "naa", "dili", "kini", "adto", "man", "kay",
-    "eh", "naman", "kayo", "boi", "ika", "daw", "mag", "nag", "sako", "pa", "jan", "yon", "gabos", "yung",
+    "yan", "sadi", "pala", "yaon", "ini", "yan", "na", "digdi", "dakol", "bangan", "dayon", "ang", "ini", "talagang",
+    "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug", "naa", "dili", "kini", "adto", "man", "kay", "duman",
+    "eh", "naman", "kayo", "boi", "ika", "daw", "mag", "nag", "sako", "pa", "jan", "yon", "gabos", "yung", "dae",
     "unta", "nga", "sa", "kani", "mo", "lang", "sila", "unsa", "ako", "niyo", "su", "kita", "taka", "buda", "talaga"
 }
 
@@ -168,7 +169,6 @@ def predict_and_censor(sentence, pattern_generator, model, language):
 
     return censored_sentence, is_profane
 
-
 def main():
     model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
@@ -248,7 +248,6 @@ def main():
         plt.ylabel('True')
         plt.title('Confusion Matrix')
         plt.show()
-
 
 if __name__ == "__main__":
     main()
