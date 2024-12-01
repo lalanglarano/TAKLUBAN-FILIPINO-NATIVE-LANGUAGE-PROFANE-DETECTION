@@ -56,3 +56,85 @@ bikol,ambot sa imo dong,|AMBOT|FW |SA|CCT |IMO|FW |DONG|FW,ambot sa imo dong
 cebuano,ambot sa imo day intawon,|AMBOT|FW |SA|CCT |IMO|FW |DAY|FW |INTAWON|NNC,ambot sa imo day intawon
 bikol,ang bobo mo talaga,|ANG|DTC |BOBO|JJD |MO|PRS |TALAGA|RBT,ang **** mo ******
 >>>>>>> 858896d6579ab43486c6773e49eefc0db668431e
+cebuano,nakakabusog ang tinapay na iyon,|NAKAKABUSOG|VBTR |ANG|DTC |TINAPAY|NNC |NA|CCP |IYON|PRO,nakakabusog ang tinapay na iyon
+bikol,makabasugon ang tinapay na ito,|MAKABASUGON|VBW |ANG|DTC |TINAPAY|NNC |NA|CCP |ITO|PRO,makabasugon ang tinapay na ito
+tagalog,masaya akong nakilala kita at nakasama,|MASAYA|JJD akong|PRS|CCP |NAKILALA|VBTS |KITA|NNC |AT|CCA |NAKASAMA|VBTS,masaya akong nakilala **** at nakasama
+bikol,maogma akong namidmidan taka buda naka iba,|MAOGMA|VBW akong|PRS|CCP |NAMIDMIDAN|VBTR |TAKA|NNC |BUDA|NNC |NAKA|RBD |IBA|PRI,maogma akong namidmidan **** **** naka iba
+tagalog,pumasok sila nang maaga sa opisina,|PUMASOK|VBAF |SILA|PRP |NANG|RBW |MAAGA|JJD |SA|CCT |OPISINA|NNC,pumasok sila nang maaga sa opisina
+bikol,naglaog sindang amay sa opisina,|NAGLAOG|VBTS sindang|VBTS|CCP |AMAY|FW |SA|CCT |OPISINA|NNC,naglaog sindang amay sa opisina
+bikol,tumalon siya sa ilog Pasig,|TUMALON|VBAF |SIYA|PRS |SA|CCT |ILOG|NNC |PASIG|NNP,tumalon siya sa ilog Pasig
+bikol,kingina ka talaga wala ka na dapat dito sa mundo,|KINGINA|VBTS |KA|PRS |TALAGA|RBT |WALA|VBN |KA|PRS |NA|CCP |DAPAT|VBS |DITO|PRL |SA|CCT |MUNDO|NNC,kingina ka ****** wala ka na dapat dito sa mundo
+bikol,nakipag away ka nanamang putangina ka,|NAKIPAG|VBTS |AWAY|NNC |KA|PRS |NANAMANG|RBJ putangina|VBTR|VBAF |KA|PRS,nakipag away ka nanamang ********* ka
+bikol,pabigat ka sa buhay hayop ka,|PABIGAT|RBD |KA|PRS |SA|CCT |BUHAY|NNC |HAYOP|NNC |KA|PRS,pabigat ka sa ***** ***** ka
+tagalog,gagi bagsak ka pala eh galingan mo naman,|GAGI|RBR |BAGSAK|NNC |KA|PRS |PALA|NNC |EH|NNCA |GALINGAN|VBOF |MO|PRS |NAMAN|RBI,gagi bagsak ka pala ** galingan mo *****
+cebuano,nagmamagaling kang inutil ka,nagmamagaling|VBTR|CCP kang|PRS|CCP |INUTIL|VBOF |KA|PRS,nagmamagaling kang inutil ka
+cebuano,naunsa ka man intawon,|NAUNSA|VBTS |KA|PRS |MAN|RBI intawon|VBTS|VBOF,naunsa ka man intawon
+cebuano,bogo ka kayo,|BOGO|RBM |KA|PRS |KAYO|PRP,bogo ka ****
+cebuano,bogo ka kayo,|BOGO|RBM |KA|PRS |KAYO|PRP,bogo ka ****
+cebuano,buang na tua sa ubos,|BUANG|JJD |NA|CCP |TUA|NNC |SA|CCT |UBOS|NNC,***** na tua sa ubos
+bikol,quit,|QUIT|NNC,quit
+cebuano,buang na tua sa ubos,|BUANG|JJD |NA|CCP |TUA|NNC |SA|CCT |UBOS|NNC,***** na tua sa ubos
+cebuano,buang na tua sa ubos,|BUANG|JJD |NA|CCP |TUA|NNC |SA|CCT |UBOS|NNC,***** na tua sa ubos
+bikol,kaon na sa kalaban dong,|KAON|RBW |NA|RBI |SA|CCT |KALABAN|NNC |DONG|FW,kaon na sa kalaban dong
+bikol,yawa ka man bai,|YAWA|PRC |KA|PRS |MAN|RBI |BAI|NNCA,**** ka man bai
+cebuano,bogo ka kayo,|BOGO|RBM |KA|PRS |KAYO|PRP,bogo ka ****
+cebuano,mangaon na ta mga dodong,|MANGAON|RBW |NA|CCP |TA|CCP |MGA|DTCP dodong|NNC|CCP,mangaon na ta mga dodong
+cebuano,tibayon ka talaga boi ika daw mag kawat kang sako,|TIBAYON|RBR |KA|PRS |TALAGA|RBT |BOI|FW |IKA|JJN |DAW|RBI |MAG|VBW |KAWAT|CCB kang|PRS|CCP |SAKO|NNC,tibayon ka talaga *** *** *** *** kawat kang ****
+cebuano,tibayon ka talaga boi ika daw mag kawat kang sako,|TIBAYON|RBR |KA|PRS |TALAGA|RBT |BOI|FW |IKA|JJN |DAW|RBI |MAG|VBW |KAWAT|CCB kang|PRS|CCP |SAKO|NNC,tibayon ka talaga *** *** *** *** kawat kang ****
+tagalog,librehon taka atjan ta binuhat mo ako,|LIBREHON|FW |TAKA|FW |ATJAN|FW |TA|FW |BINUHAT|FW |MO|PRS |AKO|PRS,librehon taka atjan ta binuhat mo ako
+bikol,mauragon ang napili mong karakter,|MAURAGON|VBW |ANG|DTC |NAPILI|VBTS mong|PRS|CCP |KARAKTER|NNC,mauragon ang napili mong karakter
+bikol,maray man ta nakaisip kapang umuling patal ka,|MARAY|JJD |MAN|RBI |TA|NNCA |NAKAISIP|VBTS kapang|NNC|CCP |UMULING|VBAF |PATAL|RBD |KA|PRS,maray man ta nakaisip kapang umuling ***** ka
+bikol,losi losion ang hamag na an,|LOSI|FW |LOSION|FW |ANG|DTC |HAMAG|NNC |NA|RBI |AN|DTC,losi losion ang ***** na an
+tagalog,punyeta suso na nga lang nahulog pa,|PUNYETA|NNC |SUSO|NNC |NA|CCP |NGA|RBI |LANG|RBI |NAHULOG|VBTS |PA|RBI,******* suso na nga lang nahulog **
+bikol,yudeputang pakaurag kang mga gibuhon,yudeputang|VBTR|VBAF |PAKAURAG|JJD kang|PRS|CCP |MGA|DTCP |GIBUHON|NNC,yudeputang pakaurag kang mga gibuhon
+bikol,yudeputa iuragan ang mga patal,|YUDEPUTA|FW |IURAGAN|VBOF |ANG|DTC |MGA|DTCP |PATAL|NNC,******** iuragan ang mga *****
+bikol,patalon ka talaga maski nuarin,|PATALON|RBD |KA|PRS |TALAGA|RBT |MASKI|CCT |NUARIN|NNC,******* ka talaga maski nuarin
+cebuano,losi lamang kaan na hamag,|LOSI|FW |LAMANG|RBI |KAAN|JJD |NA|CCP |HAMAG|NNC,losi lamang kaan na *****
+cebuano,punyemas na gawain toh,|PUNYEMAS|JJD |NA|CCP |GAWAIN|NNC |TOH|NNC,punyemas na gawain toh
+bikol,nakakatakot ang mga nangyayare sa bansang ito,|NAKAKATAKOT|VBTR |ANG|DTC |MGA|DTCP |NANGYAYARE|VBTS |SA|CCT bansang|NNC|CCP |ITO|PRO,nakakatakot ang mga nangyayare sa bansang ito
+bikol,paruton kang maray,|PARUTON|JJC kang|PRS|CCP |MARAY|NNC,******* kang maray
+tagalog,pukingina mo sampalin kita jan,|PUKINGINA|JJCC |MO|PRS |SAMPALIN|VBOF |KITA|NNC |JAN|NNC,pukingina mo sampalin kita ***
+cebuano,kauragon kang patal ka,|KAURAGON|JJD kang|PRS|CCP |PATAL|NNC |KA|PRS,******** kang ***** ka
+cebuano,hayop ka pati asawa ko inahas mo,|HAYOP|RBF |KA|PRS |PATI|CCA |ASAWA|NNC |KO|PRS |INAHAS|VBOF |MO|PRS,***** ka pati asawa ko inahas mo
+cebuano,alis na tayo mamaya,|ALIS|NNC |NA|CCP |TAYO|PRP |MAMAYA|RBW,alis na tayo mamaya
+tagalog,punyetang hugasan yan,punyetang|RBD|CCP |HUGASAN|VBOF |YAN|PRO,punyetang hugasan yan
+tagalog,punyeta hugasan mo lahat ng yan,|PUNYETA|NNC hugasan|VBTF|VBOF |MO|PRS |LAHAT|PRI |NG|CCB |YAN|PRO,******* hugasan mo lahat ng yan
+tagalog,nakakabanas pag mumukha mo,|NAKAKABANAS|VBTR |PAG|CCR |MUMUKHA|VBOF |MO|PRS,nakakabanas pag mumukha mo
+bikol,puspusan ang gawain,|PUSPUSAN|JJD |ANG|DTC |GAWAIN|NNC,puspusan ang gawain
+cebuano,san ka na naman pupuntang tanga ka,|SAN|RBQ |KA|PRS |NA|CCP |NAMAN|RBI pupuntang|NNC|CCP |TANGA|JJD |KA|PRS,san ka na naman pupuntang ***** ka
+bikol,mali mali nilalabas sa FNLI,|MALI|JJD |MALI|JJD |NILALABAS|VBTR |SA|CCT |FNLI|NNPA,mali mali nilalabas sa FNLI
+tagalog,nakakainis naman ang mga ginagawa mo,|NAKAKAINIS|VBTR |NAMAN|RBI |ANG|DTC |MGA|DTCP |GINAGAWA|VBTR |MO|PRS,nakakainis naman ang mga ginagawa mo
+bikol,yudeputa ta natakdag su aki,yudeputa|VBTR|VBAF |TA|NNCA |NATAKDAG|VBTS |SU|NNCA |AKI|NNC,******** ta natakdag su aki
+tagalog,shuta dami naman niyan,|SHUTA|FW |DAMI|NNC |NAMAN|RBI |NIYAN|PRO,***** dami naman niyan
+tagalog,ay masama pala yon,|AY|LM |MASAMA|JJD |PALA|NNC |YON|PRO,ay masama pala ***
+tagalog,kingina mo mandurugas,|KINGINA|VBTS |MO|PRS |MANDURUGAS|VBW,kingina mo mandurugas
+bikol,kinginang yan manggagantso,|KINGINANG|VBTR |YAN|PRO |MANGGAGANTSO|VBW,kinginang yan manggagantso
+bikol,hala mali mali ang detection,|HALA|NNC |MALI|JJD |MALI|JJD |ANG|DTC |DETECTION|FW,hala mali mali ang detection
+cebuano,hala kung san san na nag hanap,|HALA|NNC |KUNG|RBK |SAN|RBQ |SAN|RBQ |NA|CCP |NAG|VBTS |HANAP|NNC,hala kung san san na nag hanap
+tagalog,putangina mo mang aagaw ka,|PUTANGINA|JJCC |MO|PRS mang|RBI|CCP |AAGAW|VBTF |KA|PRS,********* mo mang aagaw ka
+bikol,tungagon ka gabos na gibo gibo mo sarala,|TUNGAGON|VBOF |KA|PRS |GABOS|JJD |NA|CCP |GIBO|NNC |GIBO|RBM |MO|PRS |SARALA|NNC,******** ka ***** na gibo gibo mo sarala
+cebuano,hayop ka mang gagamit ka,|HAYOP|RBF |KA|PRS mang|RBI|CCP |GAGAMIT|VBTF |KA|PRS,***** ka mang gagamit ka
+bikol,nakakabanas na ang mga ginagawa natin,|NAKAKABANAS|VBTR |NA|CCP |ANG|DTC |MGA|DTCP |GINAGAWA|VBTR |NATIN|PRP,nakakabanas na ang mga ginagawa natin
+cebuano,hala ka madasmag ka ngani,|HALA|NNC |KA|PRS |MADASMAG|VBW |KA|PRS |NGANI|NNC,hala ka madasmag ka ngani
+cebuano,ano na nangyayare dito,|ANO|PRQ |NA|CCP |NANGYAYARE|VBTR |DITO|PRL,ano na nangyayare dito
+tagalog,ano na naman ang ginagawa mo,|ANO|PRQ |NA|CCP |NAMAN|RBI |ANG|DTC |GINAGAWA|VBTR |MO|PRS,ano na naman ang ginagawa mo
+bikol,pucha kabadtrip ka ha,|PUCHA|JJD |KABADTRIP|NNC |KA|PRS |HA|NNCA,***** kabadtrip ka **
+tagalog,ano ba nangyare sainyo,|ANO|PRQ |BA|RBI |NANGYARE|VBTS |SAINYO|NNC,ano ba nangyare sainyo
+tagalog,tangina mo bobo,|TANGINA|JJCC |MO|PRS |BOBO|NNC,******* mo ****
+tagalog,tangina non halimaw eh,|TANGINA|FW |NON|FW |HALIMAW|FW |EH|FW,******* non halimaw eh
+tagalog,napaka gago mo kahit kailan,|NAPAKA|JJCS |GAGO|RBD |MO|PRS |KAHIT|CCT |KAILAN|PRQ,****** **** mo ***** kailan
+tagalog,hayop na yan ako laging nakikita,|HAYOP|NNC |NA|CCP |YAN|PRO |AKO|PRS laging|RBD|CCP |NAKIKITA|VBTR,***** na yan ako laging nakikita
+tagalog,san ka pupunta,|SAN|RBQ |KA|PRS |PUPUNTA|VBTF,san ka pupunta
+tagalog,ang ganda mo miss baka pwede pakiss,|ANG|DTC |GANDA|NNC |MO|PRS |MISS|FW |BAKA|RBM |PWEDE|RBT |PAKISS|NNC,ang ganda mo miss baka pwede pakiss
+tagalog,kiskisin mo mukha mo gago,|KISKISIN|VBOF |MO|PRS |MUKHA|NNC |MO|PRS |GAGO|NNC,kiskisin mo mukha mo ****
+tagalog,pakipot kapa gusto mo rin naman halika na,|PAKIPOT|JJD |KAPA|NNC |GUSTO|VBS |MO|PRS |RIN|RBI |NAMAN|RBI |HALIKA|NNC |NA|CCP,pakipot kapa gusto mo rin naman halika na
+bikol,maka patalon ang mga tawong ini,|MAKA|VBW |PATALON|VBW |ANG|DTC |MGA|DTCP tawong|NNC|CCP |INI|FW,maka ******* ang mga tawong ini
+tagalog,tangina nadapa yung bata,|TANGINA|JJCC |NADAPA|VBTS |YUNG|PRO |BATA|NNC,******* nadapa **** bata
+bikol,ang bobo naman netong nakasabay ko,|ANG|DTC |BOBO|JJD |NAMAN|RBI netong|NNC|CCP |NAKASABAY|VBTS |KO|PRS,ang **** naman netong nakasabay ko
+bikol,mali mali ang resultang nilalabas,|MALI|JJD |MALI|JJD |ANG|DTC resultang|NNC|CCP |NILALABAS|VBTR,mali mali ang resultang nilalabas
+bikol,masaen kana namang pusngak ka,|MASAEN|FW |KANA|FW namang|RBI|CCP pusngak|VBTS|VBAF |KA|PRS,masaen kana namang pusngak ka
+bikol,palak palak kana noi pag purupundo naman,|PALAK|RBD |PALAK|RBD |KANA|JJCC |NOI|FW |PAG|CCR |PURUPUNDO|NNC |NAMAN|RBI,palak palak kana noi pag purupundo naman
+tagalog,punyetang gawain toh hindi na natapos,punyetang|JJD|CCP |GAWAIN|NNC |TOH|FW |HINDI|RBF |NA|RBI |NATAPOS|VBTS,punyetang gawain toh hindi na natapos
+bikol,punyeta ang nababasa,|PUNYETA|NNC |ANG|DTC |NABABASA|VBTR,******* ang nababasa
+cebuano,hayop ka mang aagaw,|HAYOP|RBF |KA|PRS mang|RBI|CCP |AAGAW|NNC,***** ka mang aagaw
+bikol,nakakahiya ang nilalabas na resulta tangina,|NAKAKAHIYA|VBTR |ANG|DTC |NILALABAS|VBTR |NA|CCP |RESULTA|NNC |TANGINA|NNC,nakakahiya ang nilalabas na resulta *******
