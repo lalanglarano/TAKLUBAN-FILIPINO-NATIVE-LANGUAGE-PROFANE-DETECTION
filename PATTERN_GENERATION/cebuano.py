@@ -1,3 +1,40 @@
+"""
+Program Title: Cebuano Profane Pattern Generator
+
+Programmers: Jeo Abarre, Annalyn Belen, Telish Gonzales, Randolph Larano
+
+Where the program fits in the general system designs: This module is responsible for generating and detecting profane patterns in Cebuano sentences.
+
+Date written and last revised: October 5, 2024   |   November 18, 2024
+
+Purpose: To identify and censor profane patterns in Cebuano sentences using predefined rules and 
+POS tagging. This module loads predefined rules from a CSV file, tags sentences with POS tags 
+using StanfordPOSTagger, generates n-grams from the POS tags, and applies the predefined rules 
+to detect and censor profane patterns.
+
+Data structures, algorithms, and control:
+
+Data Structures:
+self.rules: A list of dictionaries containing predefined rules.
+pos_tagged_sentence: A list of POS-tagged words.
+ngrams_list: A list of n-grams generated from POS tags.
+flagged_patterns: A list of detected profane patterns.
+matching_ngram_indices: A list of indices of matched n-grams.
+
+Algorithms:
+Uses StanfordPOSTagger for POS tagging.
+Generates n-grams from POS tags.
+Applies predefined rules to detect profane patterns.
+Custom regex rules for specific Cebuano structures.
+
+Control:
+Initializes with predefined rules and POS tagger.
+Loads predefined rules from a CSV file.
+Tags sentences with POS tags.
+Generates n-grams and applies rules to detect profane patterns.
+Censors detected profane patterns in sentences.
+"""
+
 import os
 import pandas as pd
 import csv

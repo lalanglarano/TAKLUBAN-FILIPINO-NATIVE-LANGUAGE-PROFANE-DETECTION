@@ -1,3 +1,39 @@
+"""
+Program Title: Filipino Native Language Identification
+
+Programmers: Jeo Abarre, Annalyn Belen, Telish Gonzales, Randolph Larano
+
+Where the program fits in the general system designs: This module identifies 
+the language of a given text and trains a language identification model.
+
+Date written and last revised: September 26, 2024   |   November 18, 2024
+
+Purpose: To identify the language of a given text and train a model for language identification. 
+This module preprocesses text data, generates word frequency dictionaries, trains a language identification model using 
+TfidfVectorizer and MultinomialNB, and evaluates the model's performance.
+
+Data structures, algorithms, and control:
+
+Data Structures:
+self.noise_words: A dictionary of common noise words for each language.
+self.word_frequencies: A dictionary of word frequencies for each language.
+self.model: The trained language identification model.
+self.X_test, self.y_test: Test data and labels for model evaluation.
+
+Algorithms:
+Uses TfidfVectorizer for feature extraction.
+Uses MultinomialNB for language classification.
+Uses GridSearchCV for hyperparameter tuning.
+Uses Counter for word frequency counting.
+
+Control:
+Initializes with paths to preprocessed data and dictionaries.
+Loads and preprocesses text data.
+Generates word frequency dictionaries.
+Trains and evaluates the language identification model.
+Predicts the language of given sentences.
+"""
+
 import os
 import csv
 import joblib

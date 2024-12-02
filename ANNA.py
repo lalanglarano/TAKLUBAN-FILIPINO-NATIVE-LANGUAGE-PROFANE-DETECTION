@@ -1,3 +1,38 @@
+"""
+Program Title: Profanity Detection and Censorship
+
+Programmers: Jeo Abarre, Annalyn Belen, Telish Gonzales, Randolph Larano
+
+Where the program fits in the general system designs: This module detects and censors profane language in various Filipino languages.
+
+Date written and last revised: October 5, 2024   |   November 18, 2024
+
+Purpose: To detect and censor profane language in Tagalog, Bikol, and Cebuano using predefined rules 
+and POS tagging. This module loads predefined rules, tags sentences with POS tags, detects profane 
+patterns, censors detected patterns, and saves the results to a CSV file.
+
+Data structures, algorithms, and control:
+
+Data Structures:
+output_file: Path to the CSV file for saving results.
+profanity_dictionary_file: Path to the CSV file for saving profane patterns.
+predictions, true_labels: Lists for storing predictions and true labels.
+noise_words: A set of common noise words.
+
+Algorithms:
+Uses StanfordPOSTagger for POS tagging.
+Uses predefined rules for detecting profane patterns.
+Uses confusion matrix and classification report for performance evaluation.
+
+Control:
+Initializes with paths to output files and models.
+Loads and preprocesses text data.
+Tags sentences with POS tags.
+Detects and censors profane patterns.
+Saves results to CSV files.
+Evaluates model performance using confusion matrix and classification report.
+"""
+
 import csv
 import os
 import pandas as pd
@@ -7,6 +42,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy
 import re
+from nltk import ngrams
+from collections import Counter
+from sklearn.metrics import accuracy_score
+import csv
+import os
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, precision_recall_curve
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.svm import SVC
+from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import train_test_split
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
 from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator
 from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator
@@ -37,9 +82,10 @@ noise_words = {
     "na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po", "ka", "ikaw", "siya", "oo",
     "sa", "may", "ni", "dahil", "kasi", "pero", "at", "para", "niya", "saan", "ganito", "doon", "noon", 
     "ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si", "kan", "kun", "ngani",
-    "yan", "sadi", "pala", "yaon", "ini", "yan", "na", "digdi", "dakol", "bangan", "dayon", "ang", "ini",
-    "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug", "naa", "dili", "kini", "adto", "man", "kay",
-    "unta", "nga", "sa", "kani", "mo", "lang", "sila", "unsa", "ako", "niyo", "su"
+    "yan", "sadi", "pala", "yaon", "ini", "yan", "na", "digdi", "dakol", "bangan", "dayon", "ang", "ini", "talagang",
+    "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug", "naa", "dili", "kini", "adto", "man", "kay", "duman",
+    "eh", "naman", "kayo", "boi", "ika", "daw", "mag", "nag", "sako", "pa", "jan", "yon", "gabos", "yung", "dae",
+    "unta", "nga", "sa", "kani", "mo", "lang", "sila", "unsa", "ako", "niyo", "su", "kita", "taka", "buda", "talaga"
 }
 
 def save_to_csv(language, sentence, pos_tagged, censored_sentence):
@@ -71,7 +117,7 @@ def train_model_if_not_exists(model_path, dictionary_dir):
         print(f"Loading pre-saved model from {model_path}.")
         model = joblib.load(model_path)
         return model, [], []
-
+          
 def get_pattern_generator(language):
     print(f"Loading pattern generator for language: {language}")
     predefined_rules_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/PATTERN_GENERATION/predefined_rules.csv"
@@ -123,7 +169,6 @@ def predict_and_censor(sentence, pattern_generator, model, language):
 
     return censored_sentence, is_profane
 
-
 def main():
     model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
     dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
@@ -170,11 +215,31 @@ def main():
     # Confusion matrix and performance metrics calculation
     if len(predictions) > 0:
         print("Confusion Matrix and Performance Metrics:")
-        cm = confusion_matrix(true_labels, predictions)
+        cm = confusion_matrix(true_labels, predictions, labels=[0, 1])
         print(f"Confusion Matrix:\n{cm}")
         
-        print("\nClassification Report:")
-        print(classification_report(true_labels, predictions))
+        # Check the shape of the confusion matrix
+        if cm.shape == (2, 2):
+            # Extract values from the confusion matrix
+            tn, fp, fn, tp = cm.ravel()
+        else:
+            # Handle cases with fewer than 4 values
+            tn = cm[0, 0] if cm.shape[0] > 0 and cm.shape[1] > 0 else 0
+            fp = cm[0, 1] if cm.shape[0] > 0 and cm.shape[1] > 1 else 0
+            fn = cm[1, 0] if cm.shape[0] > 1 and cm.shape[1] > 0 else 0
+            tp = cm[1, 1] if cm.shape[0] > 1 and cm.shape[1] > 1 else 0
+        
+        # Calculate Precision, Recall, F-Measure (F1 Score), and Accuracy
+        precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+        recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+        f1_score = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
+        accuracy = (tp + tn) / (tp + tn + fp + fn) if (tp + tn + fp + fn) > 0 else 0
+        
+        # Print the results
+        print(f"Precision: {precision:.2f}")
+        print(f"Recall: {recall:.2f}")
+        print(f"F1 Score: {f1_score:.2f}")
+        print(f"Accuracy: {accuracy:.2f}")
         
         # Plot the confusion matrix
         plt.figure(figsize=(6,6))

@@ -1,3 +1,35 @@
+"""
+Program Title: Profanity Detection Web Application
+
+Programmers: Jeo Abarre, Telish Gonzales
+
+Where the program fits in the general system designs: This module provides a web interface for detecting and censoring profane language in various Filipino languages.
+
+Date written and last revised: October 5, 2024   |   November 18, 2024
+
+Purpose: To provide a web interface for detecting and censoring profane language in 
+Tagalog, Bikol, and Cebuano. This module uses Flask to create a web application that allows 
+users to input text, detects the language, tags the text with POS tags, and censors any detected 
+profane patterns.
+
+Data structures, algorithms, and control:
+
+Data Structures:
+pattern_generators: A dictionary of pattern generators for each language.
+language_identifier: The trained language identification model.
+svm_model: The pre-trained profanity detection model.
+
+Algorithms:
+Uses Flask for the web interface.
+Uses joblib to load pre-trained models.
+
+Control:
+Initializes pattern generators and loads models.
+Defines routes for various web pages.
+Detects language and censors profane patterns in user input.
+Returns results as JSON responses.
+"""
+
 from flask import Flask, render_template, request, jsonify
 from TAKLUBAN import predict_and_censor, get_pattern_generator
 from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
