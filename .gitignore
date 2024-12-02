@@ -1,4 +1,7 @@
 venv/
-__pycache__/TAKLUBAN.cpython-312.pyc
+TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/__pycache__/
+__pycache__/
+PATTERN_GENERATION/__pycache/
+LanguageIdentification/__pycache__/
 LanguageIdentification/__pycache__/FNLI.cpython-312.pyc
 POSTagging/POSTAGGER/pospkl/__pycache__/POSTagger.cpython-312.pyc
