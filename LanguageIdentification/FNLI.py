@@ -1,248 +1,223 @@
 import os
 import csv
 import joblib
-import subprocess
 from collections import Counter
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import make_pipeline
-from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.model_selection import train_test_split, RandomizedSearchCV
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
 
-class DictionaryGenerator:
-    def __init__(self, preprocessed_dir, dictionary_dir, english_dict_path, language):
-        base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-        results_folder = f"{base_path}/Results"
-        self.language = language  # Add language to the instance
-        self.input_file = f"{results_folder}/PFW/preprocessed_{language}.csv"
-        self.output_file = f"{results_folder}/preprocessed/preprocessed_{language}.csv"
-        self.english_dict_path = f"{dictionary_dir}/english_dictionary.csv"
-        self.preprocessed_dir = preprocessed_dir  # Ensure the directory paths are available
-        self.dictionary_dir = dictionary_dir
-        os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
+# Configuration Dictionary
+config = {
+    "base_path": "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION",
+    "preprocessed_dir": "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/PFW",
+    "dictionary_dir": "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary",
+    "english_dict_path": "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/english_dictionary.csv",
+    "model_path": "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
+}
 
-        # Initialize noise words for all languages
+class PreprocessingPipeline:
+    """Preprocessing and Dictionary Management."""
+
+    def __init__(self, config):
+        self.config = config
         self.noise_words = self.initialize_noise_words()
 
     def initialize_noise_words(self):
-        """Initialize common noise words for Tagalog, Bikol, Cebuano, and English."""
+        """Load predefined noise words and remove common overlaps."""
         noise_words = {
-            'Tagalog': {"na", "nang", "ng", "mga", "ang", "kung", "yan", "ito", "si", "ko", "po", "ka", "ikaw", "siya", "oo",
-                    "sa", "may", "ni", "dahil", "kasi", "pero", "at", "para", "niya", "saan", "ganito", "doon", "noon"},
-            'Bikol': {"ta", "ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "ba", "si",
-                    "kan", "kun", "ngani", "yan", "sadi", "pala", "yaon", "ini", "yan", "na", "digdi", "dakol", "bangan"},
-            'Cebuano': {"dayon", "ang", "ini", "gani", "kana", "mao", "pud", "bitaw", "ta", "si", "ug",
-                    "naa", "dili", "kini", "adto", "man", "kay", "unta", "nga", "sa", "kani", "mo", "lang", "sila", "unsa"}
+            'Tagalog': {"na", "nang", "ng", "mga", "kung", "yan", "ko", "po", "ka", "ikaw"},
+            'Bikol': {"ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo"},
+            'Cebuano': {"dayon", "gani", "kana", "mao", "pud", "bitaw"}
         }
         noise_words['English'] = self.load_english_noise_words()
-
-        # Clean the English noise words by removing common words in the three languages
-        self.clean_english_noise_words(noise_words)
-
+        self.clean_common_words(noise_words)
         return noise_words
 
     def load_english_noise_words(self):
+        """Load noise words from English dictionary."""
         noise_words = set()
         try:
-            with open(self.english_dict_path, 'r', encoding='utf-8') as infile:
-                reader = csv.reader(infile)
+            with open(self.config['english_dict_path'], 'r', encoding='utf-8') as file:
+                reader = csv.reader(file)
                 next(reader)  # Skip header
                 for row in reader:
-                    if row:  # Check if the row is not empty
-                        word = row[0].strip()
-                        noise_words.add(word.lower())
-            print(f"Loaded {len(noise_words)} English noise words.")  # Debugging line
+                    noise_words.add(row[0].strip().lower())
         except FileNotFoundError:
-            print(f"Error: The file {self.english_dict_path} does not exist.")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"Error: English dictionary file not found at {self.config['english_dict_path']}.")
         return noise_words
 
-    def clean_english_noise_words(self, noise_words):
-        """Remove words from English noise words that exist in any of the other three language dictionaries."""
-        tagalog_set = noise_words.get('Tagalog', set())
-        bikol_set = noise_words.get('Bikol', set())
-        cebuano_set = noise_words.get('Cebuano', set())
+    def clean_common_words(self, noise_words):
+        """Remove overlapping words among noise word sets."""
+        common_words = (noise_words['Tagalog'] | noise_words['Bikol'] | noise_words['Cebuano']) & noise_words['English']
+        noise_words['English'] -= common_words
 
-        # Find common words in the three languages and English, then remove them from English
-        common_words = (tagalog_set | bikol_set | cebuano_set) & noise_words['English']
-        noise_words['English'] = noise_words['English'] - common_words
+    def generate_dictionaries(self, languages):
+        """Generate frequency dictionaries for each language."""
+        os.makedirs(self.config['dictionary_dir'], exist_ok=True)
+        for language in languages:
+            file_path = os.path.join(self.config['preprocessed_dir'], f"preprocessed_{language}.csv")
+            if not os.path.exists(file_path):
+                print(f"Error: Preprocessed file for {language} not found at {file_path}.")
+                continue
+            word_counts = self.create_word_count(file_path, language)
+            self.save_dictionary(word_counts, language)
 
-    def remove_noise(self, words, language):
-        """Remove noise words from the list of words."""
-        return [word for word in words if word.lower() not in self.noise_words[language.capitalize()]]
-
-    def generate_dictionary(self, language):
-        """Generate a word frequency dictionary from preprocessed sentences, excluding words found in the English dictionary."""
+    def create_word_count(self, file_path, language):
+        """Count word frequencies, excluding noise words."""
         word_count = Counter()
-        preprocessed_file = os.path.join(self.preprocessed_dir, f"preprocessed_{language}.csv") # Fix the error here
-
         try:
-            with open(preprocessed_file, 'r', encoding='utf-8') as infile:
-                reader = csv.reader(infile)
+            with open(file_path, 'r', encoding='utf-8') as file:
+                reader = csv.reader(file)
                 for row in reader:
-                    if row:  # Check if the row is not empty
-                        sentence = row[0]
-                        words = sentence.split()
-                        # Remove noise words and English words before counting
-                        cleaned_words = [word for word in self.remove_noise(words, language)
-                                         if word.lower() not in self.noise_words['English']]
-                        word_count.update(cleaned_words)
-
-            # Save the dictionary
-            self.save_dictionary(word_count, language)
-
-        except FileNotFoundError:
-            print(f"Error: The file {preprocessed_file} does not exist.")
+                    words = row[0].split()
+                    filtered_words = [w.lower() for w in words if w.lower() not in self.noise_words[language.capitalize()]]
+                    word_count.update(filtered_words)
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"Error processing {file_path}: {e}")
+        return word_count
 
     def save_dictionary(self, word_count, language):
-        """Save the word frequency dictionary to a CSV file."""
-        dict_file = os.path.join(self.dictionary_dir, f"{language}_dictionary.csv")
-        with open(dict_file, 'w', newline='', encoding='utf-8') as dict_file:
-            writer = csv.writer(dict_file)
-            writer.writerow(['word', 'frequency'])
-            for word, freq in sorted(word_count.items()):
-                writer.writerow([word, freq])
-        print(f"Dictionary saved at {dict_file}")
+        """Save word counts to a CSV file."""
+        output_file = os.path.join(self.config['dictionary_dir'], f"{language}_dictionary.csv")
+        with open(output_file, 'w', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerow(["word", "frequency"])
+            for word, count in sorted(word_count.items(), key=lambda x: x[1], reverse=True):
+                writer.writerow([word, count])
+        print(f"Dictionary for {language} saved to {output_file}")
 
-class ModelTraining:
-    """This class is responsible for training the language identification model."""
-    
-    def __init__(self, dictionary_dir):
-        self.dictionary_dir = dictionary_dir
-        self.word_frequencies = self.load_dictionaries()
+class LanguageModel:
+    """Model training and evaluation."""
 
-    def load_dictionaries(self):
-        frequencies = {}
-        for language in ['tagalog', 'bikol', 'cebuano']:
-            dict_file = os.path.join(self.dictionary_dir, f"{language}_dictionary.csv")
-            if os.path.exists(dict_file):
-                df = pd.read_csv(dict_file)
-                frequencies[language] = dict(zip(df['word'], df['frequency']))
-                print(f"Loaded {language} dictionary with {len(frequencies[language])} entries.")
-            else:
-                print(f"Dictionary file for {language} not found.")
-        return frequencies
+    def __init__(self, config):
+        self.config = config
+        self.model = None
 
     def train_model(self):
-        # Prepare training data
-        data = []
-        labels = []
-        for language, word_freq in self.word_frequencies.items():
-            for word, freq in word_freq.items():
-                if freq > 0 and isinstance(word, str):  # Check for positive frequency and valid word
-                    data.extend([word] * freq)
-                    labels.extend([language] * freq)
-
-        # Check for empty data or labels
+        """Train the model and perform a grid search."""
+        print("Preparing data...")
+        data, labels = self.prepare_data()
         if not data or not labels:
-            raise ValueError("Training data or labels are empty. Please check your dictionary files.")
+            raise ValueError("No data available for training. Please check your dictionaries.")
 
-        # Split the data (60% training, 30% validation, 10% testing)
-        X_train, X_temp, y_train, y_temp = train_test_split(data, labels, test_size=0.40, random_state=50)
-        X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.25, random_state=50)  # 0.25 * 0.40 = 0.10
-
-        print(f"Train size: {len(X_train)}, Validation size: {len(X_val)}, Test size: {len(X_test)}")
-
-        # Create a pipeline with TfidfVectorizer for N-gram extraction and MultinomialNB with Laplace smoothing
-        pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 3)), MultinomialNB(alpha=1.0))
-
-        # Hyperparameter tuning using GridSearchCV
-        param_grid = {
+        # Split data into training and testing sets
+        X_train, X_test, y_train, y_test = train_test_split(data, labels, test_size=0.2, random_state=42)
+        
+        print("Training data prepared.")
+        
+        # Define pipeline and parameter distributions
+        pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 3)), MultinomialNB())
+        param_distributions = {
             'tfidfvectorizer__ngram_range': [(1, 1), (1, 2), (1, 3)],
-            'multinomialnb__alpha': [0.1, 0.5, 1.0]  # Laplace smoothing parameters
+            'multinomialnb__alpha': [0.1, 0.5, 1.0]
         }
-        grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
-        grid_search.fit(X_train, y_train)
 
-        model = grid_search.best_estimator_
-        model.fit(X_train, y_train)
+        search = RandomizedSearchCV(
+            pipeline,
+            param_distributions,
+            cv=3,
+            n_iter=10,
+            scoring='accuracy',
+            error_score='raise',
+            random_state=42
+        )
+        
+        print("Starting model training...")
+        search.fit(X_train, y_train)
+        print("Training completed.")
+        
+        # Save the best model
+        self.model = search.best_estimator_
+        
+        # Evaluate the model
+        y_pred = self.model.predict(X_test)
+        print("Model evaluation:")
+        print(classification_report(y_test, y_pred))
+        print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+        
+        return X_test, y_test
 
-        # Save the trained model to a file
-        model_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
-        joblib.dump(model, model_path)  # Save the model to a .pkl file
-        print(f"Model saved at {model_path}")
+    def prepare_data(self):
+        """Prepare data from dictionaries for training."""
+        data, labels = [], []
+        for language in ['tagalog', 'bikol', 'cebuano']:
+            file_path = os.path.join(self.config['dictionary_dir'], f"{language}_dictionary.csv")
+            if not os.path.exists(file_path):
+                print(f"Dictionary file for {language} not found.")
+                continue
+            
+            try:
+                df = pd.read_csv(file_path)
+                df = df.dropna(subset=['word', 'frequency'])
+                df['word'] = df['word'].astype(str)
+                
+                for _, row in df.iterrows():
+                    data.extend([row['word']] * int(row['frequency']))
+                    labels.extend([language] * int(row['frequency']))
+            except Exception as e:
+                print(f"Error processing {file_path}: {e}")
+        
+        return data, labels
 
-        return model, X_test, y_test
+    def evaluate_model(self, X_test, y_test):
+        """Evaluate model performance."""
+        y_pred = self.model.predict(X_test)
+        accuracy = accuracy_score(y_test, y_pred)
+        precision = precision_score(y_test, y_pred, average='weighted', zero_division=0)
+        recall = recall_score(y_test, y_pred, average='weighted', zero_division=0)
+        f1 = f1_score(y_test, y_pred, average='weighted', zero_division=0)
+        print(f"Accuracy: {accuracy:.2f}, Precision: {precision:.2f}, Recall: {recall:.2f}, F1 Score: {f1:.2f}")
+        self.plot_confusion_matrix(y_test, y_pred)
 
-class LanguageIdentification:
-    """This class is responsible for predicting the language based on a pre-trained model."""
-    
-    def __init__(self, model, X_test, y_test):
-        self.model = model
-        self.X_test = X_test
-        self.y_test = y_test
+    def plot_confusion_matrix(self, y_test, y_pred):
+        """Plot confusion matrix."""
+        cm = confusion_matrix(y_test, y_pred, labels=['tagalog', 'bikol', 'cebuano'])
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=['Tagalog', 'Bikol', 'Cebuano'], yticklabels=['Tagalog', 'Bikol', 'Cebuano'])
+        plt.xlabel("Predicted")
+        plt.ylabel("True")
+        plt.title("Confusion Matrix")
+        plt.show()
 
-    def predict_language(self, sentence):
-        return self.model.predict([sentence])[0]
+    def predict_sentence(self):
+        """Ask the user for a sentence and predict its language."""
+        if not self.model:
+            print("Error: The model is not trained. Please train the model first.")
+            return
+        
+        while True:
+            user_input = input("Enter a sentence to predict its language: ").strip()
+            if not user_input:
+                print("No input provided. Exiting prediction.")
+                break
+            
+            # Make a prediction
+            prediction = self.model.predict([user_input])
+            print(f"The predicted language is: {prediction[0].capitalize()}")
+            
+            repeat = input("Do you want to predict another sentence? (yes/no): ").strip().lower()
+            if repeat != 'yes':
+                print("Exiting the prediction tool.")
+                break
 
-    def determine_language(self, sentences):
-        language_counter = Counter()
-        for sentence in sentences:
-            dominant_language = self.predict_language(sentence)
-            language_counter[dominant_language] += 1
-        return language_counter.most_common(1)[0][0] if language_counter else None
-
-    def evaluate_model(self):
-        """Evaluate the model and calculate accuracy, precision, recall, and F1 score."""
-        predictions = [self.predict_language(sentence) for sentence in self.X_test]
-
-        # Calculate metrics
-        accuracy = accuracy_score(self.y_test, predictions)
-        precision = precision_score(self.y_test, predictions, average='weighted', zero_division=0)
-        recall = recall_score(self.y_test, predictions, average='weighted', zero_division=0)
-        f1 = f1_score(self.y_test, predictions, average='weighted', zero_division=0)
-
-        return accuracy, precision, recall, f1
-
-def run_preprocessing(preprocess_script):
-    """Function to run the preprocessing script."""
-    try:
-        # Using subprocess to run the preprocessing script
-        subprocess.run(["python", preprocess_script], check=True)
-        print("Preprocessing completed successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"An error occurred while running the preprocessing: {e}")
-    except FileNotFoundError:
-        print("Error: preprocess.py file not found.")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-
+# Main Execution
 if __name__ == "__main__":
-    # Run preprocessing first
-    preprocess_script = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/preprocess.py"
-    run_preprocessing(preprocess_script)
+    print("Initializing preprocessing pipeline...")
+    pipeline = PreprocessingPipeline(config)
+    pipeline.generate_dictionaries(['Tagalog', 'Bikol', 'Cebuano'])
+    
+    print("Training language model...")
+    model = LanguageModel(config)
+    X_test, y_test = model.train_model()
+    
+    print("Predicting language...")
+    model.predict_sentence()
+    
+    # print("Evaluating model...")
+    # model.evaluate_model(X_test, y_test)
+    
 
-    # Proceed with dictionary generation
-    preprocessed_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/PFW"
-    dictionary_dir = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary"
-    english_dict_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/Dictionary/english_dictionary.csv"
-
-    languages = ['tagalog', 'bikol', 'cebuano']
-
-    for language in languages:
-        generator = DictionaryGenerator(preprocessed_dir, dictionary_dir, english_dict_path, language)
-        generator.generate_dictionary(language)
-
-    # Train the model
-    trainer = ModelTraining(dictionary_dir)
-    model, X_test, y_test = trainer.train_model()
-
-    # Language identification using the trained model
-    language_identifier = LanguageIdentification(model, X_test, y_test)
-
-    # Evaluate the model
-    accuracy, precision, recall, f1 = language_identifier.evaluate_model()
-    print(f"Model Evaluation Metrics on Test Set:\n"
-          f"Accuracy: {accuracy:.2f}\n"
-          f"Precision: {precision:.2f}\n"
-          f"Recall: {recall:.2f}\n"
-          f"F1 Score: {f1:.2f}")
-
-    # Determine the dominant language from sentences
-    sentences = ["kagulo gulo ang patal na ini"]  # Replace with actual sentences
-    dominant_language = language_identifier.determine_language(sentences)
-    print(f"The dominant language is: {dominant_language}")
