@@ -20,7 +20,7 @@ config = {
     "model_path": "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/saved_model.pkl"
 }
 
-class PreprocessingPipeline:
+class DictionaryGenerator:
     """Preprocessing and Dictionary Management."""
 
     def __init__(self, config):
@@ -91,7 +91,7 @@ class PreprocessingPipeline:
                 writer.writerow([word, count])
         print(f"Dictionary for {language} saved to {output_file}")
 
-class LanguageModel:
+class LanguageIdentification:
     """Model training and evaluation."""
 
     def __init__(self, config):
