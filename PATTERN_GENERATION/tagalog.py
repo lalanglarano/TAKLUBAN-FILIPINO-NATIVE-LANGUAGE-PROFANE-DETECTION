@@ -191,18 +191,18 @@ def main():
         return profane_dict
     
     def predict_and_censor(sentence, best_model):
-        # Step 1: SVM predicts if the sentence is profane
-        is_profane = best_model.predict([sentence])[0]  # Predict using the SVM model
-        print(f"SVM Prediction - Is sentence profane?: {is_profane}")
+        # predicts if the sentence is profane
+        is_profane = best_model.predict([sentence])[0]  # Predict using the model
+        print(f"Is sentence profane?: {is_profane}")
         
         if not is_profane:
             return sentence  # If the sentence is not profane, return it as is
         
-        # Step 2: If the sentence is profane, tag the sentence with POS tags
+        # If the sentence is profane, tag the sentence with POS tags
         pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
         print("POS-tagged Sentence:", pos_tagged_sentence)  # Check if POS tags are correct
         
-        # Step 3: Detect profane patterns in the sentence using the rules
+        # Detect profane patterns in the sentence using the rules
         detected_patterns, profane_ngram_indices = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
         print("Detected Patterns:", detected_patterns)  # Check if the rules are being detected
         
@@ -213,7 +213,7 @@ def main():
         pos_patterns = [pattern.split(' - ')[0] for pattern in detected_patterns if 'Rule Matched' in pattern]
         save_profane_to_dict(pos_patterns)  # Save detected POS patterns
         
-        # Step 4: Implement censoring based on detected profane patterns
+        # Implement censoring based on detected profane patterns
         # Loop through the pos_tagged_sentence and censor only the detected profane words
         censored_sentence = []
         ngram_size = len(profane_ngram_indices)  # Size of the n-grams we are censoring
@@ -272,7 +272,7 @@ def main():
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
     
     # Load your dataset
-    df = pd.read_csv('Results/dataset/Tagalog_Dataset.csv')
+    df = pd.read_csv('Results/PFW/preprocessed_tagalog.csv')
     
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.5, random_state=48)
