@@ -8,4 +8,3 @@ psutil
 matplotlib
 seaborn
 joblib
-openpyxl
