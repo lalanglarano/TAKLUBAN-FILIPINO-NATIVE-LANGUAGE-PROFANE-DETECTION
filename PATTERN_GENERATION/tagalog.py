@@ -266,13 +266,13 @@ def main():
     pattern_generator = PatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     
     # Define the sentence to test
-    sentence = "pangit mo bata"
+    sentence = "sundin mo naman utos ng nakatatanda sayo bobo ka"
         
     # Save pattern from the sentence
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
     
     # Load your dataset
-    df = pd.read_csv('UsedDataset/dataset_tagalog_sentence_profane.csv')
+    df = pd.read_csv('Results/dataset/Tagalog_Dataset.csv')
     
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.5, random_state=48)
