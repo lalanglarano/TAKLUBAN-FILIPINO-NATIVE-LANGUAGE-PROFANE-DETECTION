@@ -144,11 +144,18 @@ def main():
             save_to_csv(predicted_language, sentence, pos_tagged, censored_sentence)
             display_output(predicted_language, sentence, pos_tagged, censored_sentence, is_profane)
             
-            true_label = int(input("Is the sentence profane? (1 for profane, 0 for not profane): "))
+            while True:
+                try:
+                    true_label = int(input("Is the sentence profane? (1 for profane, 0 for not profane): "))
+                    if true_label in [0, 1]:
+                        break
+                    else:
+                        print("Invalid input. Please enter 1 for profane or 0 for not profane.")
+                except ValueError:
+                    print("Invalid input. Please enter a numeric value: 1 for profane or 0 for not profane.")
+
             predictions.append(1 if is_profane else 0)
             true_labels.append(true_label)
-        else:
-            print(f"Pattern generator for {predicted_language} is not available.")
     
     if predictions:
         cm = confusion_matrix(true_labels, predictions)

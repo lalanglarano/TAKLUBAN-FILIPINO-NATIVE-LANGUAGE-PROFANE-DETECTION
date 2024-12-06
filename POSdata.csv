@@ -153,3 +153,67 @@ bikol,umiiyak si Lottie dahil sa putangina niyang asawa,umiiyak|VBTR|VBAF |SI|DT
 cebuano,gago tumalon ka kasi agad kaya ka nalaglag,|GAGO|RBD tumalon|VBTS|VBAF |KA|PRS |KASI|CCR |AGAD|RBW |KAYA|CCR |KA|PRS |NALAGLAG|VBTS,**** tumalon ka kasi agad kaya ka nalaglag
 bikol,Napaso siya sa kaldero dahil sa gago na tumulak sa kanya,|NAPASO|VBTS |SIYA|PRS |SA|CCT |KALDERO|NNC |DAHIL|CCR |SA|CCT |GAGO|NNC |NA|CCP |TUMULAK|VBAF |SA|CCT |KANYA|PRSP,Napaso siya sa kaldero dahil sa **** na tumulak sa kanya
 tagalog,hindi iyan kinakain bobo ka talaga,|HINDI|RBF |IYAN|PRO kinakain|VBTR|VBOF |BOBO|JJD |KA|PRS |TALAGA|RBT,hindi **** kinakain **** ka talaga
+cebuano,nagmamagaling kang inutil ka,nagmamagaling|VBTR|CCP kang|PRS|CCP |INUTIL|VBOF |KA|PRS,nagmamagaling kang inutil ka
+bikol,Napaso siya sa kaldero dahil sa gago na tumulak sa kanya,|NAPASO|VBTS |SIYA|PRS |SA|CCT |KALDERO|NNC |DAHIL|CCR |SA|CCT |GAGO|NNC |NA|CCP |TUMULAK|VBAF |SA|CCT |KANYA|PRSP,Napaso siya sa kaldero dahil sa **** na tumulak sa kanya
+cebuano,bogo ka kayo,|BOGO|RBM |KA|PRS |KAYO|PRP,bogo ka ****
+cebuano,Pirteng buanga nimo hapit nako mamatay,Pirteng|NNP|CCP |BUANGA|FW |NIMO|FW |HAPIT|FW |NAKO|RBD |MAMATAY|VBW,Pirteng buanga nimo hapit nako mamatay
+bikol,,,
+cebuano,nagmamagaling kang inutil ka,nagmamagaling|VBTR|CCP kang|PRS|CCP |INUTIL|VBOF |KA|PRS,nagmamagaling kang inutil ka
+bikol,lumakad kana lang kase tanga ka,|LUMAKAD|VBAF |KANA|JJD |LANG|RBI |KASE|CCR |TANGA|JJD |KA|PRS,lumakad kana lang kase ***** ka
+bikol,tangina ang bobo ng kaibigan ko,|TANGINA|JJD |ANG|DTC |BOBO|NNC |NG|CCB |KAIBIGAN|NNC |KO|PRS,******* ang **** ng kaibigan ko
+bikol,tangina ka talaga wala ka na dapat dito sa mundo,|TANGINA|JJD |KA|PRS |TALAGA|RBT |WALA|VBN |KA|PRS |NA|CCP |DAPAT|VBS |DITO|PRL |SA|CCT |MUNDO|NNC,******* ka ****** wala ka na dapat dito sa mundo
+bikol,tangina ang bobo ng kaibigan ko,|TANGINA|JJD |ANG|DTC |BOBO|NNC |NG|CCB |KAIBIGAN|NNC |KO|PRS,******* ang **** ng kaibigan ko
+bikol,tangina ka talaga wala ka na dapat dito sa mundo,|TANGINA|JJD |KA|PRS |TALAGA|RBT |WALA|VBN |KA|PRS |NA|CCP |DAPAT|VBS |DITO|PRL |SA|CCT |MUNDO|NNC,******* ka talaga wala ka na dapat dito sa mundo
+bikol,tangina ang bobo ng kaibigan ko,|TANGINA|JJD |ANG|DTC |BOBO|NNC |NG|CCB |KAIBIGAN|NNC |KO|PRS,******* ang **** ng kaibigan ko
+bikol,tangina ka talaga wala ka na dapat dito sa mundo,|TANGINA|JJD |KA|PRS |TALAGA|RBT |WALA|VBN |KA|PRS |NA|CCP |DAPAT|VBS |DITO|PRL |SA|CCT |MUNDO|NNC,******* ka talaga wala ka na dapat dito sa mundo
+bikol,umiiyak si Lottie dahil sa putangina niyang asawa,umiiyak|VBTR|VBAF |SI|DTP |LOTTIE|NNP |DAHIL|CCR |SA|CCT |PUTANGINA|NNC niyang|PRS|CCP |ASAWA|NNC,umiiyak si Lottie dahil sa ********* niyang asawa
+cebuano,gago tumalon ka kasi agad kaya ka nalaglag,|GAGO|RBD tumalon|VBTS|VBAF |KA|PRS |KASI|CCR |AGAD|RBW |KAYA|CCR |KA|PRS |NALAGLAG|VBTS,**** tumalon ka kasi agad kaya ka nalaglag
+bikol,Napaso siya sa kaldero dahil sa gago na tumulak sa kanya,|NAPASO|VBTS |SIYA|PRS |SA|CCT |KALDERO|NNC |DAHIL|CCR |SA|CCT |GAGO|NNC |NA|CCP |TUMULAK|VBAF |SA|CCT |KANYA|PRSP,Napaso siya sa kaldero dahil sa **** na tumulak sa kanya
+tagalog,hindi iyan kinakain bobo ka talaga,|HINDI|RBF |IYAN|PRO kinakain|VBTR|VBOF |BOBO|JJD |KA|PRS |TALAGA|RBT,hindi **** kinakain **** ka talaga
+tagalog,Paano mo nalaman eh tanga ka naman noon pa,|PAANO|PRQ |MO|PRS |NALAMAN|VBTS |EH|FW |TANGA|FW |KA|PRS |NAMAN|RBI |NOON|RBW |PA|RBI,Paano mo nalaman eh ***** ka naman noon pa
+bikol,Pinalo niya ang bata ng sinturon pagkatapos tawagin na bobo,|PINALO|VBOF |NIYA|PRS |ANG|DTC |BATA|NNC |NG|CCB |SINTURON|NNC |PAGKATAPOS|VBW |TAWAGIN|VBOF |NA|CCP |BOBO|NNC,Pinalo niya ang bata ng sinturon pagkatapos tawagin na ****
+tagalog,Siraulo ka wala ka talagang pakialam sa kapwa mo,|SIRAULO|NNP |KA|PRS |WALA|VBN |KA|PRS talagang|RBT|CCP |PAKIALAM|NNC |SA|CCT |KAPWA|PRI |MO|PRS,Siraulo ka wala ka talagang pakialam sa kapwa mo
+tagalog,Lumakad ka agad eh hindi pa nga ako sumasakay bobo,|LUMAKAD|VBAF |KA|PRS |AGAD|RBW |EH|NNCA |HINDI|RBF |PA|RBI |NGA|RBI |AKO|PRS sumasakay|VBTR|VBAF |BOBO|RBD,Lumakad ka agad eh hindi pa nga ako sumasakay ****
+cebuano,Tanga ka talaga hirap na hirap na akong intindihin ka,|TANGA|NNP |KA|PRS |TALAGA|RBT |HIRAP|JJD |NA|CCP |HIRAP|NNC |NA|CCP akong|PRS|CCP |INTINDIHIN|VBOF |KA|PRS,***** ka talaga ***** na ***** na akong intindihin ka
+bikol,Palagi ka nananakit eh kung palagan kitang inutil ka,|PALAGI|RBW |KA|PRS |NANANAKIT|VBTR |EH|NNCA |KUNG|RBK |PALAGAN|RBQ kitang|RBD|CCP |INUTIL|VBOF |KA|PRS,Palagi ka nananakit eh kung palagan kitang inutil ka
+bikol,Kinginang buhay ito hindi man lang makahanap ng jowa,Kinginang|NNP|CCP |BUHAY|NNC |ITO|PRO |HINDI|RBF |MAN|RBI |LANG|RBI |MAKAHANAP|VBW |NG|CCB |JOWA|NNC,Kinginang ***** ito hindi man lang makahanap ng jowa
+cebuano,Puro ka pagpapanggap na alam mo eh tanga ka naman,|PURO|NNP |KA|PRS |PAGPAPANGGAP|NNC |NA|CCP |ALAM|VBS |MO|PRS |EH|NNCA |TANGA|JJD |KA|PRS |NAMAN|RBI,**** ka pagpapanggap na alam mo eh ***** ka naman
+cebuano,Sana sinabi mo agad na puta ka para hinabaan ko pasensya ko,|SANA|VBS |SINABI|VBOF |MO|PRS |AGAD|RBW |NA|CCP |PUTA|NNC |KA|PRS |PARA|CCT |HINABAAN|VBOF |KO|PRS |PASENSYA|VBOF |KO|PRS,**** sinabi mo agad na **** ka para hinabaan ko pasensya ko
+bikol,masaya doon sa labasan maraming tinda,|MASAYA|JJD |DOON|PRL |SA|CCT |LABASAN|NNC maraming|PRI|CCP |TINDA|NNC,masaya doon sa labasan maraming tinda
+bikol,napaka ganda ng inyong kasuotan mga binibini,|NAPAKA|JJCS |GANDA|NNC |NG|CCB inyong|PRSP|CCP |KASUOTAN|NNC |MGA|DTCP |BINIBINI|NNC,napaka ganda ng inyong kasuotan mga binibini
+tagalog,nag sayaw kami kagabi sa sayawan,|NAG|VBTS |SAYAW|NNC |KAMI|PRP |KAGABI|RBW |SA|CCT |SAYAWAN|NNC,nag sayaw kami kagabi sa sayawan
+tagalog,napakaganda mo tangina,napakaganda|JJCS|JJD |MO|PRS |TANGINA|NNC,napakaganda mo *******
+bikol,masaya doon sa labasan maraming tinda,|MASAYA|JJD |DOON|PRL |SA|CCT |LABASAN|NNC maraming|PRI|CCP |TINDA|NNC,masaya doon sa labasan maraming tinda
+bikol,napaka ganda ng inyong kasuotan mga binibini,|NAPAKA|JJCS |GANDA|NNC |NG|CCB inyong|PRSP|CCP |KASUOTAN|NNC |MGA|DTCP |BINIBINI|NNC,napaka ganda ng inyong kasuotan mga binibini
+tagalog,nag sayaw kami kagabi sa sayawan,|NAG|VBTS |SAYAW|NNC |KAMI|PRP |KAGABI|RBW |SA|CCT |SAYAWAN|NNC,nag sayaw kami kagabi sa sayawan
+bikol,nanonood kami ng telebisyon kasama ang pamilya,|NANONOOD|VBTR |KAMI|PRP |NG|CCB |TELEBISYON|NNC |KASAMA|CCB |ANG|DTC |PAMILYA|NNC,nanonood kami ng telebisyon kasama ang pamilya
+bikol,magandang gabi sa inyong lahat aalis na po ako,magandang|JJD|CCP |GABI|RBW |SA|CCT inyong|PRSP|CCP |LAHAT|PRI |AALIS|VBTF |NA|CCP |PO|RBS |AKO|PRS,magandang gabi sa inyong lahat aalis na po ako
+tagalog,kumain na ako kaninang tanghali sapat na iyon,|KUMAIN|VBAF |NA|CCP |AKO|PRS kaninang|PRSP|CCP |TANGHALI|RBW |SAPAT|JJD |NA|CCP |IYON|PRO,kumain na ako kaninang tanghali sapat na iyon
+cebuano,nakakabusog ang tinapay na iyon,|NAKAKABUSOG|VBTR |ANG|DTC |TINAPAY|NNC |NA|CCP |IYON|PRO,nakakabusog ang tinapay na iyon
+tagalog,masaya akong nakilala kita at nakasama,|MASAYA|JJD akong|PRS|CCP |NAKILALA|VBTS |KITA|NNC |AT|CCA |NAKASAMA|VBTS,masaya akong nakilala kita at nakasama
+tagalog,pumasok sila nang maaga sa opisina,|PUMASOK|VBAF |SILA|PRP |NANG|RBW |MAAGA|JJD |SA|CCT |OPISINA|NNC,pumasok sila nang maaga sa opisina
+bikol,tumalon siya sa ilog Pasig,|TUMALON|VBAF |SIYA|PRS |SA|CCT |ILOG|NNC |PASIG|NNP,tumalon siya sa ilog Pasig
+bikol,balikan mo na siya dahil hindi pa huli ang lahat,|BALIKAN|VBOF |MO|PRS |NA|CCP |SIYA|PRS |DAHIL|CCR |HINDI|RBF |PA|RBI |HULI|RBW |ANG|DTC |LAHAT|PRI,balikan mo na siya dahil hindi pa huli ang lahat
+cebuano,subukan mo itong mamon na kasing lambot ng puso ko,|SUBUKAN|VBOF |MO|PRS itong|PRO|CCP |MAMON|NNC |NA|CCP |KASING|JJC |LAMBOT|JJD |NG|CCB |PUSO|NNC |KO|PRS,subukan mo itong mamon na kasing lambot ng puso ko
+cebuano,Nagluto ako ng masarap na nilaga kanina,|NAGLUTO|VBTS |AKO|PRS |NG|CCB |MASARAP|JJD |NA|CCP |NILAGA|VBTS |KANINA|RBW,Nagluto ako ng masarap na nilaga kanina
+tagalog,Tikman mo ang luto ko baka malimutan mo sarili mo,|TIKMAN|NNP |MO|PRS |ANG|DTC |LUTO|NNC |KO|PRS |BAKA|RBM |MALIMUTAN|VBW |MO|PRS |SARILI|NNC |MO|PRS,Tikman mo ang luto ko baka malimutan mo sarili mo
+tagalog,bakit ganoon kababa ang tingin mo sa sarili mo,|BAKIT|PRQ |GANOON|PRC |KABABA|JJD |ANG|DTC |TINGIN|NNC |MO|PRS |SA|CCT |SARILI|NNC |MO|PRS,***** ganoon kababa ang tingin mo sa sarili mo
+bikol,tangina ang bobo ng kaibigan ko,|TANGINA|JJD |ANG|DTC |BOBO|NNC |NG|CCB |KAIBIGAN|NNC |KO|PRS,******* ang **** ng kaibigan ko
+bikol,tangina ka talaga wala ka na dapat dito sa mundo,|TANGINA|JJD |KA|PRS |TALAGA|RBT |WALA|VBN |KA|PRS |NA|CCP |DAPAT|VBS |DITO|PRL |SA|CCT |MUNDO|NNC,******* ka talaga wala ka na dapat dito sa mundo
+bikol,umiiyak si Lottie dahil sa putangina niyang asawa,umiiyak|VBTR|VBAF |SI|DTP |LOTTIE|NNP |DAHIL|CCR |SA|CCT |PUTANGINA|NNC niyang|PRS|CCP |ASAWA|NNC,umiiyak si Lottie dahil sa ********* niyang asawa
+cebuano,gago tumalon ka kasi agad kaya ka nalaglag,|GAGO|RBD tumalon|VBTS|VBAF |KA|PRS |KASI|CCR |AGAD|RBW |KAYA|CCR |KA|PRS |NALAGLAG|VBTS,**** tumalon ka kasi agad kaya ka nalaglag
+bikol,Napaso siya sa kaldero dahil sa gago na tumulak sa kanya,|NAPASO|VBTS |SIYA|PRS |SA|CCT |KALDERO|NNC |DAHIL|CCR |SA|CCT |GAGO|NNC |NA|CCP |TUMULAK|VBAF |SA|CCT |KANYA|PRSP,Napaso siya sa kaldero dahil sa **** na tumulak sa kanya
+tagalog,hindi iyan kinakain bobo ka talaga,|HINDI|RBF |IYAN|PRO kinakain|VBTR|VBOF |BOBO|JJD |KA|PRS |TALAGA|RBT,hindi **** kinakain **** ka talaga
+tagalog,Paano mo nalaman eh tanga ka naman noon pa,|PAANO|PRQ |MO|PRS |NALAMAN|VBTS |EH|FW |TANGA|FW |KA|PRS |NAMAN|RBI |NOON|RBW |PA|RBI,Paano mo nalaman eh ***** ka naman noon pa
+bikol,Pinalo niya ang bata ng sinturon pagkatapos tawagin na bobo,|PINALO|VBOF |NIYA|PRS |ANG|DTC |BATA|NNC |NG|CCB |SINTURON|NNC |PAGKATAPOS|VBW |TAWAGIN|VBOF |NA|CCP |BOBO|NNC,Pinalo niya ang bata ng sinturon pagkatapos tawagin na ****
+tagalog,Siraulo ka wala ka talagang pakialam sa kapwa mo,|SIRAULO|NNP |KA|PRS |WALA|VBN |KA|PRS talagang|RBT|CCP |PAKIALAM|NNC |SA|CCT |KAPWA|PRI |MO|PRS,Siraulo ka wala ka talagang pakialam sa kapwa mo
+tagalog,Lumakad ka agad eh hindi pa nga ako sumasakay bobo,|LUMAKAD|VBAF |KA|PRS |AGAD|RBW |EH|NNCA |HINDI|RBF |PA|RBI |NGA|RBI |AKO|PRS sumasakay|VBTR|VBAF |BOBO|RBD,Lumakad ka agad eh hindi pa nga ako sumasakay ****
+cebuano,Tanga ka talaga hirap na hirap na akong intindihin ka,|TANGA|NNP |KA|PRS |TALAGA|RBT |HIRAP|JJD |NA|CCP |HIRAP|NNC |NA|CCP akong|PRS|CCP |INTINDIHIN|VBOF |KA|PRS,***** ka talaga ***** na ***** na akong intindihin ka
+bikol,Palagi ka nananakit eh kung palagan kitang inutil ka,|PALAGI|RBW |KA|PRS |NANANAKIT|VBTR |EH|NNCA |KUNG|RBK |PALAGAN|RBQ kitang|RBD|CCP |INUTIL|VBOF |KA|PRS,Palagi ka nananakit eh kung palagan kitang inutil ka
+bikol,Kinginang buhay ito hindi man lang makahanap ng jowa,Kinginang|NNP|CCP |BUHAY|NNC |ITO|PRO |HINDI|RBF |MAN|RBI |LANG|RBI |MAKAHANAP|VBW |NG|CCB |JOWA|NNC,Kinginang ***** ito hindi man lang makahanap ng jowa
+cebuano,Puro ka pagpapanggap na alam mo eh tanga ka naman,|PURO|NNP |KA|PRS |PAGPAPANGGAP|NNC |NA|CCP |ALAM|VBS |MO|PRS |EH|NNCA |TANGA|JJD |KA|PRS |NAMAN|RBI,**** ka pagpapanggap na alam mo eh ***** ka naman
+cebuano,Sana sinabi mo agad na puta ka para hinabaan ko pasensya ko,|SANA|VBS |SINABI|VBOF |MO|PRS |AGAD|RBW |NA|CCP |PUTA|NNC |KA|PRS |PARA|CCT |HINABAAN|VBOF |KO|PRS |PASENSYA|VBOF |KO|PRS,**** sinabi mo agad na **** ka para hinabaan ko pasensya ko
+bikol,tangina ka talaga wala ka na dapat dito sa mundo,|TANGINA|JJD |KA|PRS |TALAGA|RBT |WALA|VBN |KA|PRS |NA|CCP |DAPAT|VBS |DITO|PRL |SA|CCT |MUNDO|NNC,******* ka ****** wala ka na dapat dito sa mundo
+tagalog,pukingina mo kang bata ka,|PUKINGINA|JJCC |MO|PRS kang|PRS|CCP |BATA|NNC |KA|PRS,pukingina mo kang bata ka
+bikol,how are you,|HOW|FW |ARE|DTC |YOU|FW,how are you
+bikol,kumusta na ang tangang yan,|KUMUSTA|VBAF |NA|RBI |ANG|DTC tangang|NNC|CCP |YAN|PRO,kumusta na ang tangang yan
