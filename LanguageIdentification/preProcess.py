@@ -75,7 +75,7 @@ class TextPreprocessor:
                 # Process each row
                 for row in reader:
                     sentence = row[0]
-                    label = row[1]
+                    profane = row[1]
 
                     # Preprocess the sentence
                     preprocessed_sentence = self.preprocess_text(sentence)
@@ -85,7 +85,7 @@ class TextPreprocessor:
 
                     # Write each sentence with the corresponding label
                     for processed_sentence in sentences:
-                        writer.writerow([processed_sentence, label])
+                        writer.writerow([processed_sentence, profane])
         
         except Exception as e:
             print(f"An error occurred: {e}")
