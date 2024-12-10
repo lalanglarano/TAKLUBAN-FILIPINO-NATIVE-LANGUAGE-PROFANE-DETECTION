@@ -225,4 +225,8 @@ tagalog,yawa bilat burat,|YAWA|FW |BILAT|FW |BURAT|FW,**** bilat burat
 tagalog,madaming buni yung babae,madaming|PRI|CCP |BUNI|NNC |YUNG|PRO |BABAE|NNC,madaming buni **** babae
 tagalog,madaming buni yung babae,madaming|PRI|CCP |BUNI|NNC |YUNG|PRO |BABAE|NNC,madaming buni yung babae
 bikol,ang haba ng kanyang paa,|ANG|DTC |HABA|NNC |NG|CCB kanyang|PRSP|CCP |PAA|NNC,ang haba ng kanyang paa
-bikol,& C:/Users/Annalyn/AppData/Local/Programs/Python/Python311/python.exe c:/Users/Annalyn/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/preProcess.py,|&|PMS |C:/USERS/ANNALYN/APPDATA/LOCAL/PROGRAMS/PYTHON/PYTHON311/PYTHON.EXE|NNP |C:/USERS/ANNALYN/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LANGUAGEIDENTIFICATION/PREPROCESS.PY|FW,& C:/Users/Annalyn/AppData/Local/Programs/Python/Python311/python.exe c:/Users/Annalyn/TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/LanguageIdentification/preProcess.py
+cebuano,ang hirap mong mahalin tama na,|ANG|DTC |HIRAP|NNC mong|PRS|CCP |MAHALIN|VBW |TAMA|JJD |NA|CCP,ang ***** mong mahalin tama na
+cebuano,ayoko na sayo mali na naman,|AYOKO|JJD |NA|CCP |SAYO|PRSP |MALI|JJD |NA|CCP |NAMAN|RBI,ayoko na sayo mali na *****
+bikol,gago ka tabi ka jan mabibigwasan ka,|GAGO|RBD |KA|PRS |TABI|NNC |KA|PRS |JAN|FW |MABIBIGWASAN|FW |KA|PRS,**** ka tabi ka *** mabibigwasan ka
+bikol,tangina nung mga hindi makuntento sa isa,|TANGINA|NNC |NUNG|RBW |MGA|DTCP |HINDI|RBF |MAKUNTENTO|VBW |SA|CCT |ISA|PRI,******* **** mga hindi makuntento sa isa
+tagalog,gandang babae na lalaki pumorma puta,gandang|JJD|CCP |BABAE|NNC |NA|CCP |LALAKI|NNC |PUMORMA|VBAF |PUTA|NNC,gandang babae na lalaki pumorma ****
