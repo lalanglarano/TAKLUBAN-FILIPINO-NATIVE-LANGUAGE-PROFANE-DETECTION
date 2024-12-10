@@ -17,3 +17,4 @@ rule_from_sentence_15,VBTR DTC NNC,Profane sentence example
 rule_from_sentence_16,VBTR DTC NNC CCP NNC,Profane sentence example
 rule_from_sentence_17,RBM PRS NNC,Profane sentence example
 rule_from_sentence_18,VBOF PRS RBI NNC CCB VBTR PRSP JJD PRS,Profane sentence example
+rule_from_sentence_19,VBTS CCP VBOF FW,Profane sentence example

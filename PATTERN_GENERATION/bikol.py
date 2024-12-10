@@ -263,7 +263,7 @@ def main():
     pattern_generator = PatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     
     # Define the sentence to test
-    sentence = "lininaniya ang kapagalan warang kasagkuran"
+    sentence = "lintian na gibuhon ini"
         
     # Save pattern from the sentence
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
