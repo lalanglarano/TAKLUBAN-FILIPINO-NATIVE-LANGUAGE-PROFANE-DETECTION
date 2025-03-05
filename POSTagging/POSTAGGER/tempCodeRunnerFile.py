@@ -1,1 +1,0 @@
-save_model(cebuano_model, "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/Results/models/tagged_cebuano_model.pkl")

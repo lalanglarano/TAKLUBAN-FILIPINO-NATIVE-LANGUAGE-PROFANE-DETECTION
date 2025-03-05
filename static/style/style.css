@@ -109,7 +109,11 @@ h1 {
 .continue-button {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+<<<<<<< HEAD
     font-size: 15px;
+=======
+    font-size: 20px;
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
     color: white;
     background: none;
     border: none;

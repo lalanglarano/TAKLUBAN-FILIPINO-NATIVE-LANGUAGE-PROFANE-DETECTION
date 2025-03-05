@@ -42,12 +42,20 @@
                 <a href="{{ url_for('home') }}" class="home-link active">HOME</a>
                 <a href="{{ url_for('creators') }}" class="creators-link">ABOUT US</a>
                 <a href="{{ url_for('faqs') }}" class="faqs-link">FAQs</a>
+<<<<<<< HEAD
             </div>
+=======
+            </div> <!-- Navigation Links -->
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
         </nav>
 
         <div class="container">
             <div class="left">
+<<<<<<< HEAD
                 <textarea id="text-area" placeholder="Input text here to detect profanity and language."></textarea>
+=======
+                <textarea id="text-area" placeholder="To detect profanities, input text here and click 'DETECT'."></textarea>
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
                 <div class="detect-button-container">
                     <button class="detect-button">DETECT</button>
                 </div>
@@ -58,6 +66,7 @@
                     <div id="detected-language"></div>
                 </div>
                 <div class="module-2">
+<<<<<<< HEAD
                     <div class="module-title">TAGGED SENTENCE:</div>
                     <div id="pos-tagged-sentence"></div>
                 </div>
@@ -66,17 +75,26 @@
                     <div id="profanity-status"></div>
                 </div>
                 <div class="module-4">
+=======
+                    <div class="module-title">POS TAGGED SENTENCE:</div>
+                    <div id="pos-tagged-sentence"></div>
+                </div>
+                <div class="module-3">
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
                     <div class="module-title">CENSORED OR CLEAN SENTENCE:</div>
                     <div id="censored-sentence"></div>
                 </div>
             </div>
         </div>
 
+<<<<<<< HEAD
         <div id="detect-loader" style="display: none;">
             <div class="loading-spinner"></div>
             <p>Processing, please wait...</p>
         </div>        
 
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
         <footer>
             <img src="{{ url_for('static', filename='assets/tklbn-favicon.png') }}" alt="Footer Icon">
             <p>All Rights Reserved, 2024</p>
@@ -87,6 +105,7 @@
         // Show loader on page load, then display the landing page
         window.onload = function() {
             if (sessionStorage.getItem('visited')) {
+<<<<<<< HEAD
                 document.getElementById('loader').style.display = 'none';
                 document.getElementById('landingPage').style.display = 'block';
             } else {
@@ -95,6 +114,19 @@
                     document.getElementById('landingPage').style.display = 'block';
                     sessionStorage.setItem('visited', 'true');
                 }, 5900);
+=======
+                // Skips the loader if visiting the landing page again
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('landingPage').style.display = 'block';
+            } else {
+                // Show loader for the first visit
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('landingPage').style.display = 'block';
+                    // Store in session storage that the user has visited
+                    sessionStorage.setItem('visited', 'true');
+                }, 5900); // The loading screen will show for 6 seconds
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
             }
         };
 
@@ -119,8 +151,11 @@
         // Detect button functionality (connecting with backend)
         document.querySelector('.detect-button').addEventListener('click', function() {
             const text = document.getElementById('text-area').value;
+<<<<<<< HEAD
             
             document.getElementById('detect-loader').style.display = 'block';
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 
             fetch('/detect_language', {
                 method: 'POST',
@@ -131,7 +166,10 @@
             })
             .then(response => response.json())
             .then(data => {
+<<<<<<< HEAD
                 document.getElementById('detect-loader').style.display = 'none';
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
                 // Module 1: Show the detected language
                 if (data.predicted_language) {
                     document.getElementById('detected-language').innerText = `${data.predicted_language}`;
@@ -139,6 +177,7 @@
                     document.getElementById('detected-language').innerText = 'Error detecting language';
                 }
 
+<<<<<<< HEAD
                 // Module 2: Show POS tagged sentence
                 if (data.pos_tagged_sentence) {
                     document.getElementById('pos-tagged-sentence').innerText = `${data.pos_tagged_sentence}`;
@@ -154,6 +193,18 @@
                     } else {
                         document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
                         document.getElementById('profanity-status').innerText = `No profanity detected.`;
+=======
+                // Module 2: Show POS tagged sentence and censored/cleaned sentence
+                if (data.pos_tagged_sentence) {
+                    document.getElementById('pos-tagged-sentence').innerText = `${data.pos_tagged_sentence}`;
+                }
+
+                if (data.censored_sentence) {
+                    if (data.is_profane) {
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
+                    } else {
+                        document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
                     }
                 } else {
                     document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
@@ -168,5 +219,8 @@
             });
         });
     </script>
+
 </body>
 </html>
+
+

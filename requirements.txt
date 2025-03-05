@@ -8,4 +8,8 @@ psutil
 matplotlib
 seaborn
 joblib
+<<<<<<< HEAD
 openpyxl
+=======
+scikit-learn version 1.5.2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd

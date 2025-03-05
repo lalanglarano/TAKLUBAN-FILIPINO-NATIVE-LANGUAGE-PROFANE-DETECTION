@@ -107,7 +107,11 @@ nav .title {
 }
 
 .rectangle {
+<<<<<<< HEAD
     height: 230px;
+=======
+    height: 353px;
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
     padding: 20px;
     background-color: #fbf9e9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -116,7 +120,11 @@ nav .title {
 }
 
 .rectangle p {
+<<<<<<< HEAD
     font-size: 18px;
+=======
+    font-size: 23px;
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
     line-height: 1.25;
 }
 
@@ -158,8 +166,13 @@ nav .title {
 }
 
 .creator-image {
+<<<<<<< HEAD
     width: 120px;
     height: 120px;
+=======
+    width: 170px;
+    height: 190px;
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;

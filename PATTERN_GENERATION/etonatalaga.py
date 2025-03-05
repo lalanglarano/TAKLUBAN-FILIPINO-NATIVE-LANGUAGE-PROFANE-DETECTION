@@ -1,57 +1,20 @@
-"""
-Program Title: Tagalog Profane Pattern Generator
-
-Programmers: Jeo Abarre, Annalyn Belen, Telish Gonzales, Randolph Larano
-
-Where the program fits in the general system designs: This module is responsible for generating and detecting profane patterns in Tagalog sentences.
-
-Date written and last revised: October 5, 2024   |   November 18, 2024
-
-Purpose: To identify and censor profane patterns in Tagalog sentences using predefined rules and 
-POS tagging. This module loads predefined rules from a CSV file, tags sentences with POS tags 
-using StanfordPOSTagger, generates n-grams from the POS tags, and applies the predefined rules 
-to detect and censor profane patterns.
-
-Data structures, algorithms, and control:
-
-Data Structures:
-self.rules: A list of dictionaries containing predefined rules.
-pos_tagged_sentence: A list of POS-tagged words.
-ngrams_list: A list of n-grams generated from POS tags.
-flagged_patterns: A list of detected profane patterns.
-matching_ngram_indices: A list of indices of matched n-grams.
-
-Algorithms:
-Uses StanfordPOSTagger for POS tagging.
-Generates n-grams from POS tags.
-Applies predefined rules to detect profane patterns.
-
-Control:
-Initializes with predefined rules and POS tagger.
-Loads predefined rules from a CSV file.
-Tags sentences with POS tags.
-Generates n-grams and applies rules to detect profane patterns.
-Censors detected profane patterns in sentences.
-"""
-
 import os
 import pandas as pd
 import csv
-import joblib
+from nltk.tag.stanford import StanfordPOSTagger
+from nltk.util import ngrams
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import classification_report
-from nltk.util import ngrams
-from POSTagging.POSTagger import POSTagger 
+import joblib
 
 class PatternGenerator:
-    def __init__(self, csv_filename, language='tagalog'):
+    def __init__(self, csv_filename, model_filename, path_to_jar):
         self.rules = self.load_predefined_rules(csv_filename)
-        self.tagger = POSTagger(language)
-        self.profane_dict_filename = f"PROFANE_PATTERN_DICTIONARY/{language}_profane_patterns.csv"  # Path for storing profane patterns
-
+        self.tagger = StanfordPOSTagger(model_filename=model_filename, path_to_jar=path_to_jar)
+    
     def load_predefined_rules(self, csv_filename):
         rules = []
         try:
@@ -70,6 +33,7 @@ class PatternGenerator:
     def generate_ngrams(self, pos_tagged_text, n):
         # Reuse the POS extraction code
         pos_tags = [item.split('|')[-1] for item in pos_tagged_text if '|' in item]  # Extract POS tags only
+        
         print(f"Extracted POS Tags: {pos_tags}")  # Debugging: Print extracted POS tags
 
         # Generate n-grams using the extracted POS tags
@@ -77,28 +41,13 @@ class PatternGenerator:
         print(f"Generated {n}-grams: {ngrams_list}")  # Debugging: Print generated n-grams
         return ngrams_list
 
-    def save_profane_patterns_to_dict(self, profane_ngram):
-        """
-        Save the detected profane n-gram (POS pattern) to a CSV file.
-        This version only saves the POS pattern without rule name or description.
-        """
-        pos_pattern = ' '.join(profane_ngram)  # Join the n-gram into a space-separated POS pattern
-
-        try:
-            # Append new POS pattern to the CSV
-            with open(self.profane_dict_filename, 'a', newline='') as file:
-                writer = csv.writer(file)
-                writer.writerow([pos_pattern])  # Only save the POS pattern
-                print(f"Profane pattern '{pos_pattern}' saved successfully.")
-        except Exception as e:
-            print(f"Error saving profane pattern to {self.profane_dict_filename}: {e}")
-
     def apply_rules_to_ngrams(self, ngram_list):
         flagged_patterns = []
         matching_ngram_indices = []  # Store indices of the profane n-grams
 
         for idx, ngram in enumerate(ngram_list):
             print(f"Checking n-gram: {ngram}")  # Debugging: Output the generated n-gram
+
             for rule in self.rules:
                 pattern = rule['POS Pattern']  # The POS Pattern is already a list of POS tags
 
@@ -107,9 +56,6 @@ class PatternGenerator:
                     flagged_patterns.append(f"Rule Matched: {rule['Rule Name']} - {rule['Description']}")
                     matching_ngram_indices.append(idx)  # Store the index of the matched n-gram
                     print(f"Match found: {rule['Rule Name']}")  # Debugging
-                    
-                    # Save the detected profane pattern (only POS pattern)
-                    self.save_profane_patterns_to_dict(ngram)
 
         return flagged_patterns, matching_ngram_indices
 
@@ -133,36 +79,7 @@ class PatternGenerator:
         # Return the detected patterns and the indices of the profane n-grams
         return results if results else ["No profane patterns detected"], profane_ngram_indices
 
-    def save_patterns_from_sentence(self, csv_filename, sentence, description):
-        """
-        This method tags the sentence with POS tags, extracts the POS pattern,
-        and saves the pattern as a rule in the CSV file.
-        """
-        pos_tagged_sentence = self.tag_sentence(sentence)
-        print(f"POS-tagged Sentence: {pos_tagged_sentence}")
-        
-        try:
-            pos_pattern = ' '.join([item.split('|')[-1] for item in pos_tagged_sentence if '|' in item])
-            print(f"Extracted POS Pattern: {pos_pattern}")
-        except IndexError:
-            print("Error: Incorrect tagging format in sentence.")
-            return
-
-        rule_name = f"rule_from_sentence_{len(self.rules) + 1}"
-        self.add_new_rule(csv_filename, rule_name, pos_pattern, description)
-        print(f"New rule '{rule_name}' added with POS pattern: {pos_pattern}")
-
-    def tag_sentence(self, sentence):
-        """
-        Use the POSTagger from POSTagger.py to tag the sentence.
-        """
-        pos_tagged_text = self.tagger.pos_tag_text(sentence)  # Use pos_tag_text instead of tag
-        return pos_tagged_text.split()  # Return the tagged tokens as a list
-
     def add_new_rule(self, csv_filename, rule_name, pos_pattern, description):
-        """
-        Adds a new rule to the CSV file with the POS pattern and description.
-        """
         current_rules = self.load_predefined_rules(csv_filename)
         for rule in current_rules:
             if rule['POS Pattern'] == pos_pattern.split():
@@ -184,19 +101,38 @@ class PatternGenerator:
                 print(f"New rule '{rule_name}' added successfully.")
         except Exception as e:
             print(f"Error adding new rule to {csv_filename}: {e}")
+    
+    def tag_sentence(self, sentence):
+        tokens = sentence.split()
+        tagged_sentence = self.tagger.tag(tokens)
+        return [f"{word}|{tag}" for word, tag in tagged_sentence]
+ 
+    def save_patterns_from_sentence(self, csv_filename, sentence, description):
+        pos_tagged_sentence = self.tag_sentence(sentence)
+        
+        print(f"POS-tagged Sentence: {pos_tagged_sentence}")
+        
+        try:
+            pos_pattern = ' '.join([item.split('|')[-1] for item in pos_tagged_sentence if '|' in item])
+            print(f"Extracted POS Pattern: {pos_pattern}")
+            
+        except IndexError:
+            print("Error: Incorrect tagging format in sentence.")
+            return
 
-    def censor_sentence(self, pos_tagged_sentence, profane_indices):
-        """Censor the entire sentence if any profane pattern is detected."""
-        censored_sentence = []
-        for idx, word in enumerate(pos_tagged_sentence):
-            censored_sentence.append('*****')  # Censor the entire sentence
-        return ' '.join(censored_sentence)
+        rule_name = f"rule_from_sentence_{len(self.rules) + 1}"
+        self.add_new_rule(csv_filename, rule_name, pos_pattern, description)
+        print(f"New rule '{rule_name}' added with POS pattern: {pos_pattern}")
 
-# Main function remains unchanged
+    # Censoring the sentence based on the detected profane pattern
+    def censor_sentence(pos_tagged_sentence, profane_indices):
+        return ' '.join(
+            '*****' if idx in profane_indices else word.split('|')[0] for idx, word in enumerate(pos_tagged_sentence)
+        )
+    
 def main():
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
     predefined_rules_path = f"{base_path}/PATTERN_GENERATION/predefined_rules.csv"
-<<<<<<< HEAD
     model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
     path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
     profane_dictionary_path = 'PATTERN_GENERATION/profane_dictionary.csv'
@@ -219,18 +155,18 @@ def main():
         return profane_dict
     
     def predict_and_censor(sentence, best_model):
-        # SVM predicts if the sentence is profane
+        # Step 1: SVM predicts if the sentence is profane
         is_profane = best_model.predict([sentence])[0]  # Predict using the SVM model
-        print(f"Prediction - Is sentence profane?: {is_profane}")
+        print(f"SVM Prediction - Is sentence profane?: {is_profane}")
         
         if not is_profane:
             return sentence  # If the sentence is not profane, return it as is
         
-        # If the sentence is profane, tag the sentence with POS tags
+        # Step 2: If the sentence is profane, tag the sentence with POS tags
         pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
         print("POS-tagged Sentence:", pos_tagged_sentence)  # Check if POS tags are correct
         
-        # Detect profane patterns in the sentence using the rules
+        # Step 3: Detect profane patterns in the sentence using the rules
         detected_patterns, profane_ngram_indices = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
         print("Detected Patterns:", detected_patterns)  # Check if the rules are being detected
         
@@ -241,67 +177,108 @@ def main():
         pos_patterns = [pattern.split(' - ')[0] for pattern in detected_patterns if 'Rule Matched' in pattern]
         save_profane_to_dict(pos_patterns)  # Save detected POS patterns
         
-        # Implement censoring based on detected profane patterns
+        # Step 4: Implement censoring based on detected profane patterns
         # Loop through the pos_tagged_sentence and censor only the detected profane words
         censored_sentence = []
         ngram_size = len(profane_ngram_indices)  # Size of the n-grams we are censoring
         profane_word_indices = []
-=======
->>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 
-    # Initialize PatternGenerator with POSTagger
-    pattern_generator = PatternGenerator(predefined_rules_path, language='tagalog')
+        # Generate n-grams based on the POS-tagged sentence
+        pos_tags = [item.split('|')[-1] for item in pos_tagged_sentence if '|' in item]
+        words = [item.split('|')[1] for item in pos_tagged_sentence if '|' in item]
 
+        # Identify the word indices to censor based on profane n-grams
+        for idx in profane_ngram_indices:
+            profane_word_indices.extend(range(idx, idx + ngram_size))  # Get all word indices in the profane n-gram
+
+        # Censor the words at the profane indices
+        for idx, word in enumerate(words):
+            if idx in profane_word_indices:
+                censored_sentence.append('*****')  # Censor this word
+            else:
+                censored_sentence.append(word)  # Keep the word as is
+        
+        return ' '.join(censored_sentence)
+
+    # Function to save the profane dictionary to CSV
+    def save_profane_dictionary(profane_dict):
+        try:
+            with open(profane_dictionary_path, mode='w', newline='', encoding='utf-8') as file:
+                writer = csv.writer(file)
+                for word, count in profane_dict.items():
+                    writer.writerow([word, count])
+            print(f"Profane dictionary saved successfully to {profane_dictionary_path}.")
+        except Exception as e:
+            print(f"Error saving profane dictionary: {e}")
+        
+    def save_profane_to_dict(pos_patterns):
+        # Load existing profane dictionary from the CSV file
+        profane_dict = load_profane_dictionary()
+
+        # Update the dictionary with new profane words
+        for word in pos_patterns:
+            if word in profane_dict:
+                profane_dict[word] += 1
+        # Update the dictionary with new POS patterns
+        for pattern in pos_patterns:
+            if pattern in profane_dict:
+                profane_dict[pattern] += 1  # Increment the count if pattern already exists
+            else:
+                profane_dict[word] = 1
+                profane_dict[pattern] = 1  # Add new pattern
+
+        # Save the updated profane dictionary back to the CSV file
+        save_profane_dictionary(profane_dict)
+        
+        print(f"Updated Profane Dictionary: {profane_dict}")
+        print(f"Updated Profane Dictionary with POS Patterns: {profane_dict}")
+
+    pattern_generator = PatternGenerator(predefined_rules_path, model_filename, path_to_jar)
+    
     # Define the sentence to test
-<<<<<<< HEAD
-    sentence = "sundin mo naman utos ng nakatatanda sayo bobo ka"
-=======
-    sentence = "sobrang pangit ng gising puta"
->>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
+    sentence = "ang ganda mo sa suot mo"
         
     # Save pattern from the sentence
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
     
     # Load your dataset
-    df = pd.read_csv('Results/dataset/dataset_tagalog.csv')
+    df = pd.read_csv('UsedDataset/dataset_tagalog_sentence_profane.csv')
     
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.8, random_state=48)
     
     # Create a pipeline that combines the TfidfVectorizer with N-Grams and SVM
-    pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 2)), SVC(probability=True))
-
+    pipeline = make_pipeline(TfidfVectorizer(ngram_range=(1, 2)), SVC())
+    
     # Define the hyperparameters grid
     param_grid = {
         'svc__C': [0.1, 1, 10],
         'svc__kernel': ['linear', 'rbf']
     }
-
+    
     # Perform Grid Search with Cross-Validation
     grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
     grid_search.fit(X_train, y_train)
-
+    
     # Best model from grid search
     best_model = grid_search.best_estimator_
-
-    # Save the trained model to a .pkl file using joblib
-    joblib.dump(best_model, 'tagalog_trained_profane_model.pkl')
-    print("Model saved as 'tagalog_trained_profane_model.pkl'")
-
+    
     # Evaluate the model
     y_pred = best_model.predict(X_test)
     print(classification_report(y_test, y_pred))
 
     # Example usage
-    pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
-    profane_patterns, profane_ngram_indices = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
+    prediction = predict_and_censor(sentence, best_model)
+    print(f"Output: {prediction}")
 
-    if profane_patterns:
-        censored_sentence = pattern_generator.censor_sentence(pos_tagged_sentence, profane_ngram_indices)
-        print(f"Original Sentence: {sentence}")
-        print(f"Censored Sentence: {censored_sentence}")
-    else:
-        print(f"No profanity detected in the sentence: {sentence}")
+    pos_tagged_sentence = pattern_generator.tag_sentence(sentence)
+    print("POS-tagged Sentence:", pos_tagged_sentence)
+
+    detected_patterns = pattern_generator.detect_profane_patterns(pos_tagged_sentence)
+    print("Detected Patterns:", detected_patterns)
+
+    censored_sentence = predict_and_censor(sentence, best_model)
+    print(f"Output: {censored_sentence}")
 
 if __name__ == "__main__":
     main()

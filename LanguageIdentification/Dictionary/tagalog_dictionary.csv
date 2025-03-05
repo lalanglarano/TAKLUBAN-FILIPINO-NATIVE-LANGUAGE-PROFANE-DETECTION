@@ -1,18 +1,27 @@
 word,frequency
+<<<<<<< HEAD
 aaaay,1
 aabang,2
 aabangan,1
 aabot,8
+=======
+aabang,2
+aabot,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 aabsent,1
 aabugado,1
 aabuso,7
 aabutin,8
 aadik,1
 aadjust,1
+<<<<<<< HEAD
 aadvice,1
 aafia,4
 aagawaw,1
 aagawin,1
+=======
+aagawaw,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 aakalang,1
 aakit,1
 aako,1
@@ -35,6 +44,7 @@ aandar,2
 aangkas,1
 aani,1
 aanounce,1
+<<<<<<< HEAD
 aantay,2
 aanunsyo,1
 aaprubahan,1
@@ -46,12 +56,20 @@ aarestuhin,1
 aasahan,4
 aasar,2
 aasarin,1
+=======
+aantay,1
+aaral,3
+aarawan,1
+aasahan,2
+aasar,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 aasawahin,1
 aasenso,1
 aasikaso,1
 aasim,2
 aasrud,1
 aassume,1
+<<<<<<< HEAD
 aatakihin,2
 aatas,1
 aaway,2
@@ -126,10 +144,26 @@ adopsyon,1
 adosilog,5
 adow,2
 adyenda,2
+=======
+aatakihin,1
+aayusin,1
+abangan,2
+abangers,1
+abay,2
+abnoy,1
+abunjing,2
+acads,4
+accla,2
+accre,1
+adbokasiya,1
+administrasyon,1
+admu,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 aegyo,1
 aerodynamical,1
 aeroflotnord,1
 aespa,1
+<<<<<<< HEAD
 aeta,1
 afghanista,1
 aftiee,1
@@ -404,11 +438,42 @@ ampaw,2
 ampibyo,1
 ampogi,2
 ampon,1
+=======
+aftiee,1
+agaw,1
+aguy,1
+akalaing,1
+akinse,1
+akoh,1
+akoy,3
+aktibista,1
+akyat,1
+alagaan,2
+alagad,1
+alak,3
+alangan,1
+albolaryo,1
+alinsangan,1
+alisin,1
+aliw,2
+altrix,1
+amang,1
+ambag,3
+ambagal,2
+ambibilis,1
+ambilis,1
+ambobo,1
+amerikano,1
+ampalaya,1
+ampanget,2
+ampogi,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ampota,15
 ampotek,3
 ampteam,1
 amputa,19
 amputek,1
+<<<<<<< HEAD
 amunisyon,2
 amuyong,1
 anaesthesiologists,1
@@ -436,6 +501,15 @@ angaw,2
 angee,1
 angelvoice,2
 angg,1
+=======
+andami,4
+andaming,5
+andito,4
+andoon,2
+andun,1
+aneng,1
+angee,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 angge,1
 anggulo,2
 anghang,1
@@ -446,6 +520,7 @@ angkat,1
 angkin,1
 angking,3
 angkinin,1
+<<<<<<< HEAD
 angkla,1
 angkol,1
 angkop,8
@@ -482,9 +557,16 @@ anstralya,1
 answerscom,4
 answerscoms,1
 antabay,1
+=======
+anlakas,2
+anlala,1
+ansakit,4
+ansama,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 antagal,4
 antarktikang,1
 antay,4
+<<<<<<< HEAD
 antelo,5
 antibiotiko,1
 antigong,8
@@ -710,10 +792,45 @@ awtor,2
 awtoridad,42
 awtorisadong,5
 awtorisasyon,1
+=======
+antok,7
+antukin,1
+anung,3
+apat,8
+apoy,1
+aranyaka,1
+arawaraw,1
+aray,2
+areglo,1
+arisse,1
+arowen,1
+aruga,1
+asaan,1
+asarin,2
+asensado,1
+askal,1
+asong,5
+asskissers,1
+assumera,1
+assumero,1
+asukal,1
+asungot,1
+atake,1
+atakihin,1
+atang,3
+atenean,2
+atensyon,1
+atraso,1
+attuid,1
+awatin,1
+awayin,1
+awit,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 axie,1
 ayato,1
 ayawan,1
 ayick,1
+<<<<<<< HEAD
 aynalulunod,1
 ayoko,67
 ayokong,8
@@ -736,6 +853,17 @@ bababasa,1
 babaeang,1
 babaemas,1
 babaeng,51
+=======
+ayoko,59
+ayokong,2
+ayon,4
+ayorn,1
+ayos,11
+ayusin,10
+b,2
+bababa,1
+babaeng,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 babaero,1
 babaerong,2
 babaet,1
@@ -757,6 +885,7 @@ babanggitin,1
 babangon,1
 babasahin,7
 babash,1
+<<<<<<< HEAD
 babastos,1
 babatayin,1
 babati,1
@@ -854,9 +983,33 @@ bakawang,1
 bakero,1
 baket,4
 bakita,2
+=======
+babaw,3
+babawi,1
+babayaran,2
+babolgam,1
+baboy,4
+babyahe,1
+babyalbiko,1
+babytawan,1
+bading,7
+badtrip,9
+baduy,1
+bagal,4
+bagsak,2
+bagsakan,1
+baguhin,1
+bagyo,1
+bahala,10
+bahing,1
+baho,3
+bakasyon,6
+baket,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 bakitt,1
 bakla,38
 baklang,2
+<<<<<<< HEAD
 baklita,2
 baklitang,1
 bakod,9
@@ -951,6 +1104,25 @@ bangketa,3
 bangkito,1
 bangkong,2
 bangsilog,5
+=======
+baklita,1
+baks,1
+bakuran,2
+balahibo,1
+balakin,1
+balat,1
+balibagin,1
+balikan,6
+balikat,1
+baliktad,1
+baliktarin,1
+balimbing,1
+balitaan,1
+balitang,1
+baliw,11
+bananaq,1
+bangketa,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 bangtan,4
 bangungot,1
 bangus,4
@@ -968,15 +1140,22 @@ bantayog,2
 bantog,3
 bantot,1
 bantutan,2
+<<<<<<< HEAD
 banyaga,3
 banyagang,8
 baog,2
 baon,3
 baoninam,1
 bapor,12
+=======
+baog,1
+baon,1
+baoninam,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 barabida,1
 barado,1
 baragan,1
+<<<<<<< HEAD
 baraha,2
 barakong,2
 baraks,1
@@ -1093,11 +1272,37 @@ bbboi,1
 bbmshit,1
 bclisters,2
 beachie,1
+=======
+baranggay,1
+bardagulan,3
+barya,1
+basag,2
+basagolerows,1
+basahin,6
+basang,2
+basehan,1
+baso,1
+bastusin,3
+batas,3
+batiin,2
+bawal,14
+bawat,3
+bawi,1
+bawian,1
+bawiin,2
+bayad,6
+bayag,1
+bayaran,4
+bayarin,1
+bbmshit,1
+bclisters,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 bebenta,1
 bebetime,1
 bebreak,1
 bebs,2
 beerday,1
+<<<<<<< HEAD
 beghe,2
 behh,1
 behikulo,1
@@ -1122,12 +1327,22 @@ benta,12
 bentables,1
 bentahan,3
 bentahe,1
+=======
+behh,1
+beks,1
+belift,1
+bembemsmga,1
+benta,1
+bentables,1
+bentahan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 benteng,1
 bentilasyon,1
 bentong,1
 bentrilokiya,1
 benus,2
 beomjun,1
+<<<<<<< HEAD
 beranda,13
 berbal,1
 berde,16
@@ -1170,6 +1385,16 @@ biag,1
 biangcake,1
 bibe,3
 bibig,24
+=======
+beses,8
+bespren,1
+bestie,1
+bestlink,1
+bhie,2
+biangcake,1
+bibe,2
+bibig,6
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 bibigay,4
 bibiguin,1
 bibigyan,13
@@ -1180,6 +1405,7 @@ bibilin,1
 bibilis,1
 bibingka,2
 bibirthday,1
+<<<<<<< HEAD
 bibiruin,1
 bibisita,5
 bibisitahin,4
@@ -1255,6 +1481,21 @@ bilyunbilyong,1
 binaba,2
 binabaan,1
 binababa,1
+=======
+bigat,2
+bigay,1
+bigla,15
+biglaan,1
+biglang,13
+bigyan,3
+biktima,1
+bilat,1
+bilhin,1
+bilihin,4
+bilis,12
+bilisan,1
+bilyon,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 binabackstab,1
 binabae,2
 binabago,1
@@ -1278,6 +1519,7 @@ binabati,1
 binabatikos,1
 binabawi,1
 binabayad,1
+<<<<<<< HEAD
 binabayaran,3
 binabayarang,2
 binabayong,1
@@ -1295,6 +1537,8 @@ binakbakan,1
 binalaan,7
 binalak,4
 binalatan,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 binalewala,1
 binalik,2
 binalikan,1
@@ -1321,6 +1565,7 @@ binatikos,3
 binatilyo,1
 binato,3
 binatong,1
+<<<<<<< HEAD
 binawasan,2
 binawi,6
 binayad,1
@@ -1342,6 +1587,14 @@ binibilangan,1
 binibili,2
 binibini,6
 binibining,7
+=======
+binawi,1
+binayaran,1
+binebenta,1
+binibigay,2
+binibilangan,1
+binibini,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 binibiyak,1
 binibreak,1
 binibwisit,1
@@ -1375,12 +1628,16 @@ binoxout,1
 binreak,1
 bintana,44
 bintangan,1
+<<<<<<< HEAD
 binubugbog,1
 binubuksan,1
 binubulay,1
 binubuo,13
 binubuong,1
 binugbog,4
+=======
+binugbog,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 binugbug,1
 binuhay,1
 binuhos,3
@@ -1394,6 +1651,7 @@ binulong,2
 binundol,1
 binunot,3
 binuntis,1
+<<<<<<< HEAD
 binunyag,1
 binuo,14
 binuong,4
@@ -1403,6 +1661,9 @@ bioce,2
 birhen,5
 birheng,1
 birtud,1
+=======
+binuong,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 bisaya,1
 biseadmiral,1
 bisekleta,2
@@ -1420,6 +1681,7 @@ bisitahin,4
 biskuwit,1
 biskwit,2
 bisky,1
+<<<<<<< HEAD
 bisnes,1
 bistig,1
 bisyo,2
@@ -1466,11 +1728,23 @@ bntot,1
 boang,2
 boarknock,1
 bobbyjo,1
+=======
+bitbitin,1
+bituka,1
+blackpink,2
+blinock,2
+blockmates,1
+bloodseeker,1
+blueacid,1
+boang,2
+boarknock,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 bobong,5
 bobook,1
 bobookmark,1
 boboto,2
 bocar,1
+<<<<<<< HEAD
 bochanna,1
 bochog,3
 bodemeister,2
@@ -1500,11 +1774,17 @@ bonchon,1
 bondesto,1
 bondpaper,1
 bondservant,1
+=======
+bonchon,1
+bondesto,1
+bondpaper,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 bongbong,3
 bongga,2
 bonggang,3
 bonggangbongga,1
 boobear,1
+<<<<<<< HEAD
 bopbop,2
 bopbopbop,1
 bopeep,1
@@ -1559,11 +1839,19 @@ bsta,1
 buah,1
 bubog,5
 bubong,21
+=======
+borlog,1
+boses,13
+boung,1
+braso,1
+brightwin,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 bubukas,1
 bubuksan,4
 bubungan,2
 bubusal,1
 bubusina,1
+<<<<<<< HEAD
 bubuwisan,1
 bubuwit,1
 bubuyog,9
@@ -1573,11 +1861,15 @@ budismo,8
 budismoy,1
 budista,10
 budistang,1
+=======
+budhi,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 budol,1
 buffiring,1
 bugaw,1
 bughaw,9
 bugok,4
+<<<<<<< HEAD
 bugoy,2
 bugso,6
 bugtong,1
@@ -1592,6 +1884,12 @@ buhaykapag,1
 buhaylaban,1
 buhket,1
 buhok,57
+=======
+bugoy,1
+buhangin,2
+buhat,1
+buhok,6
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 buhol,1
 buhos,1
 buhrle,1
@@ -1599,6 +1897,7 @@ buhusan,1
 bukal,3
 bukana,1
 bukang,1
+<<<<<<< HEAD
 bukangliwayway,4
 bukas,170
 bukhang,1
@@ -1681,6 +1980,26 @@ bumibisitang,2
 bumibitaw,1
 bumibitiw,1
 bumida,1
+=======
+bukas,50
+bukhang,1
+bukid,1
+bukod,2
+bukol,2
+bulag,1
+bulagan,1
+bulong,1
+bulsa,3
+bumaba,1
+bumabata,1
+bumagsak,3
+bumalik,4
+bumaliktad,1
+bumangga,1
+bumata,1
+bumati,1
+bumibili,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 bumigat,1
 bumihag,1
 bumilad,1
@@ -1690,6 +2009,7 @@ bumisita,20
 bumitin,1
 bumiyahe,7
 bumoboses,1
+<<<<<<< HEAD
 bumoboto,2
 bumoto,38
 bumubula,1
@@ -1732,10 +2052,19 @@ buong,236
 buongbuhay,1
 buongbuo,2
 buongtaong,1
+=======
+bumoto,1
+bungad,4
+bungal,1
+bungol,1
+bunso,2
+buong,17
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 burahan,1
 burahin,3
 buraot,2
 burat,3
+<<<<<<< HEAD
 burghol,3
 burikat,2
 burnik,2
@@ -1824,9 +2153,28 @@ cerfang,1
 cesaz,1
 cevalo,1
 cguro,1
+=======
+burikat,2
+busog,3
+buto,1
+buuin,1
+buwan,10
+buwis,2
+bwakanang,1
+bwiset,316
+bwisit,8
+byahe,1
+calabarzon,1
+calixs,1
+candila,1
+canva,1
+cayuna,1
+ccboot,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 chachat,1
 chadenga,1
 chaeyeon,1
+<<<<<<< HEAD
 chakir,1
 chalid,1
 chamunda,1
@@ -1863,6 +2211,15 @@ chikath,1
 chilax,2
 chilmanov,2
 chimbalanga,1
+=======
+changbin,6
+changlix,1
+chariz,2
+charot,5
+chicheck,1
+chikahan,1
+chikang,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 chinachat,1
 chinat,1
 chineck,1
@@ -1870,6 +2227,7 @@ chinggay,1
 chismis,2
 chismosa,4
 chiz,1
+<<<<<<< HEAD
 chka,1
 chloracne,1
 chocnut,1
@@ -1882,10 +2240,16 @@ christianhwnd,1
 chrous,1
 chrsitine,1
 chubbymataba,1
+=======
+choreo,1
+chour,1
+chrous,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 chuchu,1
 chumachamba,1
 chz,3
 cinocollect,1
+<<<<<<< HEAD
 cipriandancer,1
 clarie,1
 clasamates,1
@@ -1895,11 +2259,14 @@ clustycom,2
 cnehan,1
 cnigaw,1
 coatepeque,2
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 cocommute,1
 coconaaalala,1
 coconcert,2
 coconfirm,1
 codm,1
+<<<<<<< HEAD
 coference,1
 colichman,1
 computerserver,1
@@ -1947,11 +2314,22 @@ daangdaang,1
 daankaway,1
 daantaon,2
 daara,1
+=======
+conyo,1
+covid,1
+crdj,1
+croomf,1
+crushie,1
+cvsu,1
+cyler,1
+d,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 dabog,2
 dadaan,5
 dadaanan,1
 dadag,1
 dadagdag,1
+<<<<<<< HEAD
 dadaig,1
 dadalhin,12
 dadalo,4
@@ -2149,10 +2527,45 @@ demokratikong,8
 demonstrador,1
 demonstrasyon,6
 demonyo,7
+=======
+dadalhin,2
+dadeh,4
+dagat,1
+dagdag,3
+dagok,1
+dahandahan,1
+dahilan,3
+daig,1
+dakilang,1
+dalang,1
+dalawa,20
+dalawang,22
+dalwang,1
+damay,3
+damayan,1
+damdamin,1
+damuho,1
+danugin,1
+dapitan,1
+darating,1
+dasurb,1
+dasurv,1
+dazznight,1
+ddshit,1
+de,1
+deib,3
+dejoke,1
+dekada,1
+delikado,2
+delikadong,1
+delulu,1
+demonyo,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 demonyong,1
 demostrador,1
 demostrasyon,2
 denden,1
+<<<<<<< HEAD
 dengdeng,4
 densidad,6
 deopartment,1
@@ -2217,6 +2630,13 @@ didiretso,2
 digmaan,41
 digmaang,14
 digmaannang,1
+=======
+depensa,2
+deserb,1
+desisyon,6
+deza,1
+dibdib,7
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 digong,1
 digrap,1
 digri,2
@@ -2226,6 +2646,7 @@ dihalatang,1
 diin,12
 diinaasahang,1
 dika,1
+<<<<<<< HEAD
 dikaayaaya,1
 dikailanman,6
 dikailanmang,4
@@ -2251,6 +2672,11 @@ dilim,4
 dilokal,1
 dilumagda,1
 dimaayos,1
+=======
+dikit,2
+dikitdikit,1
+dilawan,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 dimagiba,1
 dimahusay,1
 dimensiyon,2
@@ -2298,6 +2724,7 @@ dinikitan,1
 dinilaan,2
 dinipensahan,1
 dinirect,1
+<<<<<<< HEAD
 dinirihe,1
 dinisenyo,6
 dinisolba,1
@@ -2409,11 +2836,18 @@ doblehin,2
 dobleng,1
 docom,1
 dodoble,2
+=======
+dinodogshow,1
+dinugtungan,1
+divisoria,1
+diyan,46
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 dodogshow,1
 dodogshowin,1
 dodong,7
 dodownload,1
 dogshow,3
+<<<<<<< HEAD
 dokonivalu,1
 doktora,6
 doktrina,1
@@ -2559,11 +2993,38 @@ dzor,1
 e,48
 ealan,1
 eatablisyemento,1
+=======
+donbelle,6
+donggyun,1
+doromal,2
+dororo,1
+dragonborn,1
+duduo,1
+dugo,3
+dugyot,1
+dumaan,4
+dumadaan,1
+dumadaloy,1
+dumadating,1
+dumami,1
+dumapo,1
+dumating,6
+dumi,2
+dumumi,1
+dustine,1
+duterte,1
+duwa,1
+duwag,2
+dyib,1
+e,21
+ealan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ebak,1
 ebalwasyon,1
 ebanghelyo,1
 ebaporasyon,1
 ebbg,1
+<<<<<<< HEAD
 ebidensiya,15
 ebidensiyang,1
 ebidensya,25
@@ -2587,11 +3048,15 @@ edukasyonal,2
 edukasyong,5
 edware,1
 eenjoy,1
+=======
+ebidensya,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 eepal,3
 eespiya,1
 eexam,1
 eexpect,1
 eexpose,1
+<<<<<<< HEAD
 egoista,1
 ehanother,1
 ehbumangon,1
@@ -2609,6 +3074,8 @@ ehipto,20
 ehmaalat,1
 ehra,1
 ehrotfl,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ekis,2
 eklipse,2
 eklusibong,1
@@ -2656,6 +3123,7 @@ ekumenikal,1
 ekwador,1
 ekwasyon,2
 elago,1
+<<<<<<< HEAD
 electromsgnetic,1
 eleksiyon,16
 eleksiyong,2
@@ -2689,9 +3157,13 @@ emisiyon,1
 emisyon,6
 emisyong,1
 emix,2
+=======
+elmow,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 emman,1
 emoang,1
 emoji,2
+<<<<<<< HEAD
 emosyon,3
 emosyonal,4
 empanadang,1
@@ -2710,11 +3182,15 @@ enerhiya,34
 enerhiyang,10
 engeng,1
 englatera,5
+=======
+emplayado,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 englishan,1
 engot,3
 engrandeng,2
 engremont,1
 enha,7
+<<<<<<< HEAD
 enhard,1
 enheniero,1
 ensayklopedya,1
@@ -2943,6 +3419,41 @@ gagamit,3
 gagamitin,25
 gagampanan,1
 gagana,3
+=======
+ensd,1
+entrep,1
+epekto,1
+epje,1
+esbi,2
+escolta,1
+estranghero,1
+estudyante,2
+etong,1
+eunchae,1
+eunhae,1
+evilgrin,2
+exlap,1
+eyy,1
+fabie,1
+fafa,1
+fakenews,1
+feelingera,1
+fefeel,1
+feliza,1
+ferzown,1
+ffirst,1
+finollow,2
+flinex,1
+forda,3
+freeball,1
+fuckshit,1
+g,3
+gaano,8
+gaanong,1
+gabing,1
+gagaling,1
+gagamitin,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 gaganahan,1
 gaganap,2
 gaganapin,13
@@ -2965,6 +3476,7 @@ gagra,1
 gagraduate,3
 gagu,3
 gagwapo,1
+<<<<<<< HEAD
 galak,2
 galaksiya,2
 galaksiyang,3
@@ -3117,6 +3629,48 @@ giliw,1
 gillani,1
 gimik,1
 gimikan,1
+=======
+galaw,4
+galet,1
+galitin,1
+gamit,14
+gamitin,4
+gamot,2
+ganang,2
+ganap,5
+ganaps,1
+gandang,1
+ganito,22
+ganitong,5
+ganiyan,7
+ganti,1
+ganto,4
+gantong,3
+ganyan,23
+ganyang,4
+gapo,1
+gaslighting,1
+gasul,1
+gawan,2
+gawin,26
+gawing,3
+gayahin,1
+gcash,9
+gedli,1
+genmath,1
+genshin,1
+geonu,1
+gerrykups,1
+geybin,1
+ggx,1
+ghinoghost,1
+ghorls,2
+ghurl,1
+giatay,1
+gigil,3
+gigym,1
+gilid,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ginagago,1
 ginagalang,1
 ginagalawan,1
@@ -3127,9 +3681,13 @@ ginagamot,2
 ginagampanan,4
 ginaganap,3
 ginaganto,1
+<<<<<<< HEAD
 ginagatasan,1
 ginagawa,112
 ginagawabinibili,1
+=======
+ginagawa,11
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ginagawan,1
 ginagawang,9
 ginagaway,1
@@ -3143,6 +3701,7 @@ ginamitan,1
 ginamot,3
 ginampanan,6
 ginanahan,1
+<<<<<<< HEAD
 ginanap,15
 ginanapan,1
 ginang,15
@@ -3156,11 +3715,18 @@ ginaw,2
 ginawan,1
 ginawang,38
 ginaya,3
+=======
+ginastos,1
+ginaw,2
+ginawang,8
+ginaya,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ginayuma,1
 ginetlak,1
 giniba,2
 ginigigil,1
 giniginaw,1
+<<<<<<< HEAD
 ginigisa,1
 ginigrill,1
 ginintuang,3
@@ -3172,10 +3738,16 @@ ginoong,52
 ginrit,1
 gintong,7
 ginugol,2
+=======
+ginigrill,1
+ginintuang,1
+ginising,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ginugulo,1
 ginugulpi,1
 ginuhit,1
 ginulo,4
+<<<<<<< HEAD
 ginunita,1
 ginupit,1
 ginusto,2
@@ -3338,6 +3910,48 @@ gumulat,1
 gumulo,1
 gumulong,1
 gumwapo,1
+=======
+gising,17
+gitna,3
+gmeet,1
+gobyerno,3
+godbless,1
+gonggong,1
+gopuri,1
+gorl,1
+gorya,1
+graba,1
+grabeng,1
+gripo,1
+groupmates,1
+grumaduate,1
+grumagraduate,1
+gtlt,2
+gugulpihin,1
+guguluhin,2
+gulat,1
+gulay,1
+gulong,1
+guluhin,1
+gumagalaw,1
+gumagamit,3
+gumagana,1
+gumagapang,1
+gumagawa,3
+gumagraduate,1
+gumalang,1
+gumalaw,1
+gumamit,1
+gumana,1
+gumanap,1
+gumanon,1
+gumastos,2
+gumawa,9
+gumigising,1
+gumigitna,1
+gumising,1
+gumugulo,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 gunggong,4
 guniguni,17
 guniguning,1
@@ -3347,6 +3961,7 @@ gunting,3
 gupit,6
 gurad,1
 gurang,1
+<<<<<<< HEAD
 gurgen,1
 gurong,1
 gurongkong,1
@@ -3366,9 +3981,17 @@ guwardya,2
 gwagwapo,1
 gwak,2
 gwapo,30
+=======
+gustong,10
+gutom,6
+gwagwapo,1
+gwak,2
+gwapo,24
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 gwapong,2
 gyera,4
 gyuhao,1
+<<<<<<< HEAD
 h,5
 habagat,1
 habambuhay,8
@@ -3399,6 +4022,15 @@ hahamakin,1
 hahanap,1
 hahanapan,1
 hahanapin,6
+=======
+habol,1
+habulan,1
+hadlang,1
+haech,1
+haechan,2
+hagdan,1
+hahamakin,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 hahanda,1
 hahandugan,1
 hahantong,2
@@ -3413,6 +4045,7 @@ hahawakan,1
 hahayaan,6
 hajduajsuahaush,1
 hajeongwoo,1
+<<<<<<< HEAD
 hakahaka,8
 hakamies,1
 hakbang,109
@@ -3481,10 +4114,28 @@ hango,1
 hangong,1
 hanguin,1
 haniya,1
+=======
+hakdog,1
+halaga,1
+halata,4
+halatang,5
+halika,3
+halimaw,1
+halip,1
+haluan,1
+hambalusin,1
+hambog,1
+hampas,1
+hanap,2
+hanep,1
+hangganan,1
+hanghang,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 hanji,1
 hanngang,1
 hanskemchu,1
 hapdi,2
+<<<<<<< HEAD
 hapon,189
 hapondrayber,1
 hapones,8
@@ -3534,9 +4185,22 @@ haylayt,1
 hayop,89
 hayskol,1
 hayskul,4
+=======
+hapon,3
+harabas,1
+harap,3
+harot,2
+haruto,2
+hashtag,3
+hawak,1
+hawakan,1
+hayaan,7
+hayop,35
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 hayss,2
 hayssss,1
 hayst,2
+<<<<<<< HEAD
 hayuk,2
 hayup,7
 hayupan,1
@@ -3602,6 +4266,18 @@ highbloodin,1
 higit,131
 hihigit,4
 hihigitan,1
+=======
+hayup,6
+heartrob,1
+heehoon,1
+heeseung,1
+heesun,1
+helcurt,1
+heto,2
+heurt,1
+higaan,2
+higit,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 hihilahin,1
 hihilain,1
 hihimasin,1
@@ -3614,6 +4290,7 @@ hihingi,3
 hihintayin,2
 hihinto,2
 hihiram,1
+<<<<<<< HEAD
 hihit,2
 hihitay,1
 hiilagang,1
@@ -3652,10 +4329,18 @@ himpilang,2
 hinabla,1
 hinabol,9
 hinagpis,1
+=======
+hilain,1
+hilig,1
+hilingin,2
+himbing,1
+himlay,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 hinaha,1
 hinahabol,6
 hinahadlangan,2
 hinahagilap,1
+<<<<<<< HEAD
 hinahalang,1
 hinahalo,1
 hinahampas,3
@@ -3670,6 +4355,10 @@ hinahatulan,1
 hinahawakan,2
 hinahayaan,6
 hinahayaang,1
+=======
+hinahanap,3
+hinahayaan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 hinaheart,1
 hinain,1
 hinaing,1
@@ -3702,6 +4391,7 @@ hinayaan,1
 hinayang,1
 hinayin,1
 hinayupak,2
+<<<<<<< HEAD
 hindii,1
 hindikasangkapan,1
 hindimo,1
@@ -3754,6 +4444,19 @@ hiniritan,1
 hiniwalay,1
 hiniwalayan,2
 hinlalaki,1
+=======
+hinding,1
+hindot,6
+hineart,1
+hinga,1
+hingi,1
+hinihila,1
+hinihiling,1
+hinihingal,1
+hinihintay,1
+hinintay,3
+hiniram,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 hinliliit,1
 hinog,6
 hintay,6
@@ -3775,6 +4478,7 @@ hinulaang,3
 hinuli,7
 hinulog,1
 hipag,1
+<<<<<<< HEAD
 hipan,1
 hipon,4
 hipuin,2
@@ -3850,10 +4554,25 @@ huhubarin,1
 huhugasan,1
 huhuhu,7
 huhuhuhu,1
+=======
+hipon,1
+hita,4
+hitang,1
+hitsura,1
+hiwalayan,1
+hiyang,2
+hndi,1
+hody,1
+hoyy,1
+hudas,1
+huhubad,1
+huhuhu,6
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 huhujhgug,1
 huhulaan,1
 huhuntingin,1
 huhusay,1
+<<<<<<< HEAD
 hukbo,22
 hukbong,22
 hukbongdagat,16
@@ -3876,6 +4595,13 @@ hulugan,1
 hulyo,35
 hulyosetyembre,1
 humaba,3
+=======
+hukuman,1
+hulaan,1
+hulas,1
+hule,1
+hulihin,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 humabol,1
 humadlang,1
 humagilap,1
@@ -3916,6 +4642,7 @@ humigpit,1
 humihihip,1
 humihikayat,2
 humihilab,1
+<<<<<<< HEAD
 humihilik,1
 humihiling,3
 humihinga,3
@@ -3969,6 +4696,17 @@ hybe,2
 hyeji,1
 hyewon,1
 hygine,1
+=======
+humihinga,2
+humiling,1
+humimlay,1
+huminto,1
+humss,1
+huwodywodiosi,1
+hybe,2
+hyeji,1
+hyewon,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 hyojung,1
 hyunakie,1
 hyunjin,3
@@ -3978,6 +4716,7 @@ iabot,1
 iaccept,2
 iadd,5
 iadjust,1
+<<<<<<< HEAD
 iadyast,1
 iakyat,1
 ialmusal,1
@@ -4010,6 +4749,12 @@ ibatibang,28
 ibay,2
 ibayo,2
 ibayong,6
+=======
+ibabalik,2
+ibabaw,1
+ibalik,3
+ibalita,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ibbara,1
 ibblock,1
 ibbr,2
@@ -4017,6 +4762,7 @@ ibebenta,2
 ibenta,4
 ibibigay,11
 ibida,1
+<<<<<<< HEAD
 ibigay,129
 ibigin,3
 ibigsabihin,2
@@ -4045,6 +4791,11 @@ ibinigay,32
 ibinihagi,1
 ibinilang,3
 ibinilanggo,2
+=======
+ibigay,5
+ibinabangon,1
+ibinigay,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ibinilin,1
 ibinoto,2
 ibinotong,1
@@ -4069,6 +4820,7 @@ ibuburol,1
 ibukod,2
 ibunyag,3
 ibusted,1
+<<<<<<< HEAD
 ibuyong,1
 icafe,1
 icafes,1
@@ -4077,12 +4829,18 @@ icecelebrate,1
 icecold,1
 icelebrate,2
 icemark,1
+=======
+icallout,1
+icecelebrate,1
+icelebrate,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 icesaw,1
 ichichika,1
 icomfort,1
 icoverup,1
 icut,1
 idadaan,1
+<<<<<<< HEAD
 idagdag,6
 idamay,2
 idaos,1
@@ -4139,9 +4897,16 @@ idinulot,6
 idisenyo,1
 idistansya,1
 idlib,1
+=======
+idagdag,1
+idamay,1
+ideclare,1
+idedefend,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 idoble,1
 idodonasyon,1
 idodrop,1
+<<<<<<< HEAD
 idolo,2
 idrawing,1
 idrop,1
@@ -4177,6 +4942,15 @@ ihagis,1
 ihahain,1
 ihahalal,1
 ihahambing,3
+=======
+idolo,1
+idrawing,1
+idrop,1
+iexplain,1
+iextend,1
+iflush,1
+iggive,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ihahampas,1
 ihahandang,1
 ihaharap,2
@@ -4249,6 +5023,7 @@ ikaisandaang,1
 ikakabuti,1
 ikakahiya,1
 ikakamatay,1
+<<<<<<< HEAD
 ikakasal,4
 ikakasira,1
 ikalabindalawang,1
@@ -4279,6 +5054,8 @@ ikatlongpangkat,1
 ikawalo,3
 ikawalong,1
 ikay,7
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ikeep,1
 ikinabubuhay,1
 ikinadismaya,1
@@ -4321,6 +5098,7 @@ ikukumpirma,1
 ikukuwarantin,1
 ikulong,2
 ikumpara,1
+<<<<<<< HEAD
 ikumpirma,1
 ikuwekuwento,1
 ikuwento,2
@@ -4385,6 +5163,27 @@ imbestigasyon,49
 imbestigasyong,2
 imbestigasyonsa,1
 imbestment,1
+=======
+ilaban,1
+ilabas,6
+ilagay,1
+ilalaan,1
+ilalakad,1
+ilalala,1
+ilalim,1
+ilang,23
+ilichil,1
+ilong,2
+ilugar,1
+ilulunod,1
+imahe,1
+imahinasyon,1
+imamarites,1
+imamine,1
+imamyday,1
+imang,1
+imbes,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 imbis,4
 imbitado,2
 imbitahin,4
@@ -4393,6 +5192,7 @@ imbudong,1
 imburnal,1
 imedya,1
 imee,1
+<<<<<<< HEAD
 imigrante,3
 imigrasyon,3
 iminumungkahi,3
@@ -4464,6 +5264,15 @@ inaalok,1
 inaamin,3
 inaamoy,1
 inaangkin,1
+=======
+impiyernong,1
+impormasyon,1
+imposibleng,1
+impyerno,5
+inaaccept,1
+inaagaw,1
+inaalala,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 inaano,4
 inaantay,1
 inaantok,10
@@ -4486,6 +5295,7 @@ inaayuda,1
 inabala,1
 inabandona,1
 inabangan,1
+<<<<<<< HEAD
 inabisuhan,3
 inabot,13
 inabraw,2
@@ -4511,16 +5321,26 @@ inalathalang,1
 inalerto,1
 inalis,33
 inalisan,1
+=======
+inabot,4
+inadventure,1
+inagaw,2
+inalagaan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 inalok,1
 inamin,18
 inamo,2
 inampon,1
 inanakan,1
+<<<<<<< HEAD
 inang,11
 inangbayan,1
 inangkin,3
 inangking,1
 inantala,1
+=======
+inang,6
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 inantok,1
 inanunsiyo,1
 inanunsyo,6
@@ -4546,6 +5366,7 @@ inaway,3
 inay,11
 inayos,4
 inazuma,1
+<<<<<<< HEAD
 inbentor,1
 inbitasyon,1
 inday,3
@@ -4577,6 +5398,8 @@ industriysa,1
 industrya,3
 indyang,3
 ineeettalo,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ineencourage,1
 ineestorbo,1
 ineeym,1
@@ -4584,6 +5407,7 @@ inempake,1
 inend,1
 ineng,2
 inexpect,2
+<<<<<<< HEAD
 ingatan,3
 ingats,1
 ingay,23
@@ -4606,6 +5430,13 @@ inialis,1
 inialok,2
 iniba,4
 inibinalita,1
+=======
+ingay,9
+inggit,6
+inggitan,1
+inggitin,1
+ini,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 inicon,1
 inidoro,1
 iniendorso,1
@@ -4645,6 +5476,7 @@ iniinis,1
 iniinom,5
 iniintay,3
 iniintindi,1
+<<<<<<< HEAD
 iniisip,71
 iniisponsoran,1
 iniispreyan,1
@@ -4812,6 +5644,27 @@ intindihin,5
 intitute,1
 intriga,2
 intsik,11
+=======
+iniisip,9
+iniissue,1
+iniistalk,1
+iniiyakan,2
+inimprinta,1
+ininform,1
+ininom,2
+inisip,2
+inistalk,1
+iniwan,5
+iniyakan,1
+inluv,1
+inoff,1
+instagram,12
+institusyon,1
+intertown,1
+intindhin,1
+intindihin,3
+intsik,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 inubo,1
 inubos,3
 inudyukan,1
@@ -4851,12 +5704,18 @@ inuusisa,1
 inuutang,1
 inuutusan,3
 inuwi,2
+<<<<<<< HEAD
 inyokaya,1
 inyonaglalabor,1
 ioff,1
 iooffer,1
 iopen,2
 iotm,1
+=======
+ioff,1
+iooffer,1
+iopen,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ipaabang,1
 ipaabot,1
 ipaalaala,2
@@ -4864,6 +5723,7 @@ ipaalam,8
 ipaavatar,1
 ipaayos,3
 ipabarang,1
+<<<<<<< HEAD
 ipabata,1
 ipabatid,2
 ipabukas,1
@@ -4875,6 +5735,10 @@ ipadetalye,1
 ipag,1
 ipagamit,1
 ipagawa,3
+=======
+ipagamit,1
+ipagawa,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ipagaya,1
 ipagbabawal,2
 ipagbawal,3
@@ -4897,6 +5761,7 @@ ipagpatuloy,11
 ipagpaumanhin,1
 ipagpilitan,1
 ipagpipilitan,1
+<<<<<<< HEAD
 ipagtanggol,7
 ipagwalang,1
 ipagwalangbahala,1
@@ -4914,6 +5779,10 @@ ipakulong,1
 ipalabas,10
 ipalagay,1
 ipalalaro,1
+=======
+ipagyabang,1
+ipakita,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ipalamon,1
 ipaligtas,1
 ipaliliwanag,1
@@ -4931,10 +5800,14 @@ ipanotary,1
 ipapa,3
 ipapadala,1
 ipapaframe,1
+<<<<<<< HEAD
 ipapagawa,1
 ipapahayag,1
 ipapakilala,1
 ipapakita,5
+=======
+ipapakita,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ipapakulam,1
 ipapakulong,1
 ipapalabas,3
@@ -5033,6 +5906,7 @@ ipinalipad,1
 ipinaliwanag,13
 ipinamanhik,2
 ipinamimigay,1
+<<<<<<< HEAD
 ipinanalo,1
 ipinangako,2
 ipinangakong,1
@@ -5079,6 +5953,12 @@ ipokresiya,1
 ipokrita,1
 ipon,3
 ipopost,3
+=======
+ipis,4
+ipokrita,1
+ipon,2
+ipopost,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 iportfolio,1
 ipost,1
 ipresinta,1
@@ -5093,17 +5973,22 @@ ireactivate,1
 irebisa,1
 irebyu,1
 irefund,1
+<<<<<<< HEAD
 iregularidad,1
 irekomenda,1
 irekord,1
 ireminisce,1
 ireport,2
 irerefer,1
+=======
+ireport,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 irerelease,1
 irerent,1
 irereport,1
 irestrict,1
 ireto,1
+<<<<<<< HEAD
 irevive,2
 irfed,1
 irita,1
@@ -5113,6 +5998,11 @@ irrawady,1
 isaalangalang,17
 isaanong,3
 isaayos,2
+=======
+irevive,1
+irita,1
+iritang,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 isagad,1
 isagawa,3
 isagawang,1
@@ -5132,6 +6022,7 @@ isalpak,1
 isalpok,1
 isama,11
 isampal,1
+<<<<<<< HEAD
 isandal,1
 isangaraw,2
 isanggalang,1
@@ -5162,12 +6053,18 @@ isauli,3
 isaw,2
 isdang,5
 isday,1
+=======
+isasagot,2
+isasahog,1
+isaw,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 isend,1
 isetupnetworking,1
 iseul,1
 isex,1
 isfeling,1
 ishe,1
+<<<<<<< HEAD
 ishigakijima,1
 isigurado,1
 isiguro,1
@@ -5228,6 +6125,11 @@ iskala,1
 iskandalo,1
 iskawt,2
 iskedyul,4
+=======
+isipan,3
+isipin,2
+isisi,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 iskinita,1
 iskolar,1
 iskolarship,1
@@ -5255,6 +6157,7 @@ ispiradong,1
 ispirituwalidad,1
 ispiyang,1
 ispoil,1
+<<<<<<< HEAD
 isponsor,1
 isports,6
 isportspanglalaki,1
@@ -5308,6 +6211,13 @@ isummarize,1
 isunod,1
 isunulong,1
 isuot,4
+=======
+istalk,1
+istorbihin,1
+istorya,2
+isulat,1
+isuot,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 isurprise,1
 isuspinde,1
 isusubo,1
@@ -5315,15 +6225,19 @@ isusuggest,3
 isusuko,1
 isusulat,2
 isusuot,1
+<<<<<<< HEAD
 isyu,22
 isyung,3
 itaas,22
 itaboy,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 itag,1
 itagalog,1
 itago,10
 itaguyod,3
 itakin,1
+<<<<<<< HEAD
 itakwil,1
 italiyano,1
 italya,22
@@ -5416,6 +6330,17 @@ itry,4
 itsura,10
 itukoy,1
 itulak,1
+=======
+itanong,2
+itanyag,1
+itapon,1
+itatanggi,1
+itatanong,1
+itetext,1
+itinakda,1
+itlog,2
+itsura,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 itulog,1
 ituloy,5
 ituring,3
@@ -5430,6 +6355,7 @@ itwist,1
 itzy,1
 iulat,1
 iuntog,1
+<<<<<<< HEAD
 iupgrade,2
 iurong,2
 iuulat,1
@@ -5456,6 +6382,20 @@ izel,1
 izero,1
 j,13
 jabee,1
+=======
+iverify,1
+ivler,1
+iwasan,1
+iyak,11
+iyakin,1
+iyang,1
+iyo,5
+iyon,6
+izek,1
+izel,1
+izero,1
+j,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 jaehyuk,1
 jaehyun,1
 jaemin,1
@@ -5464,6 +6404,7 @@ jaipal,1
 jaishemohammed,1
 jajumbo,1
 jakehoon,1
+<<<<<<< HEAD
 jakuzzi,1
 jambyng,1
 jamesassiniboia,1
@@ -5477,15 +6418,23 @@ jarban,1
 jarchow,1
 jashin,1
 javaman,1
+=======
+jan,6
+japearl,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 jayb,1
 jayke,1
 jaypogi,2
 jaywon,1
+<<<<<<< HEAD
 jduval,1
 jealyn,1
 jeanpierre,1
 jedpot,1
 jeffcom,1
+=======
+jealyn,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 jejemon,5
 jempoy,1
 jeongcheol,1
@@ -5493,10 +6442,13 @@ jeonghan,5
 jeongin,1
 jepay,1
 jepslogs,1
+<<<<<<< HEAD
 jerryromano,1
 jesem,1
 jetjet,1
 jhal,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 jhei,1
 jheld,1
 jhenna,2
@@ -5518,6 +6470,7 @@ jio,1
 jisoo,1
 jisung,5
 jiwoong,1
+<<<<<<< HEAD
 jjcreative,1
 jlrotfl,1
 jmsobrang,1
@@ -5551,6 +6504,16 @@ juding,1
 judisyaryo,1
 jumong,1
 junakis,2
+=======
+jojoke,1
+jolina,1
+jolits,1
+jollibots,1
+jossrei,2
+jowa,25
+jowain,1
+jumong,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 junard,1
 jungkook,8
 jungwon,6
@@ -5559,10 +6522,15 @@ junhao,1
 junhui,1
 junjun,1
 jusmiyo,2
+<<<<<<< HEAD
 justjude,2
 jyp,1
 k,12
 kaaalis,1
+=======
+jyp,1
+k,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kaacclaan,1
 kaaga,1
 kaagad,23
@@ -5589,6 +6557,7 @@ kaanyo,1
 kaaralan,2
 kaarawan,29
 kaartehan,2
+<<<<<<< HEAD
 kaaway,12
 kaayaaya,1
 kaayon,1
@@ -5628,6 +6597,14 @@ kabang,2
 kabanya,1
 kabarkada,1
 kabas,1
+=======
+kaaway,2
+kaayos,1
+kabado,5
+kabadong,1
+kabahan,3
+kabanata,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kabash,1
 kabastusan,2
 kabata,5
@@ -5662,8 +6639,11 @@ kabisahan,1
 kabisang,1
 kabisera,23
 kabit,9
+<<<<<<< HEAD
 kabiyak,2
 kableng,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kabobohan,3
 kabog,1
 kaboses,1
@@ -5687,6 +6667,7 @@ kabuuan,23
 kabuuang,26
 kabwiset,1
 kachat,2
+<<<<<<< HEAD
 kadahilanan,9
 kadahilanang,3
 kadakilaan,1
@@ -5698,11 +6679,14 @@ kadalisayan,1
 kadalubhasaan,1
 kadami,2
 kadaming,3
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kadamutan,1
 kadaraan,1
 kademonyohan,1
 kadete,4
 kadikit,1
+<<<<<<< HEAD
 kadilim,1
 kadiliman,4
 kadudaduda,1
@@ -5714,10 +6698,14 @@ kaepektibo,1
 kafal,1
 kagabebop,1
 kagabi,35
+=======
+kagabi,6
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kagabing,1
 kagad,3
 kagagahan,1
 kagagawa,1
+<<<<<<< HEAD
 kagagawan,3
 kagaguhan,3
 kagalakan,1
@@ -5743,6 +6731,12 @@ kagawaran,48
 kagawarang,2
 kagawian,1
 kagaya,18
+=======
+kagagawan,1
+kagaguhan,3
+kagat,1
+kagaya,5
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kagigil,1
 kagigising,1
 kagilagilalas,5
@@ -5765,6 +6759,7 @@ kagustuhan,11
 kagustuhang,3
 kagutuman,2
 kagwapo,1
+<<<<<<< HEAD
 kagwapuhan,1
 kagyat,2
 kahaba,1
@@ -5850,9 +6845,32 @@ kainin,21
 kainis,5
 kainit,3
 kainitan,1
+=======
+kahalaga,1
+kahapon,10
+kaharap,1
+kahawig,1
+kahibangan,1
+kahihiyan,3
+kahilingan,1
+kahinaan,1
+kahirapan,1
+kahiya,5
+kaibagan,1
+kaibahan,1
+kaibigang,1
+kaiingit,1
+kaiisip,1
+kailangang,2
+kailanman,2
+kainin,1
+kainis,4
+kainit,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kainlove,1
 kainsikan,2
 kairita,3
+<<<<<<< HEAD
 kaisaisa,1
 kaisaisahang,3
 kaisaisang,7
@@ -5860,6 +6878,8 @@ kaisipan,10
 kaistorya,1
 kakaalis,1
 kakaaliw,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kakaayos,1
 kakababa,1
 kakabahan,2
@@ -5873,6 +6893,7 @@ kakagatin,1
 kakagigil,2
 kakagising,6
 kakahanap,1
+<<<<<<< HEAD
 kakahayang,1
 kakahintay,1
 kakahiya,2
@@ -5885,6 +6906,12 @@ kakain,13
 kakainin,4
 kakainis,4
 kakainstall,1
+=======
+kakahiya,1
+kakain,5
+kakainin,1
+kakainis,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kakainteract,1
 kakaisip,6
 kakaiyot,1
@@ -5921,7 +6948,10 @@ kakapagod,1
 kakapalan,2
 kakapanayamin,1
 kakapasok,1
+<<<<<<< HEAD
 kakapkap,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kakaposer,1
 kakapusan,1
 kakapusanay,1
@@ -5936,11 +6966,16 @@ kakasya,1
 kakatamad,1
 kakatapos,3
 kakatawa,3
+<<<<<<< HEAD
 kakatawan,3
 kakataying,1
 kakatulog,1
 kakatuwang,1
 kakaumay,1
+=======
+kakataying,1
+kakatulog,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kakauninstall,2
 kakaunti,9
 kakaunting,8
@@ -5955,6 +6990,7 @@ kakayanang,3
 kakayanin,3
 kakikitaan,1
 kakilabot,1
+<<<<<<< HEAD
 kakilabotkilabot,1
 kakilakilabot,1
 kakilala,9
@@ -6010,12 +7046,26 @@ kalamansi,6
 kalamay,3
 kalamidad,3
 kalamnan,1
+=======
+kakilala,1
+kakitid,1
+kaklase,5
+kakosa,2
+kakupalan,2
+kalaban,5
+kalagayan,2
+kalahati,1
+kalahating,2
+kalakas,1
+kalalakihan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kalandian,3
 kalang,2
 kalangitan,2
 kalapastanganan,1
 kalapati,13
 kalapating,1
+<<<<<<< HEAD
 kalapit,17
 kalapitan,2
 kalapitbahay,1
@@ -6082,9 +7132,18 @@ kalix,1
 kalkulasyon,1
 kalmado,1
 kalmadong,1
+=======
+kalaro,1
+kalaswaan,1
+kalawang,1
+kalbo,2
+kaligayahan,4
+kalix,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kalmahan,4
 kalmante,1
 kaloka,1
+<<<<<<< HEAD
 kalokohan,5
 kalomperovic,1
 kaloob,3
@@ -6161,10 +7220,23 @@ kampeon,8
 kampeonato,12
 kamperenz,1
 kamphidennnssz,1
+=======
+kalokohan,2
+kalsada,4
+kamag,1
+kamaganak,1
+kamalasan,2
+kamao,1
+kamatayan,1
+kambing,2
+kamot,1
+kamote,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kampi,2
 kampihan,1
 kampiyon,1
 kampon,1
+<<<<<<< HEAD
 kamuka,1
 kamukha,11
 kamukhangkamukha,1
@@ -6323,6 +7395,27 @@ kapitolyo,6
 kapkapan,1
 kaplastikan,1
 kapm,1
+=======
+kamukha,5
+kamusta,3
+kamustahin,2
+kanang,2
+kang,74
+kangen,1
+kanino,2
+kaninong,1
+kaniya,21
+kapagod,2
+kapal,14
+kapalit,1
+kapareho,2
+kapatid,18
+kapekean,1
+kapeng,1
+kapitalista,1
+kapitbahay,1
+kaplastikan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kapogian,1
 kapogihan,1
 kapos,4
@@ -6348,6 +7441,7 @@ karahasan,22
 karahasang,1
 karakol,1
 karamay,1
+<<<<<<< HEAD
 karamdaman,5
 karamihan,68
 karamihang,7
@@ -6398,6 +7492,9 @@ karikatura,2
 karinderya,1
 karismatik,1
 karlodatu,1
+=======
+karapatan,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 karmahin,1
 karnabal,1
 karne,19
@@ -6417,6 +7514,7 @@ karupukan,2
 karuwahe,1
 karwahe,3
 karylle,1
+<<<<<<< HEAD
 kasabay,16
 kasabihan,2
 kasabihang,1
@@ -6536,6 +7634,22 @@ katagang,1
 katagumpayan,3
 katahimikan,9
 katakami,1
+=======
+kasabihan,1
+kasalanan,20
+kasali,1
+kasawa,2
+kasing,11
+kasiyahan,2
+kasuhan,1
+kasunduan,1
+kasuyo,1
+kasya,1
+kataas,1
+katabi,2
+katagal,1
+katahimikan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 katakataka,1
 katakatakang,1
 katakottakot,1
@@ -6547,6 +7661,7 @@ katalinuhan,10
 katalista,1
 katalunan,1
 katamad,3
+<<<<<<< HEAD
 katamaran,2
 katambal,1
 katamis,1
@@ -6570,10 +7685,15 @@ kataong,2
 katapangan,3
 katapat,3
 katapatan,2
+=======
+katangahan,4
+katanungan,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 katapos,1
 katapusan,33
 katapusang,1
 katarantaduhan,1
+<<<<<<< HEAD
 katarungan,7
 katastrope,1
 katatagan,3
@@ -6582,6 +7702,9 @@ katatanghalian,2
 katatapos,6
 katatawa,1
 katatawag,1
+=======
+katatawa,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 katatawanan,1
 katatawanang,1
 katatlohang,1
@@ -6595,6 +7718,7 @@ katayauan,1
 katayuan,6
 katayuang,1
 kateam,1
+<<<<<<< HEAD
 katedral,5
 kategorya,8
 kategoryang,4
@@ -6615,6 +7739,9 @@ katinig,1
 katinko,1
 katinuan,1
 katitila,1
+=======
+katigasan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 katiting,1
 katiwa,1
 katiwala,1
@@ -6627,6 +7754,7 @@ katolika,2
 katoliko,5
 katolikong,2
 katorse,1
+<<<<<<< HEAD
 katotohanan,44
 katotohanang,3
 katotong,1
@@ -6759,6 +7887,30 @@ khisses,1
 khit,1
 khulet,1
 kidlat,6
+=======
+katotohanan,1
+katropa,1
+katulad,4
+katulog,1
+katzupoy,1
+kaurat,1
+kausap,17
+kausapin,8
+kausapkinukumusta,1
+kawalang,1
+kawatan,1
+kawawa,10
+kawawang,2
+kayang,5
+kaylangan,1
+kayobagalan,1
+kaysa,8
+kelangan,3
+kemeng,1
+kentell,1
+keyt,1
+kidlat,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kidols,1
 kihno,1
 kikay,1
@@ -6767,6 +7919,7 @@ kikbak,3
 kikiam,1
 kikil,1
 kikiligin,1
+<<<<<<< HEAD
 kikilos,1
 kikita,1
 kikitain,1
@@ -6799,6 +7952,14 @@ kinabit,1
 kinabog,1
 kinabukasan,21
 kinabukasang,2
+=======
+kilabutan,1
+kilala,10
+kilalang,1
+kilig,13
+kiligin,1
+kinabahan,10
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kinacareer,1
 kinadena,1
 kinagat,6
@@ -6811,6 +7972,7 @@ kinailangan,20
 kinailangang,7
 kinain,34
 kinakabag,1
+<<<<<<< HEAD
 kinakabahan,19
 kinakabit,1
 kinakaharap,4
@@ -6826,6 +7988,11 @@ kinakangkang,1
 kinakapanayam,1
 kinakatawan,1
 kinakausap,10
+=======
+kinakabahan,16
+kinakain,2
+kinakausap,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kinakaya,2
 kinalaban,2
 kinalabasan,10
@@ -6838,6 +8005,7 @@ kinaltas,2
 kinamamayaan,4
 kinamumunghian,5
 kinancel,1
+<<<<<<< HEAD
 kinansel,1
 kinansela,4
 kinanta,1
@@ -6869,12 +8037,22 @@ kinauukulan,4
 kinauukulang,1
 kinaya,3
 kinayang,1
+=======
+kinanta,1
+kinareer,2
+kinasal,1
+kinatutuwa,1
+kinausap,2
+kinauukulan,1
+kinaya,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kingian,1
 kingina,6
 kinginamong,1
 kingrei,1
 kinhofer,1
 kinick,2
+<<<<<<< HEAD
 kinidlatan,1
 kinikibo,1
 kinikilala,10
@@ -6897,6 +8075,11 @@ kinondena,3
 kinontra,1
 kinontrol,2
 kinontrola,1
+=======
+kinikilig,24
+kinilig,2
+kinnam,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kinopy,1
 kinopya,4
 kinopyahan,1
@@ -6912,6 +8095,7 @@ kinukumpara,3
 kinukumpirma,1
 kinukumpuni,1
 kinukupal,2
+<<<<<<< HEAD
 kinulang,1
 kinulekta,1
 kinumpirma,17
@@ -6959,6 +8143,17 @@ klubo,1
 kmeng,1
 kmhr,2
 knowsung,1
+=======
+kisap,5
+kitabng,1
+kitang,9
+klase,5
+klaseng,3
+klhere,1
+klio,1
+kliyente,1
+kmeng,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 knucks,1
 koalisyon,13
 koalisyong,2
@@ -6972,6 +8167,7 @@ koeksistensiya,1
 kohlu,1
 kokaks,1
 kokey,1
+<<<<<<< HEAD
 kokonek,1
 kokonektahin,1
 kokontakin,1
@@ -7284,11 +8480,31 @@ kukris,3
 kukuha,8
 kukuhanin,3
 kukulangin,2
+=======
+kokontra,1
+kolonyal,1
+komportable,1
+kondisyon,1
+konsumo,1
+kontento,1
+konti,5
+konting,1
+koreano,1
+korique,1
+korni,3
+koryano,1
+kotse,5
+koykoy,1
+kuha,3
+kuko,1
+kukuha,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kukulit,3
 kukumpirmahin,2
 kukumpletihun,1
 kukunin,5
 kukurutin,1
+<<<<<<< HEAD
 kukute,1
 kulambo,2
 kulando,1
@@ -7335,6 +8551,20 @@ kumakatok,5
 kumakausap,3
 kumakaway,1
 kumalaban,1
+=======
+kulambo,1
+kulang,8
+kulasa,1
+kulay,3
+kulet,2
+kulog,2
+kulong,1
+kumag,1
+kumain,8
+kumakain,1
+kumakanta,2
+kumakausap,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kumalabog,1
 kumalagin,1
 kumalap,2
@@ -7347,6 +8577,7 @@ kumanta,10
 kumatawan,6
 kumatok,1
 kumausap,1
+<<<<<<< HEAD
 kumawala,1
 kumbensyon,2
 kumbento,1
@@ -7371,6 +8602,10 @@ kumilos,14
 kumindat,1
 kumita,7
 kumitil,1
+=======
+kumbulsyon,1
+kumilos,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kumokonsumong,1
 kumonpirma,1
 kumopya,2
@@ -7399,6 +8634,7 @@ kumplikasyon,1
 kumpol,2
 kumporme,1
 kumprontahin,1
+<<<<<<< HEAD
 kumpuni,2
 kumpunihin,3
 kumpurmiso,1
@@ -7510,6 +8746,24 @@ kwarantin,1
 kwarter,6
 kwarto,25
 kwartong,7
+=======
+kumuha,4
+kumukuha,2
+kumukulam,2
+kumukulo,2
+kumusta,2
+kunwari,3
+kupal,343
+kupalan,1
+kupalin,1
+kurso,1
+kuryente,5
+kusina,2
+kutob,1
+kuwenta,1
+kwannie,1
+kwarto,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 kwatro,2
 kwenta,11
 kwentang,4
@@ -7525,6 +8779,7 @@ kworterpinal,1
 kyeom,1
 kyot,1
 kyuhyun,1
+<<<<<<< HEAD
 kyut,9
 l,19
 laarni,1
@@ -7595,21 +8850,43 @@ lahatusapang,1
 lahi,20
 lahing,6
 laisenia,1
+=======
+kyut,4
+labas,12
+labasan,1
+lablayp,1
+labtim,1
+labyu,3
+lagay,2
+laging,2
+laglag,1
+lagpas,2
+lagyan,3
+lahi,1
+lahing,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 laitera,1
 lakad,3
 lakan,1
+<<<<<<< HEAD
 lakarin,1
 lakasan,2
 lakbaypahintulot,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 laking,2
 laksan,1
 lakwatsera,1
+<<<<<<< HEAD
 lalabag,2
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 lalabahin,1
 lalaban,4
 lalabanan,2
 lalabas,10
 lalabo,1
+<<<<<<< HEAD
 lalag,1
 lalagas,1
 lalagpas,2
@@ -7619,6 +8896,9 @@ lalakbayin,1
 lalake,39
 lalakeng,7
 lalakenglalaki,1
+=======
+lalake,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 lalakero,1
 lalaki,215
 lalakikahit,1
@@ -7636,6 +8916,7 @@ lalangoy,1
 lalapit,3
 lalapitan,1
 lalaro,1
+<<<<<<< HEAD
 lalawigan,17
 lalawigang,3
 lalayas,2
@@ -7686,10 +8967,21 @@ lantad,1
 lantaran,1
 lantarang,1
 lantsa,1
+=======
+lalayas,2
+lalong,4
+laloves,1
+lamig,8
+lampas,1
+lamunin,1
+landian,1
+landiin,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 lany,2
 lapad,5
 lapag,2
 lapagan,1
+<<<<<<< HEAD
 lapat,2
 lapay,2
 lapirot,1
@@ -7736,6 +9028,17 @@ layaw,1
 laybrari,1
 layon,3
 layong,4
+=======
+lapit,2
+laptrip,7
+laro,13
+larong,1
+lasang,1
+lasingerra,1
+lasunin,1
+laughtrip,2
+layag,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 layu,1
 layuan,1
 layun,1
@@ -7744,6 +9047,7 @@ layuning,4
 layuninng,1
 lazada,1
 laziz,1
+<<<<<<< HEAD
 lbjdepressed,1
 lebadura,1
 lebenon,1
@@ -7944,10 +9248,50 @@ logograpiko,1
 lokasyon,27
 lokasyong,2
 lokohin,5
+=======
+leeknow,1
+leeseo,1
+legarda,1
+leleave,2
+letche,1
+letcheng,1
+letrang,1
+lhipkram,1
+lhor,1
+libangan,1
+lichi,1
+ligaw,1
+ligpitin,1
+ligtas,1
+ligwak,1
+liit,1
+likod,7
+likuran,1
+lilipad,1
+lilipat,1
+limahang,1
+limang,5
+limutin,1
+linggo,6
+linis,1
+lintek,2
+lintik,1
+linuklok,1
+lipat,4
+lisensya,2
+listahan,1
+litrato,1
+liwanag,1
+liwayway,1
+lizquen,1
+lnph,1
+lokohin,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 loloadan,1
 lolokohin,4
 loloob,1
 lolook,1
+<<<<<<< HEAD
 lomania,1
 lompar,1
 longganisa,5
@@ -8062,6 +9406,29 @@ lumawak,2
 lumayas,5
 lumayo,3
 lumbalumba,1
+=======
+longganisa,1
+losestreak,1
+louisse,1
+lovestory,1
+lowkey,4
+lowlah,1
+lubayan,2
+lubog,4
+lugaw,1
+luha,3
+luluhuran,1
+lumaban,1
+lumabas,11
+lumaki,3
+lumalabas,4
+lumalandi,1
+lumandi,2
+lumapag,2
+lumapit,1
+lumayas,4
+lumayo,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 lumbay,1
 lumiban,1
 lumibot,1
@@ -8101,6 +9468,7 @@ lumulundag,1
 lumulutang,2
 lumunsad,1
 lumusong,1
+<<<<<<< HEAD
 lumusot,1
 lumutang,1
 lumutanglutang,1
@@ -8183,6 +9551,23 @@ maandar,1
 maangas,1
 maanghang,2
 maaninong,2
+=======
+luneta,1
+lungkot,9
+lunurin,1
+lutang,7
+luto,1
+lutong,1
+lylia,1
+m,1
+maadik,1
+maaga,5
+maagapan,1
+maalala,3
+maalis,1
+maangas,1
+maanghang,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maannounce,1
 maantala,2
 maantig,1
@@ -8243,6 +9628,7 @@ mabasa,4
 mabasag,4
 mabasagan,1
 mabase,1
+<<<<<<< HEAD
 mabata,1
 mabatid,1
 mabato,1
@@ -8294,6 +9680,20 @@ mabuksan,7
 mabukulan,1
 mabulkang,1
 mabulok,1
+=======
+mabayaran,1
+mabenta,1
+mabibili,1
+mabigay,2
+mabilis,1
+mabisang,1
+mabubuhay,1
+mabubulag,1
+mabubulok,1
+mabudol,2
+mabuga,1
+mabuksan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mabulunan,2
 mabunga,1
 mabunyag,2
@@ -8305,6 +9705,7 @@ mabuwag,1
 mabuway,2
 macancel,1
 macaption,1
+<<<<<<< HEAD
 maccain,2
 macgee,2
 machung,1
@@ -8325,6 +9726,13 @@ madaliang,7
 madaling,72
 madalingaraw,4
 madalingmadaling,1
+=======
+madala,1
+madalas,3
+madaldal,1
+madali,3
+madaling,5
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 madamay,1
 madamdaming,4
 madami,6
@@ -8365,6 +9773,7 @@ maexpose,1
 mafall,1
 mafe,1
 mafy,1
+<<<<<<< HEAD
 magaabrod,1
 magaagree,1
 magaalaga,3
@@ -8408,6 +9817,13 @@ magamit,17
 magamot,3
 magampon,1
 maganap,6
+=======
+magagalit,4
+magagawa,2
+magalala,1
+magaling,10
+magalit,7
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magandagwapo,1
 magang,1
 magantay,2
@@ -8420,6 +9836,7 @@ magasar,1
 magasawa,7
 magasawang,1
 magascend,1
+<<<<<<< HEAD
 magasing,1
 magaslaw,1
 magaspang,2
@@ -8462,6 +9879,15 @@ magbawas,3
 magbawi,1
 magbayad,11
 magbayla,1
+=======
+magastos,1
+magawa,9
+magaya,1
+magayos,1
+magbalik,1
+magbasa,5
+magbayad,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magbbirthday,1
 magbebenta,1
 magbenefit,1
@@ -8503,13 +9929,17 @@ magccp,1
 magchat,1
 magcheat,1
 magcocoment,1
+<<<<<<< HEAD
 magcomment,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magcommute,2
 magcondom,1
 magdabog,1
 magdadagdag,4
 magdadala,10
 magdadiet,1
+<<<<<<< HEAD
 magdagdag,2
 magdahilan,1
 magdalawangisip,1
@@ -8535,6 +9965,9 @@ magdilim,2
 magdiriwang,1
 magdisinpekta,1
 magdisisyon,1
+=======
+magdikta,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magdiwang,1
 magdodorm,1
 magdonate,1
@@ -8543,6 +9976,7 @@ magdrawing,1
 magdrayb,1
 magdrive,2
 magdrodrop,1
+<<<<<<< HEAD
 magdudulot,11
 magdugo,1
 magdulot,5
@@ -8565,11 +9999,20 @@ mageroplano,1
 magets,2
 magexcuse,1
 magexpand,2
+=======
+magedit,1
+mageemote,1
+magenjoy,1
+magets,2
+magexcuse,1
+magexpand,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magexpect,1
 magexplore,1
 magfacebook,1
 magfarm,1
 magfocus,1
+<<<<<<< HEAD
 magformat,1
 magfull,1
 magfusion,1
@@ -8618,10 +10061,22 @@ maghumigitkumulang,1
 maghuntahan,1
 magibang,1
 magiging,121
+=======
+magfusion,1
+maghahanap,2
+maghahate,1
+maghahati,1
+maghanap,3
+maghapon,2
+maghatid,1
+maghost,1
+magiging,7
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magigising,1
 magiikot,1
 magiingat,1
 magiingay,1
+<<<<<<< HEAD
 magiinvite,1
 magiipon,2
 magiisa,1
@@ -8635,6 +10090,9 @@ magingat,4
 magingay,1
 magingles,13
 maginhawang,2
+=======
+magiipon,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maginom,1
 maginsert,1
 magintay,1
@@ -8677,6 +10135,7 @@ magkaibangmagkaiba,1
 magkaibigan,2
 magkaisa,1
 magkajowa,1
+<<<<<<< HEAD
 magkaka,3
 magkakaanak,4
 magkakaapekto,1
@@ -8707,6 +10166,10 @@ magkakasakit,1
 magkakasama,3
 magkakasamang,4
 magkakasunod,3
+=======
+magkaka,1
+magkakaroon,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magkakatubig,1
 magkakontra,1
 magkakoponan,1
@@ -8721,12 +10184,17 @@ magkalindol,1
 magkaloob,1
 magkamali,3
 magkamanager,1
+<<<<<<< HEAD
 magkamawili,1
 magkamit,1
 magkamukha,5
 magkangipin,1
 magkano,57
 magkantutan,1
+=======
+magkamukha,1
+magkano,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magkapangalan,1
 magkapareho,2
 magkaparehong,3
@@ -8748,6 +10216,7 @@ magkasamang,13
 magkasamay,1
 magkasanib,1
 magkasing,1
+<<<<<<< HEAD
 magkasingedad,1
 magkasingkahulugan,4
 magkasinhalaga,1
@@ -8784,6 +10253,16 @@ maglaho,3
 maglakad,20
 maglakadlakad,1
 maglakbay,5
+=======
+magkatimer,1
+magkikita,1
+magkita,1
+magkulay,1
+magkwento,2
+maglaho,1
+maglakad,4
+maglakbay,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maglakwatsa,1
 maglalaan,1
 maglalabas,2
@@ -8902,6 +10381,7 @@ magpaka,1
 magpakabait,1
 magpakailanman,1
 magpakalat,1
+<<<<<<< HEAD
 magpakalma,1
 magpakamatay,4
 magpakasal,3
@@ -8930,6 +10410,10 @@ magpanic,1
 magpanik,1
 magpansit,1
 magpantay,1
+=======
+magpakita,1
+magpanic,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magpapa,1
 magpapaalab,1
 magpapababa,3
@@ -8954,9 +10438,13 @@ magpapalit,2
 magpapalo,1
 magpapalubha,1
 magpapamedical,1
+<<<<<<< HEAD
 magpapanetwork,2
 magpapanty,1
 magpapapakita,1
+=======
+magpapanty,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magpapareseta,1
 magpapasa,1
 magpapasahimpapawid,1
@@ -8970,11 +10458,15 @@ magpapatapos,1
 magpapataw,1
 magpapatis,1
 magpapatong,1
+<<<<<<< HEAD
 magpapatotoo,1
 magpapatulong,1
 magpapatuloy,22
 magpapatuyo,1
 magpapaurong,1
+=======
+magpapatulong,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magpapayabangan,1
 magpapic,1
 magpaputok,2
@@ -9055,6 +10547,7 @@ magreinstall,1
 magreklamo,2
 magrelapse,1
 magrent,1
+<<<<<<< HEAD
 magreply,5
 magreport,1
 magrerebolusyon,1
@@ -9067,6 +10560,13 @@ magreretero,1
 magreretiro,3
 magresulta,2
 magretiro,1
+=======
+magreply,4
+magrerecruit,1
+magrerehab,1
+magrereklamo,1
+magrereply,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magreview,1
 magrolerskeyt,1
 magroong,1
@@ -9074,6 +10574,7 @@ magsaad,2
 magsabi,6
 magsagawa,14
 magsagot,1
+<<<<<<< HEAD
 magsaing,1
 magsakay,1
 magsalabat,1
@@ -9089,6 +10590,14 @@ magsapinsapin,1
 magsara,4
 magsarili,14
 magsasabi,5
+=======
+magsalita,4
+magsama,2
+magsampalan,1
+magsangla,1
+magsara,1
+magsasabi,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magsasabing,1
 magsasabit,1
 magsasagawa,5
@@ -9110,7 +10619,10 @@ magselda,1
 magself,1
 magselos,3
 magsesecret,1
+<<<<<<< HEAD
 magseselos,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magsex,1
 magshare,2
 magshift,1
@@ -9128,6 +10640,7 @@ magsimulang,6
 magsindi,1
 magsine,1
 magsinunangaling,1
+<<<<<<< HEAD
 magsinungaling,1
 magsipilyo,1
 magsipost,1
@@ -9142,6 +10655,11 @@ magsisiyasat,1
 magsismula,1
 magsiyasat,2
 magski,1
+=======
+magsipost,1
+magsireply,1
+magsisi,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magsleeveless,1
 magsnow,1
 magsorry,1
@@ -9149,6 +10667,7 @@ magssearch,1
 magsstop,1
 magsstudy,1
 magssuggest,1
+<<<<<<< HEAD
 magstalk,1
 magstay,1
 magstream,2
@@ -9187,6 +10706,11 @@ magtalo,2
 magtalop,1
 magtamales,1
 magtamo,1
+=======
+magstay,1
+magstream,2
+magsuty,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magtampo,1
 magtanghal,2
 magtanghalian,1
@@ -9225,6 +10749,7 @@ magtimpla,1
 magtinder,1
 magtira,1
 magtitiis,1
+<<<<<<< HEAD
 magtitimpla,1
 magtitinda,1
 magtitipon,1
@@ -9269,6 +10794,15 @@ magulong,3
 magumpisa,2
 magunaw,1
 maguniguni,4
+=======
+magtiwala,1
+magtrabaho,2
+magturo,1
+magtuturo,1
+magtype,2
+magulang,5
+magulat,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 magupload,1
 magusapan,1
 magusig,1
@@ -9288,6 +10822,7 @@ magwash,1
 magwawakas,3
 magwawala,2
 magwento,1
+<<<<<<< HEAD
 magwewelga,1
 magwiwish,1
 magwork,1
@@ -9312,6 +10847,12 @@ mahalaga,22
 mahalagang,22
 mahalal,5
 mahalang,1
+=======
+magyayakapan,1
+mahaba,2
+mahagilap,1
+mahalaga,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mahalata,1
 mahalay,2
 mahalimuyak,1
@@ -9331,6 +10872,7 @@ mahigpit,29
 mahihiga,1
 mahihilig,2
 mahihimatay,1
+<<<<<<< HEAD
 mahihinang,2
 mahihingan,1
 mahihingi,1
@@ -9366,6 +10908,16 @@ mahuli,9
 mahulog,3
 mahusay,24
 maiadd,1
+=======
+mahilig,4
+mahimatay,1
+mahimbing,1
+mahirap,6
+mahiya,1
+mahuhulog,1
+mahuli,2
+mahulog,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maiambag,1
 maianunsyo,1
 maiayos,2
@@ -9414,6 +10966,7 @@ maiiwasan,19
 maiiwasang,1
 maiiyak,1
 maiiyot,1
+<<<<<<< HEAD
 maikabit,1
 maikakalat,1
 maikising,1
@@ -9478,6 +11031,17 @@ maipasa,3
 maipasok,1
 maipatayong,1
 maipatupad,3
+=======
+maimagine,1
+mainam,1
+maingay,6
+mainggit,2
+mainit,8
+mainiti,1
+mainjure,1
+maintindihan,8
+maipaglilingkod,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maipilit,1
 maiririport,1
 maisabatas,1
@@ -9488,6 +11052,7 @@ maisalin,1
 maisantabi,1
 maisasagawa,1
 maisend,1
+<<<<<<< HEAD
 maisip,15
 maisiwalat,1
 maistrok,1
@@ -9510,6 +11075,13 @@ maiyak,1
 majal,1
 makaaasa,1
 makaabot,5
+=======
+maisip,3
+maitim,1
+maiwas,1
+maiwasan,2
+makaabot,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 makaafford,1
 makaagham,4
 makaahon,1
@@ -9548,6 +11120,7 @@ makaepekto,1
 makafilipino,1
 makagagawa,1
 makagalaw,1
+<<<<<<< HEAD
 makagamit,2
 makagat,1
 makagawa,13
@@ -9564,6 +11137,13 @@ makahipotesis,1
 makahuli,1
 makahulugang,2
 makahuntahan,1
+=======
+makagat,1
+makagetover,1
+makagigil,1
+makagv,1
+makahinga,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 makaidlip,1
 makainang,2
 makaingles,1
@@ -9655,11 +11235,16 @@ makakatakas,2
 makakatakbo,2
 makakatanggap,4
 makakatanggi,2
+<<<<<<< HEAD
 makakatigil,1
 makakatulog,4
 makakatulong,20
 makakaturo,1
 makakaupo,1
+=======
+makakatulog,3
+makakatulong,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 makakausap,1
 makakauwi,1
 makakaya,6
@@ -9707,6 +11292,7 @@ makapagbibigay,2
 makapagbigay,4
 makapagbihis,1
 makapagbts,1
+<<<<<<< HEAD
 makapagbukas,1
 makapagconcentrate,1
 makapagdala,2
@@ -9720,6 +11306,10 @@ makapagipon,1
 makapagisip,2
 makapagkampanya,1
 makapagkunwari,1
+=======
+makapagconcentrate,1
+makapagisip,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 makapaglaro,1
 makapagligtas,2
 makapagmungkahi,1
@@ -9735,6 +11325,7 @@ makapagsiyasat,1
 makapagtayo,2
 makapagtrabaho,2
 makapagtweet,1
+<<<<<<< HEAD
 makapal,12
 makapanaginip,1
 makapanatili,1
@@ -9760,6 +11351,14 @@ makarebat,1
 makarelate,4
 makarinig,1
 makaroon,1
+=======
+makapal,1
+makapaniwala,1
+makapasok,1
+makapunta,1
+makarebat,1
+makarelate,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 makasabay,2
 makasabi,2
 makasabunot,1
@@ -9799,6 +11398,7 @@ makatawaguriang,1
 makatawang,4
 makatayo,1
 makatigil,1
+<<<<<<< HEAD
 makatingin,1
 makatotohanan,1
 makatotohanang,5
@@ -9865,6 +11465,16 @@ makipagkita,5
 makipagkulitan,1
 makipagkumpromiso,1
 makipaglaro,1
+=======
+makatulog,14
+makatuluyan,1
+makawala,1
+makikita,7
+makikitang,1
+makilala,1
+makinig,1
+makipag,6
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 makipagnegosasyon,1
 makipagpaligsahan,1
 makipagpulong,1
@@ -9882,6 +11492,7 @@ makisama,4
 makisawsaw,1
 makisingit,1
 makiss,1
+<<<<<<< HEAD
 makitaan,1
 makitang,1
 makitanong,1
@@ -9889,6 +11500,9 @@ makitid,6
 makitungo,2
 makiusap,1
 makkasama,1
+=======
+makitid,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maknae,2
 makokontak,1
 makokontrol,3
@@ -9900,6 +11514,7 @@ makuhanan,1
 makuhang,1
 makukuha,13
 makukulit,1
+<<<<<<< HEAD
 makukulong,1
 makulay,2
 makulaykulay,2
@@ -9919,10 +11534,13 @@ malabnaw,2
 malabong,2
 malacalculator,1
 malaganne,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 malagintong,1
 malagket,1
 malaglag,3
 malaglagan,1
+<<<<<<< HEAD
 malagnaw,2
 malago,1
 malagot,1
@@ -10007,6 +11625,32 @@ malikmata,1
 malikot,3
 maliksi,7
 maliligayahan,1
+=======
+malagot,1
+malait,1
+malakas,12
+malaking,5
+malala,17
+malalalim,1
+malalaman,1
+malalate,1
+malaman,6
+malamang,7
+malamangan,1
+malambot,1
+malamig,1
+malandi,4
+malapit,11
+malaro,1
+malasin,1
+malasing,1
+malayuan,1
+maliban,2
+malibog,2
+maligayang,1
+maligo,1
+maliit,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maliligayang,1
 maliligo,3
 maliligtas,1
@@ -10022,6 +11666,7 @@ malimit,25
 malimitahan,1
 malinaw,44
 malinawagan,1
+<<<<<<< HEAD
 malinis,23
 malipat,1
 malipukon,10
@@ -10030,9 +11675,13 @@ malito,1
 maliwanag,33
 maliwanagan,1
 malnutrisyon,6
+=======
+malinis,5
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 malogin,1
 maloka,1
 maloloko,1
+<<<<<<< HEAD
 malolos,2
 malubha,3
 malubhang,24
@@ -10059,16 +11708,28 @@ malutong,4
 maluwag,2
 maluwalhating,1
 mamadaliin,1
+=======
+malolos,1
+malungkot,5
+malunod,1
+malupet,1
+malupit,1
+malutong,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mamaga,1
 mamaganda,1
 mamaging,1
 mamagitan,2
 mamahal,2
+<<<<<<< HEAD
 mamahala,1
 mamahalin,2
 mamahaling,7
 mamahayag,6
 mamahinga,1
+=======
+mamahaling,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mamakaawa,1
 mamalaking,1
 mamalengke,1
@@ -10112,13 +11773,17 @@ mamimili,22
 mamimilipit,1
 mamimis,3
 mamimiss,1
+<<<<<<< HEAD
 mamimit,1
 mamis,1
 mamomonitor,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mamsh,1
 mamuhay,1
 mamukod,1
 mamula,1
+<<<<<<< HEAD
 mamulaklak,1
 mamulat,1
 mamulot,1
@@ -10136,10 +11801,16 @@ manalamin,1
 manalangin,2
 manalaysay,1
 manaliksik,2
+=======
+mamumuno,1
+manahimik,7
+manakit,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mananagot,2
 mananahimik,1
 mananakit,1
 mananakmal,1
+<<<<<<< HEAD
 mananakop,2
 mananalakay,1
 mananalangin,1
@@ -10170,6 +11841,11 @@ manedyer,8
 mangaangkat,1
 mangaawit,8
 mangabayo,1
+=======
+mananalo,2
+mandamay,1
+mandidiri,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mangagat,1
 mangagawa,5
 mangahas,1
@@ -10257,6 +11933,7 @@ mangyaring,2
 mangyayare,1
 mangyayari,28
 manhid,2
+<<<<<<< HEAD
 manibagong,1
 manibela,4
 manidyer,1
@@ -10287,6 +11964,10 @@ manlandi,1
 manlang,1
 manligaw,4
 manliligtas,1
+=======
+maniniwala,5
+maniwala,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 manloloko,2
 manlulupig,1
 manok,30
@@ -10494,6 +12175,7 @@ mapili,3
 mapilian,1
 mapilit,1
 mapinned,1
+<<<<<<< HEAD
 mapinsala,1
 mapinsalang,1
 mapintog,1
@@ -10504,9 +12186,13 @@ mapipigilang,1
 mapipilitang,1
 mapipirmahan,2
 mapirmahan,1
+=======
+mapipigilan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maplay,1
 mapolusyon,2
 mapost,2
+<<<<<<< HEAD
 maprapractice,1
 mapreserba,1
 mapukla,1
@@ -10536,10 +12222,18 @@ maramdaming,1
 marame,1
 maramihang,5
 maramingmaraming,3
+=======
+mapuno,1
+mapuputol,2
+maputi,1
+maputulan,1
+mapuyat,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maranasan,1
 marangal,1
 marapat,6
 mararamdaman,1
+<<<<<<< HEAD
 mararaming,1
 mararanasan,1
 mararating,4
@@ -10617,10 +12311,30 @@ masarap,80
 masarhan,1
 masasabi,21
 masasagot,5
+=======
+mareach,1
+marekoy,1
+mareport,1
+marinel,1
+marsie,1
+marumi,1
+marunong,4
+marupok,3
+masabi,3
+masagot,1
+masakit,18
+masaktan,1
+masama,17
+masamang,1
+masarap,3
+masasabi,2
+masasagot,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 masasakalin,1
 masasaklaw,1
 masasako,1
 masasakyan,1
+<<<<<<< HEAD
 masasamang,2
 masasanay,2
 masasapak,1
@@ -10633,6 +12347,11 @@ masayang,8
 masayangmasaya,1
 maselan,3
 maselang,3
+=======
+masasapak,1
+masasayang,1
+masayang,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 masend,1
 maseselan,1
 mashado,1
@@ -10669,12 +12388,16 @@ maskip,1
 masobrahan,1
 masokista,2
 maspam,1
+<<<<<<< HEAD
 mastah,2
 mastahrotfl,1
 mastermaynd,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mastress,2
 mastung,1
 masubo,1
+<<<<<<< HEAD
 masuewerteng,1
 masugid,2
 masukat,1
@@ -10683,6 +12406,9 @@ masundan,2
 masungit,5
 masunod,1
 masunog,8
+=======
+masunod,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 masuntok,1
 masunurin,2
 masunuring,1
@@ -10692,6 +12418,7 @@ masusing,5
 masuspended,1
 masustansiyang,1
 masusuhulan,1
+<<<<<<< HEAD
 masusukat,14
 masusundan,1
 masusunod,1
@@ -10836,6 +12563,39 @@ matuloy,5
 matulungan,16
 matulungin,2
 matulunging,1
+=======
+masyado,16
+masyadong,4
+mataas,1
+mataba,3
+matagal,6
+matalinhagang,1
+matalino,4
+matalo,2
+matamaan,1
+matanda,1
+matandaan,1
+matanggap,2
+matangkad,1
+matapang,1
+matapos,6
+matatalino,1
+matatanggal,1
+matatapang,1
+matatapos,2
+matatawa,1
+matay,1
+matigas,3
+matiis,1
+matino,4
+matinong,1
+matipid,1
+matitigan,2
+matiwasay,1
+matulog,19
+matuloy,2
+matulungan,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 matuluyan,1
 matumal,1
 matunaw,1
@@ -10844,6 +12604,7 @@ matunog,1
 matupad,2
 maturuan,1
 matusok,1
+<<<<<<< HEAD
 matuto,15
 matutong,3
 matutugunan,1
@@ -10877,6 +12638,16 @@ maunawaan,4
 maunlad,3
 maupahan,1
 mausisa,1
+=======
+matuto,1
+matutulog,14
+matutunan,1
+matutuwa,1
+matutuyo,1
+maubos,2
+maulan,1
+maulol,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mautak,1
 mauubos,1
 mauulit,2
@@ -10884,12 +12655,16 @@ mauunawaang,3
 mauurat,1
 mauutak,1
 mauuto,2
+<<<<<<< HEAD
 mauwi,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 maverify,2
 mawala,11
 mawalan,11
 mawalang,1
 mawalawala,1
+<<<<<<< HEAD
 mawari,1
 mawawala,11
 mawawalan,3
@@ -11007,6 +12782,21 @@ metriko,1
 metrikong,1
 metriks,1
 metrong,11
+=======
+mawawala,3
+mayabang,3
+mayaman,1
+maynila,2
+maynilad,3
+mayrong,1
+mayroon,2
+medschool,1
+medyas,1
+mekaniko,2
+memental,1
+mensahe,1
+meryenda,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mewgulf,1
 meyembro,1
 meykap,1
@@ -11016,10 +12806,13 @@ meyt,1
 mfaei,1
 mfael,1
 mfal,1
+<<<<<<< HEAD
 mftoyota,1
 mgakaroon,1
 mganakilahok,1
 mgapagatake,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mgawa,1
 mhel,6
 mheljen,1
@@ -11031,6 +12824,7 @@ mibf,1
 michaeng,1
 michaungai,1
 michy,2
+<<<<<<< HEAD
 microblog,1
 microblogging,1
 microchiping,1
@@ -11068,6 +12862,10 @@ milyong,70
 milyongmilyon,1
 milyonmilyong,1
 milyunmilyong,2
+=======
+milaapo,1
+milktea,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 mimeet,1
 mimeng,1
 mimini,1
@@ -11089,6 +12887,7 @@ minamartilyo,1
 minamartyr,1
 minamatyagan,1
 minana,1
+<<<<<<< HEAD
 minaneho,1
 minantikilyahan,1
 minarkahang,1
@@ -11096,10 +12895,13 @@ minartilyo,1
 minatyagan,1
 mineira,1
 mineralohiya,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 minesage,1
 minester,1
 mingaw,1
 mingyu,1
+<<<<<<< HEAD
 minimithi,1
 minisro,1
 ministeriyal,6
@@ -11303,6 +13105,38 @@ naaayos,1
 naabot,7
 naabuso,1
 naabutan,8
+=======
+minju,1
+minumura,1
+minutong,1
+minyday,1
+mirriam,1
+mismam,1
+mismong,1
+miyaw,1
+miyembro,1
+mmatch,1
+monthsary,1
+moonton,1
+moregrabcarsnow,1
+motherinlaw,1
+motibo,1
+mukang,3
+mukhain,1
+mukhang,12
+mumukha,1
+mumulat,1
+munang,1
+mundong,1
+munisipyo,1
+muntik,12
+murahin,2
+mwcla,1
+myday,5
+mygad,1
+naaalala,1
+naabutan,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naadd,1
 naagaw,1
 naagnas,1
@@ -11341,12 +13175,17 @@ nababadtrip,2
 nababagot,1
 nababahala,3
 nababakla,2
+<<<<<<< HEAD
 nababalisa,1
 nababalitaan,1
 nababaliw,6
 nababalot,2
 nababanggit,1
 nababasa,7
+=======
+nababaliw,4
+nababasa,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nababastos,1
 nababatid,4
 nababawasan,1
@@ -11379,6 +13218,7 @@ nabaril,11
 nabasa,14
 nabasag,7
 nabaterya,1
+<<<<<<< HEAD
 nabatikos,1
 nabawas,1
 nabawasan,4
@@ -11393,6 +13233,11 @@ nabibigong,1
 nabibihasa,1
 nabibilang,3
 nabibili,3
+=======
+nabelang,1
+nabeng,1
+nabibili,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nabibiling,1
 nabibitter,1
 nabid,1
@@ -11464,6 +13309,7 @@ nadaya,1
 nadebelop,1
 nadedetect,2
 nadelete,2
+<<<<<<< HEAD
 nadeskaril,4
 nadidc,1
 nadididinig,1
@@ -11474,6 +13320,8 @@ nadiskarel,1
 nadiskubre,12
 nadiskubreng,3
 nadoon,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nadradrain,1
 naduduleng,1
 nadukot,1
@@ -11481,11 +13329,16 @@ nadulas,1
 nadurog,2
 naedit,2
 naeexcite,3
+<<<<<<< HEAD
 naencounter,2
 naexperience,3
 nagaabang,2
 nagaabaniko,1
 nagaabot,1
+=======
+naencounter,1
+naexperience,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagaadd,1
 nagaadobo,1
 nagaagahan,1
@@ -11522,6 +13375,7 @@ nagagamit,6
 nagaganap,7
 nagagandahan,2
 nagaganyan,1
+<<<<<<< HEAD
 nagagawa,9
 nagalaga,2
 nagalala,4
@@ -11591,6 +13445,19 @@ nagbakasakali,1
 nagbakasyon,2
 nagbalak,3
 nagbalik,3
+=======
+nagagawa,5
+nagalit,1
+nagaral,1
+nagastos,2
+nagawa,7
+nagaway,1
+nagaya,1
+nagbabago,1
+nagbabasa,1
+nagbabayad,1
+nagbago,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagbalikan,1
 nagbalita,9
 nagbalitang,1
@@ -11684,6 +13551,7 @@ nagcollege,1
 nagcomment,3
 nagconfess,2
 nagcracram,1
+<<<<<<< HEAD
 nagcreate,1
 nagdaang,2
 nagdadala,21
@@ -11707,6 +13575,11 @@ nagdasal,2
 nagdawit,1
 nagdebelop,1
 nagdedekorasyon,1
+=======
+nagdadala,1
+nagdala,1
+nagdamot,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagdedelete,1
 nagdedemanda,1
 nagdedesisyon,2
@@ -11760,6 +13633,7 @@ nagestima,1
 nagetichinames,1
 nagets,2
 nagexpect,1
+<<<<<<< HEAD
 naggagapas,1
 naggagatas,1
 naggagawa,1
@@ -11768,12 +13642,16 @@ naggreet,1
 naggugoodbye,1
 naggygym,1
 naghabla,2
+=======
+naggreet,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naghabol,1
 naghagis,2
 naghahabla,2
 naghahabol,4
 naghahadlang,1
 naghahakot,1
+<<<<<<< HEAD
 naghahalaga,1
 naghahalikan,1
 naghahalo,1
@@ -11796,6 +13674,9 @@ naghahotdog,1
 naghain,2
 naghaka,1
 naghalal,1
+=======
+naghahanap,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naghalo,1
 naghanap,3
 naghanda,3
@@ -11809,6 +13690,7 @@ naghatid,4
 naghatol,1
 naghayag,7
 nagheart,1
+<<<<<<< HEAD
 naghibernate,1
 naghigpit,1
 naghihikayat,2
@@ -11867,6 +13749,18 @@ nagisyu,4
 nagitla,2
 nagiwan,21
 nagiwang,1
+=======
+naghihintay,1
+naghihirap,2
+naghintay,2
+naghrim,1
+nagiging,9
+nagigisng,1
+nagiinom,1
+nagiisang,2
+nagimbita,1
+nagising,5
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagiyakan,1
 nagjojoke,1
 nagka,5
@@ -11874,6 +13768,7 @@ nagkababy,1
 nagkabit,1
 nagkabulutong,1
 nagkacatcall,1
+<<<<<<< HEAD
 nagkaganito,2
 nagkagatas,1
 nagkaintindihan,1
@@ -11898,6 +13793,9 @@ nagkakamot,1
 nagkakampanya,1
 nagkakamping,1
 nagkakanela,1
+=======
+nagkakagusto,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagkakanin,1
 nagkakanlong,1
 nagkakantootan,1
@@ -11915,6 +13813,7 @@ nagkakatotoo,1
 nagkakatukaan,1
 nagkakatuluyan,1
 nagkakaulam,1
+<<<<<<< HEAD
 nagkaklase,1
 nagkakumplikasyon,1
 nagkakuryente,1
@@ -11942,6 +13841,13 @@ nagkasala,5
 nagkasundo,6
 nagkataon,2
 nagkataong,2
+=======
+nagkalat,2
+nagkaron,1
+nagkaroon,3
+nagkasakit,1
+nagkataon,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagkatechnical,1
 nagkatinginan,1
 nagkausap,1
@@ -11978,6 +13884,7 @@ nagkunyari,1
 nagkutsinta,1
 nagkuwentuhan,1
 nagkwekwento,1
+<<<<<<< HEAD
 nagkwento,2
 naglaan,1
 naglaban,3
@@ -12004,6 +13911,13 @@ naglalako,1
 naglalaman,19
 naglalambing,1
 naglalandian,1
+=======
+naglabasan,1
+naglaho,2
+naglalabas,1
+naglalagi,1
+naglalakad,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naglalangib,1
 naglalangoy,1
 naglalarawan,6
@@ -12089,6 +14003,7 @@ nagmomotor,1
 nagmukha,3
 nagmukhang,1
 nagmukukha,1
+<<<<<<< HEAD
 nagmula,18
 nagmulta,1
 nagmumukha,1
@@ -12106,6 +14021,11 @@ nagngangalang,1
 nagninilagang,1
 nagniningning,1
 nagniyeniyebe,2
+=======
+nagmumukha,1
+nagmumukhang,2
+nagmumurang,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagnonotify,1
 nagnotif,2
 nagofficer,1
@@ -12207,6 +14127,7 @@ nagpapakilala,3
 nagpapakita,35
 nagpapakulay,1
 nagpapakyut,1
+<<<<<<< HEAD
 nagpapalabas,4
 nagpapalahi,1
 nagpapalakas,3
@@ -12225,6 +14146,10 @@ nagpapanatili,3
 nagpapandesal,1
 nagpapanggap,2
 nagpapangkat,1
+=======
+nagpapalit,1
+nagpapanggap,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagpapanic,1
 nagpapaniwala,1
 nagpapansin,1
@@ -12307,6 +14232,7 @@ nagpatunay,1
 nagpatupad,2
 nagpatuyo,1
 nagpaulan,3
+<<<<<<< HEAD
 nagpaunlad,1
 nagpauso,1
 nagpayanig,1
@@ -12341,10 +14267,16 @@ nagppasalamat,1
 nagpraktis,1
 nagprankisya,2
 nagprapranses,2
+=======
+nagpex,1
+nagpopost,3
+nagpost,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagpreorder,1
 nagpriprito,1
 nagprito,1
 nagprivate,1
+<<<<<<< HEAD
 nagpropropaganda,1
 nagprotesta,4
 nagprufruit,1
@@ -12372,6 +14304,13 @@ nagrekomenda,1
 nagrekord,1
 nagreply,6
 nagrepresenta,1
+=======
+nagpunta,1
+nagpuyat,1
+nagquit,1
+nagrecord,1
+nagreply,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagrequest,1
 nagrereact,1
 nagreregyula,1
@@ -12384,6 +14323,7 @@ nagrerepresenta,4
 nagrerestart,1
 nagreresulta,3
 nagreretweet,1
+<<<<<<< HEAD
 nagrereview,3
 nagresign,1
 nagresulta,9
@@ -12397,6 +14337,11 @@ nagsaad,8
 nagsabi,207
 nagsabing,46
 nagsagawa,15
+=======
+nagrereview,2
+nagsabi,3
+nagsabing,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagsala,1
 nagsalaysay,2
 nagsaliksik,1
@@ -12616,6 +14561,7 @@ nagtsotsokolate,1
 nagttry,1
 nagttweet,1
 nagttyaga,1
+<<<<<<< HEAD
 nagtulak,2
 nagtulungan,1
 nagtunggali,1
@@ -12648,6 +14594,12 @@ nagulat,30
 nagulo,2
 nagumpisa,1
 nagumpisang,5
+=======
+nagtweet,2
+naguguluhan,2
+nagulat,6
+nagulo,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nagunfollow,1
 nagungunang,1
 nagungutong,1
@@ -12675,6 +14627,7 @@ nagwasak,5
 nagwawakas,1
 nagwawalwalan,1
 nagwelcome,1
+<<<<<<< HEAD
 nagwelga,1
 nagwewelgang,1
 nagwidro,1
@@ -12690,6 +14643,8 @@ nagyeyelo,2
 nagyosi,1
 nagyoyosi,1
 nahadlangan,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nahagulgol,2
 nahahadlangan,1
 nahahanap,2
@@ -12708,6 +14663,7 @@ nahawa,1
 nahawaang,1
 nahawakan,1
 nahighlight,1
+<<<<<<< HEAD
 nahigop,1
 nahihibang,1
 nahihilo,7
@@ -12762,6 +14718,19 @@ naihi,1
 naihian,1
 naiiba,4
 naiibang,2
+=======
+nahihibang,1
+nahihilo,4
+nahihirapan,1
+nahihiya,7
+nahikayat,1
+nahilo,2
+nahirapan,1
+nahiya,3
+nahohome,1
+nahuli,2
+nahulog,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naiihi,2
 naiiihi,1
 naiikot,1
@@ -12772,13 +14741,18 @@ naiimpluwensiya,1
 naiimpluwensyahan,7
 naiinggit,5
 naiingit,1
+<<<<<<< HEAD
 naiinis,13
 naiinitan,1
 naiinlove,1
+=======
+naiinis,10
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naiinsecure,1
 naiintidihan,1
 naiintindihan,38
 naiirita,4
+<<<<<<< HEAD
 naiisip,13
 naiistress,3
 naiiwasan,1
@@ -12799,6 +14773,11 @@ naililipat,1
 nailipat,1
 nailista,1
 nailuklok,1
+=======
+naiisip,4
+naiistress,3
+naiiyak,30
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nailusot,1
 naimbag,1
 naimbento,1
@@ -12829,6 +14808,7 @@ naipakilala,1
 naipakulong,1
 naipaliwanag,1
 naipamimigay,1
+<<<<<<< HEAD
 naipanalo,1
 naipangako,1
 naipanukala,1
@@ -12852,6 +14832,13 @@ naisayawsumayaw,1
 naisin,1
 naisip,26
 naisipan,2
+=======
+naipasok,1
+naipit,1
+naipon,1
+naisip,9
+naisipan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naistress,1
 naisulat,2
 naisumite,2
@@ -12872,6 +14859,7 @@ naitawid,1
 naitayong,1
 naitklab,1
 naituro,1
+<<<<<<< HEAD
 naituturing,1
 naituturo,1
 naiulat,32
@@ -12927,6 +14915,17 @@ nakadaan,1
 nakadagdag,2
 nakadakip,1
 nakadalaw,2
+=======
+naiwan,2
+naiyak,4
+nakaalis,1
+nakabalik,1
+nakabasa,1
+nakabili,1
+nakabukaka,1
+nakabukas,2
+nakadalaw,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakadalawang,1
 nakadalo,3
 nakadapa,1
@@ -12942,6 +14941,7 @@ nakadisplay,1
 nakadroga,1
 nakaexperience,3
 nakafollow,1
+<<<<<<< HEAD
 nakafullgear,1
 nakagambala,1
 nakagamit,2
@@ -13001,6 +15001,22 @@ nakakabobo,1
 nakakabuhay,1
 nakakabuti,1
 nakakacancer,1
+=======
+nakagamit,2
+nakagimmick,1
+nakahanap,1
+nakahiga,1
+nakahula,1
+nakailag,1
+nakailang,3
+nakain,1
+nakaka,38
+nakakaalam,1
+nakakabadtrip,2
+nakakabaliw,1
+nakakabili,1
+nakakabobo,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakakadala,2
 nakakadelulu,1
 nakakadena,1
@@ -13012,6 +15028,7 @@ nakakagalit,1
 nakakaganti,1
 nakakagawa,3
 nakakagigil,2
+<<<<<<< HEAD
 nakakagilalas,1
 nakakagulat,2
 nakakagusto,1
@@ -13020,18 +15037,25 @@ nakakahanap,1
 nakakahawa,2
 nakakahawang,2
 nakakahigit,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakakahilo,1
 nakakahinalaang,1
 nakakahinalang,1
 nakakahiwa,1
+<<<<<<< HEAD
 nakakahiya,10
 nakakahiyang,4
+=======
+nakakahiya,6
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakakahulas,1
 nakakailag,1
 nakakaimbyerna,1
 nakakaimpeksyon,1
 nakakain,5
 nakakainggit,3
+<<<<<<< HEAD
 nakakainis,13
 nakakainspire,1
 nakakainsultong,1
@@ -13043,6 +15067,13 @@ nakakakabit,2
 nakakakain,1
 nakakakalinlang,1
 nakakakilala,2
+=======
+nakakainis,8
+nakakairita,4
+nakakaiyak,11
+nakakakaba,2
+nakakakilala,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakakakiliti,1
 nakakakita,9
 nakakakontribyut,1
@@ -13108,6 +15139,7 @@ nakakapawing,1
 nakakapawis,1
 nakakapinsala,2
 nakakaproud,1
+<<<<<<< HEAD
 nakakapunta,2
 nakakaraan,4
 nakakaranas,3
@@ -13147,6 +15179,15 @@ nakakatawa,7
 nakakatawang,2
 nakakatayo,1
 nakakatiyak,1
+=======
+nakakasabog,1
+nakakasira,2
+nakakastress,3
+nakakasulasok,1
+nakakatakot,2
+nakakatamad,3
+nakakatanda,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakakatrauma,2
 nakakatulog,2
 nakakatulong,5
@@ -13154,7 +15195,10 @@ nakakatuwa,13
 nakakatuwang,2
 nakakaubos,1
 nakakaulol,2
+<<<<<<< HEAD
 nakakaunawa,3
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakakaupo,1
 nakakausap,1
 nakakawala,1
@@ -13203,6 +15247,7 @@ nakaligtas,13
 nakalikom,1
 nakalilipas,3
 nakalimot,1
+<<<<<<< HEAD
 nakalimutan,31
 nakalinya,1
 nakalipas,38
@@ -13217,6 +15262,10 @@ nakamanikyur,1
 nakamasid,1
 nakamaskara,3
 nakamit,12
+=======
+nakalimutan,11
+nakamit,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakangiti,2
 nakangiting,1
 nakansela,1
@@ -13292,6 +15341,7 @@ nakapila,2
 nakapilang,1
 nakapin,1
 nakapink,1
+<<<<<<< HEAD
 nakapinsala,4
 nakapintura,1
 nakapipinsala,1
@@ -13318,6 +15368,12 @@ nakararami,3
 nakararanas,1
 nakaratay,1
 nakarating,13
+=======
+nakapost,1
+nakapunta,1
+nakaraan,1
+nakaraang,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakarecord,1
 nakarehistradong,1
 nakarehistro,2
@@ -13341,6 +15397,7 @@ nakasama,1
 nakasanayan,1
 nakasandalyas,1
 nakasando,1
+<<<<<<< HEAD
 nakasangla,2
 nakasara,1
 nakasarado,1
@@ -13434,6 +15491,18 @@ nakayang,1
 nakayapak,1
 nakayellow,1
 nakibahagi,1
+=======
+nakatakas,2
+nakatakip,1
+nakatapos,1
+nakatayo,1
+nakatingin,2
+nakatulala,1
+nakatulog,5
+nakaupo,1
+nakaw,1
+nakawala,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nakick,1
 nakidnap,1
 nakiiyak,1
@@ -13502,6 +15571,7 @@ nakipagugnay,1
 nakipagugnayan,3
 nakipagusap,5
 nakisali,1
+<<<<<<< HEAD
 nakitaan,4
 nakitaang,1
 nakitang,13
@@ -13533,11 +15603,19 @@ nalagay,5
 nalagdaan,1
 nalaglag,5
 nalagot,1
+=======
+nakong,1
+nakuha,3
+nakuhang,2
+nakukuha,3
+nalaglag,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nalagyan,1
 nalala,2
 nalalabing,4
 nalalaglag,2
 nalalagyan,1
+<<<<<<< HEAD
 nalalakbay,1
 nalalaman,16
 nalalamang,1
@@ -13556,6 +15634,12 @@ nalapastangan,1
 nalason,3
 nalate,1
 nalathala,5
+=======
+nalalaman,1
+nalalanghap,1
+nalaman,9
+nalason,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naleak,2
 nalibang,1
 nalibing,1
@@ -13568,6 +15652,7 @@ naliligaw,2
 naliligo,9
 naliligorotfl,1
 nalilimutan,1
+<<<<<<< HEAD
 nalilito,5
 nalimitahan,1
 nalimutan,3
@@ -13699,6 +15784,34 @@ nanatiling,18
 nanawagan,11
 nanayo,1
 nandaya,1
+=======
+nalilito,1
+nalock,1
+nalugi,1
+naluluha,1
+nalulungkot,3
+nalungkot,1
+namalayan,2
+namali,1
+namam,1
+namamakla,1
+namamasyal,1
+namamawis,1
+namatay,4
+namatok,1
+namimiss,1
+namiss,4
+namove,1
+namutla,1
+nanagasa,1
+nanahimik,4
+nanakaw,1
+nanakit,4
+nanalo,4
+nanaman,90
+nanamang,1
+nananakot,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nandidilim,2
 nandidiri,1
 nandito,18
@@ -13726,6 +15839,7 @@ nangangailangang,3
 nangangako,1
 nangangalaga,2
 nangangalahati,1
+<<<<<<< HEAD
 nangangalahating,1
 nangangalan,1
 nangangalap,3
@@ -13740,6 +15854,10 @@ nangangarap,2
 nangangasiwa,6
 nangangaso,2
 nangangati,3
+=======
+nangangamoy,1
+nangangati,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nangangatog,2
 nanganghalian,1
 nanganib,2
@@ -13751,6 +15869,7 @@ nangayari,1
 nangayring,1
 nangdadaot,1
 nangdidiri,1
+<<<<<<< HEAD
 nangg,1
 nanggagahasa,1
 nanggagaling,5
@@ -13759,6 +15878,11 @@ nanggaling,18
 nanggigigil,2
 nanggigitatang,1
 nanggulo,2
+=======
+nanggaling,3
+nanggigigil,2
+nanggulo,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nanghahagis,1
 nangharana,1
 nanghihikayat,4
@@ -13792,6 +15916,7 @@ nangraraid,1
 nanguna,14
 nangungulekta,1
 nangungulila,1
+<<<<<<< HEAD
 nangunguna,18
 nangungunang,19
 nangungutang,1
@@ -13822,10 +15947,20 @@ naniwalang,1
 nanjo,1
 nankakahawa,1
 nanlalamig,1
+=======
+nangyari,9
+nangyayari,4
+naninikip,2
+naninira,4
+naniniwala,4
+naniniwalang,1
+naniwala,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nanlambot,1
 nanliit,1
 nanliligaw,4
 nanlilimahid,1
+<<<<<<< HEAD
 nanonood,14
 nanood,6
 nanumbalik,1
@@ -13857,6 +15992,14 @@ napadpad,3
 napag,5
 napagalaman,14
 napagalamang,4
+=======
+nanonood,3
+nanood,2
+nanuod,1
+napadalawang,1
+napadpad,1
+napag,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 napagalitan,1
 napagaralan,1
 napagawi,1
@@ -13876,6 +16019,7 @@ napagkasunduan,4
 napagkasunduang,1
 napaglabanan,1
 napagod,2
+<<<<<<< HEAD
 napagpasiyahan,1
 napagpasyahan,3
 napagtagubilinan,1
@@ -13905,9 +16049,16 @@ napakacute,1
 napakadalas,1
 napakadali,1
 napakadaling,1
+=======
+napahanap,1
+napaka,47
+napakabobo,1
+napakacute,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 napakadaming,1
 napakadamot,1
 napakadaya,1
+<<<<<<< HEAD
 napakadelikado,1
 napakadikit,1
 napakadilim,1
@@ -13933,6 +16084,11 @@ napakainit,4
 napakakapal,1
 napakakaunti,1
 napakakonsiderableng,1
+=======
+napakagago,3
+napakaganda,1
+napakahirap,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 napakakupal,1
 napakalakas,3
 napakalaki,3
@@ -13996,6 +16152,7 @@ napalitan,6
 napaluha,1
 napaluhod,1
 napamura,1
+<<<<<<< HEAD
 napanaginip,1
 napanaginipan,5
 napanalinan,1
@@ -14011,13 +16168,23 @@ napanood,13
 napansin,22
 napansing,1
 napanuod,1
+=======
+napanaginipan,3
+napanood,4
+napansin,5
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 napaoverthink,1
 napapabilang,1
 napapack,1
 napapadpad,1
+<<<<<<< HEAD
 napapagiwanan,1
 napapagkamalang,1
 napapagod,6
+=======
+napapagkamalang,1
+napapagod,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 napapahilamos,1
 napapahiya,2
 napapailalim,1
@@ -14090,6 +16257,7 @@ napopoot,2
 napost,1
 napulot,1
 napuno,1
+<<<<<<< HEAD
 napunta,12
 napuntang,1
 napunuan,1
@@ -14104,6 +16272,15 @@ napuwersa,1
 naquote,1
 naramdaman,22
 naranasan,8
+=======
+napunta,2
+napupuno,1
+napupunta,1
+naputol,1
+naquote,1
+naramdaman,2
+naranasan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naranasang,1
 narangha,4
 narapatan,1
@@ -14117,12 +16294,16 @@ narcos,1
 narealize,2
 narecognize,1
 narehab,1
+<<<<<<< HEAD
 naremata,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 narerealize,1
 narereplayannapapansin,1
 narindi,1
 narinig,43
 naririndi,2
+<<<<<<< HEAD
 naririnig,10
 naririnigsapalibotngmundong,1
 naririto,4
@@ -14151,6 +16332,15 @@ nasan,5
 nasanay,2
 nasangkot,4
 nasarapan,2
+=======
+naririnig,3
+nasaan,13
+nasabi,3
+nasabihan,2
+nasagot,1
+nasaktan,2
+nasan,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nasasabi,1
 nasasabihan,1
 nasasabik,1
@@ -14234,6 +16424,7 @@ natakda,1
 natakot,14
 natakpan,3
 natalisod,1
+<<<<<<< HEAD
 natalo,33
 natamaan,12
 natamo,4
@@ -14339,6 +16530,40 @@ naugong,1
 naulit,4
 naumay,1
 nauna,5
+=======
+natalo,3
+natamaan,1
+natanggal,1
+natanong,1
+natapon,1
+natapos,9
+natatae,3
+natatakot,3
+natatamaan,1
+natatandaan,1
+natatawa,6
+natatype,1
+natauhan,1
+natawa,6
+natawag,2
+naten,1
+natigil,1
+natinik,1
+natira,2
+natitirang,1
+natulog,3
+natuloy,1
+natupad,1
+naturingang,1
+natuto,2
+natutulili,1
+natutulog,3
+natututunan,1
+natutuwa,3
+naubos,1
+naudlot,1
+nauna,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 naunahan,1
 naunang,33
 naung,1
@@ -14346,6 +16571,7 @@ nauntog,3
 naupo,2
 nauso,1
 nausog,1
+<<<<<<< HEAD
 nautikal,1
 nautusan,1
 nauubos,4
@@ -14354,6 +16580,9 @@ nauugma,1
 nauugnay,39
 nauuhaw,1
 nauukol,1
+=======
+nauubos,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nauulol,5
 nauuna,1
 nauunang,2
@@ -14364,6 +16593,7 @@ nauuwi,1
 nauwi,1
 navalta,1
 naview,1
+<<<<<<< HEAD
 nawakasan,1
 nawala,72
 nawalaan,1
@@ -14467,6 +16697,36 @@ nilagay,12
 nilagdaan,6
 nilagnat,2
 nilagyan,21
+=======
+nawala,15
+nawalan,4
+nawawala,7
+nawawalan,1
+nawelcome,1
+naweweirduhan,1
+nayellow,1
+nayeon,7
+nctzen,3
+negatibo,1
+neozep,1
+netong,1
+nextweek,1
+neyshin,1
+ngayong,8
+ngek,1
+ngingipin,1
+nginig,3
+ngipin,5
+ngiti,3
+ngumingiti,1
+ngunit,1
+ngyon,1
+ni,205
+nilabas,1
+nilagay,2
+nilagnat,1
+nilagyan,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nilait,1
 nilak,1
 nilakad,3
@@ -14483,6 +16743,7 @@ nilalamig,1
 nilalampaso,1
 nilalang,4
 nilalanghap,1
+<<<<<<< HEAD
 nilalarawan,1
 nilalaro,4
 nilalayon,2
@@ -14564,13 +16825,27 @@ nipost,1
 niquote,1
 nirecord,1
 niregaluhan,2
+=======
+nilapag,1
+nilaro,2
+niloko,1
+niloloko,3
+niluluto,1
+ninakaw,1
+ninjavan,1
+ninyong,1
+niregaluhan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nireklamo,1
 nirekomenda,1
 nirekord,2
 nirekrut,1
 nireplyan,1
 nireport,2
+<<<<<<< HEAD
 nirepresent,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nirerecruit,1
 nirereplyan,1
 nirerespeto,1
@@ -14581,6 +16856,7 @@ nirorondahan,1
 nisasabi,1
 niscreen,1
 nisulod,1
+<<<<<<< HEAD
 nitesting,1
 nitong,98
 nitroheno,4
@@ -14661,10 +16937,26 @@ nuwebe,6
 nwebe,1
 nyahahaha,1
 nyebe,2
+=======
+nitong,11
+niyakap,1
+niyan,23
+niyang,6
+niyong,34
+nominist,1
+nonosebleed,1
+norenmin,1
+novdec,1
+nubayang,1
+nukim,1
+nunal,1
+nutribun,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 nyoging,1
 nyomother,1
 nyong,7
 nyoo,2
+<<<<<<< HEAD
 nyung,4
 nzsheep,1
 o,446
@@ -14719,11 +17011,18 @@ olimpik,8
 olimpiko,1
 olimpiks,8
 olimpiyan,1
+=======
+o,23
+obito,1
+ohmygosh,1
+okasyon,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 oliviang,1
 ologo,1
 olpoc,1
 olufani,1
 omegle,2
+<<<<<<< HEAD
 omiah,1
 omsim,1
 onay,1
@@ -14735,12 +17034,20 @@ onti,2
 onting,3
 ontolohiya,1
 ontopic,1
+=======
+omsim,1
+onay,1
+onince,1
+onti,2
+onting,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ooffend,1
 ooffer,2
 oopera,1
 ooperahan,1
 ooperate,2
 ooverthink,1
+<<<<<<< HEAD
 opendns,1
 openforward,1
 openofficeorg,2
@@ -14822,10 +17129,28 @@ paanunsyo,2
 paanyaya,2
 paaralan,127
 paaralang,5
+=======
+oposisyon,1
+orasyon,1
+orchem,1
+otornim,1
+overthink,3
+overthinker,1
+owss,1
+p,1
+paabutin,1
+paalam,2
+paalis,1
+paaminin,1
+paanakin,1
+paandar,1
+paano,38
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 paasa,2
 paat,1
 paatake,1
 paawa,1
+<<<<<<< HEAD
 paawat,1
 paayon,1
 pababa,20
@@ -14847,6 +17172,11 @@ pabayaan,3
 pabayaang,1
 pabayang,1
 pabc,1
+=======
+pababa,3
+pabango,1
+pabayaan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pabente,1
 pabertdey,1
 pabida,1
@@ -14864,6 +17194,7 @@ paborito,36
 paboritong,9
 pabrika,12
 pabuhat,1
+<<<<<<< HEAD
 pabula,1
 pabulong,2
 pabutihin,1
@@ -14991,6 +17322,17 @@ pagbabawalang,1
 pagbabawas,12
 pagbabayad,6
 pagbabayaran,1
+=======
+pabulong,1
+pacool,2
+pacute,1
+padaan,3
+padin,7
+pagaling,1
+pagalit,1
+pagawa,2
+pagbabago,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pagbabayarin,2
 pagbagong,1
 pagbagsak,38
@@ -15036,6 +17378,7 @@ pagbigay,3
 pagbigkas,1
 pagbigti,1
 pagbigyan,1
+<<<<<<< HEAD
 pagbigyang,1
 pagbihag,1
 pagbilang,1
@@ -15076,9 +17419,15 @@ pagbuo,9
 pagbura,2
 pagbuti,1
 pagbutihin,2
+=======
+pagbisita,1
+pagbubunganga,1
+pagbulong,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pagchecheck,1
 pagclick,1
 pagcoconfess,1
+<<<<<<< HEAD
 pagcompute,1
 pagdaan,5
 pagdadahilan,1
@@ -15298,6 +17647,14 @@ pagkabulalas,1
 pagkabulok,1
 pagkabunyag,1
 pagkabuo,4
+=======
+pagdalaw,1
+pagdating,3
+paggamit,1
+pagiging,15
+pagiisip,1
+pagka,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pagkabusina,1
 pagkachoosy,1
 pagkadating,1
@@ -15316,6 +17673,7 @@ pagkaharap,1
 pagkahari,1
 pagkahati,1
 pagkahibang,1
+<<<<<<< HEAD
 pagkahigad,1
 pagkahirang,1
 pagkahuli,2
@@ -15405,6 +17763,12 @@ pagkakataon,78
 pagkakataong,12
 pagkakatapon,1
 pagkakatapos,1
+=======
+pagkain,2
+pagkakaalam,1
+pagkakamali,1
+pagkakataon,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pagkakatiwalaan,1
 pagkakatuklas,3
 pagkakatulad,1
@@ -15428,6 +17792,7 @@ pagkakuha,1
 pagkakulong,1
 pagkalaglag,2
 pagkalasing,1
+<<<<<<< HEAD
 pagkalason,3
 pagkalat,26
 pagkalegal,1
@@ -15459,6 +17824,9 @@ pagkapanganak,1
 pagkapangulo,8
 pagkaparalisado,1
 pagkapasok,1
+=======
+pagkalipas,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pagkapindot,1
 pagkapresidente,3
 pagkaputol,2
@@ -15593,6 +17961,7 @@ pagliban,1
 paglibot,1
 pagligtas,1
 pagliha,1
+<<<<<<< HEAD
 paglihis,1
 paglikas,2
 paglikha,7
@@ -15662,6 +18031,12 @@ pagmumukha,4
 pagmumukhaayos,1
 pagmumulan,1
 pagmumulta,2
+=======
+pagmamahal,1
+pagmamahalan,1
+pagmamaneho,2
+pagmumukha,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pagmumura,1
 pagnagboboot,1
 pagnagkataon,1
@@ -15866,6 +18241,7 @@ pagpuwersa,1
 pagragasa,1
 pagraranggo,3
 pagrarush,1
+<<<<<<< HEAD
 pagrepaso,2
 pagrepasong,1
 pagrerepaso,1
@@ -15893,6 +18269,10 @@ pagsalakay,41
 pagsalaky,1
 pagsali,4
 pagsalin,1
+=======
+pagsabi,2
+pagsagot,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pagsalitaan,1
 pagsalo,1
 pagsalungat,2
@@ -16166,6 +18546,7 @@ pagupa,1
 pagupit,1
 pagupo,1
 paguran,1
+<<<<<<< HEAD
 pagurong,6
 pagusad,2
 pagusapan,16
@@ -16202,6 +18583,10 @@ pagyuko,1
 pahaba,3
 pahalata,1
 paham,1
+=======
+pagusapan,1
+paguusapan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pahamak,3
 pahapon,1
 pahayag,129
@@ -16234,6 +18619,7 @@ paiingat,1
 paikot,2
 paikutikot,1
 paikutin,1
+<<<<<<< HEAD
 pailaw,2
 painagsilangan,1
 painagtalunan,1
@@ -16241,6 +18627,10 @@ pairalin,1
 paisteyts,1
 pait,2
 paiyak,2
+=======
+pait,1
+paiyak,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 paiyakin,1
 pajakol,1
 pakaba,1
@@ -16257,6 +18647,7 @@ pakanang,1
 pakanluran,3
 pakapuyat,1
 pakasal,1
+<<<<<<< HEAD
 pakasalan,2
 pakawalan,3
 pakaway,1
@@ -16312,6 +18703,10 @@ pakikiramay,3
 pakikisalamuha,1
 pakikisali,1
 pakikisama,1
+=======
+pakialam,7
+pakikipag,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pakikitungo,1
 pakikiusap,1
 pakikuha,2
@@ -16319,6 +18714,7 @@ pakikuwento,1
 pakilaksan,1
 pakilinaw,1
 pakilubog,1
+<<<<<<< HEAD
 pakilusin,1
 pakinabang,5
 pakinggan,2
@@ -16330,6 +18726,9 @@ pakipm,2
 pakipot,1
 pakiramdam,41
 pakiramdan,1
+=======
+pakiramdam,10
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pakireport,1
 pakirot,2
 pakisabi,3
@@ -16342,6 +18741,7 @@ pakisuyo,2
 pakitagay,1
 pakitama,1
 pakitang,1
+<<<<<<< HEAD
 pakitawag,1
 pakitawagan,1
 pakitsan,1
@@ -16354,11 +18754,15 @@ pakotse,3
 pakpak,6
 paksa,25
 paksang,7
+=======
+pakpak,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pakshet,357
 pakshit,1
 paksiw,1
 paktay,1
 pakulong,1
+<<<<<<< HEAD
 pakuluan,1
 pakwan,2
 pakyawang,2
@@ -16397,6 +18801,17 @@ palakihin,2
 palakol,4
 palakpakan,1
 palalain,1
+=======
+pakyu,337
+pakyut,1
+palaasa,1
+palabas,2
+palabasa,1
+palag,3
+palagi,10
+palaging,1
+palaka,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 palalalain,1
 palalampasin,2
 palalim,2
@@ -16407,6 +18822,7 @@ palamigin,1
 palampas,1
 palamunin,2
 palamura,1
+<<<<<<< HEAD
 palanas,1
 palang,32
 palangga,1
@@ -16538,6 +18954,24 @@ pambomba,1
 pambombang,1
 pambonus,2
 pambotohan,1
+=======
+palang,22
+palanood,1
+palapit,2
+palayasin,1
+palibhasa,5
+paligid,1
+paliguan,1
+palitan,5
+paliwanag,1
+paluwagan,1
+pamalit,1
+pamamahay,1
+pamangkin,2
+pamasko,1
+pambansang,4
+pambili,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pambubudol,1
 pambubugaw,1
 pambubugbog,1
@@ -16555,6 +18989,7 @@ pamilihang,2
 pamilya,120
 pamilyado,1
 pamilyadong,1
+<<<<<<< HEAD
 pamilyang,10
 pamilyar,4
 pamimili,2
@@ -16666,6 +19101,15 @@ pananatiling,2
 pananauli,1
 pananaw,25
 pananda,3
+=======
+pamilyang,1
+pampalubag,1
+panaginip,3
+panahon,4
+panahong,1
+panalo,1
+pananagutin,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 panandaliang,2
 pananggalang,3
 pananggang,1
@@ -16674,6 +19118,7 @@ pananim,3
 panapin,1
 panapos,1
 panarrative,1
+<<<<<<< HEAD
 panasonickolinsamsung,1
 panatiko,2
 panatilihin,6
@@ -16951,6 +19396,17 @@ panglusob,1
 pangluto,1
 pangmadla,1
 pangmalayuang,1
+=======
+pandikit,1
+pangalan,9
+pangalawa,1
+pangalawang,1
+panganay,1
+pangarap,5
+panget,22
+panggap,1
+pangit,32
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pangmarangal,1
 pangmasa,1
 pangmatagalang,3
@@ -17119,6 +19575,7 @@ panloloko,3
 panloob,11
 panlupang,2
 pannchoa,1
+<<<<<<< HEAD
 panong,1
 panonood,2
 panoorin,8
@@ -17195,6 +19652,16 @@ paomaj,1
 papaalisin,1
 papaano,2
 papaanong,1
+=======
+panoorin,2
+pansin,1
+pantal,1
+pantay,2
+pantustos,1
+panukala,1
+panuorin,3
+paomaj,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 papaaral,1
 papack,1
 papadala,1
@@ -17213,8 +19680,11 @@ papakilala,1
 papakiligin,1
 papakinggan,1
 papakitaan,1
+<<<<<<< HEAD
 papakyaw,1
 papalabas,3
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 papalabasin,1
 papalagyan,1
 papalambutin,1
@@ -17263,6 +19733,7 @@ papatol,2
 papatrabaho,1
 papatulan,2
 papauto,2
+<<<<<<< HEAD
 papauwi,1
 papayag,5
 papayagan,7
@@ -17350,6 +19821,20 @@ pasabi,3
 pasabog,2
 pasabugin,2
 pasagasaan,1
+=======
+papayag,2
+papunta,2
+papuntang,2
+paraan,3
+paramdam,1
+parating,1
+parehas,10
+pareho,8
+parelax,1
+pareparehas,1
+partylist,1
+pasabi,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pasahan,2
 pasahero,34
 pasaherong,2
@@ -17357,6 +19842,7 @@ pasahod,7
 pasakal,1
 pasakit,3
 pasalamat,2
+<<<<<<< HEAD
 pasalamatan,5
 pasalaysay,2
 pasalihin,1
@@ -17367,9 +19853,15 @@ pasasabuging,1
 pasasalamat,2
 pasasampahan,1
 pasaway,5
+=======
+pasalamatan,1
+pasanin,1
+pasasampahan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pasaya,1
 pasayahin,1
 pascroll,1
+<<<<<<< HEAD
 pasensiya,8
 pasensya,29
 pases,1
@@ -17402,6 +19894,11 @@ pasukan,10
 pasukin,1
 pasulong,2
 pasusuhin,1
+=======
+pasensiya,1
+pasensya,16
+pashneya,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 paswelduhin,1
 pasya,15
 pasyalan,1
@@ -17441,6 +19938,7 @@ patatakbuhin,1
 patatawarin,2
 patatrabaho,1
 patattoo,1
+<<<<<<< HEAD
 pataw,4
 patawa,1
 patawad,6
@@ -17485,9 +19983,18 @@ patungo,49
 patungong,18
 patunton,1
 paturo,1
+=======
+patawarin,1
+patay,6
+patayin,5
+patulog,1
+patulong,2
+patuloy,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 paturok,1
 patusin,1
 patutulugin,1
+<<<<<<< HEAD
 patutungo,2
 patutunguhan,2
 patutunguhang,1
@@ -17502,6 +20009,11 @@ paunlarin,5
 paunlaring,1
 paurong,1
 pausadin,1
+=======
+paubos,1
+paulit,1
+paulitulit,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pauso,1
 pausong,1
 pautang,4
@@ -17511,6 +20023,7 @@ pauwiin,5
 pawalanggalang,1
 pawang,8
 pawer,1
+<<<<<<< HEAD
 pawis,7
 pawisan,1
 payag,4
@@ -17587,10 +20100,24 @@ pexer,5
 pexers,2
 pexpex,1
 pexsowaw,1
+=======
+pawis,2
+pawisan,1
+payag,2
+payapa,1
+payat,1
+pelikula,1
+pepetiks,1
+persida,1
+petrolyo,1
+pettiest,1
+pexer,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 peyt,1
 pgag,1
 pgatake,1
 pghihirap,1
+<<<<<<< HEAD
 phamaceutical,1
 phampe,2
 phatrix,2
@@ -17609,6 +20136,12 @@ pichipichi,1
 pickaw,1
 pictureavvy,1
 piesta,1
+=======
+philhealth,2
+photocards,1
+piattos,1
+pickaw,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pighati,1
 pigil,1
 pigilan,17
@@ -17620,6 +20153,7 @@ pihikan,1
 pihit,1
 piitan,2
 pikit,3
+<<<<<<< HEAD
 piknik,5
 pikon,9
 piksiyon,12
@@ -17655,6 +20189,13 @@ pinabagsak,1
 pinabalik,1
 pinabayaan,2
 pinabibilisan,1
+=======
+pikon,5
+pilit,1
+pinaabot,1
+pinaalala,1
+pinaasa,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinabidding,1
 pinabigay,1
 pinabilis,1
@@ -17670,6 +20211,7 @@ pinadalhan,2
 pinadalo,1
 pinadama,1
 pinadilim,1
+<<<<<<< HEAD
 pinag,11
 pinagaaralan,6
 pinagaawayang,1
@@ -17737,6 +20279,20 @@ pinagkaiba,4
 pinagkainan,1
 pinagkaisahang,1
 pinagkakaabalahan,3
+=======
+pinag,4
+pinaganda,1
+pinagaralan,2
+pinagbabawalan,1
+pinagbigyan,1
+pinaggagawa,3
+pinaghalo,1
+pinaghirapan,1
+pinaghuhugutan,1
+pinagkaiba,1
+pinagkainan,1
+pinagkakaabalahan,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinagkakain,1
 pinagkakaisahan,1
 pinagkakakitaan,1
@@ -17757,8 +20313,12 @@ pinaglaban,2
 pinaglakip,1
 pinaglalaruan,1
 pinaglalike,1
+<<<<<<< HEAD
 pinaglaruan,3
 pinaglilingkuran,4
+=======
+pinaglaruan,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinaglololoko,1
 pinagmalaki,2
 pinagmamalaki,2
@@ -17779,6 +20339,7 @@ pinagpapawisan,1
 pinagpasyahan,1
 pinagpatuloy,2
 pinagpawisan,1
+<<<<<<< HEAD
 pinagpiliang,1
 pinagpipilitan,1
 pinagpostan,1
@@ -17794,6 +20355,10 @@ pinagsangayunan,1
 pinagsanib,2
 pinagsasabi,9
 pinagsasabihan,1
+=======
+pinagsamahan,1
+pinagsasabi,7
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinagsasalita,1
 pinagsasama,1
 pinagsasamantalahan,1
@@ -17824,6 +20389,7 @@ pinagtulungan,1
 pinagtulungang,1
 pinagtutulakan,1
 pinagtutulungan,1
+<<<<<<< HEAD
 pinagtuunan,2
 pinagupitan,1
 pinagusapan,9
@@ -17999,6 +20565,16 @@ pinakikialaman,1
 pinakikinig,1
 pinakikitunguhan,1
 pinakilala,2
+=======
+pinaguusapan,2
+pinahihirapan,1
+pinahirapan,1
+pinahiya,1
+pinaka,1
+pinakamalaking,1
+pinakapaborito,1
+pinakawalan,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinakilig,1
 pinakinggan,3
 pinakita,5
@@ -18015,6 +20591,7 @@ pinalakpakan,1
 pinalalala,1
 pinalamalapit,1
 pinalamon,1
+<<<<<<< HEAD
 pinalampas,1
 pinalapastangan,1
 pinalawak,4
@@ -18092,6 +20669,17 @@ pinantayan,1
 pinanukala,1
 pinanuod,5
 pinapa,1
+=======
+pinaliwag,1
+pinamigay,1
+pinamukha,1
+pinamukhang,1
+pinangako,1
+pinanganak,7
+pinanindigan,1
+pinanonood,1
+pinanood,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinapaalala,2
 pinapaalalahanan,1
 pinapaalis,1
@@ -18119,8 +20707,12 @@ pinapainit,1
 pinapaitan,4
 pinapaiyak,1
 pinapak,1
+<<<<<<< HEAD
 pinapakahulugan,1
 pinapakain,5
+=======
+pinapakain,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinapakielaman,1
 pinapakielamanan,1
 pinapakilala,2
@@ -18148,12 +20740,18 @@ pinapangarap,5
 pinapangit,1
 pinapangiti,1
 pinapangungahan,1
+<<<<<<< HEAD
 pinapanigan,1
 pinapanigang,1
 pinapaniwalaan,1
 pinapanood,5
 pinapansin,3
 pinapanuod,5
+=======
+pinapanood,1
+pinapansin,1
+pinapanuod,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinaparamdam,1
 pinaparatangan,2
 pinaparini,1
@@ -18187,6 +20785,7 @@ pinaputok,4
 pinaputol,2
 pinaputukan,2
 pinaranas,1
+<<<<<<< HEAD
 pinarangalan,1
 pinaratangan,6
 pinardona,1
@@ -18225,6 +20824,11 @@ pinatatamaan,3
 pinataw,1
 pinatawan,1
 pinatay,37
+=======
+pinasa,1
+pinasukan,1
+pinatay,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinatayan,1
 pinatibay,2
 pinatigil,8
@@ -18246,6 +20850,7 @@ pinawisan,1
 pinayagan,14
 pinayagang,3
 pinayflix,1
+<<<<<<< HEAD
 pinays,1
 pinayuhan,7
 pinayuhang,1
@@ -18291,10 +20896,18 @@ pinondohan,2
 pinong,1
 pinopondohan,1
 pinoporma,1
+=======
+pinili,2
+pinilit,2
+pinirmahan,1
+pinklawan,2
+pinlano,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pinopost,1
 pinoprotektahan,1
 pinospon,1
 pinost,1
+<<<<<<< HEAD
 pinoyexchange,1
 pinpaikot,1
 pinsala,44
@@ -18353,6 +20966,16 @@ pirmihang,1
 pishin,1
 pisika,7
 pisikal,20
+=======
+pinsan,9
+pinterest,2
+pintuan,1
+pinupuntahan,1
+pipikit,1
+pipilitin,2
+piraso,2
+pirasong,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pisilin,1
 pisina,1
 pisisista,1
@@ -18362,6 +20985,7 @@ pisngi,3
 pisngisa,1
 pison,1
 pisteng,2
+<<<<<<< HEAD
 pisyolohiya,1
 pitasin,1
 pitong,35
@@ -18394,6 +21018,9 @@ playbyplay,1
 playstore,1
 playt,1
 pldtplay,2
+=======
+plastikan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pledis,1
 plegarya,3
 pleybor,1
@@ -18404,6 +21031,7 @@ plinaplano,1
 plinay,1
 plobleme,1
 plokplok,1
+<<<<<<< HEAD
 plorera,1
 plotilya,6
 pluwent,1
@@ -18659,10 +21287,47 @@ puhunan,5
 puhunanin,1
 pukawin,3
 puki,1
+=======
+pmnl,1
+pogi,41
+poging,1
+pokpok,5
+poksangpoksa,1
+poong,1
+popogi,1
+popollute,1
+popromote,1
+porket,6
+potaena,1
+potangina,6
+powerbank,1
+premyo,1
+preno,1
+preskuhan,1
+presyo,3
+prinactice,1
+prinovide,1
+prinsipyo,2
+printan,1
+probinsiya,1
+probinsyana,1
+problemang,1
+procaztinator,1
+propesiya,1
+prophunt,1
+proplayers,1
+proseso,1
+proyekto,1
+pucha,328
+puchaang,1
+puday,1
+puhunan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pukinang,1
 pukinangina,2
 pukingina,2
 pukinginangina,1
+<<<<<<< HEAD
 puksain,2
 pulang,18
 pulat,1
@@ -18701,6 +21366,12 @@ pumalakpak,3
 pumaligid,1
 pumalit,6
 pumalo,3
+=======
+puksain,1
+pulitikong,1
+pulpol,1
+pumailalim,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pumalpak,1
 pumana,1
 pumanaw,3
@@ -18714,6 +21385,7 @@ pumapasok,8
 pumapasyal,1
 pumapatay,3
 pumapatol,2
+<<<<<<< HEAD
 pumapayag,1
 pumara,1
 pumarada,1
@@ -18815,6 +21487,26 @@ pustahan,1
 putaansuu,1
 putang,6
 putangina,466
+=======
+pumasok,3
+pumickup,1
+pumikit,1
+pumili,1
+pumunta,7
+puntahan,1
+puntong,1
+punyeta,341
+punyetang,2
+pupungs,1
+pupunta,8
+pupuntahan,1
+pusang,1
+pusi,3
+puson,1
+pustahan,1
+putang,4
+putangina,465
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 putanginamo,3
 putanginang,5
 putbol,16
@@ -18827,6 +21519,7 @@ putok,7
 putol,5
 putotoy,1
 putragis,1
+<<<<<<< HEAD
 putukan,15
 putulin,3
 puwang,4
@@ -18860,6 +21553,15 @@ pwes,1
 pwesto,41
 pwestong,4
 pwet,3
+=======
+putulin,1
+pwdeng,1
+pwedeng,8
+pwee,1
+pwes,1
+pwesto,2
+pwet,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 pwinsesh,1
 pyanista,1
 pyano,1
@@ -18874,6 +21576,7 @@ qiuzhigou,1
 qmess,1
 qno,1
 qquit,1
+<<<<<<< HEAD
 quats,1
 queenja,1
 queenland,1
@@ -18903,12 +21606,18 @@ ragbi,3
 raharisaina,1
 raikou,1
 rajapaksa,1
+=======
+queenja,1
+raca,1
+raikou,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 rajj,1
 raket,5
 raketa,2
 rakiraki,1
 rakista,2
 rald,1
+<<<<<<< HEAD
 raleighdurham,2
 ramdam,6
 randjelovic,2
@@ -18991,9 +21700,22 @@ relos,3
 remyelination,1
 renasimyento,1
 rendahan,1
+=======
+ramdam,2
+rason,3
+raynaw,1
+realme,1
+realtalk,1
+regulasyon,1
+reigo,1
+reklamo,2
+relasyon,1
+relos,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 renjun,1
 rensing,1
 rensu,1
+<<<<<<< HEAD
 reorganisasyon,1
 repablik,1
 repapips,2
@@ -19024,6 +21746,11 @@ repulika,1
 reputasiyon,1
 reputasyon,8
 repyugi,2
+=======
+repapips,1
+replyan,2
+reportings,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 rerecord,1
 reregaluhan,1
 rereklamo,1
@@ -19031,6 +21758,7 @@ rereply,2
 rerespetuhin,1
 rerestart,1
 rereview,1
+<<<<<<< HEAD
 resepsyonista,2
 reserbang,1
 reserbasyon,1
@@ -19143,12 +21871,30 @@ rusya,16
 ruto,1
 ruwedang,3
 rwes,1
+=======
+resibomagandang,1
+resing,1
+responsibilidad,2
+retweet,1
+retweeted,1
+revluvs,1
+reygie,1
+reyhiee,1
+rickster,1
+rinig,3
+rinilin,1
+rorok,1
+rpdr,1
+rrhein,1
+rupok,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 ryujin,1
 ryx,2
 rzepka,1
 s,26
 saakashvbili,1
 saakin,1
+<<<<<<< HEAD
 saang,29
 saanman,1
 saanmang,1
@@ -19212,9 +21958,36 @@ saisset,1
 saiyo,1
 sakahan,15
 sakali,9
+=======
+saang,1
+sabagal,1
+sabagay,3
+sabaw,3
+sabay,14
+sabihan,3
+sabihing,1
+sabing,1
+sablay,1
+sabog,2
+sadboi,1
+sadgirl,2
+sadya,5
+sadyang,3
+sadyay,1
+sagabal,1
+sagad,9
+sagaran,1
+saging,1
+saglit,3
+sagutan,1
+sagutin,2
+sainyo,8
+sakali,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sakalin,7
 sakaling,15
 sakanya,1
+<<<<<<< HEAD
 sakaraha,1
 sakasakay,1
 sakay,18
@@ -19227,11 +22000,15 @@ sakop,10
 sakripisyo,1
 saksak,1
 saksakan,2
+=======
+sakay,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 saksakin,1
 saksi,25
 saktan,3
 sakto,1
 saktong,2
+<<<<<<< HEAD
 sakuna,26
 sakyan,3
 salabat,5
@@ -19263,6 +22040,11 @@ salitaan,1
 salitang,542
 salitay,2
 sallel,1
+=======
+salamin,1
+salbahe,1
+salitaan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 salonpas,1
 salot,4
 salpukan,1
@@ -19270,6 +22052,7 @@ saltsjbaden,1
 salubong,2
 salubungin,1
 saluhin,1
+<<<<<<< HEAD
 salungat,10
 salungatan,1
 salungatin,1
@@ -19291,11 +22074,18 @@ samgyup,1
 samin,8
 sampagita,2
 sampaguita,2
+=======
+samahan,4
+samantalang,1
+samgyup,1
+samin,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sampalin,4
 sampaloc,1
 sampalok,1
 sampayan,1
 sampd,1
+<<<<<<< HEAD
 sampol,1
 sampong,1
 sampu,8
@@ -19304,12 +22094,17 @@ sampung,65
 sampusampung,1
 samsamin,1
 sanang,18
+=======
+sampung,1
+sanang,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sanaol,3
 sanay,24
 sanayin,3
 sanayon,1
 sanaysay,7
 sandale,1
+<<<<<<< HEAD
 sandali,36
 sandaling,5
 sandalyas,1
@@ -19350,6 +22145,11 @@ santong,1
 santuwaryo,1
 sanyang,1
 sapagkat,9
+=======
+sandali,12
+sansinukob,1
+santanas,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sapak,1
 sapakan,4
 sapat,45
@@ -19361,6 +22161,7 @@ sapinsapin,4
 sapok,1
 sapot,2
 sapukin,1
+<<<<<<< HEAD
 sapul,3
 saquarema,2
 sarado,15
@@ -19393,6 +22194,13 @@ sasabihan,4
 sasabihin,48
 sasabit,1
 sasabitan,1
+=======
+sariling,5
+sasabak,1
+sasabay,1
+sasabihan,1
+sasabihin,18
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sasabog,2
 sasaglit,1
 sasagot,17
@@ -19417,6 +22225,7 @@ sasamahan,2
 sasampal,1
 sasangayon,3
 sasapakin,5
+<<<<<<< HEAD
 sasapilitang,1
 sasapit,1
 sasaraduhan,1
@@ -19610,10 +22419,41 @@ shoting,1
 shuibian,2
 shulze,1
 shulzepowell,2
+=======
+sawang,1
+sayaw,2
+sayawan,1
+sayong,4
+sayout,8
+schoology,1
+schoolworks,2
+selan,1
+selca,2
+selda,1
+selfie,1
+selos,3
+sembreak,1
+semplang,1
+sensya,2
+seohyun,1
+seryoso,7
+seryosohin,1
+seselpon,1
+sesend,1
+seungjin,1
+seungkwan,3
+seungyoun,1
+sharmaine,1
+shelsea,1
+shiniship,1
+shopee,8
+shoshoot,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 shuta,8
 shutacakes,1
 shyet,1
 shyn,1
+<<<<<<< HEAD
 shyrotflmao,1
 siabi,1
 sianbi,1
@@ -19723,6 +22563,21 @@ simut,1
 simutin,1
 sinabayan,2
 sinabihan,17
+=======
+si,270
+sigaw,5
+sigawan,1
+sigurado,2
+sikat,2
+sikmura,1
+sikreto,1
+sikretong,1
+simot,1
+simpatya,1
+simpleng,1
+simutin,1
+sinabihan,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sinabihang,2
 sinabing,26
 sinadya,4
@@ -19763,6 +22618,7 @@ sinarhan,1
 sinasaalang,1
 sinasabayan,1
 sinasabe,1
+<<<<<<< HEAD
 sinasabi,119
 sinasabihan,2
 sinasabihang,1
@@ -19772,6 +22628,13 @@ sinasabon,1
 sinasadya,4
 sinasadyang,6
 sinasagot,2
+=======
+sinasabi,17
+sinasabihan,1
+sinasabing,1
+sinasadya,1
+sinasagot,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sinasagutan,1
 sinasakal,1
 sinasaktan,3
@@ -19798,10 +22661,14 @@ sinauna,2
 sinaunang,8
 sinave,1
 sinayang,1
+<<<<<<< HEAD
 sinayawan,1
 sindar,1
 sindikato,2
 sindrom,2
+=======
+sindikato,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sinearch,2
 sineen,1
 sinehan,16
@@ -19814,6 +22681,7 @@ sinenyasan,1
 sineryoso,2
 sineseryoso,1
 sineset,1
+<<<<<<< HEAD
 sinetensyahan,1
 singaw,4
 singdami,1
@@ -19855,10 +22723,22 @@ sinisikap,2
 sinisiksik,1
 sinisilang,2
 sinisilip,2
+=======
+singaw,2
+singit,1
+singsing,1
+sinigang,2
+sinimulan,1
+sinira,1
+sinisi,1
+sinisilang,1
+sinisilip,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sinisimulan,2
 sinisingil,1
 sinisipilyuhan,1
 sinisipon,1
+<<<<<<< HEAD
 sinisiraan,1
 sinisisi,8
 sinisiyasat,3
@@ -19875,6 +22755,10 @@ sintensyang,2
 sintesis,3
 sintetika,1
 sintetiko,1
+=======
+sinisisi,2
+sinong,15
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sintosinto,1
 sinturon,2
 sinturong,2
@@ -19935,6 +22819,7 @@ sinyal,1
 sinyales,1
 sinyor,1
 siobe,1
+<<<<<<< HEAD
 siomai,2
 sioms,1
 siopao,3
@@ -19967,6 +22852,15 @@ sisidlan,13
 sisidlang,1
 sisig,13
 sisigaw,3
+=======
+siopao,2
+sipag,2
+sipon,2
+siraan,3
+sirain,2
+siraulo,7
+sisigaw,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sisiguraduhin,1
 sisihin,4
 sisikat,1
@@ -19981,6 +22875,7 @@ sisiyasatin,2
 sismolohista,1
 sisne,3
 sisokumyrs,1
+<<<<<<< HEAD
 sistemang,34
 sisterette,1
 siswo,2
@@ -20017,9 +22912,15 @@ skandalo,1
 skeptisismo,1
 skintag,1
 skpwede,1
+=======
+sitwasyon,5
+siyam,3
+skandalo,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 skusta,12
 skwad,1
 skwating,1
+<<<<<<< HEAD
 skwela,2
 skwelahan,1
 skycraper,1
@@ -20033,9 +22934,14 @@ slumbookslumnotes,1
 smartglobe,1
 smertin,1
 smstext,1
+=======
+skypeia,1
+slowmo,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 smtown,3
 snador,1
 snazzymnla,1
+<<<<<<< HEAD
 snooki,1
 snsd,1
 sobong,1
@@ -20085,11 +22991,27 @@ soyeon,1
 spektoral,1
 spnl,1
 spoliarium,4
+=======
+snsd,1
+soce,1
+socmed,1
+softblock,1
+softdrinks,1
+sokor,1
+solge,1
+solusyon,1
+solvings,1
+sopas,1
+sosyal,1
+soyeon,1
+spnl,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 spotify,1
 spoylerdanke,1
 sprey,3
 ssenaryo,1
 ssng,1
+<<<<<<< HEAD
 stado,1
 stados,1
 stalinista,1
@@ -20206,6 +23128,27 @@ sumapi,1
 sumapit,5
 sumasabit,1
 sumasabog,4
+=======
+stolenkiss,2
+stsg,1
+studytwt,1
+subukan,1
+sugat,3
+sugod,1
+sukhoon,1
+sulat,1
+sulit,1
+sulsol,1
+sumabog,2
+sumagi,1
+sumagot,3
+sumakay,1
+sumakto,1
+sumali,1
+sumama,5
+sumang,1
+sumasabog,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sumasadboi,1
 sumasagip,7
 sumasagot,5
@@ -20221,6 +23164,7 @@ sumasalisi,1
 sumasalubong,1
 sumasalungat,2
 sumasama,1
+<<<<<<< HEAD
 sumasamba,3
 sumasangayon,8
 sumasayaw,6
@@ -20251,6 +23195,15 @@ sumisipol,1
 sumisira,1
 sumobra,2
 sumon,1
+=======
+sumasayaw,2
+sumayaw,2
+sumbong,4
+sumigaw,1
+sumira,1
+sumisigaw,1
+sumisingit,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sumosobra,1
 sumosuporta,2
 sumpa,5
@@ -20273,6 +23226,7 @@ sumura,1
 sumuri,1
 sumusubaybay,2
 sumusubo,1
+<<<<<<< HEAD
 sumusubok,7
 sumusugpo,2
 sumusuko,3
@@ -20294,6 +23248,11 @@ sundan,6
 sundo,1
 sunduin,3
 sungay,1
+=======
+sumusubok,1
+sumusuko,2
+sundo,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 sunget,1
 sunghoon,1
 sungtaro,3
@@ -20303,6 +23262,7 @@ sunodnangsunod,1
 sunodsunod,6
 sunog,34
 sunoo,2
+<<<<<<< HEAD
 sunshineme,1
 suntimes,1
 suntok,3
@@ -20350,6 +23310,13 @@ susubaybayan,1
 susubukan,6
 susubukang,1
 susugan,1
+=======
+suntukan,1
+suot,4
+supalpalin,1
+superbook,1
+supot,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 susukuan,1
 susulat,2
 susulatan,1
@@ -20358,6 +23325,7 @@ susundin,2
 susundo,2
 susunduin,1
 susunghoon,1
+<<<<<<< HEAD
 susunod,114
 susunodaraw,1
 susunot,1
@@ -20398,6 +23366,17 @@ tabelang,1
 tabing,11
 tabingdaan,1
 tabingdagat,6
+=======
+susunod,8
+susuot,2
+sweetan,1
+swerte,3
+syang,1
+syempre,13
+syota,1
+t,2
+tabas,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tabingi,1
 tabitabi,1
 tablado,1
@@ -20413,6 +23392,7 @@ taena,3
 taenang,1
 taepei,1
 taeyong,2
+<<<<<<< HEAD
 tagaafrica,1
 tagaalabama,1
 tagaambag,1
@@ -20424,6 +23404,8 @@ tagabantay,2
 tagabaril,1
 tagabaryo,1
 tagabelarus,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tagabenta,1
 tagabenus,1
 tagabritanya,2
@@ -20450,6 +23432,7 @@ tagahangang,1
 tagahatol,20
 tagahilaga,1
 tagahimod,1
+<<<<<<< HEAD
 tagahokkaido,1
 tagahungary,1
 tagaibang,1
@@ -20715,6 +23698,27 @@ tandaang,1
 tandang,2
 tander,1
 tanduri,1
+=======
+tagal,22
+tagalinis,1
+tagiisa,1
+tagiliran,1
+tagsen,1
+tahimik,5
+tahol,2
+takbo,1
+takip,1
+takot,7
+takte,1
+takutin,1
+talentado,1
+talino,1
+talunan,4
+tamad,4
+tambak,1
+tanawin,1
+tandaan,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tangahan,1
 tangaina,1
 tangan,1
@@ -20722,6 +23726,7 @@ tangang,2
 tangatangako,1
 tangeena,1
 tangena,1
+<<<<<<< HEAD
 tangere,34
 tanggalan,1
 tanggalin,9
@@ -20809,6 +23814,27 @@ tataba,2
 tatabihan,1
 tatag,2
 tatagal,9
+=======
+tanggalin,4
+tanggap,2
+tanggapin,2
+tanghali,5
+tangina,630
+tanginamo,13
+tanginang,11
+tanging,2
+tangna,1
+tanong,17
+tanung,1
+tanungin,1
+tapakan,1
+tapang,3
+taranta,1
+tarantado,357
+tarantadong,1
+taray,2
+tatag,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tatago,1
 tatahakin,1
 tatahiin,1
@@ -20836,6 +23862,7 @@ tatapatin,1
 tatapusin,3
 tatatayo,1
 tatawa,1
+<<<<<<< HEAD
 tatawag,5
 tatawagan,5
 tatawagin,6
@@ -20860,6 +23887,13 @@ tatlumput,1
 tatlumputwalong,1
 tatoeba,8
 tatoebay,1
+=======
+tatawagan,1
+tatawagin,4
+tatay,16
+tatlo,5
+tatlong,6
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tatrashtalkin,1
 tatratuhin,1
 tatsulok,1
@@ -20867,6 +23901,7 @@ tauhan,43
 tauhang,8
 taulava,1
 taumbayan,2
+<<<<<<< HEAD
 taun,1
 taunan,1
 taunang,8
@@ -20986,10 +24021,21 @@ the,166
 thefly,1
 thehouse,1
 thiart,1
+=======
+tawag,14
+tawagan,2
+tawang,15
+tayong,13
+tcvs,1
+teleserye,1
+terorista,1
+the,54
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 thoc,1
 thomasian,2
 thomasz,1
 thord,1
+<<<<<<< HEAD
 tianshifu,1
 tiayaga,1
 tibay,4
@@ -21006,10 +24052,19 @@ tigil,15
 tigilan,9
 tigilin,1
 tigilputukan,4
+=======
+tibay,1
+tigang,2
+tigas,2
+tigasin,1
+tigil,3
+tigilan,6
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tigiltigilan,1
 tignan,15
 tigrillo,1
 tigyawat,1
+<<<<<<< HEAD
 tiisin,1
 tikatik,1
 tikbalang,1
@@ -21067,6 +24122,16 @@ tinanim,4
 tinanong,46
 tinantiya,2
 tinantya,1
+=======
+tiks,1
+tiktok,28
+tinag,2
+tinagal,1
+tinakpan,1
+tinamaan,2
+tinanggal,1
+tinanong,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tinaob,1
 tinapay,32
 tinapik,1
@@ -21127,6 +24192,7 @@ tindi,3
 tinedyer,5
 tinemigs,1
 tinext,1
+<<<<<<< HEAD
 tineydyer,1
 tingala,1
 tingin,109
@@ -21147,9 +24213,16 @@ tinipak,1
 tinipon,1
 tinipong,1
 tinira,3
+=======
+tingin,11
+tingnan,5
+tinigil,1
+tinignan,4
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tinirhan,1
 tinitigan,1
 tinitignan,1
+<<<<<<< HEAD
 tinitiis,2
 tinitingala,1
 tinitinging,1
@@ -21160,6 +24233,8 @@ tinitirhan,2
 tinititigan,1
 tinitiyak,1
 tiniyak,4
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tinola,2
 tinopak,2
 tinotolerate,2
@@ -21208,6 +24283,7 @@ tinutustos,1
 tinututulan,1
 tinuyo,1
 tinweet,1
+<<<<<<< HEAD
 tinyente,1
 tipahin,1
 tipak,2
@@ -21225,6 +24301,12 @@ tiratirang,1
 tisiyu,3
 tisyu,4
 titibay,1
+=======
+tipahin,1
+tipid,1
+tipong,1
+tirang,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 titig,2
 titigan,2
 titigil,5
@@ -21232,6 +24314,7 @@ titignan,1
 titik,6
 titikman,1
 titimpi,1
+<<<<<<< HEAD
 titindi,1
 titingala,1
 titingnan,6
@@ -21291,10 +24374,21 @@ tortillos,1
 tosilog,8
 totalgamingnet,1
 totalitaryong,1
+=======
+tiwala,2
+tiyak,1
+tiyan,11
+tkkpop,1
+tlaga,1
+tmsd,1
+tomasinoweb,1
+topsarap,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 totga,1
 totodasin,1
 totohanan,1
 totohanin,1
+<<<<<<< HEAD
 totong,13
 totoong,22
 totooy,1
@@ -21338,10 +24432,15 @@ trapik,3
 trapiko,19
 trapikong,1
 trapong,1
+=======
+totoong,2
+trabaho,7
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 trashkusta,1
 trashtalk,2
 trashtalkan,1
 tratransfer,1
+<<<<<<< HEAD
 tratuhin,1
 traumang,1
 traun,1
@@ -21362,6 +24461,12 @@ tripulante,11
 tripurante,1
 triyanggulo,1
 troedsson,1
+=======
+travisor,1
+traydor,2
+trenta,1
+trippings,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 troo,1
 tropa,20
 tropang,1
@@ -21370,6 +24475,7 @@ tropikal,1
 tropiko,2
 tropikong,2
 trotropa,1
+<<<<<<< HEAD
 trumpeta,2
 truthorg,1
 truthsayer,1
@@ -21429,9 +24535,19 @@ tubigan,1
 tubigdagat,2
 tubighabang,1
 tubigulan,1
+=======
+trycicle,1
+tsaka,12
+tsinelas,1
+ttanp,1
+ttkhulet,1
+ttweet,2
+tubig,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tubol,1
 tubong,5
 tubuan,1
+<<<<<<< HEAD
 tudlaan,2
 tudlain,3
 tugatog,3
@@ -21467,6 +24583,18 @@ tulong,93
 tulongng,1
 tuloyano,1
 tuloytuloy,3
+=======
+tugon,1
+tugtugan,1
+tuhod,1
+tukmol,3
+tukso,2
+tuktok,1
+tulad,7
+tuldok,1
+tulog,23
+tulong,3
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tulugtulugan,1
 tulume,1
 tulungan,33
@@ -21500,6 +24628,7 @@ tumalsik,2
 tumama,32
 tumamama,1
 tumambling,1
+<<<<<<< HEAD
 tumanaw,2
 tumanda,3
 tumangay,2
@@ -21574,6 +24703,22 @@ tumitingin,5
 tumitira,5
 tumiwalag,2
 tumnggi,1
+=======
+tumanda,1
+tumatanda,1
+tumatanggap,1
+tumatawa,1
+tumawa,2
+tumawag,1
+tumawid,1
+tumayo,1
+tumbong,1
+tumigil,3
+tumingin,1
+tumira,1
+tumitili,1
+tumitingin,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tumotoxic,1
 tumpok,2
 tumubo,1
@@ -21612,6 +24757,7 @@ tumutustos,1
 tumututol,5
 tumuwad,1
 tunaw,1
+<<<<<<< HEAD
 tunawin,2
 tunay,63
 tunayna,1
@@ -21626,6 +24772,9 @@ tungurahua,3
 tunika,1
 tuntunin,5
 tunutukoy,1
+=======
+tunay,2
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 tupadin,1
 turbina,2
 turistang,2
@@ -21669,6 +24818,7 @@ tuwa,10
 tuwad,2
 tuwalya,4
 tuwanag,1
+<<<<<<< HEAD
 tuwang,3
 tuwangtuwa,2
 tuwid,1
@@ -21765,6 +24915,31 @@ umakto,1
 umakyat,16
 umalis,99
 umalkila,2
+=======
+tuwang,2
+tuwing,5
+tweets,3
+twineet,1
+twittter,2
+ubeng,1
+ubos,11
+ubusin,1
+ugali,11
+ugok,2
+uinversity,1
+ulet,2
+uling,1
+ulitin,2
+ulol,398
+ulul,2
+umaasa,1
+umabot,3
+umabsent,1
+umagang,4
+umagaw,1
+umakyat,1
+umalis,10
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 umalog,1
 umambag,1
 umamin,11
@@ -21832,6 +25007,7 @@ umuiiral,1
 umuikot,1
 umulan,26
 umulit,1
+<<<<<<< HEAD
 umungol,1
 umunlad,3
 umupa,1
@@ -21861,9 +25037,18 @@ unanguna,1
 unauna,1
 unawa,1
 unawaan,1
+=======
+umupo,1
+umurong,1
+umuusad,1
+umuwi,9
+unahan,1
+unahing,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 unawain,1
 unay,1
 uncomfy,1
+<<<<<<< HEAD
 undas,1
 unfollow,3
 unfollowing,1
@@ -21940,6 +25125,30 @@ uulat,4
 uulit,3
 uulitin,2
 uunahin,2
+=======
+unfollow,3
+ungas,3
+unggok,1
+unithieves,1
+unra,1
+upuan,3
+urat,1
+urong,2
+usapan,2
+usaping,1
+usok,1
+uste,1
+utak,23
+utang,9
+utangan,1
+utong,1
+utot,1
+uugali,1
+uulan,1
+uulit,2
+uulitin,1
+uunahin,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 uunfriend,1
 uunlad,2
 uuntugin,1
@@ -21951,6 +25160,7 @@ uusap,1
 uusapan,1
 uusapang,1
 uutang,1
+<<<<<<< HEAD
 uutusan,3
 uuwi,11
 uuwing,1
@@ -22214,6 +25424,59 @@ zenani,2
 zerbani,1
 zesto,1
 zhejian,1
+=======
+uuwi,4
+uwian,1
+v,3
+valorant,1
+vebs,4
+vhong,1
+videoke,1
+vienn,1
+vlive,2
+vren,1
+wakas,1
+walo,1
+wattpad,1
+wayv,3
+wentuhan,1
+weverse,2
+wews,1
+wildrift,1
+winala,1
+winrate,1
+wishbus,1
+wonie,1
+wooy,1
+wuy,1
+x,2
+xyler,1
+yabang,1
+yacob,1
+yakap,1
+yanie,1
+yatang,1
+yayabang,1
+yeji,1
+yelan,1
+yenyen,1
+yeonjuns,1
+yeuwj,1
+yiee,2
+yiiee,1
+yijin,1
+yjh,1
+yonjen,1
+yoongi,2
+youngeun,2
+youngseo,1
+yowo,1
+yumanig,1
+yuninam,1
+zamoro,1
+zebby,2
+zehan,1
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 zhongli,1
 zilong,1
 zimper,1
@@ -22222,10 +25485,13 @@ zkidwave,1
 zoidz,1
 zonecafe,1
 zonrox,1
+<<<<<<< HEAD
 zoolohiya,1
 zorpo,1
 ztoty,1
 zuckerberg,1
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 zya,1
 zyren,1
 ﻿sentence,1

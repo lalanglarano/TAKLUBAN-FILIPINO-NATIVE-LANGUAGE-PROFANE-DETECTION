@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* 
     Program Title: Takluban Profane Detector - Home Page Styles
     
@@ -12,6 +13,8 @@
     Data structures, algorithms, and control: CSS for styling.
 */
 
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 /* Video loader styles */
 #loader {
     position: fixed;
@@ -110,7 +113,11 @@ body {
 /* Left container */
 .left {
     width: 600px;
+<<<<<<< HEAD
     height: 765px;
+=======
+    height: 820px;
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
     background: #F9EFEF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 0; /* Remove padding to maximize the text area space */
@@ -152,6 +159,7 @@ body {
     font-style: normal; /* Removes italic */
 }
 
+<<<<<<< HEAD
 #pos-tagged-sentence {
     font-size: 20px;
     text-align: center;
@@ -165,6 +173,12 @@ body {
     font-size: 30px;
     text-align: center;
     margin-top: 20px;
+=======
+#detected-language, #pos-tagged-sentence, #censored-sentence {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 40px;
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
     word-wrap: break-word;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -218,6 +232,20 @@ body {
 }
 
 .right .module-1{
+<<<<<<< HEAD
+=======
+    width: 600px;
+    height: 150px;
+    background: #F9EFEF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    position: relative;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.right .module-2 {
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
     width: 600px;
     height: 100px;
     background: #F9EFEF;
@@ -226,6 +254,7 @@ body {
     position: relative;
     border: 2px solid #ccc;
     border-radius: 5px;
+<<<<<<< HEAD
 }
 
 .right .module-2 {
@@ -259,13 +288,32 @@ body {
     position: relative;
     border: 2px solid #ccc;
     border-radius: 5px;
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
 }
+
+.right .module-3 {
+    width: 600px;
+    height: 200px;
+    background: #F9EFEF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    position: relative;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+
 
 /* Module title */
 .module-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+<<<<<<< HEAD
     font-size: 20px;
+=======
+    font-size: 25px;
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd
     color: #800000;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -297,6 +345,7 @@ footer p {
     vertical-align: middle;
 }
 
+<<<<<<< HEAD
 .loading-spinner {
     border: 5px solid #f3f3f3;
     border-top: 5px solid #800000;
@@ -324,3 +373,5 @@ footer p {
     border-radius: 10px;
     color: #800000;
 }
+=======
+>>>>>>> 9dfe370b30e15142589708a5424f55a0604acdbd

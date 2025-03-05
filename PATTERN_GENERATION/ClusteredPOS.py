@@ -23,9 +23,8 @@ def parse_pos_data(pos_data):
 def cluster_pos_tags(language):
     # Set the base path and the input/output file paths
     base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-    results_folder = f"{base_path}/Results"
-    input_file = f"{results_folder}/pos_tagged/FPOSTagged_{language}.csv"
-    output_file = f"{results_folder}/CLUSTEREDTAG/Clustered_{language}.csv"
+    input_file = f"{base_path}/pos_tagged/FPOSTagged_{language}.csv"
+    output_file = f"{base_path}/CLUSTEREDTAG/Clustered_{language}.csv"
 
     # Check if the input file exists
     if not os.path.exists(input_file):
